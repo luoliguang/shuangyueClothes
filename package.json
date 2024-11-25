@@ -1,0 +1,14 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "其实很早就想动手操作一番，但始终认为自己做不到。又想，如果始终不去行动，那才是真的做不到呢。于是便做了。\r # 如何使用\r ```javascript\r npm run docs:dev\r ```\r - 好奇怪，应该怎么给GithubPage配置Depoly.yam文件呢？",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "keywords": [],
+  "author": "giluoo",
+  "license": "ISC"
+}
