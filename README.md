@@ -4,3 +4,4 @@
 ```javascript
 npm run docs:dev
 ```
+- 好奇怪，应该怎么给GithubPage配置Depoly.yam文件呢？
