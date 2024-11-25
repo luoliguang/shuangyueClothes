@@ -48,11 +48,9 @@ jobs:
         # 添加权限
       - name: Ensure vitepress has execute permission
         run: chmod +x node_modules/.bin/vitepress
+
       - name: Build with VitePress
-        run: npx vitepress build docs
-        
-      - name: Build with VitePress
-        run: npm run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
+        run: npx run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
