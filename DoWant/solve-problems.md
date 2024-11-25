@@ -62,4 +62,7 @@ export default {
 
 </details>
 ```
+### Github 生成SSH秘钥（详细教程）<sup>[教程](https://www.cnblogs.com/yuqiliu/p/12551258.html)</sup>
+- 此情况在自身使用了`vpn`的情况下，因为不能远程提交到仓库的解决办法
+
 :::
