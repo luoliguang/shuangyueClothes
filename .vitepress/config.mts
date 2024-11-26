@@ -4,6 +4,8 @@ import timeline from "vitepress-markdown-timeline" //时间线
 
 
 export default defineConfig({
+  base: '/shuangyueClothes/', // 设置为你的 GitHub Pages 路径
+  
   title: "双月服饰",
   description: "一个简单的网站",
   themeConfig: {
