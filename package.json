@@ -12,6 +12,7 @@
   "author": "giluoo",
   "license": "ISC",
   "dependencies": {
-    "vitepress": "^1.5.0"
+    "vitepress": "^1.5.0",
+    "vitepress-markdown-timeline": "^1.2.1"
   }
 }
