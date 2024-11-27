@@ -92,3 +92,6 @@ export default {
 > 解决办法：[使用锚点进行跳转](https://blog.csdn.net/qq_39505245/article/details/135869786?fromshare=blogdetail&sharetype=blogdetail&sharerId=135869786&sharerefer=PC&sharesource=nuoyangyang&sharefrom=from_link)
 
 ::: 
+
+::: timeline 24-11-27
+> 我真的服了自己了，一直使用框架习惯了，然后忘记了创造自己的东西，结果就是一直报错。在要上班的时候，突然就可以了。原因也找到了！阿西吧！论`deadline`的重要性。

@@ -26,3 +26,11 @@ features:
     details: 更具专业知识的客服
 ---
 
+<script setup>
+// import HomeExplain from '../docs/components/HomeExplain.vue'
+
+// const message = '121212'
+
+</script>
+
+<Welcome message="有时候对自己真无语，明明这么简单的事情偏偏搞得这么复杂！"/>
