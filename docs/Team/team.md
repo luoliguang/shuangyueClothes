@@ -11,6 +11,13 @@ import {
 
 //客服💁‍♀️
 const customerService  = [
+    {
+    avatar: '/else/团队人员图片/客服/富哥.jpg',
+    name: '浪浪',
+    title: '客服主管',
+    desc: '需要加强锻炼',
+
+  },
   {
     avatar: '/else/团队人员图片/客服/洋洋.jpg',
     name: '洋洋',
@@ -19,13 +26,6 @@ const customerService  = [
     // links: [
     //   {icon: 'github', link: 'https://github.com/luoliguang'},
     // ]
-  },
-    {
-    avatar: '/else/团队人员图片/客服/富哥.jpg',
-    name: '浪浪',
-    title: '客服主管',
-    desc: '体弱多病，经常休息。',
-
   },
 ]
 
