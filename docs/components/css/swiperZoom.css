@@ -7,8 +7,13 @@
   overflow: hidden;
 } */
 
+
 .swiper-room-img{
   /* background-color: #079f86; */
   width: 100%;
   border-radius: 10px;
+}
+
+a{
+  text-decoration: none !important;
 }

@@ -2,11 +2,11 @@
 layout: doc
 ---
 <!-- <Swiper :imagePaths="imagePaths" :stringFClothingName='stringFClothingName[0]' /> -->
-
-## 160克速干翻领短袖
+## 160克速干
+### 160克速干翻领短袖<sup>[面料细节](./fabric#160sg)</sup>  {#160sg}
 <Swiper :imagePaths="suGanPolo" />
 
-## 160克速干圆领短袖
+### 160克速干圆领短袖<sup>[面料细节](./fabric.md#210sg)</sup>  {#210sg}
 <Swiper :imagePaths="suGanTshirt" />
 
 

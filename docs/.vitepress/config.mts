@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import timeline from "vitepress-markdown-timeline" //时间线
-
+// import { register } from 'swiper/element/bundle';
+// register(); // 注册 Swiper 自定义元素
 
 
 export default defineConfig({
@@ -85,7 +86,10 @@ export default defineConfig({
   },
 
   lastUpdated: true,
-  head: [['link', { rel: 'icon', href: '/icon/favicon.ico.png' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/icon/favicon.ico.png' }],
+    
+  ],
 
   // 时间线注册解析
   markdown: {

@@ -1,55 +1,61 @@
 {
-  "hash": "e6ca4dc8",
+  "hash": "b02d7054",
   "configHash": "17e999a7",
-  "lockfileHash": "e3cd59e7",
-  "browserHash": "bad0b172",
+  "lockfileHash": "f75c79a4",
+  "browserHash": "a5e8b4e5",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "de473566",
+      "fileHash": "04023407",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "0c6a997b",
+      "fileHash": "c9bdd20f",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "9f9701ef",
+      "fileHash": "26df5a6c",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "87cd3382",
+      "fileHash": "cd867ed5",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "bea58393",
+      "fileHash": "055252c7",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "7be7a679",
+      "fileHash": "c9d05e39",
       "needsInterop": false
     },
     "swiper/vue": {
       "src": "../../../../node_modules/swiper/swiper-vue.mjs",
       "file": "swiper_vue.js",
-      "fileHash": "8615d7ab",
+      "fileHash": "714d1766",
       "needsInterop": false
     },
     "swiper/modules": {
       "src": "../../../../node_modules/swiper/modules/index.mjs",
       "file": "swiper_modules.js",
-      "fileHash": "dc130333",
+      "fileHash": "2fad6018",
+      "needsInterop": false
+    },
+    "vanta": {
+      "src": "../../../../node_modules/vanta/src/_base.js",
+      "file": "vanta.js",
+      "fileHash": "860a256c",
       "needsInterop": false
     }
   },

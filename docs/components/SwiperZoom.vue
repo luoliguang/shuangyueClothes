@@ -5,6 +5,7 @@
       '--swiper-pagination-color': '#fff',
     }"
     :zoom="true"
+    :loop="true"
     :navigation="true"
     :zoomMax=5
     :pagination="{
@@ -30,8 +31,6 @@
   import { Swiper, SwiperSlide } from 'swiper/vue';
 
   // Import Swiper styles
-  import 'swiper/css';
-
   import 'swiper/css/zoom';
   import 'swiper/css/navigation';
   import 'swiper/css/pagination';

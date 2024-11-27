@@ -3,10 +3,10 @@ layout: doc
 ---
 <!-- <Swiper :imagePaths="imagePaths" :stringFClothingName='stringFClothingName[0]' /> -->
 
-## 160克速干面料细节
+## 160克速干面料细节<sup>[实物图](./physical-map.md#160sg)</sup> {#160sg}
 <SwiperZoom :imagePaths="suGanDetails" :VideoPath="suGanVideoPath" FabricVideo="160克速干视频"/>
 
-## 210克速干面料细节
+## 210克速干面料细节<sup>[实物图](./physical-map.md#210sg)</sup> {#210sg}
 <SwiperZoom :imagePaths="MoDaiErDetails" />
 
 
