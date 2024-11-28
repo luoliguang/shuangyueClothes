@@ -27,10 +27,24 @@ features:
 ---
 
 <script setup>
-// import HomeExplain from '../docs/components/HomeExplain.vue'
 
-// const message = '121212'
+const meme = [
+  '/else/首页素材/1.jpg',
+  '/else/首页素材/2.jpg',
+  '/else/首页素材/3.jpg',
+  '/else/首页素材/4.jpg',
+  '/else/首页素材/5.jpg',
+  '/else/首页素材/6.jpg',
+]
 
 </script>
 
-<Welcome message="有时候对自己真无语，明明这么简单的事情偏偏搞得这么复杂！"/>
+<style>
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  
+}
+</style>
+<StartWelcome />
+<!-- <Welcome :imagePaths="meme"/> -->
