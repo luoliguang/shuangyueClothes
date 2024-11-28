@@ -7,7 +7,7 @@
     :zoom="true"
     :loop="true"
     :navigation="true"
-    :zoomMax=5
+    :zoomMax=1
     :pagination="{
       clickable: true,
     }"
@@ -21,7 +21,7 @@
     </swiper-slide>
   </swiper>
 
-  <details>
+  <details v-show="FabricVideo">
     <summary>{{ FabricVideo }}</summary>
     <video :src="VideoPath" controls="controls"></video>
   </details>

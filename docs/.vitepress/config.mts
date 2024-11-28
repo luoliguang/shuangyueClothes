@@ -19,7 +19,7 @@ export default defineConfig({
     nav: [
       { text: '主页', link: '/' },
       { text: '产品展示', link: '/Examples/fabric' },
-      { text: '关于我们', link: '/AboutUs/about-us' },
+      { text: '合作方式', link: '/Cooperate/cooprate-methods' },
       { text: '团队成员', link: '/Team/team' },
       { text: 'DoWant',
         items:[
@@ -42,12 +42,12 @@ export default defineConfig({
         }
       ],
 
-      '/AboutUs/': [
+      '/Cooperate/': [
         {
-          text: '关于我们',
+          text: '合作方式',
           items: [
-            { text: 'About Us', link: '/AboutUs/about-us' },
-            { text: 'Contact Us', link: '/AboutUs/contact-us' },
+            { text: '合作流程', link: '/Cooperate/cooprate-methods' },
+            { text: '参考资料', link: '/Cooperate/reference-data' },
           ]
         }
       ],
