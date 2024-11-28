@@ -1,12 +1,11 @@
 <template>
-  <!-- <h1 class="fabricName">{{ stringFClothingName }}</h1> -->
   <swiper
     :effect="'coverflow'"
     :grabCursor="true"
     :loop="true"
     :centeredSlides="true"
     :slidesPerView="'auto'"
-    :initialSlide="1"
+    :initialSlide="0"
     :coverflowEffect="{
       rotate: 30,
       stretch: 20,
@@ -35,7 +34,7 @@
   import './css/swiper.css';
 
   // import required modules
-  import { EffectCoverflow, Pagination, } from 'swiper/modules';
+  import { Autoplay, EffectCoverflow, Pagination, } from 'swiper/modules';
 
   export default {
     components: {
@@ -58,7 +57,7 @@
 
     setup() {
       return {
-        modules: [EffectCoverflow, Pagination],
+        modules: [EffectCoverflow, Pagination, Autoplay],
       };
     },
   };
