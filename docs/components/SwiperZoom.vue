@@ -14,7 +14,7 @@
     :modules="modules"
     class="mySwiper"
   >
-    <swiper-slide v-for="(imgPath, index) in imagePaths" :key="index" >
+    <swiper-slide class="zoom-slide" v-for="(imgPath, index) in imagePaths" :key="index" >
       <div class="swiper-zoom-container">
         <img class="swiper-room-img" :src="imgPath" alt="Image" />
       </div>

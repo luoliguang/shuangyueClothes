@@ -4,7 +4,7 @@
     :grabCursor="true"
     :loop="true"
     :centeredSlides="true"
-    :slidesPerView="'auto'"
+    :slidesPerView="'1'"
     :initialSlide="0"
     :coverflowEffect="{
       rotate: 30,
@@ -17,7 +17,7 @@
     :modules="modules"
     class="mySwiper"
   >
-    <swiper-slide v-for="(imgPath, index) in imagePaths" :key="index" >
+    <swiper-slide class="swiperImg" v-for="(imgPath, index) in imagePaths" :key="index" >
         <img :src="imgPath" alt="Image" />
     </swiper-slide>
   </swiper>
