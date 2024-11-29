@@ -3,58 +3,58 @@ layout: doc
 ---
 <!-- <Swiper :imagePaths="imagePaths" :stringFClothingName='stringFClothingName[0]' /> -->
 
-## 130克小方格速干
+## 130克小方格速干<sup>[实物图](./physical-map.md#130xfg)</sup> {#130xfg}
 <SwiperZoom :imagePaths="xfgDetails" :VideoPath="xfgVideoPath" FabricVideo=""/>
 
-## 160克平纹布
+## 160克平纹布<sup>[实物图](./physical-map.md#160pwb)</sup> {#160pwb}
 <SwiperZoom :imagePaths="pwbDetails" :VideoPath="pwbVideoPath" FabricVideo="160克平纹布视频"/>
 
 ## 160克速干<sup>[实物图](./physical-map.md#160sg)</sup> {#160sg}
 <SwiperZoom :imagePaths="suGanDetails" :VideoPath="suGanVideoPath" FabricVideo="160克速干视频"/>
 
-## 180克冰丝蝴蝶网
+## 180克冰丝蝴蝶网<sup>[实物图](./physical-map.md#180bsw)</sup> {#180bsw}
 <SwiperZoom :imagePaths="hdwDetails" :VideoPath="hdwVideoPath" FabricVideo=""/>
 
-## 180克苹果网
+## 180克苹果网<sup>[实物图](./physical-map.md#180apple)</sup> {#180apple}
 <SwiperZoom :imagePaths="appleDetails" :VideoPath="appleVideoPath" FabricVideo=""/>
 
-## 180克小米通速干
+## 180克小米通速干<sup>[实物图](./physical-map.md#180xmt)</sup> {#180xmt}
 <SwiperZoom :imagePaths="xmtDetails" :VideoPath="xmtVideoPath" FabricVideo="180克小米通速干视频"/>
 
-## 200克珠地
+## 200克珠地<sup>[实物图](./physical-map.md#200zd)</sup> {#200zd}
 <SwiperZoom :imagePaths="zdDetails" :VideoPath="zdVideoPath" FabricVideo='200克珠地视频'/>
 
 ## 210克速干<sup>[实物图](./physical-map.md#210sg)</sup> {#210sg}
 <SwiperZoom :imagePaths="SGDetails" :VideoPath="SGVideoPath" FabricVideo='210克速干视频'/>
 
-## 220克仿棉
+## 220克仿棉<sup>[实物图](./physical-map.md#220fm)</sup> {#220fm}
 <SwiperZoom :imagePaths="fmDetails" :VideoPath="fmVideoPath" FabricVideo='220克仿棉视频'/>
 
-## 260克珠地
+## 260克珠地<sup>[实物图](./physical-map.md#260zd)</sup> {#260zd}
 <SwiperZoom :imagePaths="ZDDetails" :VideoPath="ZDVideoPath" FabricVideo='260克珠地视频'/>
 
-## 280克斜纹
+## 280克斜纹<sup>[实物图](./physical-map.md#280xw)</sup> {#280xw}
 <SwiperZoom :imagePaths="xwDetails" :VideoPath="xwVideoPath" FabricVideo='280克斜纹视频'/>
 
-## 300克健康布
+## 300克健康布<sup>[实物图](./physical-map.md#380jkb)</sup> {#380jkb}
 <SwiperZoom :imagePaths="jkbDetails" :VideoPath="jkbVideoPath" FabricVideo='300克健康布视频'/>
 
-## 400克银狐绒
+## 400克银狐绒<sup>[实物图](./physical-map.md#400yhr)</sup> {#400yhr}
 <SwiperZoom :imagePaths="yhrDetails" :VideoPath="yhrVideoPath" FabricVideo='400克银狐绒视频'/>
 
-## 复合
+## 复合<sup>[实物图](./physical-map.md#fh)</sup> {#fh}
 <SwiperZoom :imagePaths="fhDetails" :VideoPath="fhVideoPath" FabricVideo='复合视频'/>
 
-## 莫代尔
+## 莫代尔<sup>[实物图](./physical-map.md#mde)</sup> {#mde}
 <SwiperZoom :imagePaths="mdeDetails" :VideoPath="mdeVideoPath" FabricVideo='莫代尔视频'/>
 
-## 水蜜桃
+## 水蜜桃<sup>[实物图](./physical-map.md#smt)</sup> {#smt}
 <SwiperZoom :imagePaths="smtDetails" :VideoPath="smtVideoPath" FabricVideo='水蜜桃视频'/>
 
-## 四面弹
+## 四面弹<sup>[实物图](./physical-map.md#SMT)</sup> {#SMT}
 <SwiperZoom :imagePaths="SmtDetails" :VideoPath="SmtVideoPath" FabricVideo=''/>
 
-## T400
+## T400<sup>[实物图](./physical-map.md#T400)</sup> {#T400}
 <SwiperZoom :imagePaths="T400Details" :VideoPath="T400VideoPath" FabricVideo=''/>
 
 

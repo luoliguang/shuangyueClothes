@@ -100,5 +100,20 @@ export default {
 ::: timeline 24-11-28
 > 最近这几天一直在筹备这个网站，其实也算是有几个好处的，一来是可以温故而知新，因为以前有学习这个方面的东西，但最近实践起来显得很茫然，很多东西都是不知道怎么做的（当然这和以前没有学好有很大的关系）。第二呢就是能够给自己一个实时的反馈，我喜欢这样的学习。
 
+:::
+
+::: timeline 24-11-29
+在`swiper`组件中一定的`autoplay`参数，不能这样写,这样是没有效果的。
+```javascript
+:autoplay='true'
+```
+应该这样写
+```javascript
+:autoplay={
+  delay:3000,
+  disableOnInteraction: false,
+}
+```
+它接收的应该是一个对象
 
 :::
