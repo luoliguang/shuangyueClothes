@@ -4,14 +4,18 @@
     :grabCursor="true"
     :loop="true"
     :centeredSlides="true"
-    :slidesPerView="'1'"
-    :initialSlide="0"
+    :slidesPerView="'2'"
+    :initialSlide="1"
+    :autoplay="{
+      delay: 5000,
+      disableOnInteraction: false,
+    }"
     :coverflowEffect="{
       rotate: 30,
       stretch: 20,
-      depth: 60,
+      depth: 100,
       modifier: 2,
-      slideShadows: true,
+      slideShadows: false,
     }"
     :pagination="true"
     :modules="modules"
@@ -34,7 +38,7 @@
   import './css/swiper.css';
 
   // import required modules
-  import { Autoplay, EffectCoverflow, Pagination, } from 'swiper/modules';
+  import { Autoplay, EffectCoverflow, Mousewheel, Pagination, } from 'swiper/modules';
 
   export default {
     components: {

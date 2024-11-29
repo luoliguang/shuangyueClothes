@@ -5,9 +5,7 @@
 
 .swiper-slide {
   background-position: center;
-  width: auto;
-  /* height: 300px; */
-  /* height: 100%; */
+  width: 100px;
   
 }
 
@@ -16,6 +14,7 @@
   width: 90% !important;
   border-radius: 10px;
 }
+
 
 
 a{
