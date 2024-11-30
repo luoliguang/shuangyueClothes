@@ -3,7 +3,6 @@ layout: doc
 ---
 <!-- 小方格 -->
 ## 130克小方格翻领短袖<sup>[面料细节](./fabric#130xfg)</sup>  {#130xfg}
-> 正在整理素材中...
 <Swiper :imagePaths="xfgPolo" />
 
 ## 130克小方格圆领短袖
@@ -105,6 +104,5 @@ const fmTshirt = products.fmTshirt
 //260克珠地
 const ZDPolo = products.ZDPolo
 const ZDTshirt = products.ZDTshirt
-
 </script>
 
