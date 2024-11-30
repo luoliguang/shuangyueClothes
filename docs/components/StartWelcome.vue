@@ -7,6 +7,8 @@
       <img src="/else/首页素材/4.jpg" alt="" class="swiper-slide">
       <img src="/else/首页素材/5.jpg" alt="" class="swiper-slide">
       <img src="/else/首页素材/6.jpg" alt="" class="swiper-slide">
+      <img src="/else/首页素材/7.jpg" alt="" class="swiper-slide">
+      <img src="/else/首页素材/8.jpg" alt="" class="swiper-slide">
     </div>
   </div>
 </template>

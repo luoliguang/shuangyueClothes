@@ -35,6 +35,8 @@ const meme = [
   '/else/首页素材/4.jpg',
   '/else/首页素材/5.jpg',
   '/else/首页素材/6.jpg',
+  '/else/首页素材/7.jpg',
+  '/else/首页素材/8.jpg',
 ]
 
 </script>

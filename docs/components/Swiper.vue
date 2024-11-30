@@ -6,6 +6,7 @@
     :centeredSlides="true"
     :slidesPerView="'2'"
     :initialSlide="1"
+    :loopFillGroupWithBlank="true"
     :autoplay="{
       delay: 5000,
       disableOnInteraction: false,
@@ -21,8 +22,11 @@
     :modules="modules"
     class="mySwiper"
   >
-    <swiper-slide class="swiperImg" v-for="(imgPath, index) in imagePaths" :key="index" >
+    <swiper-slide v-if="imagePaths.length > 0" class="swiperImg" v-for="(imgPath, index) in imagePaths" :key="index" >
         <img :src="imgPath" alt="Image" />
+    </swiper-slide>
+    <swiper-slide v-else class="swiperImg">
+      <div class="no-images">正在准备素材中...</div>
     </swiper-slide>
   </swiper>
 </template>
@@ -66,4 +70,5 @@
     },
   };
 
+  console.warn = () => {};  // 忽略警告
 </script>
