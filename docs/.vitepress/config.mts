@@ -37,7 +37,7 @@ export default defineConfig({
           text: '关于产品',
           items: [
             { text: '面料细节', link: '../Examples/fabric' },
-            { text: '衣服实物图', link: '../Examples/physical-map' }
+            { text: '衣服实拍', link: '../Examples/physical-map' }
           ]
         }
       ],
