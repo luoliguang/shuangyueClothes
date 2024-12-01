@@ -61,10 +61,10 @@ const products = {
   bswTshirt: genarateImagePaths('/else/实物图/clothes/180克冰丝蝴蝶网圆领', 5),
   //180苹果网
   applePolo: genarateImagePaths('/else/实物图/clothes/180克苹果网翻领', 0),
-  appleTshirt: genarateImagePaths('/else/实物图/clothes/180克苹果网圆领', 0),
+  appleTshirt: genarateImagePaths('/else/实物图/clothes/180克苹果网圆领', 2),
   //180克小米通
   xmtPolo: genarateImagePaths('/else/实物图/clothes/180克小米通速干翻领', 2),
-  xmtTshirt: genarateImagePaths('/else/实物图/clothes/180克小米通速干圆领', 0),
+  xmtTshirt: genarateImagePaths('/else/实物图/clothes/180克小米通速干圆领', 2),
   //200珠地
   zdPolo: genarateImagePaths('/else/实物图/clothes/200克珠地翻领', 9),
   zdPolo: genarateImagePaths('/else/实物图/clothes/200克珠地圆领', 4),

@@ -42,7 +42,7 @@
   import './css/swiper.css';
 
   // import required modules
-  import { Autoplay, EffectCoverflow, Mousewheel, Pagination, } from 'swiper/modules';
+  import { Autoplay, EffectCoverflow, Mousewheel, Pagination } from 'swiper/modules';
 
   export default {
     components: {
