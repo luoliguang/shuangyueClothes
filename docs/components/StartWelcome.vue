@@ -9,6 +9,10 @@
       <img src="/else/首页素材/6.jpg" alt="" class="swiper-slide">
       <img src="/else/首页素材/7.jpg" alt="" class="swiper-slide">
       <img src="/else/首页素材/8.jpg" alt="" class="swiper-slide">
+      <img src="/else/首页素材/9.jpg" alt="" class="swiper-slide">
+      <img src="/else/首页素材/10.jpg" alt="" class="swiper-slide">
+      <img src="/else/首页素材/11.jpg" alt="" class="swiper-slide">
+      <img src="/else/首页素材/12.jpg" alt="" class="swiper-slide">
     </div>
   </div>
 </template>
@@ -50,6 +54,7 @@ export default {
 
     // 启动滚动动画
     requestAnimationFrame(smoothScroll);
+
   }
 }
 </script>

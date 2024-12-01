@@ -88,7 +88,7 @@ export default defineConfig({
   lastUpdated: true,
   head: [
     ['link', { rel: 'icon', href: '/icon/favicon.ico.png' }],
-    
+
   ],
 
   // 时间线注册解析

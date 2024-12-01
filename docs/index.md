@@ -5,9 +5,9 @@ layout: home
 hero:
   name: "想，都是问题"
   text: "   做，才是答案"
-  tagline: 一次无与伦比的客服服务💁‍♀️
+  tagline: 无与伦比的服务💁‍♀️
   image:
-    src: /icon/favicon.ico.png
+    src: /icon/favicon.ico2.png
     alt: OK
   actions:
     - theme: brand
@@ -18,11 +18,11 @@ hero:
       link: '/Team/team.md'
 
 features:
-  - title: 更效率🚀
+  - title: EFFICIENCY🚀
     details: 最具效率的发货速度
-  - title: 更实惠💸
-    details: 实惠的价格
-  - title: 更完美👨🏽‍💻
+  - title: FAVOURABLE💸
+    details: 更实惠的价格
+  - title: PERFECT👨🏽
     details: 更具专业知识的客服
 ---
 
@@ -45,7 +45,9 @@ const meme = [
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  
+}
+.image-src{
+  max-width:80% !important;
 }
 </style>
 <StartWelcome />
