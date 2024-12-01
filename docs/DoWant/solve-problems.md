@@ -117,3 +117,42 @@ export default {
 它接收的应该是一个对象
 
 :::
+
+## 12月
+::: timeline 24-12-01
+### 封装
+> 不得不感叹现在AI技术的成熟呀，不过，**工欲善其事，必先利其器。** 我在刚兴起时就将其视为我的老师了。😄
+
+> 所谓封装，就是将重复的事情简单化。比如现在我有这样一堆数据。
+```javascript
+// //130克小方格小方格速干POLO
+const xfgTshirt = [
+  '/else/实物图/clothes/130克小方格圆领/1.jpg',
+  '/else/实物图/clothes/130克小方格圆领/2.jpg',
+  '/else/实物图/clothes/130克小方格圆领/3.jpg',
+  '/else/实物图/clothes/130克小方格圆领/4.jpg',
+  '/else/实物图/clothes/130克小方格圆领/5.jpg',
+  '/else/实物图/clothes/130克小方格圆领/6.jpg',
+  '/else/实物图/clothes/130克小方格圆领/7.jpg',
+];
+```
+现在因为这些数据太过于重复，那末我就可以找到其中的规律，然后用函数进行封装，如下：一个参数是基础的路径，第二个是有多少张图片：
+```javascript
+function genarateImagePaths(basePath, count) {
+  const imagePaths = []
+  for (let i = 1; i <= count; i++) {
+    imagePaths.push(`${basePath}/${i}.jpg`)
+  }
+  return imagePaths 
+}
+```
+最后再用对象存起来
+```javascript
+const products = {
+  xfgTshirt: genarateImagePaths('/else/实物图/clothes/130克小方格速干圆领', 6),
+}
+```
+然后再去我需要的文件里面进行引入、调用就可以了。实现由复杂到简单的步骤。
+
+
+:::

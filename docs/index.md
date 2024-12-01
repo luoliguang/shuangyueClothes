@@ -28,16 +28,11 @@ features:
 
 <script setup>
 
-const meme = [
-  '/else/首页素材/1.jpg',
-  '/else/首页素材/2.jpg',
-  '/else/首页素材/3.jpg',
-  '/else/首页素材/4.jpg',
-  '/else/首页素材/5.jpg',
-  '/else/首页素材/6.jpg',
-  '/else/首页素材/7.jpg',
-  '/else/首页素材/8.jpg',
-]
+//图片生成组件
+import products from './components/data/PhysicalMap.js'
+
+
+const meme = products.MainImgs
 
 </script>
 
@@ -50,5 +45,5 @@ const meme = [
   max-width:80% !important;
 }
 </style>
-<StartWelcome />
+<StartWelcomeBate :imagePaths="meme" :scrollSpeed="0.5"/>
 <!-- <Welcome :imagePaths="meme"/> -->

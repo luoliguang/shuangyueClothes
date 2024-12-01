@@ -8,5 +8,5 @@ export default {
   Swiper,
   SwiperZoom,
   Welcome,
-  StartWelcome
+  StartWelcome,
 }

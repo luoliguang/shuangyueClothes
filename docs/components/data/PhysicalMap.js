@@ -1,42 +1,3 @@
-// //130克小方格小方格速干POLO
-// const xfgPolo = [
-// ];
-// const xfgTshirt = [
-//   '/else/实物图/clothes/130克小方格圆领/1.jpg',
-//   '/else/实物图/clothes/130克小方格圆领/2.jpg',
-//   '/else/实物图/clothes/130克小方格圆领/3.jpg',
-//   '/else/实物图/clothes/130克小方格圆领/4.jpg',
-//   '/else/实物图/clothes/130克小方格圆领/5.jpg',
-//   '/else/实物图/clothes/130克小方格圆领/6.jpg',
-//   '/else/实物图/clothes/130克小方格圆领/7.jpg',
-// ];
-
-// const suGanPolo = [
-//   '/else/实物图/clothes/160克速干翻领/1.jpg',
-//   '/else/实物图/clothes/160克速干翻领/2.jpg',
-//   '/else/实物图/clothes/160克速干翻领/3.jpg',
-//   '/else/实物图/clothes/160克速干翻领/4.jpg',
-//   '/else/实物图/clothes/160克速干翻领/5.jpg',
-//   '/else/实物图/clothes/160克速干翻领/6.jpg',
-//   '/else/实物图/clothes/160克速干翻领/7.jpg',
-//   '/else/实物图/clothes/160克速干翻领/8.jpg',
-//   '/else/实物图/clothes/160克速干翻领/9.jpg',
-//   '/else/实物图/clothes/160克速干翻领/10.jpg',
-// ];
-
-// const suGanTshirt = [
-//   '/else/实物图/clothes/160克速干圆领/1.jpg',
-//   '/else/实物图/clothes/160克速干圆领/2.jpg',
-//   '/else/实物图/clothes/160克速干圆领/3.jpg',
-//   '/else/实物图/clothes/160克速干圆领/4.jpg',
-//   '/else/实物图/clothes/160克速干圆领/5.jpg',
-//   '/else/实物图/clothes/160克速干圆领/6.jpg',
-//   '/else/实物图/clothes/160克速干圆领/7.jpg',
-//   '/else/实物图/clothes/160克速干圆领/8.jpg',
-//   '/else/实物图/clothes/160克速干圆领/9.jpg',
-//   '/else/实物图/clothes/160克速干圆领/10.jpg',
-
-// ];
 function genarateImagePaths(basePath, count) {
   const imagePaths = []
   for (let i = 1; i <= count; i++) {
@@ -87,6 +48,8 @@ const products = {
   standupSweater:genarateImagePaths('/else/实物图/clothes/卫衣系列/立领卫衣', 3),
   roundSweater:genarateImagePaths('/else/实物图/clothes/卫衣系列/圆领卫衣', 0),
 
+  //首页 轮播图片
+  MainImgs: genarateImagePaths('/else/首页素材/', 12),
 }
 
 export default products;

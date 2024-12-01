@@ -1,62 +1,97 @@
 <template>
   <div class="scroll-container" ref="scrollContainer">
     <div class="scroll-content" ref="scrollContent">
-      <img src="/else/首页素材/1.jpg" alt="" class="swiper-slide">
-      <img src="/else/首页素材/2.jpg" alt="" class="swiper-slide">
-      <img src="/else/首页素材/3.jpg" alt="" class="swiper-slide">
-      <img src="/else/首页素材/4.jpg" alt="" class="swiper-slide">
-      <img src="/else/首页素材/5.jpg" alt="" class="swiper-slide">
-      <img src="/else/首页素材/6.jpg" alt="" class="swiper-slide">
-      <img src="/else/首页素材/7.jpg" alt="" class="swiper-slide">
-      <img src="/else/首页素材/8.jpg" alt="" class="swiper-slide">
-      <img src="/else/首页素材/9.jpg" alt="" class="swiper-slide">
-      <img src="/else/首页素材/10.jpg" alt="" class="swiper-slide">
-      <img src="/else/首页素材/11.jpg" alt="" class="swiper-slide">
-      <img src="/else/首页素材/12.jpg" alt="" class="swiper-slide">
+      <div v-for="(image, index) in displayImages" 
+           :key="index" 
+           class="swiper-slide">
+        <img :src="image" :alt="`slide-${index}`" loading="lazy">
+      </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  mounted() {
-    const container = this.$refs.scrollContainer;
-    const content = this.$refs.scrollContent;
-    const slides = content.querySelectorAll('.swiper-slide');
-    const slideWidth = slides[0].offsetWidth + 10; // 每个幻灯片的宽度
-    const totalSlides = slides.length; // 总幻灯片数量
-    const containerWidth = container.offsetWidth; // 容器的宽度
+<script setup>
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 
-    let scrollPosition = 0; // 当前滚动位置
-    const scrollSpeed = .5; // 滚动的速度
+// Props 定义
+const props = defineProps({
+  imagePaths: {
+    type: Array,
+    required: true,
+    default: () => []
+  },
+  scrollSpeed: {
+    type: Number,
+    default: 0.5
+  }
+})
 
-    // 无限滚动逻辑
-    function smoothScroll() {
-      // 每次更新滚动位置
-      scrollPosition += scrollSpeed;
+// 响应式引用
+const scrollContainer = ref(null)
+const scrollContent = ref(null)
+const scrollPosition = ref(0)
+const animationFrameId = ref(null)
+const images = ref([...props.imagePaths]) // 创建一个本地图片数组的副本
 
-      // 判断是否滚动到一张幻灯片的边界
-      if (scrollPosition >= slideWidth) {
-        // 如果滚动位置达到或超过一张幻灯片宽度，移除第一个幻灯片并将其移动到最后
-        const firstSlide = content.firstElementChild;
-        content.appendChild(firstSlide);
+// 为了实现无缝滚动，我们需要复制一些图片
+const displayImages = computed(() => {
+  return images.value
+})
 
-        // 重置滚动位置到0，继续无缝滚动
-        scrollPosition = 0;
-      }
+// 滚动动画逻辑
+const smoothScroll = () => {
+  if (!scrollContent.value) return
+  
+  scrollPosition.value += props.scrollSpeed
+  const slides = scrollContent.value.querySelectorAll('.swiper-slide')
+  const slideWidth = slides[0]?.offsetWidth + 10
 
-      // 应用滚动位置
-      content.style.transform = `translateX(-${scrollPosition}px)`;
+  // 当第一张图片完全滚出可视区域时
+  if (scrollPosition.value >= slideWidth) {
+    // 重置滚动位置
+    scrollPosition.value -= slideWidth
+    // 将第一个元素移动到末尾
+    images.value.push(images.value.shift())
+  }
+  
+  scrollContent.value.style.transform = `translateX(-${scrollPosition.value}px)`
+  animationFrameId.value = requestAnimationFrame(smoothScroll)
+}
 
-      // 继续执行下一个动画帧
-      requestAnimationFrame(smoothScroll);
-    }
 
-    // 启动滚动动画
-    requestAnimationFrame(smoothScroll);
-
+// 鼠标悬停控制
+const pauseScroll = () => {
+  if (animationFrameId.value) {
+    cancelAnimationFrame(animationFrameId.value)
   }
 }
+
+const resumeScroll = () => {
+  animationFrameId.value = requestAnimationFrame(smoothScroll)
+}
+
+onMounted(() => {
+  if (scrollContainer.value && scrollContent.value) {
+    // 启动滚动动画
+    animationFrameId.value = requestAnimationFrame(smoothScroll)
+    
+    // 添加鼠标悬停事件
+    scrollContainer.value.addEventListener('mouseenter', pauseScroll)
+    scrollContainer.value.addEventListener('mouseleave', resumeScroll)
+  }
+})
+
+onUnmounted(() => {
+  if (animationFrameId.value) {
+    cancelAnimationFrame(animationFrameId.value)
+  }
+  
+  // 清理事件监听
+  if (scrollContainer.value) {
+    scrollContainer.value.removeEventListener('mouseenter', pauseScroll)
+    scrollContainer.value.removeEventListener('mouseleave', resumeScroll)
+  }
+})
 </script>
 
 <style scoped>
@@ -69,17 +104,26 @@ export default {
 
 .scroll-content {
   display: flex;
-  transition: transform 0s ease-out; /*初始过渡效果*/
+  transition: transform 0s ease-out;
 }
 
 .swiper-slide {
   flex: 0 0 auto;
-  width: 30%; /* 每个幻灯片的宽度 */
-  height: 200px; /* 幻灯片的高度 */
+  width: 30%;
+  height: 200px;
   margin-right: 10px;
-  background-color: #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover img {
+  transform: scale(1.1);
 }
 </style>
