@@ -45,5 +45,5 @@ const meme = products.MainImgs
   max-width:80% !important;
 }
 </style>
-<StartWelcomeBate :imagePaths="meme" :scrollSpeed="0.5"/>
+<StartWelcome :imagePaths="meme" :scrollSpeed="0.5"/>
 <!-- <Welcome :imagePaths="meme"/> -->
