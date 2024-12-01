@@ -44,7 +44,7 @@ const art  = [
     desc: '🎧质量很好,有很好的屏蔽能力.。',
   },
     {
-    avatar: '/else/团队人员图片/美工/飞龙在天.png',
+    avatar: '/else/团队人员图片/美工/飞龙在天2.png',
     name: '飞龙在天',
     title: '大师兄',
     desc: '好好学习，天天向上',
