@@ -24,7 +24,7 @@ export default defineConfig({
       { text: 'DoWant',
         items:[
           { text: '一路走来', link: '/DoWant/solve-problems' },
-          { text: '加入我们', link: '/DoWant/join-us'},  // 加入我们一项下拉菜单
+          { text: '学无止境', link: '/DoWant/learn'},  // 加入我们一项下拉菜单
           { text: '招聘', link: '/DoWant/resume'},
         ]
 
@@ -57,7 +57,7 @@ export default defineConfig({
           text: '小小脑袋大大烦恼',
           items: [
             { text: '建站记录', link: '/DoWant/solve-problems' },
-            { text: '加入我们', link: '/DoWant/join-us' },
+            { text: '学无止境', link: '/DoWant/learn' },
           ]
         },
 
