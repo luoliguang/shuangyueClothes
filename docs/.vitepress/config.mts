@@ -48,6 +48,7 @@ export default defineConfig({
           items: [
             { text: '合作流程', link: '/Cooperate/cooprate-methods' },
             { text: '疑问解答', link: '/Cooperate/reference-data' },
+            { text: '尺码表', link: '/Cooperate/size-chart' },
           ]
         }
       ],
