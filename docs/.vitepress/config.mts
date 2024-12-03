@@ -47,7 +47,7 @@ export default defineConfig({
           text: '合作方式',
           items: [
             { text: '合作流程', link: '/Cooperate/cooprate-methods' },
-            { text: '参考资料', link: '/Cooperate/reference-data' },
+            { text: '疑问解答', link: '/Cooperate/reference-data' },
           ]
         }
       ],
@@ -80,8 +80,40 @@ export default defineConfig({
       copyright: 'copyright©yangYuan Luo. All rights'
     },
 
-    search: { provider: 'local'},
-
+    search: {
+      provider: 'local',
+      options: {
+        detailedView: true,
+        translations: {
+          button: {
+            buttonText: '搜索文档',
+            buttonAriaLabel: '搜索文档'
+          },
+          modal: {
+            noResultsText: '无法找到相关结果',
+            resetButtonTitle: '清除查询条件',
+            footer: {
+              selectText: '选择',
+              navigateText: '切换',
+              closeText: '关闭'
+            }
+          }
+        },
+        miniSearch: {
+          options: {
+            extractField: (document, fieldName) => {
+              return document[fieldName || 'content'] || ''
+            },
+            tokenize: (text) => text.split(/[\s]+|(?=[A-Za-z0-9])|(?<=[A-Za-z0-9])|(?=[\u4e00-\u9fa5])|(?<=[\u4e00-\u9fa5])/g).filter(Boolean), // 改进分词以处理中文和数字
+          },
+          searchOptions: {
+            fuzzy: 0.3,
+            prefix: true,
+            boost: { title: 2, headers: 1.5, text: 1 }
+          }
+        }
+      }
+    },
 
   },
 
