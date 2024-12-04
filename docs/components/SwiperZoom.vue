@@ -16,7 +16,10 @@
   >
     <swiper-slide class="zoom-slide" v-for="(imgPath, index) in imagePaths" :key="index" >
       <div class="swiper-zoom-container">
-        <img class="swiper-room-img" :src="imgPath" alt="Image" />
+        <img class="swiper-room-img" 
+          :src="imgPath" 
+          loading="lazy" 
+          alt="Image" />
       </div>
     </swiper-slide>
   </swiper>
