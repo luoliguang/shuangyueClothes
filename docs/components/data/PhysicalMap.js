@@ -26,6 +26,9 @@ const products = {
   //180克小米通
   xmtPolo: genarateImagePaths('/else/实物图/clothes/180克小米通速干翻领', 2),
   xmtTshirt: genarateImagePaths('/else/实物图/clothes/180克小米通速干圆领', 2),
+  //200克/260克莫代尔
+  mdePolo: genarateImagePaths('/else/实物图/clothes/200克·260克莫代尔翻领', 5),
+  mdrTshirt: genarateImagePaths('/else/实物图/clothes/200克·260克莫代尔圆领', 12),
   //200珠地
   zdPolo: genarateImagePaths('/else/实物图/clothes/200克珠地翻领', 9),
   zdPolo: genarateImagePaths('/else/实物图/clothes/200克珠地圆领', 4),

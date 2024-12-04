@@ -119,6 +119,9 @@ const appleTshirt = products.appleTshirt
 //小米通
 const xmtPolo = products.xmtPolo
 const xmtTshirt = products.xmtTshirt
+//200克/260克莫代尔
+const mdePolo = products.mdePolo
+const mdrTshirt = products.mdrTshirt
 //200珠地
 const zdPolo = products.zdPolo
 const zdTshirt = products.zdTshirt
