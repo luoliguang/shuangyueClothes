@@ -4,7 +4,7 @@ layout: doc
 <!-- <Swiper :imagePaths="imagePaths" :stringFClothingName='stringFClothingName[0]' /> -->
 
 ## 130克小方格速干<sup>[实物图](./physical-map.md#130xfg)</sup> {#130xfg}
-<SwiperZoom :imagePaths="xfgDetails" :VideoPath="xfgVideoPath" FabricVideo=""/>
+<SwiperZoom :imagePaths="xfgDetails" :VideoPath="xfgVideoPath" FabricVideo="130克小方格速干视频"/>
 
 ## 160克平纹布<sup>[实物图](./physical-map.md#160pwb)</sup> {#160pwb}
 <SwiperZoom :imagePaths="pwbDetails" :VideoPath="pwbVideoPath" FabricVideo="160克平纹布视频"/>
