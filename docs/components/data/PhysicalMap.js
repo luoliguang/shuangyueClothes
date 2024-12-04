@@ -49,7 +49,7 @@ const products = {
   //卫衣系列
   ZipperHoodSweater:genarateImagePaths('/else/实物图/clothes/卫衣系列/拉链连帽', 5),
   standupSweater:genarateImagePaths('/else/实物图/clothes/卫衣系列/立领卫衣', 3),
-  roundSweater:genarateImagePaths('/else/实物图/clothes/卫衣系列/圆领卫衣', 0),
+  roundSweater:genarateImagePaths('/else/实物图/clothes/卫衣系列/圆领卫衣', 4),
 
   //首页 轮播图片
   MainImgs: genarateImagePaths('/else/首页素材/', 12),

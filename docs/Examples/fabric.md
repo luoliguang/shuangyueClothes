@@ -230,3 +230,8 @@ const T400VideoPath= [
 
 </script>
 
+<style scope>
+video{
+  border-radius:10px;
+}
+</style>

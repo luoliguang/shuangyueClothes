@@ -79,7 +79,7 @@ layout: doc
 ### 260克珠地圆领短袖
 <Swiper :imagePaths="ZDTshirt" />
 
-## 风衣系列
+## 风衣系列 <sup>[水蜜桃](./fabric#smt){#smt}|[复合](./fabric#fh){#fh}|[T400](./fabric#T400){#T400}</sup>
 
 ### 立领风衣
 <Swiper :imagePaths="standupCollar" />
@@ -87,12 +87,12 @@ layout: doc
 ### 拉链风衣
 <Swiper :imagePaths="zipperCollar" />
 
-## 马甲系列
+## 马甲系列 <sup>[水蜜桃](./fabric#smt){#smt}|[复合](./fabric#fh){#fh}</sup>
 
 ### 马甲
 <Swiper :imagePaths="waistcoat" />
 
-## 卫衣系列
+## 卫衣系列 <sup>[斜纹](./fabric#280xw){#280xw}|[健康布](./fabric#380jkb){#380jkb}|[银狐绒](./fabric#400yhr){#400yhr}</sup>
 
 ### 拉链连帽卫衣
 
