@@ -1,24 +1,22 @@
 import { defineConfig } from 'vitepress'
 import timeline from "vitepress-markdown-timeline" //时间线
-// import { register } from 'swiper/element/bundle';
-// register(); // 注册 Swiper 自定义元素
 
 
 export default defineConfig({
   base: '/', // 设置为你的 GitHub Pages 路径
 
-  title: "双月服饰",
+  title: "ClothesMaterial",
   description: "一个简单的网站",
   themeConfig: {
     logo: '/icon/favicon.ico.png', //网站logo
-    siteTitle: "双月服饰官网",
+    siteTitle: "ClothesMaterial",
     outline:{
       level: [2, 4],
       label: "目录"
     },
     nav: [
       { text: '主页', link: '/' },
-      { text: '产品展示', link: '/Examples/fabric' },
+      { text: '产品素材', link: '/Examples/fabric' },
       { text: '合作方式', link: '/Cooperate/cooprate-methods' },
       { text: '团队成员', link: '/Team/team' },
       { text: 'DoWant',

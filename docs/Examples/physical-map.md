@@ -41,15 +41,15 @@ layout: doc
 ### 180克小米通翻领短袖<sup>[面料细节](./fabric#180xmt)</sup>  {#180xmt}
 <Swiper :imagePaths="xmtPolo" />
 
+### 180克小米通圆领短袖
+<Swiper :imagePaths="xmtTshirt" />
+
 <!-- //200克/260克莫代尔 -->
 ### 200/260克莫代尔翻领短袖<sup>[面料细节](./fabric#mde)</sup>  {#mde}
 <Swiper :imagePaths="mdePolo" />
 
 ### 200/260克莫代尔圆领短袖
 <Swiper :imagePaths="mdrTshirt" />
-
-### 180克小米通圆领短袖
-<Swiper :imagePaths="xmtTshirt" />
 
 <!-- 200珠地 -->
 ### 200珠地翻领短袖<sup>[面料细节](./fabric#200zd)</sup>  {#200zd}

@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "想，都是问题"
   text: "   做，才是答案"
-  tagline: 无与伦比的服务💁‍♀️
+  tagline: 素材与疑问的合集,内容正在完善整理中...
   image:
     src: /icon/favicon.ico2.png
     alt: OK
