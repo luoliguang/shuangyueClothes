@@ -42,8 +42,8 @@ const products = {
   ZDPolo: genarateImagePaths('/else/实物图/clothes/260克珠地翻领', 6),
   ZDTshirt: genarateImagePaths('/else/实物图/clothes/260克珠地圆领', 5),
   //风衣系列
-  standupCollar:genarateImagePaths('/else/实物图/clothes/风衣系列/立领', 4),
-  zipperCollar:genarateImagePaths('/else/实物图/clothes/风衣系列/拉链', 10),
+  standupCollar:genarateImagePaths('/else/实物图/clothes/风衣系列/立领', 10),
+  zipperCollar:genarateImagePaths('/else/实物图/clothes/风衣系列/拉链', 4),
   //马甲系列
   waistcoat:genarateImagePaths('/else/实物图/clothes/马甲系列', 6),
   //卫衣系列
