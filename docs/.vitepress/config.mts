@@ -5,11 +5,11 @@ import timeline from "vitepress-markdown-timeline" //时间线
 export default defineConfig({
   base: '/', // 设置为你的 GitHub Pages 路径
 
-  title: "ClothesMaterial",
+  title: "双月服饰",
   description: "一个简单的网站",
   themeConfig: {
     logo: '/icon/favicon.ico.png', //网站logo
-    siteTitle: "ClothesMaterial",
+    siteTitle: "双月服饰",
     outline:{
       level: [2, 4],
       label: "目录"
