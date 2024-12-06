@@ -16,13 +16,19 @@ hero:
     - theme: alt
       text: 团队成员
       link: '/Team/team.md'
+    - theme: alt
+      text: 疑难解答
+      link: '/Cooperate/reference-data.md'
 
 features:
-  - title: EFFICIENCY🚀
+  - icon: 🚀
+    title: EFFICIENCY
     details: 最具效率的发货速度
-  - title: FAVOURABLE💸
+  - icon: 💸
+    title: FAVOURABLE
     details: 更实惠的价格
-  - title: PERFECT👨🏽
+  - icon: 👨🏽
+    title: PERFECT
     details: 更具专业知识的客服
 ---
 
@@ -37,6 +43,13 @@ const meme = products.MainImgs
 </script>
 
 <style>
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+}
+/* .box{
+  align-items: center;
+} */
 .swiper-slide {
   background-position: center;
   background-size: cover;
