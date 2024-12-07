@@ -13,10 +13,10 @@
   "author": "giluoo",
   "license": "ISC",
   "dependencies": {
+    "html2canvas": "^1.4.1",
     "swiper": "^11.1.15",
     "vanta": "^0.5.24",
     "vitepress": "^1.5.0",
-    "html2canvas": "^1.4.1",
     "vitepress-markdown-timeline": "^1.2.1"
   }
 }
