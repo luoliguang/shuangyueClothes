@@ -35,7 +35,8 @@ export default defineConfig({
           text: '关于产品',
           items: [
             { text: '面料细节', link: '../Examples/fabric' },
-            { text: '衣服实拍', link: '../Examples/physical-map' }
+            { text: '衣服实拍', link: '../Examples/physical-map' },
+            { text: '尺码表', link: '../Examples/size-chart' },
           ]
         }
       ],
@@ -45,8 +46,7 @@ export default defineConfig({
           text: '合作方式',
           items: [
             { text: '合作流程', link: '/Cooperate/cooprate-methods' },
-            { text: '疑问解答', link: '/Cooperate/reference-data' },
-            { text: '尺码表', link: '/Cooperate/size-chart' },
+            { text: '疑问解答', link: '/Cooperate/reference-data' },   
           ]
         }
       ],

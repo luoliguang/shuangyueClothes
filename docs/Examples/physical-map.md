@@ -107,7 +107,7 @@ layout: doc
 <Swiper :imagePaths="roundSweater" />
 
 <script setup>
-import products from '../components/data/PhysicalMap.js'
+import { products } from '../components/data/PhysicalMap.js'
 //小方格
 const xfgPolo = products.xfgPolo
 const xfgTshirt = products.xfgTshirt

@@ -2,6 +2,7 @@ import SwiperZoom from "./SwiperZoom.vue";
 import Swiper from "./Swiper.vue";
 import Welcome from "./Welcome.vue";
 import StartWelcome from "./StartWelcome.vue";
+import SizeTable from "./SizeTable.vue";
 
 
 export default {
@@ -9,4 +10,5 @@ export default {
   SwiperZoom,
   Welcome,
   StartWelcome,
+  SizeTable,
 }

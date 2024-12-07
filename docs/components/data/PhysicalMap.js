@@ -7,6 +7,13 @@ function genarateImagePaths(basePath, count) {
   
 }
 
+
+// 首页轮播图片
+const MainImgs = {
+  MainImgs: genarateImagePaths('/else/首页素材/', 12),
+}
+
+// 实物图
 const products = {
   //小方格
   xfgPolo: genarateImagePaths('/else/实物图/clothes/130克小方格速干翻领', 0),
@@ -51,8 +58,50 @@ const products = {
   standupSweater:genarateImagePaths('/else/实物图/clothes/卫衣系列/立领卫衣', 3),
   roundSweater:genarateImagePaths('/else/实物图/clothes/卫衣系列/圆领卫衣', 4),
 
-  //首页 轮播图片
-  MainImgs: genarateImagePaths('/else/首页素材/', 12),
 }
 
-export default products;
+// 面料细节
+const FabricImgs = {
+  //小方格
+  xfgDetails: genarateImagePaths('/else/实物图/fabricDetail/130克小方格速干',4),
+  //160克平纹布
+  pwbDetails: genarateImagePaths('/else/实物图/fabricDetail/160克平纹布',3),
+  //160速干
+  suGanDetails: genarateImagePaths('/else/实物图/fabricDetail/160克速干',3),
+  //180克冰丝蝴蝶网
+  hdwDetails: genarateImagePaths('/else/实物图/fabricDetail/180克冰丝蝴蝶网',5),
+  //180克苹果网
+  appleDetails: genarateImagePaths('/else/实物图/fabricDetail/180克苹果网',2),
+  //180克小米通速干
+  xmtDetails: genarateImagePaths('/else/实物图/fabricDetail/180克小米通速干',2),
+  //200克珠地
+  zdDetails: genarateImagePaths('/else/实物图/fabricDetail/200克珠地',5),
+  //210克速干
+  SGDetails: genarateImagePaths('/else/实物图/fabricDetail/210克速干',2),
+  //220克仿棉
+  fmDetails: genarateImagePaths('/else/实物图/fabricDetail/220克仿棉',5),
+  //260克珠地
+  ZDDetails: genarateImagePaths('/else/实物图/fabricDetail/260克珠地',4),
+  //280克斜纹
+  xwDetails: genarateImagePaths('/else/实物图/fabricDetail/280克斜纹',2),
+  //300克健康布
+  jkbDetails: genarateImagePaths('/else/实物图/fabricDetail/300克健康布',2),
+  //400克银狐绒
+  yhrDetails: genarateImagePaths('/else/实物图/fabricDetail/400克银狐绒',3),
+  //复合
+  fhDetails: genarateImagePaths('/else/实物图/fabricDetail/复合',3),
+  //莫代尔
+  mdeDetails: genarateImagePaths('/else/实物图/fabricDetail/莫代尔',3),
+  //水蜜桃
+  smtDetails: genarateImagePaths('/else/实物图/fabricDetail/水蜜桃',3),
+  //四面弹
+  SmtDetails: genarateImagePaths('/else/实物图/fabricDetail/四面弹',3),
+  //T400
+  T400Details: genarateImagePaths('/else/实物图/fabricDetail/T400',3),
+}
+
+export{
+  products,
+  MainImgs,
+  FabricImgs
+}

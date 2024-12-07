@@ -1,7 +1,6 @@
 ---
 layout: doc
 ---
-<!-- <Swiper :imagePaths="imagePaths" :stringFClothingName='stringFClothingName[0]' /> -->
 
 ## 130克小方格速干<sup>[实物图](./physical-map.md#130xfg)</sup> {#130xfg}
 <SwiperZoom :imagePaths="xfgDetails" :VideoPath="xfgVideoPath" FabricVideo="130克小方格速干视频"/>
@@ -61,172 +60,62 @@ layout: doc
 
 
 <script setup>
+import { FabricImgs } from '../components/data/PhysicalMap.js'
 
 //130克小方格速干
-const xfgDetails = [
-  '/else/实物图/fabricDetail/130克小方格速干/1.jpg',
-  '/else/实物图/fabricDetail/130克小方格速干/2.jpg',
-  '/else/实物图/fabricDetail/130克小方格速干/3.jpg',
-  '/else/实物图/fabricDetail/130克小方格速干/4.jpg',
-];
-const xfgVideoPath= [
-  '/else/实物图/fabricDetail/130克小方格速干/v.mp4',
-]
+const xfgDetails = FabricImgs.xfgDetails
+const xfgVideoPath= ['/else/实物图/fabricDetail/130克小方格速干/v.mp4']
 //160克平纹布
-const pwbDetails = [
-  '/else/实物图/fabricDetail/160克平纹布/1.jpg',
-  '/else/实物图/fabricDetail/160克平纹布/2.jpg',
-  '/else/实物图/fabricDetail/160克平纹布/3.jpg',
-];
-const pwbVideoPath= [
-  '/else/实物图/fabricDetail/160克平纹布/v.mp4',
-]
+const pwbDetails = FabricImgs.pwbDetails
+const pwbVideoPath= ['/else/实物图/fabricDetail/160克平纹布/v.mp4']
 //160速干
-const suGanDetails = [
-  '/else/实物图/fabricDetail/160克速干/1.jpg',
-  '/else/实物图/fabricDetail/160克速干/2.jpg',
-  '/else/实物图/fabricDetail/160克速干/3.jpg',
-];
-const suGanVideoPath= [
-  '/else/实物图/fabricDetail/160克速干/v.mp4',
-]
+const suGanDetails = FabricImgs.suGanDetails
+const suGanVideoPath= ['/else/实物图/fabricDetail/160克速干/v.mp4']
 //180克冰丝蝴蝶网
-const hdwDetails = [
-  '/else/实物图/fabricDetail/180克冰丝蝴蝶网/1.jpg',
-  '/else/实物图/fabricDetail/180克冰丝蝴蝶网/2.jpg',
-  '/else/实物图/fabricDetail/180克冰丝蝴蝶网/3.jpg',
-  '/else/实物图/fabricDetail/180克冰丝蝴蝶网/4.jpg',
-  '/else/实物图/fabricDetail/180克冰丝蝴蝶网/5.jpg',
-];
-const hdwVideoPath= [
-  '/else/实物图/fabricDetail/180克冰丝蝴蝶网/v.mp4',
-]
+const hdwDetails = FabricImgs.hdwDetails
+const hdwVideoPath= ['/else/实物图/fabricDetail/180克冰丝蝴蝶网/v.mp4']
 //180克苹果网
-const appleDetails = [
-  '/else/实物图/fabricDetail/180克苹果网/1.jpg',
-  '/else/实物图/fabricDetail/180克苹果网/2.jpg',
-];
-const appleVideoPath= [
-  '/else/实物图/fabricDetail/180克苹果网/v.mp4',
-]
+const appleDetails = FabricImgs.appleDetails
+const appleVideoPath= ['/else/实物图/fabricDetail/180克苹果网/v.mp4']
 //180克小米通速干
-const xmtDetails = [
-  '/else/实物图/fabricDetail/180克小米通速干/1.jpg',
-  '/else/实物图/fabricDetail/180克小米通速干/2.jpg',
-];
-const xmtVideoPath= [
-  '/else/实物图/fabricDetail/180克小米通速干/v.mp4',
-]
+const xmtDetails = FabricImgs.xmtDetails
+const xmtVideoPath= ['/else/实物图/fabricDetail/180克小米通速干/v.mp4']
 //200克珠地
-const zdDetails = [
-  '/else/实物图/fabricDetail/200克珠地/1.jpg',
-  '/else/实物图/fabricDetail/200克珠地/2.jpg',
-  '/else/实物图/fabricDetail/200克珠地/3.jpg',
-  '/else/实物图/fabricDetail/200克珠地/4.jpg',
-  '/else/实物图/fabricDetail/200克珠地/5.jpg',
-];
-const zdVideoPath= [
-  '/else/实物图/fabricDetail/200克珠地/v.mp4',
-]
+const zdDetails = FabricImgs.zdDetails
+const zdVideoPath= ['/else/实物图/fabricDetail/200克珠地/v.mp4']
 //210克速干
-const SGDetails = [
-  '/else/实物图/fabricDetail/210克速干/1.jpg',
-  '/else/实物图/fabricDetail/210克速干/2.jpg',
-];
-const SGVideoPath= [
-  '/else/实物图/fabricDetail/210克速干/v.mp4',
-]
+const SGDetails = FabricImgs.sgDetails
+const SGVideoPath= ['/else/实物图/fabricDetail/210克速干/v.mp4']
 //220克仿棉
-const fmDetails = [
-  '/else/实物图/fabricDetail/220克仿棉/1.jpg',
-  '/else/实物图/fabricDetail/220克仿棉/2.jpg',
-  '/else/实物图/fabricDetail/220克仿棉/3.jpg',
-  '/else/实物图/fabricDetail/220克仿棉/4.jpg',
-  '/else/实物图/fabricDetail/220克仿棉/5.jpg',
-];
-const fmVideoPath= [
-  '/else/实物图/fabricDetail/220克仿棉/v.mp4',
-]
+const fmDetails = FabricImgs.fmDetails
+const fmVideoPath= ['/else/实物图/fabricDetail/220克仿棉/v.mp4']
 //260克珠地
-const ZDDetails = [
-  '/else/实物图/fabricDetail/260克珠地/1.jpg',
-  '/else/实物图/fabricDetail/260克珠地/2.jpg',
-  '/else/实物图/fabricDetail/260克珠地/3.jpg',
-  '/else/实物图/fabricDetail/260克珠地/4.jpg',
-];
-const ZDVideoPath= [
-  '/else/实物图/fabricDetail/260克珠地/v.mp4',
-]
+const ZDDetails = FabricImgs.ZDDetails
+const ZDVideoPath= ['/else/实物图/fabricDetail/260克珠地/v.mp4']
 //280克斜纹
-const xwDetails = [
-  '/else/实物图/fabricDetail/280克斜纹/1.jpg',
-  '/else/实物图/fabricDetail/280克斜纹/2.jpg',
-];
-const xwVideoPath= [
-  '/else/实物图/fabricDetail/280克斜纹/v.mp4',
-]
+const xwDetails = FabricImgs.xwDetails
+const xwVideoPath= ['/else/实物图/fabricDetail/280克斜纹/v.mp4']
 //300克健康布
-const jkbDetails = [
-  '/else/实物图/fabricDetail/300克健康布/1.jpg',
-  '/else/实物图/fabricDetail/300克健康布/2.jpg',
-];
-const jkbVideoPath= [
-  '/else/实物图/fabricDetail/300克健康布/v.mp4',
-]
+const jkbDetails = FabricImgs.jkbDetails
+const jkbVideoPath= ['/else/实物图/fabricDetail/300克健康布/v.mp4']
 //400克银狐绒
-const yhrDetails = [
-  '/else/实物图/fabricDetail/400克银狐绒/1.jpg',
-  '/else/实物图/fabricDetail/400克银狐绒/2.jpg',
-  '/else/实物图/fabricDetail/400克银狐绒/3.jpg',
-];
-const yhrVideoPath= [
-  '/else/实物图/fabricDetail/400克银狐绒/v.mp4',
-]
+const yhrDetails = FabricImgs.yhrDetails
+const yhrVideoPath= ['/else/实物图/fabricDetail/400克银狐绒/v.mp4']
 //复合
-const fhDetails = [
-  '/else/实物图/fabricDetail/复合/1.jpg',
-  '/else/实物图/fabricDetail/复合/2.jpg',
-  '/else/实物图/fabricDetail/复合/3.jpg',
-];
-const fhVideoPath= [
-  '/else/实物图/fabricDetail/复合/v.mp4',
-]
+const fhDetails = FabricImgs.fhDetails
+const fhVideoPath= ['/else/实物图/fabricDetail/复合/v.mp4']
 //莫代尔
-const mdeDetails = [
-  '/else/实物图/fabricDetail/莫代尔/1.jpg',
-  '/else/实物图/fabricDetail/莫代尔/2.jpg',
-  '/else/实物图/fabricDetail/莫代尔/3.jpg',
-];
-const mdeVideoPath= [
-  '/else/实物图/fabricDetail/莫代尔/v.mp4',
-]
+const mdeDetails = FabricImgs.mdeDetails
+const mdeVideoPath= ['/else/实物图/fabricDetail/莫代尔/v.mp4']
 //水蜜桃
-const smtDetails = [
-  '/else/实物图/fabricDetail/水蜜桃/1.jpg',
-  '/else/实物图/fabricDetail/水蜜桃/2.jpg',
-  '/else/实物图/fabricDetail/水蜜桃/3.jpg',
-];
-const smtVideoPath= [
-  '/else/实物图/fabricDetail/水蜜桃/v.mp4',
-]
+const smtDetails = FabricImgs.smtDetails
+const smtVideoPath= ['/else/实物图/fabricDetail/水蜜桃/v.mp4']
 //四面弹
-const SmtDetails = [
-  '/else/实物图/fabricDetail/四面弹/1.jpg',
-  '/else/实物图/fabricDetail/四面弹/2.jpg',
-  '/else/实物图/fabricDetail/四面弹/3.jpg',
-];
-const SmtVideoPath= [
-  '/else/实物图/fabricDetail/四面弹/v.mp4',
-]
+const SmtDetails = FabricImgs.SmtDetails
+const SmtVideoPath= ['/else/实物图/fabricDetail/四面弹/v.mp4']
 //T400
-const T400Details = [
-  '/else/实物图/fabricDetail/T400/1.jpg',
-  '/else/实物图/fabricDetail/T400/2.jpg',
-  '/else/实物图/fabricDetail/T400/3.jpg',
-];
-const T400VideoPath= [
-  '/else/实物图/fabricDetail/T400/v.mp4',
-]
+const T400Details = FabricImgs.T400Details
+const T400VideoPath= ['/else/实物图/fabricDetail/T400/v.mp4']
 
 </script>
 

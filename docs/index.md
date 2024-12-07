@@ -35,10 +35,10 @@ features:
 <script setup>
 
 //图片生成组件
-import products from './components/data/PhysicalMap.js'
+import { MainImgs } from './components/data/PhysicalMap.js'
 
 
-const meme = products.MainImgs
+const meme = MainImgs.MainImgs
 
 </script>
 
