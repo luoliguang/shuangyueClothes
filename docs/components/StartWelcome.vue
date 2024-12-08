@@ -4,7 +4,7 @@
       <div v-for="(image, index) in displayImages" 
            :key="index" 
            class="swiper-slide">
-        <img :src="image" :alt="`slide-${index}`" loading="lazy">
+        <img :src="image" :alt="`slide-${index}`">
       </div>
     </div>
   </div>
