@@ -156,3 +156,9 @@ const products = {
 
 
 :::
+
+
+::: timeline 24-12-08
+### [尺码表](/Examples/size-chart.md)界面重构
+> 新增尺码表布局方式，用表格的方式呈现。
+:::
