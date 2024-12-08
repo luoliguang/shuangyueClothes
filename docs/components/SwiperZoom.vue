@@ -1,11 +1,11 @@
 <template>
+      <!-- :loop="true" -->
   <swiper
     :style="{
       '--swiper-navigation-color': '#fff',
       '--swiper-pagination-color': '#fff',
     }"
     :zoom="true"
-    :loop="true"
     :navigation="true"
     :zoomMax=1
     :pagination="{
@@ -18,13 +18,12 @@
       <div class="swiper-zoom-container">
         <img class="swiper-room-img" 
           :src="imgPath" 
-          loading="lazy" 
           alt="Image" />
       </div>
     </swiper-slide>
   </swiper>
 
-  <details v-show="FabricVideo">
+  <details v-if="FabricVideo">
     <summary>{{ FabricVideo }}</summary>
     <video :src="VideoPath" controls="controls"></video>
   </details>
@@ -73,4 +72,5 @@
       };
     },
   };
+  
 </script>

@@ -1,4 +1,8 @@
 <template>
+      <!-- :autoplay="{
+      delay: 5000,
+      disableOnInteraction: false,
+    }" -->
   <swiper
     :effect="'coverflow'"
     :grabCursor="true"
@@ -7,10 +11,6 @@
     :slidesPerView="'2'"
     :initialSlide="1"
     :loopFillGroupWithBlank="true"
-    :autoplay="{
-      delay: 5000,
-      disableOnInteraction: false,
-    }"
     :coverflowEffect="{
       rotate: 30,
       stretch: 20,

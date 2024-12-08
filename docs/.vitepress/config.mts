@@ -1,7 +1,6 @@
 import { defineConfig } from 'vitepress'
 import timeline from "vitepress-markdown-timeline" //时间线
 
-
 export default defineConfig({
   base: '/', // 设置为你的 GitHub Pages 路径
   title: "双月服饰",
@@ -115,12 +114,11 @@ export default defineConfig({
 
   },
 
-  lastUpdated: true,
+  lastUpdated: true, //文档更新时间
   head: [
     ['link', { rel: 'icon', href: '/icon/favicon.ico.png' }],
-
   ],
-
+  
   // 时间线注册解析
   markdown: {
     // ...
