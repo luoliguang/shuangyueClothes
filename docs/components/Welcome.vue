@@ -12,7 +12,9 @@
     class="mySwiper"
   >
     <swiper-slide v-for="(imgPath, index) in imagePaths" :key="index" >
-          <img :src="imgPath" alt="Image" />
+          <img 
+          v-lazy="imgPath" 
+          alt="Image" />
     </swiper-slide>
   </swiper>
 </template>

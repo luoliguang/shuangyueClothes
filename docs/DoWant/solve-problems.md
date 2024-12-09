@@ -162,3 +162,51 @@ const products = {
 ### [尺码表](/Examples/size-chart.md)界面重构
 > 新增尺码表布局方式，用表格的方式呈现。
 :::
+
+::: timeline 24-12-09
+### 新增图片懒加载功能
+> 因为静态图片越来越多的原因，很多时候加载图片时就会很慢，打开网站的时候也会很忙。所以就会想效率应该如何提升。
+1. 安装`vue-lazyload`
+```javascript
+npm install vue-lazyload
+```
+2. 在主题文件配置引入
+```javascript
+// code... //
+import Theme from "vitepress/theme"
+
+    // 配置懒加载
+    app.use(VueLazyload, {
+      loading: 1.3,
+      error: '/loading/error.gif', //加载失败
+      loadingImage: '/loading/loading.gif', //加载中
+      attempt: 1,
+      //观察者选项
+      observer: true,
+      observerOptions: {
+        rootMargin: '0px',
+        threshold: 0.1,
+      },
+    });
+// code ... //
+```
+3. 在你的组件中修改`src`属性为`v-lazy`
+```javascript
+//修改前
+    <swiper-slide class="zoom-slide" v-for="(imgPath, index) in imagePaths" :key="index" >
+      <div class="swiper-zoom-container">
+        <img class="swiper-room-img" 
+          :src="imgPath" 
+          alt="Image" />
+      </div>
+    </swiper-slide>
+// 将:src 属性修改为 v-lazy
+    <swiper-slide class="zoom-slide" v-for="(imgPath, index) in imagePaths" :key="index" >
+      <div class="swiper-zoom-container">
+        <img class="swiper-room-img" 
+          v-lazy="imgPath" 
+          alt="Image" />
+      </div>
+    </swiper-slide>
+```
+:::

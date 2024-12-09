@@ -84,7 +84,7 @@ const xmtVideoPath= ['/else/实物图/fabricDetail/180克小米通速干/v.mp4']
 const zdDetails = FabricImgs.zdDetails
 const zdVideoPath= ['/else/实物图/fabricDetail/200克珠地/v.mp4']
 //210克速干
-const SGDetails = FabricImgs.sgDetails
+const SGDetails = FabricImgs.SGDetails
 const SGVideoPath= ['/else/实物图/fabricDetail/210克速干/v.mp4']
 //220克仿棉
 const fmDetails = FabricImgs.fmDetails

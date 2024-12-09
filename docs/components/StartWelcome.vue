@@ -4,7 +4,9 @@
       <div v-for="(image, index) in displayImages" 
            :key="index" 
            class="swiper-slide">
-        <img :src="image" :alt="`slide-${index}`">
+        <img 
+        v-lazy="image" 
+        :alt="`slide-${index}`">
       </div>
     </div>
   </div>

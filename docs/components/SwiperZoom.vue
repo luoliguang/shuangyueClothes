@@ -1,11 +1,11 @@
 <template>
-      <!-- :loop="true" -->
   <swiper
     :style="{
       '--swiper-navigation-color': '#fff',
       '--swiper-pagination-color': '#fff',
     }"
     :zoom="true"
+    :loop="true"
     :navigation="true"
     :zoomMax=1
     :pagination="{
@@ -17,7 +17,7 @@
     <swiper-slide class="zoom-slide" v-for="(imgPath, index) in imagePaths" :key="index" >
       <div class="swiper-zoom-container">
         <img class="swiper-room-img" 
-          :src="imgPath" 
+          v-lazy="imgPath" 
           alt="Image" />
       </div>
     </swiper-slide>
