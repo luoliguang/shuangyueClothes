@@ -5,7 +5,9 @@ import "./vars.css";
 // import "./styles/style.scss";
 import "vitepress-markdown-timeline/dist/theme/index.css"; // 时间线样式
 // import { defineClientConfig } from '@vitepress/client';
-import VueLazyload from 'vue-lazyload'; // 懒加载
+
+// 动态导入 VueLazyload
+const VueLazyload = import.meta.env.SSR ? {} : await import('vue-lazyload');
 
 export default {
   ...DefaultTheme,
@@ -21,20 +23,17 @@ export default {
     });
     //仅在客户端环境下初始化 VueLazyload
     if (!import.meta.env.SSR) {
-      // 配置懒加载
-      app.use(VueLazyload, {
+      app.use(VueLazyload.default, {
         loading: 1.3,
-        error: '/loading/error.gif', //加载失败
-        loadingImage: '/loading/loading.gif', //加载中
+        error: '/loading/error.gif',
+        loadingImage: '/loading/loading.gif',
         attempt: 1,
-        //观察者选项
         observer: true,
         observerOptions: {
           rootMargin: '0px',
           threshold: 0.1,
-      },
-    }) 
-  };
-
+        }
+      });
+    }
   },
 }
