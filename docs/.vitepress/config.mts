@@ -114,11 +114,12 @@ export default defineConfig({
 
   },
 
-  lastUpdated: true, //文档更新时间
+  lastUpdated: true,
   head: [
     ['link', { rel: 'icon', href: '/icon/favicon.ico.png' }],
+
   ],
-  
+
   // 时间线注册解析
   markdown: {
     // ...
@@ -126,7 +127,7 @@ export default defineConfig({
       md.use(timeline);
     },
   },
-  
+
 
 
 })

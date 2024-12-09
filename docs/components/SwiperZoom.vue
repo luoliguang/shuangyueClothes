@@ -67,6 +67,7 @@
     },
 
     setup() {
+
       return {
         modules: [Zoom, Navigation, Pagination],
       };

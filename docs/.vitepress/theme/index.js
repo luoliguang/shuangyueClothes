@@ -4,8 +4,8 @@ import Theme from "vitepress/theme"
 import "./vars.css";
 // import "./styles/style.scss";
 import "vitepress-markdown-timeline/dist/theme/index.css"; // 时间线样式
-// import VueLazyload from 'vue-lazyload'; // 懒加载
-import { setupLazyload } from '../../components/data/VueLazyload'
+// import { defineClientConfig } from '@vitepress/client';
+import VueLazyload from 'vue-lazyload'; // 懒加载
 
 export default {
   ...DefaultTheme,
@@ -15,26 +15,26 @@ export default {
     if (Theme.enhanceApp) {
       Theme.enhanceApp({ app, router, siteData });
     }
-
-    // // 配置懒加载
-    // app.use(VueLazyload, {
-    //   loading: 1.3,
-    //   error: '/loading/error.gif', //加载失败
-    //   loadingImage: '/loading/loading.gif', //加载中
-    //   attempt: 1,
-    //   //观察者选项
-    //   observer: true,
-    //   observerOptions: {
-    //     rootMargin: '0px',
-    //     threshold: 0.1,
-    //   },
-    // });
-    // 设置懒加载
-    setupLazyload(app)
-
     // 全局注册组件
     Object.entries(components).forEach(([name, component]) => {
       app.component(name, component);
     });
+    //仅在客户端环境下初始化 VueLazyload
+    if (!import.meta.env.SSR) {
+      // 配置懒加载
+      app.use(VueLazyload, {
+        loading: 1.3,
+        error: '/loading/error.gif', //加载失败
+        loadingImage: '/loading/loading.gif', //加载中
+        attempt: 1,
+        //观察者选项
+        observer: true,
+        observerOptions: {
+          rootMargin: '0px',
+          threshold: 0.1,
+      },
+    }) 
+  };
+
   },
-};
+}
