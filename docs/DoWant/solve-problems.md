@@ -209,4 +209,27 @@ import Theme from "vitepress/theme"
       </div>
     </swiper-slide>
 ```
+### Vue 服务器渲染（SSR）出现错误
+> 当然，我在完成以上操作时遇到了错误，因为我使用了`Swiper`组件进行操作,所以得到的结果是：
+```javascript
+✖ rendering pages...
+build error:
+Cannot read properties of undefined (reading 'getSSRProps')
+TypeError: Cannot read properties of undefined (reading 'getSSRProps')
+```
+> 在开始的时候我以为是我的theme/index.js文件出现了问题。后面一想会不会是`Swiper`没有支持`Vue3`的`v-lazy`属性，后面一测试果真如此。  
+> 找到这个原因之后，解决这个问题的办法就是更改`Swiper`的引入方式。
+将静态导入更改为动态导入后就可以成功了。
+
+```javascript
+import { Swiper, SwiperSlide } from 'swiper/vue';
+```
+
+```javascript
+// 改用动态导入
+import { defineAsyncComponent } from 'vue'
+const Swiper = defineAsyncComponent(() => import('swiper/vue').then(m => m.Swiper))
+const SwiperSlide = defineAsyncComponent(() => import('swiper/vue').then(m => m.SwiperSlide))
+```
+
 :::

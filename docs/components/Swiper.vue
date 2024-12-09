@@ -24,8 +24,7 @@
   >
     <swiper-slide v-if="imagePaths.length > 0" class="swiperImg" v-for="(imgPath, index) in imagePaths" :key="index" >
         <img 
-        :src="imgPath" 
-        loading="lazy"
+        v-lazy="imgPath" 
         alt="Image" />
     </swiper-slide>
     <swiper-slide v-else class="swiperImg">
@@ -35,7 +34,9 @@
 </template>
 <script>
   // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
+  import { defineAsyncComponent } from 'vue'
+  const Swiper = defineAsyncComponent(() => import('swiper/vue').then(m => m.Swiper))
+  const SwiperSlide = defineAsyncComponent(() => import('swiper/vue').then(m => m.SwiperSlide))
 
   // Import Swiper styles
   import 'swiper/css';

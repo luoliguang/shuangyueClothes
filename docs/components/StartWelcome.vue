@@ -5,8 +5,7 @@
            :key="index" 
            class="swiper-slide">
         <img 
-        :src="image"
-        loading="lazy" 
+        v-lazy="image"
         :alt="`slide-${index}`">
       </div>
     </div>
