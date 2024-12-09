@@ -42,14 +42,12 @@ const meme = MainImgs.MainImgs
 
 </script>
 
-<style>
+<style scope>
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
 }
-/* .box{
-  align-items: center;
-} */
+
 .swiper-slide {
   background-position: center;
   background-size: cover;
@@ -58,5 +56,5 @@ const meme = MainImgs.MainImgs
   max-width:80% !important;
 }
 </style>
-<StartWelcome :imagePaths="meme" :scrollSpeed="0.5"/>
+<StartWelcome :imagePaths="meme" :scrollSpeed="0.3"/>
 <!-- <Welcome :imagePaths="meme"/> -->

@@ -1,0 +1,2 @@
+*.vue linguist-language=Vue
+*.javascript linguist-language=JavaScript

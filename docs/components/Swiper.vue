@@ -25,7 +25,8 @@
     <swiper-slide v-if="imagePaths.length > 0" class="swiperImg" v-for="(imgPath, index) in imagePaths" :key="index" >
         <img 
         v-lazy="imgPath" 
-        alt="Image" />
+        :src="loadingGif"
+        alt="Loading..." />
     </swiper-slide>
     <swiper-slide v-else class="swiperImg">
       <div class="no-images">正在准备素材中...</div>
@@ -44,7 +45,7 @@
   import 'swiper/css/effect-coverflow';
   import 'swiper/css/pagination';
   import './css/swiper.css';
-
+  import loadingGif from '/loading/loading.gif'
   // import required modules
   import { Autoplay, EffectCoverflow, Mousewheel, Pagination } from 'swiper/modules';
 
@@ -70,6 +71,7 @@
     setup() {
       return {
         modules: [EffectCoverflow, Pagination, Autoplay],
+        loadingGif,
       };
     },
   };

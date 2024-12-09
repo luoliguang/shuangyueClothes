@@ -15,6 +15,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 
+
 // Props 定义
 const props = defineProps({
   imagePaths: {
@@ -94,6 +95,23 @@ onUnmounted(() => {
     scrollContainer.value.removeEventListener('mouseleave', resumeScroll)
   }
 })
+
+// // 图片懒加载指令自定义
+// const vLazy = {
+//   mounted (el, binding) {
+//     if (typeof window !== 'undefined') {
+//       const observer = new IntersectionObserver((entries) => {
+//         entries.forEach(entry => {
+//           if (entry.isIntersecting) {
+//             el.src = binding.value
+//             observer.unobserve(el)
+//           }
+//         })
+//       })
+//       observer.observe(el)
+//     }
+//   }
+// }
 </script>
 
 <style scoped>

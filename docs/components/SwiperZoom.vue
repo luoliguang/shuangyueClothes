@@ -18,7 +18,8 @@
       <div class="swiper-zoom-container">
         <img class="swiper-room-img" 
           v-lazy="imgPath"
-          alt="Image" />
+          :src="loadingGif"
+          alt="Loading..." />
       </div>
     </swiper-slide>
   </swiper>
@@ -39,6 +40,7 @@
   import 'swiper/css/navigation';
   import 'swiper/css/pagination';
   import './css/swiperZoom.css';
+  import loadingGif from '/loading/loading.gif'
 
   // import required modules
   import { Zoom, Navigation, Pagination, } from 'swiper/modules';
@@ -72,6 +74,7 @@
 
       return {
         modules: [Zoom, Navigation, Pagination],
+        loadingGif,
       };
     },
   };
