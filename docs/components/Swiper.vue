@@ -24,7 +24,8 @@
   >
     <swiper-slide v-if="imagePaths.length > 0" class="swiperImg" v-for="(imgPath, index) in imagePaths" :key="index" >
         <img 
-        v-lazy="imgPath" 
+        :src="imgPath" 
+        loading="lazy"
         alt="Image" />
     </swiper-slide>
     <swiper-slide v-else class="swiperImg">

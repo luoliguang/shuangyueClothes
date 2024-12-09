@@ -17,7 +17,7 @@
     <swiper-slide class="zoom-slide" v-for="(imgPath, index) in imagePaths" :key="index" >
       <div class="swiper-zoom-container">
         <img class="swiper-room-img" 
-          v-lazy="imgPath" 
+          v-lazy="imgPath"
           alt="Image" />
       </div>
     </swiper-slide>
@@ -30,7 +30,9 @@
 </template>
 <script>
   // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
+  import { defineAsyncComponent } from 'vue'
+  const Swiper = defineAsyncComponent(() => import('swiper/vue').then(m => m.Swiper))
+  const SwiperSlide = defineAsyncComponent(() => import('swiper/vue').then(m => m.SwiperSlide))
 
   // Import Swiper styles
   import 'swiper/css/zoom';
@@ -39,7 +41,7 @@
   import './css/swiperZoom.css';
 
   // import required modules
-  import { Zoom, Navigation, Pagination } from 'swiper/modules';
+  import { Zoom, Navigation, Pagination, } from 'swiper/modules';
 
   export default {
     components: {
