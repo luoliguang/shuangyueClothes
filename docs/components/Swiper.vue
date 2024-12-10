@@ -45,7 +45,7 @@
   import 'swiper/css/effect-coverflow';
   import 'swiper/css/pagination';
   import './css/swiper.css';
-  import loadingGif from '/loading/loading.gif'
+  import loadingGif from '/loading/loading.svg'
   // import required modules
   import { Autoplay, EffectCoverflow, Mousewheel, Pagination } from 'swiper/modules';
 

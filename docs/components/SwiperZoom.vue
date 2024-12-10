@@ -40,7 +40,7 @@
   import 'swiper/css/navigation';
   import 'swiper/css/pagination';
   import './css/swiperZoom.css';
-  import loadingGif from '/loading/loading.gif'
+  import loadingGif from '/loading/loading.svg'
 
   // import required modules
   import { Zoom, Navigation, Pagination, } from 'swiper/modules';
