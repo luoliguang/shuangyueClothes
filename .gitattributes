@@ -1,2 +1,12 @@
+# 将Vue文件标记为Vue语言
 *.vue linguist-language=Vue
-*.javascript linguist-language=JavaScript
+*.vue linguist-detectable=true
+
+# 将JavaScript文件标记为JavaScript语言
+*.js linguist-language=JavaScript
+*.js linguist-detectable=true
+
+# 忽略不需要统计的文件类型
+*.css linguist-detectable=false
+*.html linguist-detectable=false
+*.scss linguist-detectable=false
