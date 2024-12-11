@@ -1,3 +1,7 @@
 :root {
   --vp-c-brand: #0df1cf; /*修改vitepress提供的主题颜色变量即可*/
 }
+/* 在全局CSS中立即使用该字体 */
+body {
+  font-family: 'Inter', sans-serif;
+}
