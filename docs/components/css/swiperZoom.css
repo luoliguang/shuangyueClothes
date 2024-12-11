@@ -23,6 +23,10 @@
   padding-bottom: 56.25%; /* 16:9 比例 */
   position: relative;
   cursor: zoom-in;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .swiper-zoom-container img {
@@ -33,6 +37,8 @@
   height: 100%;
   object-fit: contain;
   background: var(--vp-c-bg-soft);
+  border-radius: 16px;
+  transition: transform 0.3s ease;
 }
 
 .swiper-zoom-container.zoomed {
@@ -90,40 +96,75 @@ details[open] .video-icon {
 
 :deep(.swiper-pagination) {
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
   left: 50% !important;
   transform: translateX(-50%);
-  background: var(--vp-c-bg-soft);
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
   color: var(--vp-c-text-1);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
   z-index: 10;
+  letter-spacing: 2px;
 }
 
-:deep(.swiper-button-prev),
-:deep(.swiper-button-next) {
-  width: 44px !important;
-  height: 44px !important;
-  background-color: var(--vp-c-bg-soft);
+:deep(.swiper-pagination-current) {
+  color: var(--vp-c-brand);
+  font-size: 18px;
+  padding: 0 4px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 50px !important;
+  height: 50px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   border-radius: 50%;
-  opacity: 0.9 !important;
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: var(--vp-c-brand) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(4px);
+  margin: 0 20px;
+  transform: translateY(-50%);
 }
 
-:deep(.swiper-button-prev:hover),
-:deep(.swiper-button-next:hover) {
-  background-color: var(--vp-c-brand);
-  color: white !important;
-  opacity: 1 !important;
-  transform: scale(1.1);
-}
-
-:deep(.swiper-button-prev:after),
-:deep(.swiper-button-next:after) {
-  font-size: 20px;
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 22px !important;
   font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: var(--vp-c-brand) !important;
+  color: white !important;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.swiper-button-prev:hover:after {
+  transform: translateX(-2px);
+}
+
+.swiper-button-next:hover:after {
+  transform: translateX(2px);
+}
+
+/* 深色模式 */
+:root.dark .swiper-button-prev,
+:root.dark .swiper-button-next {
+  background: rgba(0, 0, 0, 0.6) !important;
+  color: var(--vp-c-brand) !important;
+}
+
+:deep(.swiper-button-disabled) {
+  opacity: 0.35 !important;
+  cursor: not-allowed;
+  pointer-events: none !important;
 }
 
 @media (max-width: 768px) {
@@ -134,4 +175,40 @@ details[open] .video-icon {
   .video-wrapper {
     padding: 0.8rem;
   }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 18px;
+  }
+
+  :deep(.swiper-pagination) {
+    bottom: 20px;
+    padding: 6px 16px;
+    font-size: 14px;
+  }
+
+  :deep(.swiper-pagination-current) {
+    font-size: 16px;
+  }
+}
+
+/* 添加悬停效果 */
+.swiper-zoom-container:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* 深色模式适配 */
+:root.dark .swiper-zoom-container {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+:root.dark .swiper-zoom-container:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
