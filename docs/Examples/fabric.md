@@ -57,8 +57,6 @@ layout: doc
 <SwiperZoom :imagePaths="T400Details" :VideoPath="T400VideoPath" FabricVideo=''/>
 
 
-
-
 <script setup>
 import { FabricImgs } from '../components/data/PhysicalMap.js'
 
