@@ -30,9 +30,8 @@ export default {
         observerOptions: {
           rootMargin: '0px',
           threshold: 0.1,
-      },
-    }) 
-  };
-
+        },
+      });
+    }
   },
 }

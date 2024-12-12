@@ -1,7 +1,16 @@
 :root {
-  --vp-c-brand: #0df1cf; /*修改vitepress提供的主题颜色变量即可*/
+  --vp-c-brand: #0df1cf;
 }
-/* 在全局CSS中立即使用该字体 */
+
+/* 优化字体加载 */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/inter-roman-latin.Di8DUHzh.woff2') format('woff2');
+}
+
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
