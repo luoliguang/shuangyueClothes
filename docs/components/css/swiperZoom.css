@@ -1,7 +1,11 @@
+.pager-zoom{
+  background: rgba(255, 255, 255, 0);
+}
 .swiper-container {
   position: relative;
   width: 100%;
   height: 100%;
+  --swiper-theme-color: var(--vp-c-brand);
 }
 
 .loading-overlay {
@@ -94,27 +98,82 @@ details[open] .video-icon {
   object-fit: contain;
 }
 
-:deep(.swiper-pagination) {
+/* 高级分页器样式 */
+.swiper-container .swiper-pagination.swiper-pagination-bullets {
   position: absolute;
-  bottom: 30px;
+  bottom: 25px !important;
   left: 50% !important;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 8px 20px;
-  border-radius: 30px;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--vp-c-text-1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 12px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08),
+              0 2px 8px rgba(0, 0, 0, 0.06),
+              0 0 1px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
   z-index: 10;
-  letter-spacing: 2px;
+  font-family: var(--vp-font-family-base);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: auto !important;
+  max-width: calc(100% - 40px) !important;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-:deep(.swiper-pagination-current) {
-  color: var(--vp-c-brand);
-  font-size: 18px;
-  padding: 0 4px;
+.swiper-container .swiper-pagination .swiper-pagination-bullet {
+  width: 16px !important;
+  height: 3px !important;
+  border-radius: 2px !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  margin: 0 2px !important;
+  opacity: 1 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.swiper-container .swiper-pagination .swiper-pagination-bullet::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  background: transparent;
+  border-radius: 4px;
+}
+
+.swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--swiper-theme-color) !important;
+  width: 24px !important;
+}
+
+/* 深色模式适配 */
+:root.dark .swiper-container .swiper-pagination.swiper-pagination-bullets {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2),
+              0 2px 8px rgba(0, 0, 0, 0.15),
+              0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+:root.dark .swiper-container .swiper-pagination .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+:root.dark .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--swiper-theme-color) !important;
+}
+
+/* 悬停效果 */
+.swiper-container .swiper-pagination .swiper-pagination-bullet:hover {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+:root.dark .swiper-container .swiper-pagination .swiper-pagination-bullet:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
 }
 
 .swiper-button-prev,
@@ -127,7 +186,7 @@ details[open] .video-icon {
   color: var(--vp-c-brand) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(4px);
-  margin: 0 20px;
+  margin: 0 10px;
   transform: translateY(-50%);
 }
 

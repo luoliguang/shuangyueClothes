@@ -111,7 +111,7 @@ export default {
     const onSwiperInit = (swiper) => {
       swiperInstance.value = swiper
       if (isClient.value) {
-        swiper.pagination?.el?.children[0]?.classList.add('swiper-pagination-bullet-active')
+        swiper.pagination?.el?.children[0]?.classList.add('pager-zoom')
         swiper.navigation?.init()
         swiper.navigation?.update()
         swiper.pagination?.init()

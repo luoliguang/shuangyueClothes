@@ -1,5 +1,9 @@
 :root {
   --vp-c-brand: #0df1cf;
+  --vp-c-brand-light: #42f4d8;
+  --vp-c-brand-lighter: #76f7e2;
+  --vp-c-brand-dark: #0bc9ac;
+  --vp-c-brand-darker: #09a68f;
 }
 
 /* 优化字体加载策略 */
