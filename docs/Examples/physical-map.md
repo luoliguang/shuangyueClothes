@@ -49,7 +49,7 @@ layout: doc
 <Swiper :imagePaths="mdePolo" />
 
 ### 200/260克莫代尔圆领短袖
-<Swiper :imagePaths="mdrTshirt" />
+<Swiper :imagePaths="mdeTshirt" />
 
 <!-- 200珠地 -->
 ### 200珠地翻领短袖<sup>[面料细节](./fabric#200zd)</sup>  {#200zd}
@@ -108,47 +108,76 @@ layout: doc
 
 <script setup>
 import { products } from '../components/data/PhysicalMap.js'
+import { getProductImages } from '../components/data/PhysicalMapTC.js'
 //小方格
-const xfgPolo = products.xfgPolo
-const xfgTshirt = products.xfgTshirt
+// const xfgPolo = products.xfgPolo
+// const xfgTshirt = products.xfgTshirt
+const xfgPolo = getProductImages('xfgPOLO')
+const xfgTshirt = getProductImages('xfgTshirt')
 //平纹布
-const pwbPolo = products.pwbPolo
-const pwbTshirt = products.pwbTshirt
-//速干
-const suGanPolo = products.suGanPolo
-const suGanTshirt = products.suGanTshirt
+// const pwbPolo = products.pwbPolo
+// const pwbTshirt = products.pwbTshirt
+const pwbPolo = getProductImages('pwbPOLO')
+const pwbTshirt = getProductImages('pwbTshirt')
+//160克速干
+// const suGanPolo = products.suGanPolo
+// const suGanTshirt = products.suGanTshirt
+const suGanPolo = getProductImages('suGanPOLO')
+const suGanTshirt = getProductImages('suGanTshirt')
 //蝴蝶网
-const bswPolo = products.bswPolo
-const bswTshirt = products.bswTshirt
+// const bswPolo = products.bswPolo
+// const bswTshirt = products.bswTshirt
+const bswPolo = getProductImages('bswPOLO')
+const bswTshirt = getProductImages('bswTshirt')
 //180苹果网
-const applePolo = products.applePolo
-const appleTshirt = products.appleTshirt
+// const applePolo = products.applePolo
+// const appleTshirt = products.appleTshirt
+const applePolo = getProductImages('applePOLO')
+const appleTshirt = getProductImages('appleTshirt')
 //小米通
-const xmtPolo = products.xmtPolo
-const xmtTshirt = products.xmtTshirt
+// const xmtPolo = products.xmtPolo
+// const xmtTshirt = products.xmtTshirt
+const xmtPolo = getProductImages('xmtPOLO')
+const xmtTshirt = getProductImages('xmtTshirt')
 //200克/260克莫代尔
-const mdePolo = products.mdePolo
-const mdrTshirt = products.mdrTshirt
+// const mdePolo = products.mdePolo
+// const mdrTshirt = products.mdrTshirt
+const mdePolo = getProductImages('mdePOLO')
+const mdeTshirt = getProductImages('mdeTshirt')
 //200珠地
-const zdPolo = products.zdPolo
-const zdTshirt = products.zdTshirt
+// const zdPolo = products.zdPolo
+// const zdTshirt = products.zdTshirt
+const zdPolo = getProductImages('zdPOLO')
+const zdTshirt = getProductImages('zdTshirt')
 //210克速干
-const SGPolo = products.SGPolo
-const SGTshirt = products.SGTshirt
+// const SGPolo = products.SGPolo
+// const SGTshirt = products.SGTshirt
+const SGPolo = getProductImages('SGPOLO')
+const SGTshirt = getProductImages('SGTshirt')
 //220克仿棉
-const fmPolo = products.fmPolo
-const fmTshirt = products.fmTshirt
+// const fmPolo = products.fmPolo
+// const fmTshirt = products.fmTshirt
+const fmPolo = getProductImages('fmPOLO')
+const fmTshirt = getProductImages('fmTshirt')
 //260克珠地
-const ZDPolo = products.ZDPolo
-const ZDTshirt = products.ZDTshirt
+// const ZDPolo = products.ZDPolo
+// const ZDTshirt = products.ZDTshirt
+const ZDPolo = getProductImages('ZDPOLO')
+const ZDTshirt = getProductImages('ZDTshirt')
 //风衣
-const standupCollar = products.standupCollar
-const zipperCollar = products.zipperCollar
+// const standupCollar = products.standupCollar
+// const zipperCollar = products.zipperCollar
+const standupCollar = getProductImages('standupCollar') 
+const zipperCollar = getProductImages('zipperCollar')
 //马甲系列
-const waistcoat = products.waistcoat
+// const waistcoat = products.waistcoat
+const waistcoat = getProductImages('waistcoat')
 //卫衣
-const ZipperHoodSweater = products.ZipperHoodSweater
-const standupSweater = products.standupSweater
-const roundSweater = products.roundSweater
+// const ZipperHoodSweater = products.ZipperHoodSweater
+// const standupSweater = products.standupSweater
+// const roundSweater = products.roundSweater
+const ZipperHoodSweater = getProductImages('ZipperHoodSweater')
+const standupSweater = getProductImages('standupSweater')
+const roundSweater = getProductImages('roundSweater')
 </script>
 

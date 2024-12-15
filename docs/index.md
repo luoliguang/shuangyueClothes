@@ -35,17 +35,19 @@ features:
 <script setup>
 
 //图片生成组件
-import { MainImgs } from './components/data/PhysicalMap.js'
+// import { MainImgs } from './components/data/PhysicalMap.js'
+import { getProductImages } from './components/data/PhysicalMapTC.js'
 
 
-const meme = MainImgs.MainImgs
-
+// const meme = MainImgs.MainImgs
+const meme = getProductImages('MainImgs')
 </script>
 
 <style scope>
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+  --vp-layout-max-width: 100%;
 }
 
 .swiper-slide {
