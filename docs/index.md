@@ -7,7 +7,7 @@ hero:
   text: "   做，才是答案"
   tagline: 素材与疑问的合集,内容正在完善整理中...
   image:
-    src: /icon/favicon.ico2.png
+    src: https://bu.dusays.com/2024/12/17/6760584bcf0e4.png
     alt: OK
   actions:
     - theme: brand

@@ -264,16 +264,6 @@ export const clothes = {
   //风衣
   standupCollar: {
     images: [
-      'https://bu.dusays.com/2024/12/15/675dc1cc2eb9d.jpg',
-      'https://bu.dusays.com/2024/12/15/675dc1cc3772e.jpg',
-      'https://bu.dusays.com/2024/12/15/675dc1cd756b3.jpg',
-      'https://bu.dusays.com/2024/12/15/675dc1cf22427.jpg',
-    ],
-    video: [],
-    videoTitle: ''
-  },
-  zipperCollar: {
-    images: [
       'https://bu.dusays.com/2024/12/15/675dc23f15de3.jpg',
       'https://bu.dusays.com/2024/12/15/675dc23f5fef4.jpg',
       'https://bu.dusays.com/2024/12/15/675dc23fb5ccf.jpg',
@@ -284,6 +274,16 @@ export const clothes = {
       'https://bu.dusays.com/2024/12/15/675dc24aaff1c.jpg',
       'https://bu.dusays.com/2024/12/15/675dc24aea8b7.jpg',
       'https://bu.dusays.com/2024/12/15/675dc24b26770.jpg',
+    ],
+    video: [],
+    videoTitle: ''
+  },
+  zipperCollar: {
+    images: [
+      'https://bu.dusays.com/2024/12/15/675dc1cc2eb9d.jpg',
+      'https://bu.dusays.com/2024/12/15/675dc1cc3772e.jpg',
+      'https://bu.dusays.com/2024/12/15/675dc1cd756b3.jpg',
+      'https://bu.dusays.com/2024/12/15/675dc1cf22427.jpg',
     ],
     video: [],
     videoTitle: ''

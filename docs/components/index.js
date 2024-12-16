@@ -3,6 +3,7 @@ import Swiper from "./Swiper.vue";
 import Welcome from "./Welcome.vue";
 import StartWelcome from "./StartWelcome.vue";
 import SizeTable from "./SizeTable.vue";
+import ReferenceData from "./ReferenceData.vue";
 
 
 export default {
@@ -11,4 +12,5 @@ export default {
   Welcome,
   StartWelcome,
   SizeTable,
+  ReferenceData,
 }

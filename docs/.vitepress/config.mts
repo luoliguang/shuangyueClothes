@@ -6,7 +6,7 @@ export default defineConfig({
   title: "双月服饰",
   description: "一个简单的网站",
   themeConfig: {
-    logo: '/icon/favicon.ico.png', //网站logo
+    logo: 'https://bu.dusays.com/2024/12/17/6760584c502de.png', //网站logo
     siteTitle: "双月服饰",
     outline:{
       level: [2, 4],
@@ -116,7 +116,7 @@ export default defineConfig({
 
   lastUpdated: true,
   head: [
-    ['link', { rel: 'icon', href: '/icon/favicon.ico.png' }],
+    ['link', { rel: 'icon', href: 'https://bu.dusays.com/2024/12/17/6760584c502de.png' }],
 
   ],
 

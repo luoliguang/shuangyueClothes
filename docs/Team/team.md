@@ -13,7 +13,7 @@ import {
 
 // getImages().then(images => {
 //   if (images) {
-//     console.log(images.data[0])
+//     console.log(images.data.data)
 //   }
 // })
 
