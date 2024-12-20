@@ -47,8 +47,10 @@
       >
         <div class="material-image">
           <img 
-            v-lazy="material.thumbnail"
+            :src="material.thumbnail"
             :alt="material.name"
+            loading="lazy"
+            @error="handleImageError"
           >
           <div class="material-overlay">
             <span class="material-type">{{ material.type }}</span>
@@ -117,6 +119,11 @@ const materials = ref([...props.materialsList]) // 初始化材料数据
 const page = ref(1)
 const hasMore = ref(true)
 const isLoading = ref(false)
+
+// 处理图片加载错误
+const handleImageError = (event) => {
+  event.target.src = '/loading/error.gif'
+}
 
 // 过滤后的素材
 const filteredMaterials = computed(() => {
@@ -191,32 +198,32 @@ const fetchMaterials = async ({ page, search, tags }) => {
 }
 
 // 加载素材
-// const loadMaterials = async () => {
-//   if (isLoading.value) return
+const loadMaterials = async () => {
+  if (isLoading.value) return
   
-//   isLoading.value = true
-//   try {
-//     // 这里替换为实际的 API 调用
-//     const response = await fetchMaterials({
-//       page: page.value,
-//       search: searchQuery.value,
-//       tags: selectedTags.value
-//     })
+  isLoading.value = true
+  try {
+    // 这里替换为实际的 API 调用
+    const response = await fetchMaterials({
+      page: page.value,
+      search: searchQuery.value,
+      tags: selectedTags.value
+    })
     
-//     if (page.value === 1) {
-//       materials.value = response.data
-//     } else {
-//       materials.value = [...materials.value, ...response.data]
-//     }
+    if (page.value === 1) {
+      materials.value = response.data
+    } else {
+      materials.value = [...materials.value, ...response.data]
+    }
     
-//     hasMore.value = response.hasMore
-//     page.value++
-//   } catch (error) {
-//     console.error('Failed to load materials:', error)
-//   } finally {
-//     isLoading.value = false
-//   }
-// }
+    hasMore.value = response.hasMore
+    page.value++
+  } catch (error) {
+    console.error('Failed to load materials:', error)
+  } finally {
+    isLoading.value = false
+  }
+}
 
 // 点击素材
 const handleMaterialClick = (material) => {
