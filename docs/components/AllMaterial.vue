@@ -191,32 +191,32 @@ const fetchMaterials = async ({ page, search, tags }) => {
 }
 
 // 加载素材
-const loadMaterials = async () => {
-  if (isLoading.value) return
+// const loadMaterials = async () => {
+//   if (isLoading.value) return
   
-  isLoading.value = true
-  try {
-    // 这里替换为实际的 API 调用
-    const response = await fetchMaterials({
-      page: page.value,
-      search: searchQuery.value,
-      tags: selectedTags.value
-    })
+//   isLoading.value = true
+//   try {
+//     // 这里替换为实际的 API 调用
+//     const response = await fetchMaterials({
+//       page: page.value,
+//       search: searchQuery.value,
+//       tags: selectedTags.value
+//     })
     
-    if (page.value === 1) {
-      materials.value = response.data
-    } else {
-      materials.value = [...materials.value, ...response.data]
-    }
+//     if (page.value === 1) {
+//       materials.value = response.data
+//     } else {
+//       materials.value = [...materials.value, ...response.data]
+//     }
     
-    hasMore.value = response.hasMore
-    page.value++
-  } catch (error) {
-    console.error('Failed to load materials:', error)
-  } finally {
-    isLoading.value = false
-  }
-}
+//     hasMore.value = response.hasMore
+//     page.value++
+//   } catch (error) {
+//     console.error('Failed to load materials:', error)
+//   } finally {
+//     isLoading.value = false
+//   }
+// }
 
 // 点击素材
 const handleMaterialClick = (material) => {
