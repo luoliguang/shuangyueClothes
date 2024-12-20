@@ -41,7 +41,8 @@
 > 主要看领子部分
 <ReferenceData :ImageSrc="Images.BBaseball.imgPath" :alias="Images.BBaseball.imgAlias" />
 <ReferenceData :ImageSrc="Images.UsaNaseball.imgPath" :alias="Images.UsaNaseball.imgAlias" />
-
+### 盘口短袖的扣子可以做什么颜色？
+> 默认只能做白色，如果需要其他颜色，跟据实际情况而定。
 
 
 <!-- 

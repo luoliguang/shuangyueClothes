@@ -4,6 +4,7 @@ import Welcome from "./Welcome.vue";
 import StartWelcome from "./StartWelcome.vue";
 import SizeTable from "./SizeTable.vue";
 import ReferenceData from "./ReferenceData.vue";
+import AllMaterial from "./AllMaterial.vue";
 
 
 export default {
@@ -13,4 +14,6 @@ export default {
   StartWelcome,
   SizeTable,
   ReferenceData,
+  AllMaterial,
+  
 }

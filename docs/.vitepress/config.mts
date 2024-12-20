@@ -15,7 +15,7 @@ export default defineConfig({
     nav: [
       { text: '主页', link: '/' },
       { text: '产品素材', link: '/Examples/fabric' },
-      { text: '合作方式', link: '/Cooperate/cooprate-methods' },
+      { text: '疑难解答', link: '/Cooperate/cooprate-methods' },
       { text: '团队成员', link: '/Team/team' },
       { text: 'DoWant',
         items:[
@@ -35,13 +35,14 @@ export default defineConfig({
             { text: '面料细节', link: '../Examples/fabric' },
             { text: '衣服实拍', link: '../Examples/physical-map' },
             { text: '尺码表', link: '../Examples/size-chart' },
+            { text: '素材总览', link: '../Examples/all-material' },
           ]
         }
       ],
 
       '/Cooperate/': [
         {
-          text: '合作方式',
+          text: '疑难解答',
           items: [
             { text: '合作流程', link: '/Cooperate/cooprate-methods' },
             { text: '疑问解答', link: '/Cooperate/reference-data' },   
