@@ -272,8 +272,6 @@ export const clothes = {
       'https://bu.dusays.com/2024/12/15/675dc24712515.jpg',
       'https://bu.dusays.com/2024/12/15/675dc24798ad1.jpg',
       'https://bu.dusays.com/2024/12/15/675dc24aaff1c.jpg',
-      'https://bu.dusays.com/2024/12/15/675dc24aea8b7.jpg',
-      'https://bu.dusays.com/2024/12/15/675dc24b26770.jpg',
     ],
     video: [],
     videoTitle: ''

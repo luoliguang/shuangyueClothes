@@ -16,7 +16,7 @@ hero:
     - theme: alt
       text: 团队成员
       link: '/Team/team.md'
-    - theme: alt
+    - theme: brand
       text: 疑难解答
       link: '/Cooperate/reference-data.md'
 
