@@ -38,6 +38,13 @@ const materialCategories = [
       { id: 'yuanlingwei', name: '圆领卫衣', count: 34 },
     ]
   },
+  {
+    id: 3,
+    name: '面料细节',
+    tags: [
+      { id: 'detail', name: '看看细节👉', count: 10 },
+    ]
+  },
 ]
 
 // 素材数据
@@ -46,7 +53,7 @@ const materialsList = [
   //小方格速干圆领短袖
   {
     id: 1,
-    name: '130克小方格速干',
+    name: '130克小方格速干圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675db0a1a6b82.jpg',
@@ -54,7 +61,7 @@ const materialsList = [
   },
   {
     id: 2,
-    name: '130克小方格速干',
+    name: '130克小方格速干圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675db0a1a6b82.jpg',
@@ -62,7 +69,7 @@ const materialsList = [
   },
   {
     id: 3,
-    name: '130克小方格速干',
+    name: '130克小方格速干圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675db0a36446d.jpg',
@@ -70,7 +77,7 @@ const materialsList = [
   },
   {
     id: 4,
-    name: '130克小方格速干',
+    name: '130克小方格速干圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675db0a5d7ad7.jpg',
@@ -78,17 +85,16 @@ const materialsList = [
   },
   {
     id: 5,
-    name: '130克小方格速干',
+    name: '130克小方格速干圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675db0a61ec46.jpg',
     tags: ['130xfg', 'Tshirt']
   },
-  //小方格速干翻领短袖
-  //160克平纹布圆领短袖
+  //160克平纹布
   {
     id: 6,
-    name: '160克平纹布',
+    name: '160克平纹布圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675db87d8942d.jpg',
@@ -96,11 +102,100 @@ const materialsList = [
   },
   {
     id: 7,
-    name: '160克平纹布',
+    name: '160克平纹布圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675db87e317c7.jpg',
     tags: ['160pingwenbu', 'Tshirt']
+  },
+  {
+    id: 8,
+    name: '160克平纹布翻领短袖',
+    description: '轻薄透气，适合夏季穿着',
+    type: '翻领短袖',
+    thumbnail: 'https://bu.dusays.com/2024/12/15/675db84c3b942.jpg',
+    tags: ['160pingwenbu', 'Polo']
+  },
+  //160克速干
+  {
+    id: 9,
+    name: '160克速干翻领短袖',
+    description: '轻薄透气，适合夏季穿着',
+    type: '翻领短袖',
+    thumbnail: 'https://bu.dusays.com/2024/12/15/675db96d9428c.jpg',
+    tags: ['160sugan', 'Polo']
+  },
+  {
+    id: 10,
+    name: '160克速干翻领短袖',
+    description: '轻薄透气，适合夏季穿着',
+    type: '翻领短袖',
+    thumbnail: 'https://bu.dusays.com/2024/12/15/675db96ced633.jpg',
+    tags: ['160sugan', 'Polo']
+  },
+  {
+    id: 11,
+    name: '160克速干翻领短袖',
+    description: '轻薄透气，适合夏季穿着',
+    type: '翻领短袖',
+    thumbnail: 'https://bu.dusays.com/2024/12/15/675db96e7424a.jpg',
+    tags: ['160sugan', 'Polo']
+  },
+  {
+    id: 12,
+    name: '160克速干翻领短袖',
+    description: '轻薄透气，适合夏季穿着',
+    type: '翻领短袖',
+    thumbnail: 'https://bu.dusays.com/2024/12/15/675db96ce1d3c.jpg',
+    tags: ['160sugan', 'Polo']
+  },
+  {
+    id: 13,
+    name: '160克速干翻领短袖',
+    description: '轻薄透气，适合夏季穿着',
+    type: '翻领短袖',
+    thumbnail: 'https://bu.dusays.com/2024/12/15/675db97031835.jpg',
+    tags: ['160sugan', 'Polo']
+  },
+  {
+    id: 14,
+    name: '160克速干翻领短袖',
+    description: '轻薄透气，适合夏季穿着',
+    type: '翻领短袖',
+    thumbnail: 'https://bu.dusays.com/2024/12/15/675db96fe2678.jpg',
+    tags: ['160sugan', 'Polo']
+  },
+  {
+    id: 15,
+    name: '160克速干翻领短袖',
+    description: '轻薄透气，适合夏季穿着',
+    type: '翻领短袖',
+    thumbnail: 'https://bu.dusays.com/2024/12/15/675db96f04559.jpg',
+    tags: ['160sugan', 'Polo']
+  },
+  {
+    id: 16,
+    name: '160克速干翻领短袖',
+    description: '轻薄透气，适合夏季穿着',
+    type: '翻领短袖',
+    thumbnail: 'https://bu.dusays.com/2024/12/15/675db97096a58.jpg',
+    tags: ['160sugan', 'Polo']
+  },
+  {
+    id: 17,
+    name: '160克速干翻领短袖',
+    description: '轻薄透气，适合夏季穿着',
+    type: '翻领短袖',
+    thumbnail: 'https://bu.dusays.com/2024/12/15/675db96e7424a.jpg',
+    tags: ['160sugan', 'Polo']
+  },
+  {
+    id: 18,
+    name: '160克速干翻领短袖',
+    description: '轻薄透气，适合夏季穿着',
+    type: '翻领短袖',
+    thumbnail: 'https://bu.dusays.com/2024/12/15/675db96d024fd.jpg',
+    tags: ['160sugan', 'Polo']
   },
 ]
 

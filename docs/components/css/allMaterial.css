@@ -178,6 +178,18 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  background: var(--vp-c-bg-soft);
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.load-more:hover {
+  background: var(--vp-c-brand);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .loading-spinner {
@@ -241,4 +253,76 @@
 
 :root.dark .tag-count {
   background: rgba(255, 255, 255, 0.1);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  grid-column: 1 / -1;
+  background: var(--vp-c-bg-soft);
+  border-radius: 12px;
+  border: 1px dashed var(--vp-c-divider);
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.empty-state h3 {
+  font-size: 18px;
+  color: var(--vp-c-text-1);
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  color: var(--vp-c-text-2);
+  margin-bottom: 20px;
+}
+
+.reset-button {
+  padding: 8px 16px;
+  background: var(--vp-c-brand);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+  background: var(--vp-c-brand-dark);
+  transform: translateY(-1px);
+}
+
+.loading-state {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  color: var(--vp-c-text-2);
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--vp-c-brand);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 深色模式适配 */
+:root.dark .empty-state {
+  background: var(--vp-c-bg-mute);
+}
+
+:root.dark .reset-button:hover {
+  background: var(--vp-c-brand-lighter);
 }

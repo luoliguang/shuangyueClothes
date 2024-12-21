@@ -64,8 +64,10 @@
 
       <!-- 加载更多 -->
       <div 
-        v-if="hasMore" 
+        v-if="hasMore && filteredMaterials.length > 0" 
         class="load-more"
+        ref="loadMoreRef"
+        @click="loadMore"
       >
         <div class="loading-spinner"></div>
         加载更多...
@@ -119,6 +121,7 @@ const materials = ref([...props.materialsList]) // 初始化材料数据
 const page = ref(1)
 const hasMore = ref(true)
 const isLoading = ref(false)
+const loadMoreRef = ref(null) // 添加 ref 引用
 
 // 处理图片加载错误
 const handleImageError = (event) => {
@@ -128,24 +131,87 @@ const handleImageError = (event) => {
 // 过滤后的素材
 const filteredMaterials = computed(() => {
   return materials.value.filter(material => {
-    // 搜索过滤
-    const matchesSearch = !searchQuery.value || 
-      material.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      material.description.toLowerCase().includes(searchQuery.value.toLowerCase())
+    // 搜索过滤：将搜索词按空格分割成数组
+    const searchTerms = searchQuery.value
+      .toLowerCase()
+      .split(/\s+/)
+      .filter(term => term.length > 0)
+
+    // 如果没有搜索词，返回true
+    const matchesSearch = searchTerms.length === 0 || searchTerms.every(term => {
+      const materialName = material.name.toLowerCase()
+      const materialDesc = material.description.toLowerCase()
+      const materialTags = material.tags.map(tag => 
+        typeof tag === 'string' ? tag.toLowerCase() : tag.name.toLowerCase()
+      )
+      
+      return materialName.includes(term) ||
+             materialDesc.includes(term) ||
+             materialTags.some(tag => tag.includes(term))
+    })
     
     // 标签过滤：确保素材包含所有选中的标签
     const matchesTags = selectedTags.value.length === 0 || 
-      selectedTags.value.every(selectedTag => material.tags.includes(selectedTag))
+      selectedTags.value.every(selectedTag => {
+        // 如果 material.tags 是对象数组，使用 id 匹配
+        if (typeof material.tags[0] === 'object') {
+          return material.tags.some(tag => tag.id === selectedTag)
+        }
+        // 如果 material.tags 是字符串数组，直接匹配
+        return material.tags.includes(selectedTag)
+      })
     
-    // 同时满足搜索和标签条件
     return matchesSearch && matchesTags
   })
 })
 
+// 加载素材
+const loadMaterials = async () => {
+  if (isLoading.value) return
+  
+  isLoading.value = true
+  try {
+    const response = await fetchMaterials({
+      page: page.value,
+      search: searchQuery.value,
+      tags: selectedTags.value
+    })
+    
+    if (page.value === 1) {
+      materials.value = response.data
+    } else {
+      materials.value = [...materials.value, ...response.data]
+    }
+    
+    hasMore.value = response.hasMore
+    if (hasMore.value) {
+      page.value++
+    }
+
+    // 如果没有更多数据，取消观察
+    if (!hasMore.value && observer) {
+      observer.disconnect()
+    }
+  } catch (error) {
+    console.error('Failed to load materials:', error)
+  } finally {
+    isLoading.value = false
+  }
+}
+
+// 重置加载状态
+const resetLoadState = () => {
+  page.value = 1
+  hasMore.value = true
+  materials.value = []
+  if (observer && loadMoreRef.value) {
+    observer.observe(loadMoreRef.value)
+  }
+}
+
 // 防抖搜索
 const handleSearch = useDebounceFn(() => {
-  // 重置页码并重新加载
-  page.value = 1
+  resetLoadState()
   loadMaterials()
 }, 300)
 
@@ -157,8 +223,7 @@ const toggleTag = (tagId) => {
   } else {
     selectedTags.value.splice(index, 1)
   }
-  // 重置页码并重新加载
-  page.value = 1
+  resetLoadState()
   loadMaterials()
 }
 
@@ -170,18 +235,35 @@ const fetchMaterials = async ({ page, search, tags }) => {
   // 过滤数据
   let filteredData = [...props.materialsList]
 
-  // 搜索过滤
+  // 搜索过滤：支持多关键词
   if (search) {
-    filteredData = filteredData.filter(material => 
-      material.name.toLowerCase().includes(search.toLowerCase()) ||
-      material.description.toLowerCase().includes(search.toLowerCase())
-    )
+    const searchTerms = search.toLowerCase().split(/\s+/).filter(term => term.length > 0)
+    filteredData = filteredData.filter(material => {
+      const materialName = material.name.toLowerCase()
+      const materialDesc = material.description.toLowerCase()
+      const materialTags = material.tags.map(tag => 
+        typeof tag === 'string' ? tag.toLowerCase() : tag.name.toLowerCase()
+      )
+      
+      return searchTerms.every(term =>
+        materialName.includes(term) ||
+        materialDesc.includes(term) ||
+        materialTags.some(tag => tag.includes(term))
+      )
+    })
   }
 
   // 标签过滤
   if (tags && tags.length > 0) {
     filteredData = filteredData.filter(material =>
-      material.tags.some(tag => tags.includes(tag))
+      tags.every(selectedTag => {
+        // 如果 material.tags 是对象数组，使用 id 匹配
+        if (typeof material.tags[0] === 'object') {
+          return material.tags.some(tag => tag.id === selectedTag)
+        }
+        // 如果 material.tags 是字符串数组，直接匹配
+        return material.tags.includes(selectedTag)
+      })
     )
   }
 
@@ -197,63 +279,40 @@ const fetchMaterials = async ({ page, search, tags }) => {
   }
 }
 
-// 加载素材
-const loadMaterials = async () => {
-  if (isLoading.value) return
-  
-  isLoading.value = true
-  try {
-    // 这里替换为实际的 API 调用
-    const response = await fetchMaterials({
-      page: page.value,
-      search: searchQuery.value,
-      tags: selectedTags.value
-    })
-    
-    if (page.value === 1) {
-      materials.value = response.data
-    } else {
-      materials.value = [...materials.value, ...response.data]
-    }
-    
-    hasMore.value = response.hasMore
-    page.value++
-  } catch (error) {
-    console.error('Failed to load materials:', error)
-  } finally {
-    isLoading.value = false
-  }
-}
-
 // 点击素材
 const handleMaterialClick = (material) => {
   // 处理素材点击事件，可能打开详情页或预览
+}
+const loadMore = () => {
+  loadMaterials()
 }
 
 // 创建 Intersection Observer 实例
 let observer
 onMounted(() => {
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && hasMore.value && !isLoading.value) {
+  // 确保在客户端环境
+  if (typeof window !== 'undefined') {
+    observer = new IntersectionObserver((entries) => {
+      const target = entries[0]
+      if (target.isIntersecting && hasMore.value && !isLoading.value) {
         loadMaterials()
       }
+    }, {
+      rootMargin: '100px', // 提前 100px 触发加载
+      threshold: 0.1 // 降低阈值，使触发更容易
     })
-  }, {
-    threshold: 0.5
-  })
 
-  // 观察加载更多元素
-  const loadMoreEl = document.querySelector('.load-more')
-  if (loadMoreEl) {
-    observer.observe(loadMoreEl)
+    // 使用 ref 获取元素并观察
+    if (loadMoreRef.value) {
+      observer.observe(loadMoreRef.value)
+    }
   }
 
   // 初始加载
   loadMaterials()
 })
 
-// 在组件卸载时清理 observer
+// 在组件卸载时清理
 onUnmounted(() => {
   if (observer) {
     observer.disconnect()
