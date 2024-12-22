@@ -17,7 +17,7 @@
 
 .search-box input {
   width: 100%;
-  padding: 12px 20px;
+  padding: 15px 20px;
   padding-right: 48px;
   border: 2px solid var(--vp-c-bg-soft);
   border-radius: 12px;
@@ -337,7 +337,7 @@
 .search-btn {
   border: none;
   background: none;
-  padding: 8px;
+  margin-top: 10px;
   cursor: pointer;
   border-radius: 6px;
   color: var(--vp-c-text-2);

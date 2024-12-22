@@ -14,11 +14,14 @@ hero:
       text: 实物素材
       link: '/Examples/fabric.md'
     - theme: alt
-      text: 团队成员
-      link: '/Team/team.md'
-    - theme: brand
       text: 疑难解答
       link: '/Cooperate/reference-data.md'
+    - theme: brand
+      text: 素材总览
+      link: '/Examples/all-material.md'
+    - theme: alt
+      text: 团队成员
+      link: '/Team/team.md'
 
 features:
   - icon: 🚀

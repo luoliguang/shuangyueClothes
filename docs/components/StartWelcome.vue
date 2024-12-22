@@ -130,7 +130,7 @@ onUnmounted(() => {
 .swiper-slide {
   flex: 0 0 auto;
   width: 30%;
-  height: 200px;
+  max-height: 200px;
   margin-right: 10px;
   overflow: hidden;
   border-radius: 8px;
@@ -146,4 +146,11 @@ onUnmounted(() => {
 .swiper-slide:hover img {
   transform: scale(1.1);
 }
+
+@media screen and (max-width: 600px) {
+  .swiper-slide {
+    max-height: 100px;
+  }
+}
+
 </style>

@@ -233,3 +233,11 @@ const SwiperSlide = defineAsyncComponent(() => import('swiper/vue').then(m => m.
 ```
 
 :::
+
+::: timeline 24-12-22
+### 新增了一些功能
+> 因为静态图片越来越多的原因，很多时候加载图片时就会很慢，打开网站的时候也会很忙。所以就会想效率应该如何提升。
+1. 调整了首页展示图片的css样式，使其在移动端上显示更美观。用了响应式布局。`@media`
+2. 新增所有图片[搜索功能](/Examples/all-material.md)
+3. 新增首页按钮
+:::
