@@ -1027,7 +1027,7 @@ const materialsList = [
   {
     id: 122,
     name: '拉链风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc1cc2eb9d.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyilailian']
@@ -1035,7 +1035,7 @@ const materialsList = [
   {
     id: 123,
     name: '拉链风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc1cc3772e.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyilailian']
@@ -1043,7 +1043,7 @@ const materialsList = [
   {
     id: 124,
     name: '拉链风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc1cd756b3.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyilailian']
@@ -1051,7 +1051,7 @@ const materialsList = [
   {
     id: 125,
     name: '拉链风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc1cf22427.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyilailian']
@@ -1060,7 +1060,7 @@ const materialsList = [
   {
     id: 126,
     name: '立领风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc24798ad1.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyililing']
@@ -1068,7 +1068,7 @@ const materialsList = [
   {
     id: 127,
     name: '立领风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc24712515.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyililing']
@@ -1076,7 +1076,7 @@ const materialsList = [
   {
     id: 128,
     name: '立领风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc2441b608.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyililing']
@@ -1084,7 +1084,7 @@ const materialsList = [
   {
     id: 129,
     name: '立领风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc24aaff1c.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyililing']
@@ -1092,7 +1092,7 @@ const materialsList = [
   {
     id: 131,
     name: '立领风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc23f15de3.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyililing']
@@ -1100,7 +1100,7 @@ const materialsList = [
   {
     id: 132,
     name: '立领风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc23f5fef4.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyililing']
@@ -1108,7 +1108,7 @@ const materialsList = [
   {
     id: 134,
     name: '立领风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc23fb5ccf.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyililing']
@@ -1116,7 +1116,7 @@ const materialsList = [
   {
     id: 135,
     name: '立领风衣',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合/T400 可选',
     type: '风衣',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc24083c57.jpg',
     tags: ['fuhe', 'shuimitao','t400','fengyililing']
@@ -1125,7 +1125,7 @@ const materialsList = [
   {
     id: 136,
     name: '马甲',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合 可选',
     type: '马甲',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc27d99879.jpg',
     tags: ['fuhe', 'shuimitao','majia']
@@ -1133,7 +1133,7 @@ const materialsList = [
   {
     id: 137,
     name: '马甲',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合 可选',
     type: '马甲',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc27c4656e.jpg',
     tags: ['fuhe', 'shuimitao','majia']
@@ -1141,7 +1141,7 @@ const materialsList = [
   {
     id: 138,
     name: '马甲',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合 可选',
     type: '马甲',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc27c02798.jpg',
     tags: ['fuhe', 'shuimitao','majia']
@@ -1149,7 +1149,7 @@ const materialsList = [
   {
     id: 139,
     name: '马甲',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合 可选',
     type: '马甲',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc28142163.jpg',
     tags: ['fuhe', 'shuimitao','majia']
@@ -1157,7 +1157,7 @@ const materialsList = [
   {
     id: 140,
     name: '马甲',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合 可选',
     type: '马甲',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc2825c575.jpg',
     tags: ['fuhe', 'shuimitao','majia']
@@ -1165,7 +1165,7 @@ const materialsList = [
   {
     id: 141,
     name: '马甲',
-    description: '单层/双层 可选',
+    description: '水蜜桃/复合 可选',
     type: '马甲',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675dc2840506f.jpg',
     tags: ['fuhe', 'shuimitao','majia']
@@ -1580,14 +1580,6 @@ const materialsList = [
     description: '面料细节',
     type: '面料细节',
     thumbnail: 'https://bu.dusays.com/2024/12/15/675e343d99aa0.jpg',
-    tags: ['detail','260zhudi']
-  },
-  {
-    id: 191,
-    name: '260克珠地面料细节',
-    description: '面料细节',
-    type: '面料细节',
-    thumbnail: 'https://bu.dusays.com/2024/12/15/675e343e81152.jpg',
     tags: ['detail','260zhudi']
   },
   //280克斜纹布面料细节 

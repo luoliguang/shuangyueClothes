@@ -96,6 +96,29 @@
         加载更多...
       </div>
     </div>
+
+    <!-- 回到顶部按钮 -->
+    <button
+      v-show="showBackToTop"
+      class="back-to-top"
+      @click="scrollToTop"
+      title="回到顶部"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M12 4l8 8h-6v8h-4v-8H4z" fill="currentColor"/>
+      </svg>
+    </button>
+
+    <!-- 复制成功提示 -->
+    <transition name="fade">
+      <div v-show="showCopySuccess" class="copy-success-toast">
+        <svg class="success-icon" viewBox="0 0 24 24" width="20" height="20">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+        </svg>
+        图片链接复制成功
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -144,7 +167,25 @@ const materials = ref([...props.materialsList]) // 初始化材料数据
 const page = ref(1)
 const hasMore = ref(true)
 const isLoading = ref(false)
-const loadMoreRef = ref(null) // 添加 ref 引用
+const loadMoreRef = ref(null)
+const showCopySuccess = ref(false)
+const pageSize = 6 // 每页显示数量
+
+// 回到顶部功能
+const showBackToTop = ref(false)
+
+// 监听滚动事件
+const handleScroll = () => {
+  showBackToTop.value = window.scrollY > 600
+}
+
+// 滚动到顶部
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
 
 // 处理图片加载错误
 const handleImageError = (event) => {
@@ -153,7 +194,8 @@ const handleImageError = (event) => {
 
 // 过滤后的素材
 const filteredMaterials = computed(() => {
-  return materials.value.filter(material => {
+  // 在所有材料中进行搜索和过滤
+  const allFilteredMaterials = props.materialsList.filter(material => {
     // 搜索过滤：将搜索词按空格分割成数组
     const searchTerms = searchQuery.value
       .toLowerCase()
@@ -186,6 +228,11 @@ const filteredMaterials = computed(() => {
     
     return matchesSearch && matchesTags
   })
+
+  // 根据当前页码返回对应的材料
+  const start = 0
+  const end = page.value * pageSize
+  return allFilteredMaterials.slice(start, end)
 })
 
 // 加载素材
@@ -194,19 +241,48 @@ const loadMaterials = async () => {
   
   isLoading.value = true
   try {
-    const response = await fetchMaterials({
-      page: page.value,
-      search: searchQuery.value,
-      tags: selectedTags.value
+    // 获取所有过滤后的材料
+    const allFilteredMaterials = props.materialsList.filter(material => {
+      const searchTerms = searchQuery.value
+        .toLowerCase()
+        .split(/\s+/)
+        .filter(term => term.length > 0)
+
+      const matchesSearch = searchTerms.length === 0 || searchTerms.every(term => {
+        const materialName = material.name.toLowerCase()
+        const materialDesc = material.description.toLowerCase()
+        const materialTags = material.tags.map(tag => 
+          typeof tag === 'string' ? tag.toLowerCase() : tag.name.toLowerCase()
+        )
+        
+        return materialName.includes(term) ||
+               materialDesc.includes(term) ||
+               materialTags.some(tag => tag.includes(term))
+      })
+
+      const matchesTags = selectedTags.value.length === 0 || 
+        selectedTags.value.every(selectedTag => {
+          if (typeof material.tags[0] === 'object') {
+            return material.tags.some(tag => tag.id === selectedTag)
+          }
+          return material.tags.includes(selectedTag)
+        })
+
+      return matchesSearch && matchesTags
     })
+
+    // 计算是否还有更多数据
+    const start = (page.value - 1) * pageSize
+    const end = page.value * pageSize
+    const paginatedData = allFilteredMaterials.slice(start, end)
     
     if (page.value === 1) {
-      materials.value = response.data
+      materials.value = paginatedData
     } else {
-      materials.value = [...materials.value, ...response.data]
+      materials.value = [...materials.value, ...paginatedData]
     }
     
-    hasMore.value = response.hasMore
+    hasMore.value = end < allFilteredMaterials.length
     if (hasMore.value) {
       page.value++
     }
@@ -316,8 +392,16 @@ const fetchMaterials = async ({ page, search, tags }) => {
 }
 
 // 点击素材
-const handleMaterialClick = (material) => {
-  // 处理素材点击事件，可能打开详情页或预览
+const handleMaterialClick = async (material) => {
+  try {
+    await navigator.clipboard.writeText(material.thumbnail)
+    showCopySuccess.value = true
+    setTimeout(() => {
+      showCopySuccess.value = false
+    }, 2000) // 2秒后自动隐藏
+  } catch (error) {
+    console.error('复制失败:', error)
+  }
 }
 const loadMore = () => {
   loadMaterials()
@@ -346,6 +430,9 @@ onMounted(() => {
 
   // 初始加载
   loadMaterials()
+
+  // 组件挂载时添加滚动监听
+  window.addEventListener('scroll', handleScroll)
 })
 
 // 在组件卸载时清理
@@ -353,6 +440,9 @@ onUnmounted(() => {
   if (observer) {
     observer.disconnect()
   }
+
+  // 组件卸载时移除滚动监听
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 

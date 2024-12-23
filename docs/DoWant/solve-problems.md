@@ -241,3 +241,45 @@ const SwiperSlide = defineAsyncComponent(() => import('swiper/vue').then(m => m.
 2. 新增所有图片[搜索功能](/Examples/all-material.md)
 3. 新增首页按钮
 :::
+
+::: timeline 24-12-23
+### 在`所有素材中`新增回到顶部功能
+1. 在`AllMaterial.vue`中新增`showBackToTop`变量，用于控制回到顶部按钮的显示。
+```javascript
+    <button
+      v-show="showBackToTop"
+      class="back-to-top"
+      @click="scrollToTop"
+      title="回到顶部"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M12 4l8 8h-6v8h-4v-8H4z" fill="currentColor"/>
+      </svg>
+    </button>
+```
+2. 在`AllMaterial.vue`中新增`scrollToTop`方法，用于滚动到顶部。
+```javascript
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+```
+3. 在`AllMaterial.vue`中新增`handleScroll`方法，用于监听滚动事件，并根据滚动位置显示或隐藏回到顶部按钮。
+```javascript
+const handleScroll = () => {
+  showBackToTop.value = window.scrollY > 300
+}
+```
+4. 组件挂载时添加滚动监听
+```javascript
+window.addEventListener('scroll', handleScroll)
+```
+5. 组件卸载时移除滚动监听
+```javascript
+window.removeEventListener('scroll', handleScroll)
+```
+:::
+
