@@ -37,6 +37,7 @@ const materialCategories = [
       { id: 'lilingwei', name: '立领卫衣', count: 34 },
       { id: 'lianmaowei', name: '拉链连帽卫衣', count: 34 },
       { id: 'yuanlingwei', name: '圆领卫衣', count: 34 },
+      { id: 'UKbangqiufu', name: '英式棒球服', count: 5 },
     ]
   },
   {
@@ -53,7 +54,7 @@ const materialCategories = [
 const materialsList = [
   //小方格速干圆领短袖
   {
-    id: 2,
+    id: 1,
     name: '130克小方格速干圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
@@ -61,7 +62,7 @@ const materialsList = [
     tags: ['130xfg', 'Tshirt']
   },
   {
-    id: 3,
+    id: 2,
     name: '130克小方格速干圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
@@ -69,7 +70,7 @@ const materialsList = [
     tags: ['130xfg', 'Tshirt']
   },
   {
-    id: 4,
+    id: 3,
     name: '130克小方格速干圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
@@ -77,7 +78,7 @@ const materialsList = [
     tags: ['130xfg', 'Tshirt']
   },
   {
-    id: 5,
+    id: 4,
     name: '130克小方格速干圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
@@ -86,7 +87,7 @@ const materialsList = [
   },
   //160克平纹布
   {
-    id: 6,
+    id: 5,
     name: '160克平纹布圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
@@ -94,7 +95,7 @@ const materialsList = [
     tags: ['160pingwenbu', 'Tshirt']
   },
   {
-    id: 7,
+    id: 6,
     name: '160克平纹布圆领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '圆领短袖',
@@ -102,7 +103,7 @@ const materialsList = [
     tags: ['160pingwenbu', 'Tshirt']
   },
   {
-    id: 8,
+    id: 7,
     name: '160克平纹布翻领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '翻领短袖',
@@ -111,7 +112,7 @@ const materialsList = [
   },
   //160克速干
   {
-    id: 9,
+    id: 8,
     name: '160克速干翻领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '翻领短袖',
@@ -119,7 +120,7 @@ const materialsList = [
     tags: ['160sugan', 'Polo']
   },
   {
-    id: 10,
+    id: 9,
     name: '160克速干翻领短袖',
     description: '轻薄透气，适合夏季穿着',
     type: '翻领短袖',
@@ -1742,7 +1743,58 @@ const materialsList = [
     thumbnail: 'https://bu.dusays.com/2024/12/15/675e39c3de2f6.jpg',
     tags: ['detail','t400']
   },
+    
+  /*
+
+  新增 
+
+  */
+
+   //英式棒球服
+ {
+  id: 211,
+  name: '英式棒球服',
+  description: '210克速干英式棒球服',
+  type: '棒球服',
+  thumbnail: 'https://bu.dusays.com/2024/12/23/6768e164e467b.jpg',
+  tags: ['UKbangqiufu','210sugan']
+},
+{
+  id: 212,
+  name: '英式棒球服',
+  description: '210克速干英式棒球服',
+  type: '棒球服',
+  thumbnail: 'https://bu.dusays.com/2024/12/23/6768e16496c93.jpg',
+  tags: ['UKbangqiufu','210sugan']
+},
+{
+  id: 213,
+  name: '英式棒球服',
+  description: '210克速干英式棒球服',
+  type: '棒球服',
+  thumbnail: 'https://bu.dusays.com/2024/12/23/6768e164695b4.jpg',
+  tags: ['UKbangqiufu','210sugan']
+},
+{
+  id: 214,
+  name: '英式棒球服',
+  description: '210克速干英式棒球服',
+  type: '棒球服',
+  thumbnail: 'https://bu.dusays.com/2024/12/23/6768e164e467b.jpg',
+  tags: ['UKbangqiufu','210sugan']
+},
+{
+  id: 215,
+  name: '英式棒球服',
+  description: '210克速干英式棒球服',
+  type: '棒球服',
+  thumbnail: 'https://bu.dusays.com/2024/12/23/6768e163e891d.jpg',
+  tags: ['UKbangqiufu','210sugan']
+},
+
 ]
+
+
 
 export {
   materialCategories,
