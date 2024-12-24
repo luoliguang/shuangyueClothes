@@ -75,7 +75,7 @@ export default defineConfig({
 
     footer: {
       message: 'You should love yourself more than others.',
-      copyright: 'copyright©yangYuan Luo. All rights'
+      copyright: 'copyright©Luo Yangyang. All rights'
     },
 
     search: {
@@ -128,6 +128,16 @@ export default defineConfig({
       md.use(timeline);
     },
   },
+
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => [
+          'font'
+        ].includes(tag)
+      }
+    }
+  }
 
 
 
