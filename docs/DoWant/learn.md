@@ -38,7 +38,7 @@
 Promise.resolve().then(fn) 
 ```
 
-## **如何理解 JS 的异步？（浏览器永不阻塞）**
+### **如何理解 JS 的异步？（浏览器永不阻塞）**
 
 - 单线程是异步产生的原因；
 - 事件循环是异步实现的方式；
@@ -49,7 +49,7 @@ JS是一门单线程的语言，这是因为它运行在浏览器的渲染主线
 
 在这种异步模式下，浏览器永不阻塞，从而最大限度的保证了单线程的流畅运行。
 
-## **JS中的计时器能做到精准计时吗？为什么？**
+### **JS中的计时器能做到精准计时吗？为什么？**
 
 **<font color="#02fd6b">不行，因为：</font>**
 
@@ -67,4 +67,88 @@ JS是一门单线程的语言，这是因为它运行在浏览器的渲染主线
 过去把消息对列简单分为宏对列和微对列。这种说法目前已无法满足复杂的浏览器环境，取而代之的是一种更加灵活多变的处理方式。
 
 根据 W3C 官方的解释，每个任务有不同的类型，同类型的任务必须在同一个对列，不同的任务可以属于不同的对列。不同任务对列有不同的优先级，在一次事件循环中，由浏览器自行决定哪一个对列的任务。但浏览器必须有一个微对列，微对列的任务具有最高的优先级，必须优先调度执行。
+
+## 通过Vue3重构API总结笔记
+### 1. 响应式数据(ref)
+- `ref` 是 Vue 3 中用于创建响应式数据的基本方法之一。它将一个普通值包装成一个响应式对象，使得该值的变化能够被 Vue 监听到，并触发视图更新。
+- `ref` 的原理是通过 `Object.defineProperty` 或 `Proxy` 来实现对数据的可观测性。
+- `ref` 返回的对象包含一个 `value` 属性，通过访问和修改 `value` 属性，可以实现对原始值的响应式操作。
+- 在index.md中，将图片获取方式重构为API获取。
+```javascript
+const images = ref([]) // 创建一个响应式数组
+```
+
+### 2. 响应式数据(reactive)
+- `reactive` 是 Vue 3 中用于创建响应式对象的另一种方法。它将一个普通对象转换为响应式对象，使得该对象的所有属性都具有响应性。
+- `reactive` 的原理是通过 `Proxy` 来实现对对象属性的监听和响应。
+- `reactive` 返回的对象是一个响应式代理对象，对代理对象的属性进行操作时，会触发视图更新。
+
+### 3. Props传递
+- 在Vue3中，Props是组件之间传递数据的一种方式。
+- 在组件中，Props可以通过`defineProps`函数来定义，然后在模板中使用。
+- Props的值可以通过父组件传递，也可以通过子组件传递。
+- 在`AllMaterial.vue`中，新增`props`属性，用于接收父组件传递的数据。
+```javascript
+const props = defineProps({
+  images: {
+    type: Array,
+    default: []
+  }
+})
+```
+
+### 4. 事件监听(watch)
+- 在Vue3中，事件监听是通过`@event`语法糖来实现的。
+- 在组件中，事件监听可以通过`@event`语法糖来实现，然后在模板中使用。
+- 事件监听的值可以通过父组件传递，也可以通过子组件传递。
+- 在`AllMaterial.vue`中，新增`@click`事件监听，用于接收父组件传递的数据。
+```javascript
+const handleClick = () => {
+  console.log('点击事件')
+}
+```
+在index.md中，新增`watch`监听，用于监听数据的变化。基本语法如下：
+```javascript
+const watch = (target, callback) => {
+  console.log('监听数据变化')
+}
+```
+当然，`watch`的基本语法，也可以写成
+```javascript
+watch(() => props.imagePaths,(newValue,oldValue) => {
+  //处理新值
+},{ immediate: true }) // immediate: true 表示立即执行
+```
+### 5. 计算属性(computed)
+- 在Vue3中，计算属性是通过`computed`函数来实现的。
+- 在组件中，计算属性可以通过`computed`函数来实现，然后在模板中使用。
+- 计算属性的值可以通过父组件传递，也可以通过子组件传递。
+- 在`AllMaterial.vue`中，新增`computed`属性，用于接收父组件传递的数据。
+
+### 6. 生命周期钩子(onMounted)
+- 在Vue3中，生命周期钩子是通过`onMounted`函数来实现的。
+- 在组件中，生命周期钩子可以通过`onMounted`函数来实现，然后在模板中使用。
+- 生命周期钩子的值可以通过父组件传递，也可以通过子组件传递。
+- `omMounted`: 组件挂载后执行
+- `onUnmounted`: 组件卸载后执行
+- `onUpdated`: 组件更新后执行
+- `onBeforeUpdate`: 组件更新前执行
+- `onBeforeMount`: 组件挂载前执行
+- `onBeforeUnmount`: 组件卸载前执行
+
+### 7. 异步数据获取(asyncData)
+如果一个数据需要变化，那么就需要使用异步数据获取。并且只能在异步函数中使用。
+- async/await 处理异步操作
+- 错误处理使用 try/catch
+- 在`AllMaterial.vue`中，新增`asyncData`属性，用于接收父组件传递的数据。
+```javascript
+const asyncData = async () => {
+  const images = await fetchImages()
+  return { images }
+}
+```
+### 8. 组件通信模式
+- 父组件负责数据获取和管理
+- 子组件通过 `props` 接收数据
+- 使用本地`ref`配合`watch`处理props的变化
 

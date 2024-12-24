@@ -283,3 +283,6 @@ window.removeEventListener('scroll', handleScroll)
 ```
 :::
 
+::: timeline 24-12-24
+### 将图片获取方式重构为API获取
+:::
