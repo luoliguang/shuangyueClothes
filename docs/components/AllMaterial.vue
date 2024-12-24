@@ -128,7 +128,7 @@ import { useDebounceFn } from '@vueuse/core'
 
 // 定义 props
 const props = defineProps({
-  categories: {
+      categories: {
     type: Array,
     required: true,
     validator: (value) => {
@@ -390,6 +390,7 @@ const fetchMaterials = async ({ page, search, tags }) => {
     hasMore: end < filteredData.length
   }
 }
+
 
 // 点击素材
 const handleMaterialClick = async (material) => {
