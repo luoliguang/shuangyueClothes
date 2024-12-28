@@ -3,12 +3,7 @@ import {
   toValue,
   tryOnScopeDispose,
   unrefElement
-} from "./chunk-YJ6QP2VR.js";
-import {
-  computed,
-  ref,
-  watch
-} from "./chunk-LW4I4DCF.js";
+} from "./chunk-CEV3VWJF.js";
 import "./chunk-PZ5AY32C.js";
 
 // node_modules/tabbable/dist/index.esm.js
@@ -1043,6 +1038,7 @@ var createFocusTrap = function createFocusTrap2(elements, userOptions) {
 };
 
 // node_modules/@vueuse/integrations/useFocusTrap.mjs
+import { ref, computed, watch } from "vue-demi";
 function useFocusTrap(target, options = {}) {
   let trap;
   const { immediate, ...focusTrapOptions } = options;

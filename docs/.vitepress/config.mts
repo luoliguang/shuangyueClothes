@@ -147,36 +147,22 @@ export default defineConfig({
   vite: {
     server: {
       proxy: {
-        '/image-proxy': {
+        '^/image-proxy/.*': {
           target: 'https://bu.dusays.com',
           changeOrigin: true,
+          secure: false,
           rewrite: (path) => {
-            // 移除 /image-proxy 前缀，保留完整的后续路径
-            const newPath = path.replace(/^\/image-proxy\/?/, '')
-            console.log('Rewriting path:', path, 'to:', newPath)
-            return newPath
+            return path.replace(/^\/image-proxy/, '')
           },
-          configure: (proxy, options) => {
-            proxy.on('error', (err, req, res) => {
-              console.error('Proxy error:', err, req.url)
-              // 处理代理错误
-              res.writeHead(500, {
-                'Content-Type': 'text/plain'
-              })
-              res.end('Proxy Error: Cannot connect to target server')
-            });
-            proxy.on('proxyReq', (proxyReq, req, res) => {
-              console.log('Proxying request:', req.url, 'to:', proxyReq.path)
-              // 添加必要的请求头
-              proxyReq.setHeader('Accept', 'image/*')
-              proxyReq.setHeader('User-Agent', 'Mozilla/5.0')
-            });
-            proxy.on('proxyRes', (proxyRes, req, res) => {
-              console.log('Received response:', proxyRes.statusCode, req.url)
-            });
+          headers: {
+            'Referer': 'https://bu.dusays.com',
+            'Origin': 'https://bu.dusays.com'
           }
         }
       }
+    },
+    optimizeDeps: {
+      exclude: ['vue-demi']
     }
   }
 

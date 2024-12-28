@@ -1,62 +1,5 @@
-import {
-  Fragment,
-  TransitionGroup,
-  computed,
-  customRef,
-  defineComponent,
-  effectScope,
-  getCurrentInstance,
-  getCurrentScope,
-  h,
-  inject,
-  isReactive,
-  isReadonly,
-  isRef,
-  markRaw,
-  nextTick,
-  onBeforeMount,
-  onBeforeUnmount,
-  onBeforeUpdate,
-  onMounted,
-  onScopeDispose,
-  onUnmounted,
-  onUpdated,
-  provide,
-  reactive,
-  readonly,
-  ref,
-  shallowReactive,
-  shallowRef,
-  toRaw,
-  toRef,
-  toRefs,
-  unref,
-  version,
-  watch,
-  watchEffect
-} from "./chunk-LW4I4DCF.js";
-
-// node_modules/vitepress/lib/vue-demi.mjs
-var isVue2 = false;
-var isVue3 = true;
-function set(target, key, val) {
-  if (Array.isArray(target)) {
-    target.length = Math.max(target.length, key);
-    target.splice(key, 1, val);
-    return val;
-  }
-  target[key] = val;
-  return val;
-}
-function del(target, key) {
-  if (Array.isArray(target)) {
-    target.splice(key, 1);
-    return;
-  }
-  delete target[key];
-}
-
 // node_modules/@vueuse/shared/index.mjs
+import { shallowRef, watchEffect, readonly, ref, watch, customRef, getCurrentScope, onScopeDispose, effectScope, getCurrentInstance, inject, provide, isVue3, version, isRef, unref, computed, reactive, toRefs as toRefs$1, toRef as toRef$1, isVue2, set as set$1, onBeforeMount, nextTick, onBeforeUnmount, onMounted, onUnmounted, isReactive } from "vue-demi";
 function computedEager(fn, options) {
   var _a;
   const result = shallowRef();
@@ -197,7 +140,7 @@ function createSharedComposable(composable) {
     return state;
   };
 }
-function extendRef(ref2, extend, { enumerable = false, unwrap = true } = {}) {
+function extendRef(ref3, extend, { enumerable = false, unwrap = true } = {}) {
   if (!isVue3 && !version.startsWith("2.7.")) {
     if (true)
       throw new Error("[VueUse] extendRef only works in Vue 2.7 or above.");
@@ -207,7 +150,7 @@ function extendRef(ref2, extend, { enumerable = false, unwrap = true } = {}) {
     if (key === "value")
       continue;
     if (isRef(value) && unwrap) {
-      Object.defineProperty(ref2, key, {
+      Object.defineProperty(ref3, key, {
         get() {
           return value.value;
         },
@@ -217,10 +160,10 @@ function extendRef(ref2, extend, { enumerable = false, unwrap = true } = {}) {
         enumerable
       });
     } else {
-      Object.defineProperty(ref2, key, { value, enumerable });
+      Object.defineProperty(ref3, key, { value, enumerable });
     }
   }
-  return ref2;
+  return ref3;
 }
 function get(obj, key) {
   if (key == null)
@@ -320,7 +263,7 @@ function reactiveComputed(fn) {
 function reactiveOmit(obj, ...keys2) {
   const flatKeys = keys2.flat();
   const predicate = flatKeys[0];
-  return reactiveComputed(() => typeof predicate === "function" ? Object.fromEntries(Object.entries(toRefs(obj)).filter(([k, v]) => !predicate(toValue(v), k))) : Object.fromEntries(Object.entries(toRefs(obj)).filter((e) => !flatKeys.includes(e[0]))));
+  return reactiveComputed(() => typeof predicate === "function" ? Object.fromEntries(Object.entries(toRefs$1(obj)).filter(([k, v]) => !predicate(toValue(v), k))) : Object.fromEntries(Object.entries(toRefs$1(obj)).filter((e) => !flatKeys.includes(e[0]))));
 }
 var directiveHooks = {
   mounted: isVue3 ? "mounted" : "inserted",
@@ -549,17 +492,17 @@ function objectEntries(obj) {
 function getLifeCycleTarget(target) {
   return target || getCurrentInstance();
 }
-function toRef2(...args) {
+function toRef(...args) {
   if (args.length !== 1)
-    return toRef(...args);
+    return toRef$1(...args);
   const r = args[0];
   return typeof r === "function" ? readonly(customRef(() => ({ get: r, set: noop }))) : ref(r);
 }
-var resolveRef = toRef2;
+var resolveRef = toRef;
 function reactivePick(obj, ...keys2) {
   const flatKeys = keys2.flat();
   const predicate = flatKeys[0];
-  return reactiveComputed(() => typeof predicate === "function" ? Object.fromEntries(Object.entries(toRefs(obj)).filter(([k, v]) => predicate(toValue(v), k))) : Object.fromEntries(flatKeys.map((k) => [k, toRef2(obj, k)])));
+  return reactiveComputed(() => typeof predicate === "function" ? Object.fromEntries(Object.entries(toRefs$1(obj)).filter(([k, v]) => predicate(toValue(v), k))) : Object.fromEntries(flatKeys.map((k) => [k, toRef(obj, k)])));
 }
 function refAutoReset(defaultValue, afterMs = 1e4) {
   return customRef((track, trigger) => {
@@ -631,7 +574,7 @@ function refWithControl(initial, options = {}) {
   let source = initial;
   let track;
   let trigger;
-  const ref2 = customRef((_track, _trigger) => {
+  const ref3 = customRef((_track, _trigger) => {
     track = _track;
     trigger = _trigger;
     return {
@@ -665,7 +608,7 @@ function refWithControl(initial, options = {}) {
   const peek = () => get2(false);
   const lay = (v) => set3(v, false);
   return extendRef(
-    ref2,
+    ref3,
     {
       get: get2,
       set: set3,
@@ -678,14 +621,14 @@ function refWithControl(initial, options = {}) {
   );
 }
 var controlledRef = refWithControl;
-function set2(...args) {
+function set(...args) {
   if (args.length === 2) {
-    const [ref2, value] = args;
-    ref2.value = value;
+    const [ref3, value] = args;
+    ref3.value = value;
   }
   if (args.length === 3) {
     if (isVue2) {
-      set(...args);
+      set$1(...args);
     } else {
       const [target, key, value] = args;
       target[key] = value;
@@ -774,9 +717,9 @@ function syncRefs(source, targets, options = {}) {
     { flush, deep, immediate }
   );
 }
-function toRefs2(objectRef, options = {}) {
+function toRefs(objectRef, options = {}) {
   if (!isRef(objectRef))
-    return toRefs(objectRef);
+    return toRefs$1(objectRef);
   const result = Array.isArray(objectRef.value) ? Array.from({ length: objectRef.value.length }) : {};
   for (const key in objectRef.value) {
     result[key] = customRef(() => ({
@@ -1561,9 +1504,10 @@ function whenever(source, cb, options) {
 }
 
 // node_modules/@vueuse/core/index.mjs
+import { isRef as isRef2, ref as ref2, shallowRef as shallowRef2, watchEffect as watchEffect2, computed as computed2, inject as inject2, isVue3 as isVue32, version as version2, defineComponent, h, TransitionGroup, shallowReactive, Fragment, watch as watch2, getCurrentInstance as getCurrentInstance2, customRef as customRef2, onUpdated, onMounted as onMounted2, isVue2 as isVue22, readonly as readonly2, reactive as reactive2, toRaw, nextTick as nextTick2, markRaw, unref as unref2, getCurrentScope as getCurrentScope2, set as set2, del, isReadonly, onBeforeUpdate } from "vue-demi";
 function computedAsync(evaluationCallback, initialState, optionsOrRef) {
   let options;
-  if (isRef(optionsOrRef)) {
+  if (isRef2(optionsOrRef)) {
     options = {
       evaluating: optionsOrRef
     };
@@ -1576,10 +1520,10 @@ function computedAsync(evaluationCallback, initialState, optionsOrRef) {
     shallow = true,
     onError = noop
   } = options;
-  const started = ref(!lazy);
-  const current = shallow ? shallowRef(initialState) : ref(initialState);
+  const started = ref2(!lazy);
+  const current = shallow ? shallowRef2(initialState) : ref2(initialState);
   let counter = 0;
-  watchEffect(async (onInvalidate) => {
+  watchEffect2(async (onInvalidate) => {
     if (!started.value)
       return;
     counter++;
@@ -1610,7 +1554,7 @@ function computedAsync(evaluationCallback, initialState, optionsOrRef) {
     }
   });
   if (lazy) {
-    return computed(() => {
+    return computed2(() => {
       started.value = true;
       return current.value;
     });
@@ -1619,22 +1563,22 @@ function computedAsync(evaluationCallback, initialState, optionsOrRef) {
   }
 }
 function computedInject(key, options, defaultSource, treatDefaultAsFactory) {
-  let source = inject(key);
+  let source = inject2(key);
   if (defaultSource)
-    source = inject(key, defaultSource);
+    source = inject2(key, defaultSource);
   if (treatDefaultAsFactory)
-    source = inject(key, defaultSource, treatDefaultAsFactory);
+    source = inject2(key, defaultSource, treatDefaultAsFactory);
   if (typeof options === "function") {
-    return computed((ctx) => options(source, ctx));
+    return computed2((ctx) => options(source, ctx));
   } else {
-    return computed({
+    return computed2({
       get: (ctx) => options.get(source, ctx),
       set: options.set
     });
   }
 }
 function createReusableTemplate(options = {}) {
-  if (!isVue3 && !version.startsWith("2.7.")) {
+  if (!isVue32 && !version2.startsWith("2.7.")) {
     if (true)
       throw new Error("[VueUse] createReusableTemplate only works in Vue 2.7 or above.");
     return;
@@ -1642,7 +1586,7 @@ function createReusableTemplate(options = {}) {
   const {
     inheritAttrs = true
   } = options;
-  const render = shallowRef();
+  const render = shallowRef2();
   const define = defineComponent({
     setup(_, { slots }) {
       return () => {
@@ -1674,13 +1618,13 @@ function keysToCamelKebabCase(obj) {
   return newObj;
 }
 function createTemplatePromise(options = {}) {
-  if (!isVue3) {
+  if (!isVue32) {
     if (true)
       throw new Error("[VueUse] createTemplatePromise only works in Vue 3 or above.");
     return;
   }
   let index = 0;
-  const instances = ref([]);
+  const instances = ref2([]);
   function create(...args) {
     const props = shallowReactive({
       key: index++,
@@ -1765,7 +1709,7 @@ function useEventListener(...args) {
     el.addEventListener(event, listener, options2);
     return () => el.removeEventListener(event, listener, options2);
   };
-  const stopWatch = watch(
+  const stopWatch = watch2(
     () => [unrefElement(target), toValue(options)],
     ([el, options2]) => {
       cleanup();
@@ -1921,7 +1865,7 @@ var DEFAULT_DELAY = 500;
 var DEFAULT_THRESHOLD = 10;
 function onLongPress(target, handler, options) {
   var _a, _b;
-  const elementRef = computed(() => unrefElement(target));
+  const elementRef = computed2(() => unrefElement(target));
   let timeout;
   let posStart;
   let startTimestamp;
@@ -2042,10 +1986,10 @@ function onStartTyping(callback, options = {}) {
     useEventListener(document2, "keydown", keydown, { passive: true });
 }
 function templateRef(key, initialValue = null) {
-  const instance = getCurrentInstance();
+  const instance = getCurrentInstance2();
   let _trigger = () => {
   };
-  const element = customRef((track, trigger) => {
+  const element = customRef2((track, trigger) => {
     _trigger = trigger;
     return {
       get() {
@@ -2062,18 +2006,18 @@ function templateRef(key, initialValue = null) {
   return element;
 }
 function useMounted() {
-  const isMounted = ref(false);
-  const instance = getCurrentInstance();
+  const isMounted = ref2(false);
+  const instance = getCurrentInstance2();
   if (instance) {
-    onMounted(() => {
+    onMounted2(() => {
       isMounted.value = true;
-    }, isVue2 ? void 0 : instance);
+    }, isVue22 ? void 0 : instance);
   }
   return isMounted;
 }
 function useSupported(callback) {
   const isMounted = useMounted();
-  return computed(() => {
+  return computed2(() => {
     isMounted.value;
     return Boolean(callback());
   });
@@ -2088,12 +2032,12 @@ function useMutationObserver(target, callback, options = {}) {
       observer = void 0;
     }
   };
-  const targets = computed(() => {
+  const targets = computed2(() => {
     const value = toValue(target);
     const items = (Array.isArray(value) ? value : [value]).map(unrefElement).filter(notNullish);
     return new Set(items);
   });
-  const stopWatch = watch(
+  const stopWatch = watch2(
     () => targets.value,
     (targets2) => {
       cleanup();
@@ -2135,7 +2079,7 @@ function useActiveElement(options = {}) {
     }
     return element;
   };
-  const activeElement = ref();
+  const activeElement = ref2();
   const trigger = () => {
     activeElement.value = getDeepActiveElement();
   };
@@ -2167,7 +2111,7 @@ function useRafFn(fn, options = {}) {
     fpsLimit = void 0,
     window: window2 = defaultWindow
   } = options;
-  const isActive = ref(false);
+  const isActive = ref2(false);
   const intervalLimit = fpsLimit ? 1e3 / fpsLimit : null;
   let previousFrameTimestamp = 0;
   let rafId = null;
@@ -2203,7 +2147,7 @@ function useRafFn(fn, options = {}) {
     resume();
   tryOnScopeDispose(pause);
   return {
-    isActive: readonly(isActive),
+    isActive: readonly2(isActive),
     pause,
     resume
   };
@@ -2230,7 +2174,7 @@ function useAnimate(target, keyframes, options) {
     }
   } = config;
   const isSupported = useSupported(() => window2 && HTMLElement && "animate" in HTMLElement.prototype);
-  const animate = shallowRef(void 0);
+  const animate = shallowRef2(void 0);
   const store = shallowReactive({
     startTime: null,
     currentTime: null,
@@ -2240,10 +2184,10 @@ function useAnimate(target, keyframes, options) {
     playState: immediate ? "idle" : "paused",
     replaceState: "active"
   });
-  const pending = computed(() => store.pending);
-  const playState = computed(() => store.playState);
-  const replaceState = computed(() => store.replaceState);
-  const startTime = computed({
+  const pending = computed2(() => store.pending);
+  const playState = computed2(() => store.playState);
+  const replaceState = computed2(() => store.replaceState);
+  const startTime = computed2({
     get() {
       return store.startTime;
     },
@@ -2253,7 +2197,7 @@ function useAnimate(target, keyframes, options) {
         animate.value.startTime = value;
     }
   });
-  const currentTime = computed({
+  const currentTime = computed2({
     get() {
       return store.currentTime;
     },
@@ -2265,7 +2209,7 @@ function useAnimate(target, keyframes, options) {
       }
     }
   });
-  const timeline = computed({
+  const timeline = computed2({
     get() {
       return store.timeline;
     },
@@ -2275,7 +2219,7 @@ function useAnimate(target, keyframes, options) {
         animate.value.timeline = value;
     }
   });
-  const playbackRate = computed({
+  const playbackRate = computed2({
     get() {
       return store.playbackRate;
     },
@@ -2337,11 +2281,11 @@ function useAnimate(target, keyframes, options) {
       onError(e);
     }
   };
-  watch(() => unrefElement(target), (el) => {
+  watch2(() => unrefElement(target), (el) => {
     if (el)
       update();
   });
-  watch(() => keyframes, (value) => {
+  watch2(() => keyframes, (value) => {
     if (animate.value)
       update();
     if (!unrefElement(target) && animate.value) {
@@ -2428,8 +2372,8 @@ function useAsyncQueue(tasks, options) {
     rejected: "rejected"
   };
   const initialResult = Array.from(Array.from({ length: tasks.length }), () => ({ state: promiseState.pending, data: null }));
-  const result = reactive(initialResult);
-  const activeIndex = ref(-1);
+  const result = reactive2(initialResult);
+  const activeIndex = ref2(-1);
   if (!tasks || tasks.length === 0) {
     onFinished();
     return {
@@ -2496,10 +2440,10 @@ function useAsyncState(promise, initialState, options) {
     shallow = true,
     throwError
   } = options != null ? options : {};
-  const state = shallow ? shallowRef(initialState) : ref(initialState);
-  const isReady = ref(false);
-  const isLoading = ref(false);
-  const error = shallowRef(void 0);
+  const state = shallow ? shallowRef2(initialState) : ref2(initialState);
+  const isReady = ref2(false);
+  const isLoading = ref2(false);
+  const error = shallowRef2(void 0);
   async function execute(delay2 = 0, ...args) {
     if (resetOnExecute)
       state.value = initialState;
@@ -2565,8 +2509,8 @@ function getDefaultSerialization(target) {
     return defaults.object;
 }
 function useBase64(target, options) {
-  const base64 = ref("");
-  const promise = ref();
+  const base64 = ref2("");
+  const promise = ref2();
   function execute() {
     if (!isClient)
       return;
@@ -2608,8 +2552,8 @@ function useBase64(target, options) {
     promise.value.then((res) => base64.value = res);
     return promise.value;
   }
-  if (isRef(target) || typeof target === "function")
-    watch(target, execute, { immediate: true });
+  if (isRef2(target) || typeof target === "function")
+    watch2(target, execute, { immediate: true });
   else
     execute();
   return {
@@ -2644,10 +2588,10 @@ function useBattery(options = {}) {
   const { navigator = defaultNavigator } = options;
   const events2 = ["chargingchange", "chargingtimechange", "dischargingtimechange", "levelchange"];
   const isSupported = useSupported(() => navigator && "getBattery" in navigator && typeof navigator.getBattery === "function");
-  const charging = ref(false);
-  const chargingTime = ref(0);
-  const dischargingTime = ref(0);
-  const level = ref(1);
+  const charging = ref2(false);
+  const chargingTime = ref2(0);
+  const dischargingTime = ref2(0);
+  const level = ref2(1);
   let battery;
   function updateBatteryInfo() {
     charging.value = this.charging;
@@ -2680,9 +2624,9 @@ function useBluetooth(options) {
     navigator = defaultNavigator
   } = options || {};
   const isSupported = useSupported(() => navigator && "bluetooth" in navigator);
-  const device = shallowRef(void 0);
-  const error = shallowRef(null);
-  watch(device, () => {
+  const device = shallowRef2(void 0);
+  const error = shallowRef2(null);
+  watch2(device, () => {
     connectToBluetoothGATTServer();
   });
   async function requestDevice() {
@@ -2701,8 +2645,8 @@ function useBluetooth(options) {
       error.value = err;
     }
   }
-  const server = ref();
-  const isConnected = computed(() => {
+  const server = ref2();
+  const isConnected = computed2(() => {
     var _a;
     return ((_a = server.value) == null ? void 0 : _a.connected) || false;
   });
@@ -2744,7 +2688,7 @@ function useMediaQuery(query, options = {}) {
   const { window: window2 = defaultWindow } = options;
   const isSupported = useSupported(() => window2 && "matchMedia" in window2 && typeof window2.matchMedia === "function");
   let mediaQuery;
-  const matches = ref(false);
+  const matches = ref2(false);
   const handler = (event) => {
     matches.value = event.matches;
   };
@@ -2756,7 +2700,7 @@ function useMediaQuery(query, options = {}) {
     else
       mediaQuery.removeListener(handler);
   };
-  const stopWatch = watchEffect(() => {
+  const stopWatch = watchEffect2(() => {
     if (!isSupported.value)
       return;
     cleanup();
@@ -2885,7 +2829,7 @@ function useBreakpoints(breakpoints, options = {}) {
   }, {});
   function current() {
     const points = Object.keys(breakpoints).map((i) => [i, greaterOrEqual(i)]);
-    return computed(() => points.filter(([, v]) => v.value).map(([k]) => k));
+    return computed2(() => points.filter(([, v]) => v.value).map(([k]) => k));
   }
   return Object.assign(shortcutMethods, {
     greaterOrEqual,
@@ -2917,7 +2861,7 @@ function useBreakpoints(breakpoints, options = {}) {
     current,
     active() {
       const bps = current();
-      return computed(() => bps.value.length === 0 ? "" : bps.value.at(-1));
+      return computed2(() => bps.value.length === 0 ? "" : bps.value.at(-1));
     }
   });
 }
@@ -2927,10 +2871,10 @@ function useBroadcastChannel(options) {
     window: window2 = defaultWindow
   } = options;
   const isSupported = useSupported(() => window2 && "BroadcastChannel" in window2);
-  const isClosed = ref(false);
-  const channel = ref();
-  const data = ref();
-  const error = shallowRef(null);
+  const isClosed = ref2(false);
+  const channel = ref2();
+  const data = ref2();
+  const error = shallowRef2(null);
   const post = (data2) => {
     if (channel.value)
       channel.value.postMessage(data2);
@@ -2981,10 +2925,10 @@ var WRITABLE_PROPERTIES = [
 function useBrowserLocation(options = {}) {
   const { window: window2 = defaultWindow } = options;
   const refs = Object.fromEntries(
-    WRITABLE_PROPERTIES.map((key) => [key, ref()])
+    WRITABLE_PROPERTIES.map((key) => [key, ref2()])
   );
-  for (const [key, ref2] of objectEntries(refs)) {
-    watch(ref2, (value) => {
+  for (const [key, ref22] of objectEntries(refs)) {
+    watch2(ref22, (value) => {
       if (!(window2 == null ? void 0 : window2.location) || window2.location[key] === value)
         return;
       window2.location[key] = value;
@@ -2996,7 +2940,7 @@ function useBrowserLocation(options = {}) {
     const { origin } = (window2 == null ? void 0 : window2.location) || {};
     for (const key of WRITABLE_PROPERTIES)
       refs[key].value = (_a = window2 == null ? void 0 : window2.location) == null ? void 0 : _a[key];
-    return reactive({
+    return reactive2({
       trigger,
       state: state2,
       length,
@@ -3004,7 +2948,7 @@ function useBrowserLocation(options = {}) {
       ...refs
     });
   };
-  const state = ref(buildState("load"));
+  const state = ref2(buildState("load"));
   if (window2) {
     useEventListener(window2, "popstate", () => state.value = buildState("popstate"), { passive: true });
     useEventListener(window2, "hashchange", () => state.value = buildState("hashchange"), { passive: true });
@@ -3012,8 +2956,8 @@ function useBrowserLocation(options = {}) {
   return state;
 }
 function useCached(refValue, comparator = (a, b) => a === b, watchOptions) {
-  const cachedValue = ref(refValue.value);
-  watch(() => refValue.value, (value) => {
+  const cachedValue = ref2(refValue.value);
+  watch2(() => refValue.value, (value) => {
     if (!comparator(value, cachedValue.value))
       cachedValue.value = value;
   }, watchOptions);
@@ -3025,9 +2969,9 @@ function usePermission(permissionDesc, options = {}) {
     navigator = defaultNavigator
   } = options;
   const isSupported = useSupported(() => navigator && "permissions" in navigator);
-  const permissionStatus = shallowRef();
+  const permissionStatus = shallowRef2();
   const desc = typeof permissionDesc === "string" ? { name: permissionDesc } : permissionDesc;
-  const state = shallowRef();
+  const state = shallowRef2();
   const update = () => {
     var _a, _b;
     state.value = (_b = (_a = permissionStatus.value) == null ? void 0 : _a.state) != null ? _b : "prompt";
@@ -3070,9 +3014,9 @@ function useClipboard(options = {}) {
   const isClipboardApiSupported = useSupported(() => navigator && "clipboard" in navigator);
   const permissionRead = usePermission("clipboard-read");
   const permissionWrite = usePermission("clipboard-write");
-  const isSupported = computed(() => isClipboardApiSupported.value || legacy);
-  const text = ref("");
-  const copied = ref(false);
+  const isSupported = computed2(() => isClipboardApiSupported.value || legacy);
+  const text = ref2("");
+  const copied = ref2(false);
   const timeout = useTimeoutFn(() => copied.value = false, copiedDuring);
   function updateText() {
     if (isClipboardApiSupported.value && isAllowed(permissionRead.value)) {
@@ -3128,8 +3072,8 @@ function useClipboardItems(options = {}) {
     copiedDuring = 1500
   } = options;
   const isSupported = useSupported(() => navigator && "clipboard" in navigator);
-  const content = ref([]);
-  const copied = ref(false);
+  const content = ref2([]);
+  const copied = ref2(false);
   const timeout = useTimeoutFn(() => copied.value = false, copiedDuring);
   function updateContent() {
     if (isSupported.value) {
@@ -3159,7 +3103,7 @@ function cloneFnJSON(source) {
   return JSON.parse(JSON.stringify(source));
 }
 function useCloned(source, options = {}) {
-  const cloned = ref({});
+  const cloned = ref2({});
   const {
     manual,
     clone = cloneFnJSON,
@@ -3170,8 +3114,8 @@ function useCloned(source, options = {}) {
   function sync() {
     cloned.value = clone(toValue(source));
   }
-  if (!manual && (isRef(source) || typeof source === "function")) {
-    watch(source, sync, {
+  if (!manual && (isRef2(source) || typeof source === "function")) {
+    watch2(source, sync, {
       ...options,
       deep,
       immediate
@@ -3252,7 +3196,7 @@ function useStorage(key, defaults2, storage, options = {}) {
     },
     initOnMounted
   } = options;
-  const data = (shallow ? shallowRef : ref)(typeof defaults2 === "function" ? defaults2() : defaults2);
+  const data = (shallow ? shallowRef2 : ref2)(typeof defaults2 === "function" ? defaults2() : defaults2);
   if (!storage) {
     try {
       storage = getSSRHandler("getDefaultStorage", () => {
@@ -3351,7 +3295,7 @@ function useStorage(key, defaults2, storage, options = {}) {
       onError(e);
     } finally {
       if (event)
-        nextTick(resumeWatch);
+        nextTick2(resumeWatch);
       else
         resumeWatch();
     }
@@ -3382,9 +3326,9 @@ function useColorMode(options = {}) {
     ...options.modes || {}
   };
   const preferredDark = usePreferredDark({ window: window2 });
-  const system = computed(() => preferredDark.value ? "dark" : "light");
-  const store = storageRef || (storageKey == null ? toRef2(initialValue) : useStorage(storageKey, initialValue, storage, { window: window2, listenToStorageChanges }));
-  const state = computed(() => store.value === "auto" ? system.value : store.value);
+  const system = computed2(() => preferredDark.value ? "dark" : "light");
+  const store = storageRef || (storageKey == null ? toRef(initialValue) : useStorage(storageKey, initialValue, storage, { window: window2, listenToStorageChanges }));
+  const state = computed2(() => store.value === "auto" ? system.value : store.value);
   const updateHTMLAttrs = getSSRHandler(
     "updateHTMLAttrs",
     (selector2, attribute2, value) => {
@@ -3438,9 +3382,9 @@ function useColorMode(options = {}) {
     else
       defaultOnChanged(mode);
   }
-  watch(state, onChanged, { flush: "post", immediate: true });
+  watch2(state, onChanged, { flush: "post", immediate: true });
   tryOnMounted(() => onChanged(state.value));
-  const auto = computed({
+  const auto = computed2({
     get() {
       return emitAuto ? store.value : state.value;
     },
@@ -3454,7 +3398,7 @@ function useColorMode(options = {}) {
     return auto;
   }
 }
-function useConfirmDialog(revealed = ref(false)) {
+function useConfirmDialog(revealed = ref2(false)) {
   const confirmHook = createEventHook();
   const cancelHook = createEventHook();
   const revealHook = createEventHook();
@@ -3477,7 +3421,7 @@ function useConfirmDialog(revealed = ref(false)) {
     _resolve({ data, isCanceled: true });
   };
   return {
-    isRevealed: computed(() => revealed.value),
+    isRevealed: computed2(() => revealed.value),
     reveal,
     confirm,
     cancel,
@@ -3488,8 +3432,8 @@ function useConfirmDialog(revealed = ref(false)) {
 }
 function useCssVar(prop, target, options = {}) {
   const { window: window2 = defaultWindow, initialValue, observe = false } = options;
-  const variable = ref(initialValue);
-  const elRef = computed(() => {
+  const variable = ref2(initialValue);
+  const elRef = computed2(() => {
     var _a;
     return unrefElement(target) || ((_a = window2 == null ? void 0 : window2.document) == null ? void 0 : _a.documentElement);
   });
@@ -3508,7 +3452,7 @@ function useCssVar(prop, target, options = {}) {
       window: window2
     });
   }
-  watch(
+  watch2(
     [elRef, () => toValue(prop)],
     (_, old) => {
       if (old[0] && old[1])
@@ -3517,7 +3461,7 @@ function useCssVar(prop, target, options = {}) {
     },
     { immediate: true }
   );
-  watch(
+  watch2(
     variable,
     (val) => {
       var _a;
@@ -3533,19 +3477,19 @@ function useCssVar(prop, target, options = {}) {
   return variable;
 }
 function useCurrentElement(rootComponent) {
-  const vm = getCurrentInstance();
+  const vm = getCurrentInstance2();
   const currentElement = computedWithControl(
     () => null,
     () => rootComponent ? unrefElement(rootComponent) : vm.proxy.$el
   );
   onUpdated(currentElement.trigger);
-  onMounted(currentElement.trigger);
+  onMounted2(currentElement.trigger);
   return currentElement;
 }
 function useCycleList(list, options) {
-  const state = shallowRef(getInitialValue());
-  const listRef = toRef2(list);
-  const index = computed({
+  const state = shallowRef2(getInitialValue());
+  const listRef = toRef(list);
+  const index = computed2({
     get() {
       var _a;
       const targetList = listRef.value;
@@ -3579,7 +3523,7 @@ function useCycleList(list, options) {
     var _a, _b;
     return (_b = toValue((_a = options == null ? void 0 : options.initialValue) != null ? _a : toValue(list)[0])) != null ? _b : void 0;
   }
-  watch(listRef, () => set3(index.value));
+  watch2(listRef, () => set3(index.value));
   return {
     state,
     index,
@@ -3608,7 +3552,7 @@ function useDark(options = {}) {
       light: valueLight
     }
   });
-  const system = computed(() => {
+  const system = computed2(() => {
     if (mode.system) {
       return mode.system.value;
     } else {
@@ -3616,7 +3560,7 @@ function useDark(options = {}) {
       return preferredDark.value ? "dark" : "light";
     }
   });
-  const isDark = computed({
+  const isDark = computed2({
     get() {
       return mode.value === "dark";
     },
@@ -3655,9 +3599,9 @@ function useManualRefHistory(source, options = {}) {
       timestamp: timestamp()
     });
   }
-  const last = ref(_createHistoryRecord());
-  const undoStack = ref([]);
-  const redoStack = ref([]);
+  const last = ref2(_createHistoryRecord());
+  const undoStack = ref2([]);
+  const redoStack = ref2([]);
   const _setSource = (record) => {
     setSource(source, parse(record.snapshot));
     last.value = record;
@@ -3691,9 +3635,9 @@ function useManualRefHistory(source, options = {}) {
   const reset = () => {
     _setSource(last.value);
   };
-  const history = computed(() => [last.value, ...undoStack.value]);
-  const canUndo = computed(() => undoStack.value.length > 0);
-  const canRedo = computed(() => redoStack.value.length > 0);
+  const history = computed2(() => [last.value, ...undoStack.value]);
+  const canUndo = computed2(() => undoStack.value.length > 0);
+  const canRedo = computed2(() => redoStack.value.length > 0);
   return {
     source,
     undoStack,
@@ -3782,10 +3726,10 @@ function useDeviceMotion(options = {}) {
     window: window2 = defaultWindow,
     eventFilter = bypassFilter
   } = options;
-  const acceleration = ref({ x: null, y: null, z: null });
-  const rotationRate = ref({ alpha: null, beta: null, gamma: null });
-  const interval = ref(0);
-  const accelerationIncludingGravity = ref({
+  const acceleration = ref2({ x: null, y: null, z: null });
+  const rotationRate = ref2({ alpha: null, beta: null, gamma: null });
+  const interval = ref2(0);
+  const accelerationIncludingGravity = ref2({
     x: null,
     y: null,
     z: null
@@ -3812,10 +3756,10 @@ function useDeviceMotion(options = {}) {
 function useDeviceOrientation(options = {}) {
   const { window: window2 = defaultWindow } = options;
   const isSupported = useSupported(() => window2 && "DeviceOrientationEvent" in window2);
-  const isAbsolute = ref(false);
-  const alpha = ref(null);
-  const beta = ref(null);
-  const gamma = ref(null);
+  const isAbsolute = ref2(false);
+  const alpha = ref2(null);
+  const beta = ref2(null);
+  const gamma = ref2(null);
   if (window2 && isSupported.value) {
     useEventListener(window2, "deviceorientation", (event) => {
       isAbsolute.value = event.absolute;
@@ -3836,7 +3780,7 @@ function useDevicePixelRatio(options = {}) {
   const {
     window: window2 = defaultWindow
   } = options;
-  const pixelRatio = ref(1);
+  const pixelRatio = ref2(1);
   if (window2) {
     let observe2 = function() {
       pixelRatio.value = window2.devicePixelRatio;
@@ -3859,12 +3803,12 @@ function useDevicesList(options = {}) {
     constraints = { audio: true, video: true },
     onUpdated: onUpdated2
   } = options;
-  const devices = ref([]);
-  const videoInputs = computed(() => devices.value.filter((i) => i.kind === "videoinput"));
-  const audioInputs = computed(() => devices.value.filter((i) => i.kind === "audioinput"));
-  const audioOutputs = computed(() => devices.value.filter((i) => i.kind === "audiooutput"));
+  const devices = ref2([]);
+  const videoInputs = computed2(() => devices.value.filter((i) => i.kind === "videoinput"));
+  const audioInputs = computed2(() => devices.value.filter((i) => i.kind === "audioinput"));
+  const audioOutputs = computed2(() => devices.value.filter((i) => i.kind === "audiooutput"));
   const isSupported = useSupported(() => navigator && navigator.mediaDevices && navigator.mediaDevices.enumerateDevices);
-  const permissionGranted = ref(false);
+  const permissionGranted = ref2(false);
   let stream;
   async function update() {
     if (!isSupported.value)
@@ -3916,7 +3860,7 @@ function useDevicesList(options = {}) {
 }
 function useDisplayMedia(options = {}) {
   var _a;
-  const enabled = ref((_a = options.enabled) != null ? _a : false);
+  const enabled = ref2((_a = options.enabled) != null ? _a : false);
   const video = options.video;
   const audio = options.audio;
   const { navigator = defaultNavigator } = options;
@@ -3925,7 +3869,7 @@ function useDisplayMedia(options = {}) {
     return (_a2 = navigator == null ? void 0 : navigator.mediaDevices) == null ? void 0 : _a2.getDisplayMedia;
   });
   const constraint = { audio, video };
-  const stream = shallowRef();
+  const stream = shallowRef2();
   async function _start() {
     var _a2;
     if (!isSupported.value || stream.value)
@@ -3949,7 +3893,7 @@ function useDisplayMedia(options = {}) {
       enabled.value = true;
     return stream.value;
   }
-  watch(
+  watch2(
     enabled,
     (v) => {
       if (v)
@@ -3970,8 +3914,8 @@ function useDisplayMedia(options = {}) {
 function useDocumentVisibility(options = {}) {
   const { document: document2 = defaultDocument } = options;
   if (!document2)
-    return ref("visible");
-  const visibility = ref(document2.visibilityState);
+    return ref2("visible");
+  const visibility = ref2(document2.visibilityState);
   useEventListener(document2, "visibilitychange", () => {
     visibility.value = document2.visibilityState;
   });
@@ -3994,10 +3938,10 @@ function useDraggable(target, options = {}) {
     handle: draggingHandle = target,
     buttons = [0]
   } = options;
-  const position = ref(
+  const position = ref2(
     (_a = toValue(initialValue)) != null ? _a : { x: 0, y: 0 }
   );
-  const pressedDelta = ref();
+  const pressedDelta = ref2();
   const filterEvent = (e) => {
     if (pointerTypes)
       return pointerTypes.includes(e.pointerType);
@@ -4070,18 +4014,18 @@ function useDraggable(target, options = {}) {
     useEventListener(draggingElement, "pointerup", end, config);
   }
   return {
-    ...toRefs2(position),
+    ...toRefs(position),
     position,
-    isDragging: computed(() => !!pressedDelta.value),
-    style: computed(
+    isDragging: computed2(() => !!pressedDelta.value),
+    style: computed2(
       () => `left:${position.value.x}px;top:${position.value.y}px;`
     )
   };
 }
 function useDropZone(target, options = {}) {
   var _a, _b;
-  const isOverDropZone = ref(false);
-  const files = shallowRef(null);
+  const isOverDropZone = ref2(false);
+  const files = shallowRef2(null);
   let counter = 0;
   let isValid = true;
   if (isClient) {
@@ -4095,7 +4039,7 @@ function useDropZone(target, options = {}) {
     };
     const checkDataTypes = (types) => {
       if (_options.dataTypes) {
-        const dataTypes = unref(_options.dataTypes);
+        const dataTypes = unref2(_options.dataTypes);
         return typeof dataTypes === "function" ? dataTypes(types) : dataTypes ? dataTypes.some((item) => types.includes(item)) : true;
       }
       return true;
@@ -4170,11 +4114,11 @@ function useResizeObserver(target, callback, options = {}) {
       observer = void 0;
     }
   };
-  const targets = computed(() => {
+  const targets = computed2(() => {
     const _targets = toValue(target);
     return Array.isArray(_targets) ? _targets.map((el) => unrefElement(el)) : [unrefElement(_targets)];
   });
-  const stopWatch = watch(
+  const stopWatch = watch2(
     targets,
     (els) => {
       cleanup();
@@ -4206,14 +4150,14 @@ function useElementBounding(target, options = {}) {
     immediate = true,
     updateTiming = "sync"
   } = options;
-  const height = ref(0);
-  const bottom = ref(0);
-  const left = ref(0);
-  const right = ref(0);
-  const top = ref(0);
-  const width = ref(0);
-  const x = ref(0);
-  const y = ref(0);
+  const height = ref2(0);
+  const bottom = ref2(0);
+  const left = ref2(0);
+  const right = ref2(0);
+  const top = ref2(0);
+  const width = ref2(0);
+  const x = ref2(0);
+  const y = ref2(0);
   function recalculate() {
     const el = unrefElement(target);
     if (!el) {
@@ -4246,7 +4190,7 @@ function useElementBounding(target, options = {}) {
       requestAnimationFrame(() => recalculate());
   }
   useResizeObserver(target, update);
-  watch(() => unrefElement(target), (ele) => !ele && update());
+  watch2(() => unrefElement(target), (ele) => !ele && update());
   useMutationObserver(target, update, {
     attributeFilter: ["style", "class"]
   });
@@ -4284,7 +4228,7 @@ function useElementByPoint(options) {
       return document2 && "elementsFromPoint" in document2;
     return document2 && "elementFromPoint" in document2;
   });
-  const element = ref(null);
+  const element = ref2(null);
   const cb = () => {
     var _a, _b;
     element.value = toValue(multiple) ? (_a = document2 == null ? void 0 : document2.elementsFromPoint(toValue(x), toValue(y))) != null ? _a : [] : (_b = document2 == null ? void 0 : document2.elementFromPoint(toValue(x), toValue(y))) != null ? _b : null;
@@ -4302,7 +4246,7 @@ function useElementHover(el, options = {}) {
     delayLeave = 0,
     window: window2 = defaultWindow
   } = options;
-  const isHovered = ref(false);
+  const isHovered = ref2(false);
   let timer;
   const toggle = (entering) => {
     const delay = entering ? delayEnter : delayLeave;
@@ -4323,12 +4267,12 @@ function useElementHover(el, options = {}) {
 }
 function useElementSize(target, initialSize = { width: 0, height: 0 }, options = {}) {
   const { window: window2 = defaultWindow, box = "content-box" } = options;
-  const isSVG = computed(() => {
+  const isSVG = computed2(() => {
     var _a, _b;
     return (_b = (_a = unrefElement(target)) == null ? void 0 : _a.namespaceURI) == null ? void 0 : _b.includes("svg");
   });
-  const width = ref(initialSize.width);
-  const height = ref(initialSize.height);
+  const width = ref2(initialSize.width);
+  const height = ref2(initialSize.height);
   const { stop: stop1 } = useResizeObserver(
     target,
     ([entry]) => {
@@ -4360,7 +4304,7 @@ function useElementSize(target, initialSize = { width: 0, height: 0 }, options =
       height.value = "offsetHeight" in ele ? ele.offsetHeight : initialSize.height;
     }
   });
-  const stop2 = watch(
+  const stop2 = watch2(
     () => unrefElement(target),
     (ele) => {
       width.value = ele ? initialSize.width : 0;
@@ -4386,13 +4330,13 @@ function useIntersectionObserver(target, callback, options = {}) {
     immediate = true
   } = options;
   const isSupported = useSupported(() => window2 && "IntersectionObserver" in window2);
-  const targets = computed(() => {
+  const targets = computed2(() => {
     const _target = toValue(target);
     return (Array.isArray(_target) ? _target : [_target]).map(unrefElement).filter(notNullish);
   });
   let cleanup = noop;
-  const isActive = ref(immediate);
-  const stopWatch = isSupported.value ? watch(
+  const isActive = ref2(immediate);
+  const stopWatch = isSupported.value ? watch2(
     () => [targets.value, unrefElement(root), isActive.value],
     ([targets2, root2]) => {
       cleanup();
@@ -4437,7 +4381,7 @@ function useIntersectionObserver(target, callback, options = {}) {
 }
 function useElementVisibility(element, options = {}) {
   const { window: window2 = defaultWindow, scrollTarget, threshold = 0 } = options;
-  const elementIsVisible = ref(false);
+  const elementIsVisible = ref2(false);
   useIntersectionObserver(
     element,
     (intersectionObserverEntries) => {
@@ -4461,7 +4405,7 @@ function useElementVisibility(element, options = {}) {
 }
 var events = /* @__PURE__ */ new Map();
 function useEventBus(key) {
-  const scope = getCurrentScope();
+  const scope = getCurrentScope2();
   function on(listener) {
     var _a;
     const listeners = events.get(key) || /* @__PURE__ */ new Set();
@@ -4501,13 +4445,13 @@ function resolveNestedOptions$1(options) {
   return options;
 }
 function useEventSource(url, events2 = [], options = {}) {
-  const event = ref(null);
-  const data = ref(null);
-  const status = ref("CONNECTING");
-  const eventSource = ref(null);
-  const error = shallowRef(null);
-  const urlRef = toRef2(url);
-  const lastEventId = shallowRef(null);
+  const event = ref2(null);
+  const data = ref2(null);
+  const status = ref2("CONNECTING");
+  const eventSource = ref2(null);
+  const error = shallowRef2(null);
+  const urlRef = toRef(url);
+  const lastEventId = shallowRef2(null);
   let explicitlyClosed = false;
   let retried = 0;
   const {
@@ -4572,7 +4516,7 @@ function useEventSource(url, events2 = [], options = {}) {
     _init();
   };
   if (immediate)
-    watch(urlRef, open, { immediate: true });
+    watch2(urlRef, open, { immediate: true });
   tryOnScopeDispose(close);
   return {
     eventSource,
@@ -4588,7 +4532,7 @@ function useEventSource(url, events2 = [], options = {}) {
 function useEyeDropper(options = {}) {
   const { initialValue = "" } = options;
   const isSupported = useSupported(() => typeof window !== "undefined" && "EyeDropper" in window);
-  const sRGBHex = ref(initialValue);
+  const sRGBHex = ref2(initialValue);
   async function open(openOptions) {
     if (!isSupported.value)
       return;
@@ -4605,7 +4549,7 @@ function useFavicon(newIcon = null, options = {}) {
     rel = "icon",
     document: document2 = defaultDocument
   } = options;
-  const favicon = toRef2(newIcon);
+  const favicon = toRef(newIcon);
   const applyIcon = (icon) => {
     const elements = document2 == null ? void 0 : document2.head.querySelectorAll(`link[rel*="${rel}"]`);
     if (!elements || elements.length === 0) {
@@ -4620,7 +4564,7 @@ function useFavicon(newIcon = null, options = {}) {
     }
     elements == null ? void 0 : elements.forEach((el) => el.href = `${baseUrl}${icon}`);
   };
-  watch(
+  watch2(
     favicon,
     (i, o) => {
       if (typeof i === "string" && i !== o)
@@ -4669,7 +4613,7 @@ function createFetch(config = {}) {
   const _options = config.options || {};
   const _fetchOptions = config.fetchOptions || {};
   function useFactoryFetch(url, ...args) {
-    const computedUrl = computed(() => {
+    const computedUrl = computed2(() => {
       const baseUrl = toValue(config.baseUrl);
       const targetUrl = toValue(url);
       return baseUrl && !isAbsoluteURL(targetUrl) ? joinPaths(baseUrl, targetUrl) : targetUrl;
@@ -4742,14 +4686,14 @@ function useFetch(url, ...args) {
   const responseEvent = createEventHook();
   const errorEvent = createEventHook();
   const finallyEvent = createEventHook();
-  const isFinished = ref(false);
-  const isFetching = ref(false);
-  const aborted = ref(false);
-  const statusCode = ref(null);
-  const response = shallowRef(null);
-  const error = shallowRef(null);
-  const data = shallowRef(initialData || null);
-  const canAbort = computed(() => supportsAbort && isFetching.value);
+  const isFinished = ref2(false);
+  const isFetching = ref2(false);
+  const aborted = ref2(false);
+  const statusCode = ref2(null);
+  const response = shallowRef2(null);
+  const error = shallowRef2(null);
+  const data = shallowRef2(initialData || null);
+  const canAbort = computed2(() => supportsAbort && isFetching.value);
   let controller;
   let timer;
   const abort = () => {
@@ -4864,18 +4808,18 @@ function useFetch(url, ...args) {
       finallyEvent.trigger(null);
     });
   };
-  const refetch = toRef2(options.refetch);
-  watch(
+  const refetch = toRef(options.refetch);
+  watch2(
     [
       refetch,
-      toRef2(url)
+      toRef(url)
     ],
     ([refetch2]) => refetch2 && execute(),
     { deep: true }
   );
   const shell = {
-    isFinished: readonly(isFinished),
-    isFetching: readonly(isFetching),
+    isFinished: readonly2(isFinished),
+    isFetching: readonly2(isFetching),
     statusCode,
     response,
     error,
@@ -4908,11 +4852,11 @@ function useFetch(url, ...args) {
         config.method = method;
         config.payload = payload;
         config.payloadType = payloadType;
-        if (isRef(config.payload)) {
-          watch(
+        if (isRef2(config.payload)) {
+          watch2(
             [
               refetch,
-              toRef2(config.payload)
+              toRef(config.payload)
             ],
             ([refetch2]) => refetch2 && execute(),
             { deep: true }
@@ -4975,7 +4919,7 @@ function useFileDialog(options = {}) {
   const {
     document: document2 = defaultDocument
   } = options;
-  const files = ref(null);
+  const files = ref2(null);
   const { on: onChange, trigger: changeTrigger } = createEventHook();
   const { on: onCancel, trigger: cancelTrigger } = createEventHook();
   let input;
@@ -5016,7 +4960,7 @@ function useFileDialog(options = {}) {
     input.click();
   };
   return {
-    files: readonly(files),
+    files: readonly2(files),
     open,
     reset,
     onCancel,
@@ -5030,22 +4974,22 @@ function useFileSystemAccess(options = {}) {
   } = options;
   const window2 = _window;
   const isSupported = useSupported(() => window2 && "showSaveFilePicker" in window2 && "showOpenFilePicker" in window2);
-  const fileHandle = ref();
-  const data = ref();
-  const file = ref();
-  const fileName = computed(() => {
+  const fileHandle = ref2();
+  const data = ref2();
+  const file = ref2();
+  const fileName = computed2(() => {
     var _a, _b;
     return (_b = (_a = file.value) == null ? void 0 : _a.name) != null ? _b : "";
   });
-  const fileMIME = computed(() => {
+  const fileMIME = computed2(() => {
     var _a, _b;
     return (_b = (_a = file.value) == null ? void 0 : _a.type) != null ? _b : "";
   });
-  const fileSize = computed(() => {
+  const fileSize = computed2(() => {
     var _a, _b;
     return (_b = (_a = file.value) == null ? void 0 : _a.size) != null ? _b : 0;
   });
-  const fileLastModified = computed(() => {
+  const fileLastModified = computed2(() => {
     var _a, _b;
     return (_b = (_a = file.value) == null ? void 0 : _a.lastModified) != null ? _b : 0;
   });
@@ -5101,7 +5045,7 @@ function useFileSystemAccess(options = {}) {
     else if (type === "Blob")
       data.value = file.value;
   }
-  watch(() => toValue(dataType), updateData);
+  watch2(() => toValue(dataType), updateData);
   return {
     isSupported,
     data,
@@ -5119,15 +5063,15 @@ function useFileSystemAccess(options = {}) {
 }
 function useFocus(target, options = {}) {
   const { initialValue = false, focusVisible = false, preventScroll = false } = options;
-  const innerFocused = ref(false);
-  const targetElement = computed(() => unrefElement(target));
+  const innerFocused = ref2(false);
+  const targetElement = computed2(() => unrefElement(target));
   useEventListener(targetElement, "focus", (event) => {
     var _a, _b;
     if (!focusVisible || ((_b = (_a = event.target).matches) == null ? void 0 : _b.call(_a, ":focus-visible")))
       innerFocused.value = true;
   });
   useEventListener(targetElement, "blur", () => innerFocused.value = false);
-  const focused = computed({
+  const focused = computed2({
     get: () => innerFocused.value,
     set(value) {
       var _a, _b;
@@ -5137,7 +5081,7 @@ function useFocus(target, options = {}) {
         (_b = targetElement.value) == null ? void 0 : _b.focus({ preventScroll });
     }
   });
-  watch(
+  watch2(
     targetElement,
     () => {
       focused.value = initialValue;
@@ -5150,9 +5094,9 @@ var EVENT_FOCUS_IN = "focusin";
 var EVENT_FOCUS_OUT = "focusout";
 function useFocusWithin(target, options = {}) {
   const { window: window2 = defaultWindow } = options;
-  const targetElement = computed(() => unrefElement(target));
-  const _focused = ref(false);
-  const focused = computed(() => _focused.value);
+  const targetElement = computed2(() => unrefElement(target));
+  const _focused = ref2(false);
+  const focused = computed2(() => _focused.value);
   const activeElement = useActiveElement(options);
   if (!window2 || !activeElement.value) {
     return { focused };
@@ -5163,7 +5107,7 @@ function useFocusWithin(target, options = {}) {
 }
 function useFps(options) {
   var _a;
-  const fps = ref(0);
+  const fps = ref2(0);
   if (typeof performance === "undefined")
     return fps;
   const every = (_a = options == null ? void 0 : options.every) != null ? _a : 10;
@@ -5193,12 +5137,12 @@ function useFullscreen(target, options = {}) {
     document: document2 = defaultDocument,
     autoExit = false
   } = options;
-  const targetRef = computed(() => {
+  const targetRef = computed2(() => {
     var _a;
     return (_a = unrefElement(target)) != null ? _a : document2 == null ? void 0 : document2.querySelector("html");
   });
-  const isFullscreen = ref(false);
-  const requestMethod = computed(() => {
+  const isFullscreen = ref2(false);
+  const requestMethod = computed2(() => {
     return [
       "requestFullscreen",
       "webkitRequestFullscreen",
@@ -5209,7 +5153,7 @@ function useFullscreen(target, options = {}) {
       "msRequestFullscreen"
     ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
   });
-  const exitMethod = computed(() => {
+  const exitMethod = computed2(() => {
     return [
       "exitFullscreen",
       "webkitExitFullscreen",
@@ -5219,7 +5163,7 @@ function useFullscreen(target, options = {}) {
       "msExitFullscreen"
     ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
   });
-  const fullscreenEnabled = computed(() => {
+  const fullscreenEnabled = computed2(() => {
     return [
       "fullScreen",
       "webkitIsFullScreen",
@@ -5299,7 +5243,7 @@ function useFullscreen(target, options = {}) {
   };
 }
 function mapGamepadToXbox360Controller(gamepad) {
-  return computed(() => {
+  return computed2(() => {
     if (gamepad.value) {
       return {
         buttons: {
@@ -5346,7 +5290,7 @@ function useGamepad(options = {}) {
     navigator = defaultNavigator
   } = options;
   const isSupported = useSupported(() => navigator && "getGamepads" in navigator);
-  const gamepads = ref([]);
+  const gamepads = ref2([]);
   const onConnectedHook = createEventHook();
   const onDisconnectedHook = createEventHook();
   const stateFromGamepad = (gamepad) => {
@@ -5416,9 +5360,9 @@ function useGeolocation(options = {}) {
     immediate = true
   } = options;
   const isSupported = useSupported(() => navigator && "geolocation" in navigator);
-  const locatedAt = ref(null);
-  const error = shallowRef(null);
-  const coords = ref({
+  const locatedAt = ref2(null);
+  const error = shallowRef2(null);
+  const coords = ref2({
     accuracy: 0,
     latitude: Number.POSITIVE_INFINITY,
     longitude: Number.POSITIVE_INFINITY,
@@ -5474,8 +5418,8 @@ function useIdle(timeout = oneMinute, options = {}) {
     window: window2 = defaultWindow,
     eventFilter = throttleFilter(50)
   } = options;
-  const idle = ref(initialState);
-  const lastActive = ref(timestamp());
+  const idle = ref2(initialState);
+  const lastActive = ref2(timestamp());
   let timer;
   const reset = () => {
     idle.value = false;
@@ -5537,7 +5481,7 @@ function useImage(options, asyncStateOptions = {}) {
       ...asyncStateOptions
     }
   );
-  watch(
+  watch2(
     () => toValue(options),
     () => state.execute(asyncStateOptions.delay),
     { deep: true }
@@ -5574,9 +5518,9 @@ function useScroll(element, options = {}) {
       console.error(e);
     }
   } = options;
-  const internalX = ref(0);
-  const internalY = ref(0);
-  const x = computed({
+  const internalX = ref2(0);
+  const internalY = ref2(0);
+  const x = computed2({
     get() {
       return internalX.value;
     },
@@ -5584,7 +5528,7 @@ function useScroll(element, options = {}) {
       scrollTo2(x2, void 0);
     }
   });
-  const y = computed({
+  const y = computed2({
     get() {
       return internalY.value;
     },
@@ -5610,14 +5554,14 @@ function useScroll(element, options = {}) {
     if (y != null)
       internalY.value = scrollContainer.scrollTop;
   }
-  const isScrolling = ref(false);
-  const arrivedState = reactive({
+  const isScrolling = ref2(false);
+  const arrivedState = reactive2({
     left: true,
     right: false,
     top: true,
     bottom: false
   });
-  const directions = reactive({
+  const directions = reactive2({
     left: false,
     right: false,
     top: false,
@@ -5721,7 +5665,7 @@ function useInfiniteScroll(element, onLoadMore, options = {}) {
     interval = 100,
     canLoadMore = () => true
   } = options;
-  const state = reactive(useScroll(
+  const state = reactive2(useScroll(
     element,
     {
       ...options,
@@ -5731,9 +5675,9 @@ function useInfiniteScroll(element, onLoadMore, options = {}) {
       }
     }
   ));
-  const promise = ref();
-  const isLoading = computed(() => !!promise.value);
-  const observedElement = computed(() => {
+  const promise = ref2();
+  const isLoading = computed2(() => !!promise.value);
+  const observedElement = computed2(() => {
     return resolveElement(toValue(element));
   });
   const isElementVisible = useElementVisibility(observedElement);
@@ -5750,12 +5694,12 @@ function useInfiniteScroll(element, onLoadMore, options = {}) {
           new Promise((resolve) => setTimeout(resolve, interval))
         ]).finally(() => {
           promise.value = null;
-          nextTick(() => checkAndLoad());
+          nextTick2(() => checkAndLoad());
         });
       }
     }
   }
-  const stop = watch(
+  const stop = watch2(
     () => [state.arrivedState[direction], isElementVisible.value],
     checkAndLoad,
     { immediate: true }
@@ -5764,7 +5708,7 @@ function useInfiniteScroll(element, onLoadMore, options = {}) {
   return {
     isLoading,
     reset() {
-      nextTick(() => checkAndLoad());
+      nextTick2(() => checkAndLoad());
     }
   };
 }
@@ -5775,7 +5719,7 @@ function useKeyModifier(modifier, options = {}) {
     document: document2 = defaultDocument,
     initial = null
   } = options;
-  const state = ref(initial);
+  const state = ref2(initial);
   if (document2) {
     events2.forEach((listenerEvent) => {
       useEventListener(document2, listenerEvent, (evt) => {
@@ -5808,14 +5752,14 @@ function useMagicKeys(options = {}) {
     passive = true,
     onEventFired = noop
   } = options;
-  const current = reactive(/* @__PURE__ */ new Set());
+  const current = reactive2(/* @__PURE__ */ new Set());
   const obj = {
     toJSON() {
       return {};
     },
     current
   };
-  const refs = useReactive ? reactive(obj) : obj;
+  const refs = useReactive ? reactive2(obj) : obj;
   const metaDeps = /* @__PURE__ */ new Set();
   const usedKeys = /* @__PURE__ */ new Set();
   function setRefs(key, value) {
@@ -5878,9 +5822,9 @@ function useMagicKeys(options = {}) {
         if (!(prop in refs)) {
           if (/[+_-]/.test(prop)) {
             const keys2 = prop.split(/[+_-]/g).map((i) => i.trim());
-            refs[prop] = computed(() => keys2.every((key) => toValue(proxy[key])));
+            refs[prop] = computed2(() => keys2.every((key) => toValue(proxy[key])));
           } else {
-            refs[prop] = ref(false);
+            refs[prop] = ref2(false);
           }
         }
         const r = Reflect.get(target2, prop, rec);
@@ -5908,7 +5852,7 @@ var defaultOptions = {
   tracks: []
 };
 function useMediaControls(target, options = {}) {
-  target = toRef2(target);
+  target = toRef(target);
   options = {
     ...defaultOptions,
     ...options
@@ -5916,20 +5860,20 @@ function useMediaControls(target, options = {}) {
   const {
     document: document2 = defaultDocument
   } = options;
-  const currentTime = ref(0);
-  const duration = ref(0);
-  const seeking = ref(false);
-  const volume = ref(1);
-  const waiting = ref(false);
-  const ended = ref(false);
-  const playing = ref(false);
-  const rate = ref(1);
-  const stalled = ref(false);
-  const buffered = ref([]);
-  const tracks = ref([]);
-  const selectedTrack = ref(-1);
-  const isPictureInPicture = ref(false);
-  const muted = ref(false);
+  const currentTime = ref2(0);
+  const duration = ref2(0);
+  const seeking = ref2(false);
+  const volume = ref2(1);
+  const waiting = ref2(false);
+  const ended = ref2(false);
+  const playing = ref2(false);
+  const rate = ref2(1);
+  const stalled = ref2(false);
+  const buffered = ref2([]);
+  const tracks = ref2([]);
+  const selectedTrack = ref2(-1);
+  const isPictureInPicture = ref2(false);
+  const muted = ref2(false);
   const supportsPictureInPicture = document2 && "pictureInPictureEnabled" in document2;
   const sourceErrorEvent = createEventHook();
   const playbackErrorEvent = createEventHook();
@@ -5967,7 +5911,7 @@ function useMediaControls(target, options = {}) {
       });
     });
   };
-  watchEffect(() => {
+  watchEffect2(() => {
     if (!document2)
       return;
     const el = toValue(target);
@@ -6002,25 +5946,25 @@ function useMediaControls(target, options = {}) {
       return;
     el.querySelectorAll("source").forEach((e) => e.removeEventListener("error", sourceErrorEvent.trigger));
   });
-  watch([target, volume], () => {
+  watch2([target, volume], () => {
     const el = toValue(target);
     if (!el)
       return;
     el.volume = volume.value;
   });
-  watch([target, muted], () => {
+  watch2([target, muted], () => {
     const el = toValue(target);
     if (!el)
       return;
     el.muted = muted.value;
   });
-  watch([target, rate], () => {
+  watch2([target, rate], () => {
     const el = toValue(target);
     if (!el)
       return;
     el.playbackRate = rate.value;
   });
-  watchEffect(() => {
+  watchEffect2(() => {
     if (!document2)
       return;
     const textTracks = toValue(options.tracks);
@@ -6089,7 +6033,7 @@ function useMediaControls(target, options = {}) {
     muted.value = el.muted;
   });
   const listeners = [];
-  const stop = watch([target], () => {
+  const stop = watch2([target], () => {
     const el = toValue(target);
     if (!el)
       return;
@@ -6130,7 +6074,7 @@ function getMapVue2Compat() {
   const data = shallowReactive({});
   return {
     get: (key) => data[key],
-    set: (key, value) => set(data, key, value),
+    set: (key, value) => set2(data, key, value),
     has: (key) => hasOwn(data, key),
     delete: (key) => del(data, key),
     clear: () => {
@@ -6144,7 +6088,7 @@ function useMemoize(resolver, options) {
   const initCache = () => {
     if (options == null ? void 0 : options.cache)
       return shallowReactive(options.cache);
-    if (isVue2)
+    if (isVue22)
       return getMapVue2Compat();
     return shallowReactive(/* @__PURE__ */ new Map());
   };
@@ -6175,7 +6119,7 @@ function useMemoize(resolver, options) {
   return memoized;
 }
 function useMemory(options = {}) {
-  const memory = ref();
+  const memory = ref2();
   const isSupported = useSupported(() => typeof performance !== "undefined" && "memory" in performance);
   if (isSupported.value) {
     const { interval = 1e3 } = options;
@@ -6205,9 +6149,9 @@ function useMouse(options = {}) {
   let _prevMouseEvent = null;
   let _prevScrollX = 0;
   let _prevScrollY = 0;
-  const x = ref(initialValue.x);
-  const y = ref(initialValue.y);
-  const sourceType = ref(null);
+  const x = ref2(initialValue.x);
+  const y = ref2(initialValue.y);
+  const sourceType = ref2(null);
   const extractor = typeof type === "function" ? type : UseMouseBuiltinExtractors[type];
   const mouseHandler = (event) => {
     const result = extractor(event);
@@ -6270,18 +6214,18 @@ function useMouseInElement(target, options = {}) {
   } = options;
   const type = options.type || "page";
   const { x, y, sourceType } = useMouse(options);
-  const targetRef = ref(target != null ? target : window2 == null ? void 0 : window2.document.body);
-  const elementX = ref(0);
-  const elementY = ref(0);
-  const elementPositionX = ref(0);
-  const elementPositionY = ref(0);
-  const elementHeight = ref(0);
-  const elementWidth = ref(0);
-  const isOutside = ref(true);
+  const targetRef = ref2(target != null ? target : window2 == null ? void 0 : window2.document.body);
+  const elementX = ref2(0);
+  const elementY = ref2(0);
+  const elementPositionX = ref2(0);
+  const elementPositionY = ref2(0);
+  const elementHeight = ref2(0);
+  const elementWidth = ref2(0);
+  const isOutside = ref2(true);
   let stop = () => {
   };
   if (window2) {
-    stop = watch(
+    stop = watch2(
       [targetRef, x, y],
       () => {
         const el = unrefElement(targetRef);
@@ -6333,8 +6277,8 @@ function useMousePressed(options = {}) {
     initialValue = false,
     window: window2 = defaultWindow
   } = options;
-  const pressed = ref(initialValue);
-  const sourceType = ref(null);
+  const pressed = ref2(initialValue);
+  const sourceType = ref2(null);
   if (!window2) {
     return {
       pressed,
@@ -6349,7 +6293,7 @@ function useMousePressed(options = {}) {
     pressed.value = false;
     sourceType.value = null;
   };
-  const target = computed(() => unrefElement(options.target) || window2);
+  const target = computed2(() => unrefElement(options.target) || window2);
   useEventListener(target, "mousedown", onPressed("mouse"), { passive: true, capture });
   useEventListener(window2, "mouseleave", onReleased, { passive: true, capture });
   useEventListener(window2, "mouseup", onReleased, { passive: true, capture });
@@ -6372,7 +6316,7 @@ function useNavigatorLanguage(options = {}) {
   const { window: window2 = defaultWindow } = options;
   const navigator = window2 == null ? void 0 : window2.navigator;
   const isSupported = useSupported(() => navigator && "language" in navigator);
-  const language = ref(navigator == null ? void 0 : navigator.language);
+  const language = ref2(navigator == null ? void 0 : navigator.language);
   useEventListener(window2, "languagechange", () => {
     if (navigator)
       language.value = navigator.language;
@@ -6386,15 +6330,15 @@ function useNetwork(options = {}) {
   const { window: window2 = defaultWindow } = options;
   const navigator = window2 == null ? void 0 : window2.navigator;
   const isSupported = useSupported(() => navigator && "connection" in navigator);
-  const isOnline = ref(true);
-  const saveData = ref(false);
-  const offlineAt = ref(void 0);
-  const onlineAt = ref(void 0);
-  const downlink = ref(void 0);
-  const downlinkMax = ref(void 0);
-  const rtt = ref(void 0);
-  const effectiveType = ref(void 0);
-  const type = ref("unknown");
+  const isOnline = ref2(true);
+  const saveData = ref2(false);
+  const offlineAt = ref2(void 0);
+  const onlineAt = ref2(void 0);
+  const downlink = ref2(void 0);
+  const downlinkMax = ref2(void 0);
+  const rtt = ref2(void 0);
+  const effectiveType = ref2(void 0);
+  const type = ref2("unknown");
   const connection = isSupported.value && navigator.connection;
   function updateNetworkInformation() {
     if (!navigator)
@@ -6425,16 +6369,16 @@ function useNetwork(options = {}) {
     useEventListener(connection, "change", updateNetworkInformation, false);
   updateNetworkInformation();
   return {
-    isSupported: readonly(isSupported),
-    isOnline: readonly(isOnline),
-    saveData: readonly(saveData),
-    offlineAt: readonly(offlineAt),
-    onlineAt: readonly(onlineAt),
-    downlink: readonly(downlink),
-    downlinkMax: readonly(downlinkMax),
-    effectiveType: readonly(effectiveType),
-    rtt: readonly(rtt),
-    type: readonly(type)
+    isSupported: readonly2(isSupported),
+    isOnline: readonly2(isOnline),
+    saveData: readonly2(saveData),
+    offlineAt: readonly2(offlineAt),
+    onlineAt: readonly2(onlineAt),
+    downlink: readonly2(downlink),
+    downlinkMax: readonly2(downlinkMax),
+    effectiveType: readonly2(effectiveType),
+    rtt: readonly2(rtt),
+    type: readonly2(type)
   };
 }
 function useNow(options = {}) {
@@ -6442,7 +6386,7 @@ function useNow(options = {}) {
     controls: exposeControls = false,
     interval = "requestAnimationFrame"
   } = options;
-  const now2 = ref(/* @__PURE__ */ new Date());
+  const now2 = ref2(/* @__PURE__ */ new Date());
   const update = () => now2.value = /* @__PURE__ */ new Date();
   const controls = interval === "requestAnimationFrame" ? useRafFn(update, { immediate: true }) : useIntervalFn(update, interval, { immediate: true });
   if (exposeControls) {
@@ -6455,13 +6399,13 @@ function useNow(options = {}) {
   }
 }
 function useObjectUrl(object) {
-  const url = ref();
+  const url = ref2();
   const release = () => {
     if (url.value)
       URL.revokeObjectURL(url.value);
     url.value = void 0;
   };
-  watch(
+  watch2(
     () => toValue(object),
     (newObject) => {
       release();
@@ -6471,13 +6415,13 @@ function useObjectUrl(object) {
     { immediate: true }
   );
   tryOnScopeDispose(release);
-  return readonly(url);
+  return readonly2(url);
 }
 function useClamp(value, min, max) {
   if (typeof value === "function" || isReadonly(value))
-    return computed(() => clamp(toValue(value), toValue(min), toValue(max)));
-  const _value = ref(value);
-  return computed({
+    return computed2(() => clamp(toValue(value), toValue(min), toValue(max)));
+  const _value = ref2(value);
+  return computed2({
     get() {
       return _value.value = clamp(_value.value, toValue(min), toValue(max));
     },
@@ -6496,19 +6440,19 @@ function useOffsetPagination(options) {
     onPageCountChange = noop
   } = options;
   const currentPageSize = useClamp(pageSize, 1, Number.POSITIVE_INFINITY);
-  const pageCount = computed(() => Math.max(
+  const pageCount = computed2(() => Math.max(
     1,
     Math.ceil(toValue(total) / toValue(currentPageSize))
   ));
   const currentPage = useClamp(page, 1, pageCount);
-  const isFirstPage = computed(() => currentPage.value === 1);
-  const isLastPage = computed(() => currentPage.value === pageCount.value);
-  if (isRef(page)) {
+  const isFirstPage = computed2(() => currentPage.value === 1);
+  const isLastPage = computed2(() => currentPage.value === pageCount.value);
+  if (isRef2(page)) {
     syncRef(page, currentPage, {
       direction: isReadonly(page) ? "ltr" : "both"
     });
   }
-  if (isRef(pageSize)) {
+  if (isRef2(pageSize)) {
     syncRef(pageSize, currentPageSize, {
       direction: isReadonly(pageSize) ? "ltr" : "both"
     });
@@ -6528,14 +6472,14 @@ function useOffsetPagination(options) {
     prev,
     next
   };
-  watch(currentPage, () => {
-    onPageChange(reactive(returnValue));
+  watch2(currentPage, () => {
+    onPageChange(reactive2(returnValue));
   });
-  watch(currentPageSize, () => {
-    onPageSizeChange(reactive(returnValue));
+  watch2(currentPageSize, () => {
+    onPageSizeChange(reactive2(returnValue));
   });
-  watch(pageCount, () => {
-    onPageCountChange(reactive(returnValue));
+  watch2(pageCount, () => {
+    onPageCountChange(reactive2(returnValue));
   });
   return returnValue;
 }
@@ -6545,7 +6489,7 @@ function useOnline(options = {}) {
 }
 function usePageLeave(options = {}) {
   const { window: window2 = defaultWindow } = options;
-  const isLeft = ref(false);
+  const isLeft = ref2(false);
   const handler = (event) => {
     if (!window2)
       return;
@@ -6566,8 +6510,8 @@ function useScreenOrientation(options = {}) {
   } = options;
   const isSupported = useSupported(() => window2 && "screen" in window2 && "orientation" in window2.screen);
   const screenOrientation = isSupported.value ? window2.screen.orientation : {};
-  const orientation = ref(screenOrientation.type);
-  const angle = ref(screenOrientation.angle || 0);
+  const orientation = ref2(screenOrientation.type);
+  const angle = ref2(screenOrientation.angle || 0);
   if (isSupported.value) {
     useEventListener(window2, "orientationchange", () => {
       orientation.value = screenOrientation.type;
@@ -6599,21 +6543,21 @@ function useParallax(target, options = {}) {
     mouseRollAdjust = (i) => i,
     window: window2 = defaultWindow
   } = options;
-  const orientation = reactive(useDeviceOrientation({ window: window2 }));
-  const screenOrientation = reactive(useScreenOrientation({ window: window2 }));
+  const orientation = reactive2(useDeviceOrientation({ window: window2 }));
+  const screenOrientation = reactive2(useScreenOrientation({ window: window2 }));
   const {
     elementX: x,
     elementY: y,
     elementWidth: width,
     elementHeight: height
   } = useMouseInElement(target, { handleOutside: false, window: window2 });
-  const source = computed(() => {
+  const source = computed2(() => {
     if (orientation.isSupported && (orientation.alpha != null && orientation.alpha !== 0 || orientation.gamma != null && orientation.gamma !== 0)) {
       return "deviceOrientation";
     }
     return "mouse";
   });
-  const roll = computed(() => {
+  const roll = computed2(() => {
     if (source.value === "deviceOrientation") {
       let value;
       switch (screenOrientation.orientation) {
@@ -6638,7 +6582,7 @@ function useParallax(target, options = {}) {
       return mouseRollAdjust(value);
     }
   });
-  const tilt = computed(() => {
+  const tilt = computed2(() => {
     if (source.value === "deviceOrientation") {
       let value;
       switch (screenOrientation.orientation) {
@@ -6666,14 +6610,14 @@ function useParallax(target, options = {}) {
   return { roll, tilt, source };
 }
 function useParentElement(element = useCurrentElement()) {
-  const parentElement = shallowRef();
+  const parentElement = shallowRef2();
   const update = () => {
     const el = unrefElement(element);
     if (el)
       parentElement.value = el.parentElement;
   };
   tryOnMounted(update);
-  watch(() => toValue(element), update);
+  watch2(() => toValue(element), update);
   return parentElement;
 }
 function usePerformanceObserver(options, callback) {
@@ -6720,8 +6664,8 @@ function usePointer(options = {}) {
   const {
     target = defaultWindow
   } = options;
-  const isInside = ref(false);
-  const state = ref(options.initialValue || {});
+  const isInside = ref2(false);
+  const state = ref2(options.initialValue || {});
   Object.assign(state.value, defaultState, state.value);
   const handler = (event) => {
     isInside.value = true;
@@ -6735,15 +6679,15 @@ function usePointer(options = {}) {
     useEventListener(target, "pointerleave", () => isInside.value = false, listenerOptions);
   }
   return {
-    ...toRefs2(state),
+    ...toRefs(state),
     isInside
   };
 }
 function usePointerLock(target, options = {}) {
   const { document: document2 = defaultDocument } = options;
   const isSupported = useSupported(() => document2 && "pointerLockElement" in document2);
-  const element = ref();
-  const triggerElement = ref();
+  const element = ref2();
+  const triggerElement = ref2();
   let targetElement;
   if (isSupported.value) {
     useEventListener(document2, "pointerlockchange", () => {
@@ -6791,7 +6735,7 @@ function usePointerLock(target, options = {}) {
   };
 }
 function usePointerSwipe(target, options = {}) {
-  const targetRef = toRef2(target);
+  const targetRef = toRef(target);
   const {
     threshold = 50,
     onSwipe,
@@ -6799,23 +6743,23 @@ function usePointerSwipe(target, options = {}) {
     onSwipeStart,
     disableTextSelect = false
   } = options;
-  const posStart = reactive({ x: 0, y: 0 });
+  const posStart = reactive2({ x: 0, y: 0 });
   const updatePosStart = (x, y) => {
     posStart.x = x;
     posStart.y = y;
   };
-  const posEnd = reactive({ x: 0, y: 0 });
+  const posEnd = reactive2({ x: 0, y: 0 });
   const updatePosEnd = (x, y) => {
     posEnd.x = x;
     posEnd.y = y;
   };
-  const distanceX = computed(() => posStart.x - posEnd.x);
-  const distanceY = computed(() => posStart.y - posEnd.y);
+  const distanceX = computed2(() => posStart.x - posEnd.x);
+  const distanceY = computed2(() => posStart.y - posEnd.y);
   const { max, abs } = Math;
-  const isThresholdExceeded = computed(() => max(abs(distanceX.value), abs(distanceY.value)) >= threshold);
-  const isSwiping = ref(false);
-  const isPointerDown = ref(false);
-  const direction = computed(() => {
+  const isThresholdExceeded = computed2(() => max(abs(distanceX.value), abs(distanceY.value)) >= threshold);
+  const isSwiping = ref2(false);
+  const isPointerDown = ref2(false);
+  const direction = computed2(() => {
     if (!isThresholdExceeded.value)
       return "none";
     if (abs(distanceX.value) > abs(distanceY.value)) {
@@ -6874,10 +6818,10 @@ function usePointerSwipe(target, options = {}) {
   });
   const stop = () => stops.forEach((s) => s());
   return {
-    isSwiping: readonly(isSwiping),
-    direction: readonly(direction),
-    posStart: readonly(posStart),
-    posEnd: readonly(posEnd),
+    isSwiping: readonly2(isSwiping),
+    direction: readonly2(direction),
+    posStart: readonly2(posStart),
+    posEnd: readonly2(posEnd),
     distanceX,
     distanceY,
     stop
@@ -6886,7 +6830,7 @@ function usePointerSwipe(target, options = {}) {
 function usePreferredColorScheme(options) {
   const isLight = useMediaQuery("(prefers-color-scheme: light)", options);
   const isDark = useMediaQuery("(prefers-color-scheme: dark)", options);
-  return computed(() => {
+  return computed2(() => {
     if (isDark.value)
       return "dark";
     if (isLight.value)
@@ -6898,7 +6842,7 @@ function usePreferredContrast(options) {
   const isMore = useMediaQuery("(prefers-contrast: more)", options);
   const isLess = useMediaQuery("(prefers-contrast: less)", options);
   const isCustom = useMediaQuery("(prefers-contrast: custom)", options);
-  return computed(() => {
+  return computed2(() => {
     if (isMore.value)
       return "more";
     if (isLess.value)
@@ -6911,9 +6855,9 @@ function usePreferredContrast(options) {
 function usePreferredLanguages(options = {}) {
   const { window: window2 = defaultWindow } = options;
   if (!window2)
-    return ref(["en"]);
+    return ref2(["en"]);
   const navigator = window2.navigator;
-  const value = ref(navigator.languages);
+  const value = ref2(navigator.languages);
   useEventListener(window2, "languagechange", () => {
     value.value = navigator.languages;
   });
@@ -6921,32 +6865,32 @@ function usePreferredLanguages(options = {}) {
 }
 function usePreferredReducedMotion(options) {
   const isReduced = useMediaQuery("(prefers-reduced-motion: reduce)", options);
-  return computed(() => {
+  return computed2(() => {
     if (isReduced.value)
       return "reduce";
     return "no-preference";
   });
 }
 function usePrevious(value, initialValue) {
-  const previous = shallowRef(initialValue);
-  watch(
-    toRef2(value),
+  const previous = shallowRef2(initialValue);
+  watch2(
+    toRef(value),
     (_, oldValue) => {
       previous.value = oldValue;
     },
     { flush: "sync" }
   );
-  return readonly(previous);
+  return readonly2(previous);
 }
 var topVarName = "--vueuse-safe-area-top";
 var rightVarName = "--vueuse-safe-area-right";
 var bottomVarName = "--vueuse-safe-area-bottom";
 var leftVarName = "--vueuse-safe-area-left";
 function useScreenSafeArea() {
-  const top = ref("");
-  const right = ref("");
-  const bottom = ref("");
-  const left = ref("");
+  const top = ref2("");
+  const right = ref2("");
+  const bottom = ref2("");
+  const left = ref2("");
   if (isClient) {
     const topCssVar = useCssVar(topVarName);
     const rightCssVar = useCssVar(rightVarName);
@@ -6989,7 +6933,7 @@ function useScriptTag(src, onLoaded = noop, options = {}) {
     document: document2 = defaultDocument,
     attrs = {}
   } = options;
-  const scriptTag = ref(null);
+  const scriptTag = ref2(null);
   let _promise = null;
   const loadScript = (waitForScriptLoad) => new Promise((resolve, reject) => {
     const resolveWithElement = (el2) => {
@@ -7078,10 +7022,10 @@ function preventDefault(rawEvent) {
 }
 var elInitialOverflow = /* @__PURE__ */ new WeakMap();
 function useScrollLock(element, initialState = false) {
-  const isLocked = ref(initialState);
+  const isLocked = ref2(initialState);
   let stopTouchMoveListener = null;
   let initialOverflow = "";
-  watch(toRef2(element), (el) => {
+  watch2(toRef(element), (el) => {
     const target = resolveElement(toValue(el));
     if (target) {
       const ele = target;
@@ -7125,7 +7069,7 @@ function useScrollLock(element, initialState = false) {
     isLocked.value = false;
   };
   tryOnScopeDispose(unlock);
-  return computed({
+  return computed2({
     get() {
       return isLocked.value;
     },
@@ -7185,10 +7129,10 @@ function useSorted(...args) {
     sortFn = defaultSortFn
   } = options;
   if (!dirty)
-    return computed(() => sortFn([...toValue(source)], compareFn));
-  watchEffect(() => {
+    return computed2(() => sortFn([...toValue(source)], compareFn));
+  watchEffect2(() => {
     const result = sortFn(toValue(source), compareFn);
-    if (isRef(source))
+    if (isRef2(source))
       source.value = result;
     else
       source.splice(0, source.length, ...result);
@@ -7202,11 +7146,11 @@ function useSpeechRecognition(options = {}) {
     maxAlternatives = 1,
     window: window2 = defaultWindow
   } = options;
-  const lang = toRef2(options.lang || "en-US");
-  const isListening = ref(false);
-  const isFinal = ref(false);
-  const result = ref("");
-  const error = shallowRef(void 0);
+  const lang = toRef(options.lang || "en-US");
+  const isListening = ref2(false);
+  const isFinal = ref2(false);
+  const result = ref2("");
+  const error = shallowRef2(void 0);
   const toggle = (value = !isListening.value) => {
     isListening.value = value;
   };
@@ -7228,7 +7172,7 @@ function useSpeechRecognition(options = {}) {
     recognition.onstart = () => {
       isFinal.value = false;
     };
-    watch(lang, (lang2) => {
+    watch2(lang, (lang2) => {
       if (recognition && !isListening.value)
         recognition.lang = lang2;
     });
@@ -7246,7 +7190,7 @@ function useSpeechRecognition(options = {}) {
       isListening.value = false;
       recognition.lang = toValue(lang);
     };
-    watch(isListening, () => {
+    watch2(isListening, () => {
       if (isListening.value)
         recognition.start();
       else
@@ -7277,11 +7221,11 @@ function useSpeechSynthesis(text, options = {}) {
   } = options;
   const synth = window2 && window2.speechSynthesis;
   const isSupported = useSupported(() => synth);
-  const isPlaying = ref(false);
-  const status = ref("init");
-  const spokenText = toRef2(text || "");
-  const lang = toRef2(options.lang || "en-US");
-  const error = shallowRef(void 0);
+  const isPlaying = ref2(false);
+  const status = ref2("init");
+  const spokenText = toRef(text || "");
+  const lang = toRef(options.lang || "en-US");
+  const error = shallowRef2(void 0);
   const toggle = (value = !isPlaying.value) => {
     isPlaying.value = value;
   };
@@ -7311,7 +7255,7 @@ function useSpeechSynthesis(text, options = {}) {
       error.value = event;
     };
   };
-  const utterance = computed(() => {
+  const utterance = computed2(() => {
     isPlaying.value = false;
     status.value = "init";
     const newUtterance = new SpeechSynthesisUtterance(spokenText.value);
@@ -7329,16 +7273,16 @@ function useSpeechSynthesis(text, options = {}) {
   };
   if (isSupported.value) {
     bindEventsForUtterance(utterance.value);
-    watch(lang, (lang2) => {
+    watch2(lang, (lang2) => {
       if (utterance.value && !isPlaying.value)
         utterance.value.lang = lang2;
     });
     if (options.voice) {
-      watch(options.voice, () => {
+      watch2(options.voice, () => {
         synth.cancel();
       });
     }
-    watch(isPlaying, () => {
+    watch2(isPlaying, () => {
       if (isPlaying.value)
         synth.resume();
       else
@@ -7360,14 +7304,14 @@ function useSpeechSynthesis(text, options = {}) {
   };
 }
 function useStepper(steps, initialStep) {
-  const stepsRef = ref(steps);
-  const stepNames = computed(() => Array.isArray(stepsRef.value) ? stepsRef.value : Object.keys(stepsRef.value));
-  const index = ref(stepNames.value.indexOf(initialStep != null ? initialStep : stepNames.value[0]));
-  const current = computed(() => at(index.value));
-  const isFirst = computed(() => index.value === 0);
-  const isLast = computed(() => index.value === stepNames.value.length - 1);
-  const next = computed(() => stepNames.value[index.value + 1]);
-  const previous = computed(() => stepNames.value[index.value - 1]);
+  const stepsRef = ref2(steps);
+  const stepNames = computed2(() => Array.isArray(stepsRef.value) ? stepsRef.value : Object.keys(stepsRef.value));
+  const index = ref2(stepNames.value.indexOf(initialStep != null ? initialStep : stepNames.value[0]));
+  const current = computed2(() => at(index.value));
+  const isFirst = computed2(() => index.value === 0);
+  const isLast = computed2(() => index.value === stepNames.value.length - 1);
+  const next = computed2(() => stepNames.value[index.value + 1]);
+  const previous = computed2(() => stepNames.value[index.value - 1]);
   function at(index2) {
     if (Array.isArray(stepsRef.value))
       return stepsRef.value[index2];
@@ -7450,7 +7394,7 @@ function useStorageAsync(key, initialValue, storage, options = {}) {
   } = options;
   const rawInit = toValue(initialValue);
   const type = guessSerializerType(rawInit);
-  const data = (shallow ? shallowRef : ref)(initialValue);
+  const data = (shallow ? shallowRef2 : ref2)(initialValue);
   const serializer = (_a = options.serializer) != null ? _a : StorageSerializers[type];
   if (!storage) {
     try {
@@ -7512,14 +7456,14 @@ function useStorageAsync(key, initialValue, storage, options = {}) {
 }
 var _id = 0;
 function useStyleTag(css, options = {}) {
-  const isLoaded = ref(false);
+  const isLoaded = ref2(false);
   const {
     document: document2 = defaultDocument,
     immediate = true,
     manual = false,
     id = `vueuse_styletag_${++_id}`
   } = options;
-  const cssRef = ref(css);
+  const cssRef = ref2(css);
   let stop = () => {
   };
   const load = () => {
@@ -7534,7 +7478,7 @@ function useStyleTag(css, options = {}) {
     }
     if (isLoaded.value)
       return;
-    stop = watch(
+    stop = watch2(
       cssRef,
       (value) => {
         el.textContent = value;
@@ -7559,7 +7503,7 @@ function useStyleTag(css, options = {}) {
     css: cssRef,
     unload,
     load,
-    isLoaded: readonly(isLoaded)
+    isLoaded: readonly2(isLoaded)
   };
 }
 function useSwipe(target, options = {}) {
@@ -7571,14 +7515,14 @@ function useSwipe(target, options = {}) {
     passive = true,
     window: window2 = defaultWindow
   } = options;
-  const coordsStart = reactive({ x: 0, y: 0 });
-  const coordsEnd = reactive({ x: 0, y: 0 });
-  const diffX = computed(() => coordsStart.x - coordsEnd.x);
-  const diffY = computed(() => coordsStart.y - coordsEnd.y);
+  const coordsStart = reactive2({ x: 0, y: 0 });
+  const coordsEnd = reactive2({ x: 0, y: 0 });
+  const diffX = computed2(() => coordsStart.x - coordsEnd.x);
+  const diffY = computed2(() => coordsStart.y - coordsEnd.y);
   const { max, abs } = Math;
-  const isThresholdExceeded = computed(() => max(abs(diffX.value), abs(diffY.value)) >= threshold);
-  const isSwiping = ref(false);
-  const direction = computed(() => {
+  const isThresholdExceeded = computed2(() => max(abs(diffX.value), abs(diffY.value)) >= threshold);
+  const isSwiping = ref2(false);
+  const direction = computed2(() => {
     if (!isThresholdExceeded.value)
       return "none";
     if (abs(diffX.value) > abs(diffY.value)) {
@@ -7657,7 +7601,7 @@ function checkPassiveEventSupport(document2) {
   return supportsPassive;
 }
 function useTemplateRefsList() {
-  const refs = ref([]);
+  const refs = ref2([]);
   refs.value.set = (el) => {
     if (el)
       refs.value.push(el);
@@ -7678,7 +7622,7 @@ function useTextDirection(options = {}) {
     var _a, _b;
     return (_b = (_a = document2 == null ? void 0 : document2.querySelector(selector)) == null ? void 0 : _a.getAttribute("dir")) != null ? _b : initialValue;
   }
-  const dir = ref(getValue2());
+  const dir = ref2(getValue2());
   tryOnMounted(() => dir.value = getValue2());
   if (observe && document2) {
     useMutationObserver(
@@ -7687,7 +7631,7 @@ function useTextDirection(options = {}) {
       { attributes: true }
     );
   }
-  return computed({
+  return computed2({
     get() {
       return dir.value;
     },
@@ -7712,13 +7656,13 @@ function useTextSelection(options = {}) {
   const {
     window: window2 = defaultWindow
   } = options;
-  const selection = ref(null);
-  const text = computed(() => {
+  const selection = ref2(null);
+  const text = computed2(() => {
     var _a, _b;
     return (_b = (_a = selection.value) == null ? void 0 : _a.toString()) != null ? _b : "";
   });
-  const ranges = computed(() => selection.value ? getRangesFromSelection(selection.value) : []);
-  const rects = computed(() => ranges.value.map((range) => range.getBoundingClientRect()));
+  const ranges = computed2(() => selection.value ? getRangesFromSelection(selection.value) : []);
+  const rects = computed2(() => ranges.value.map((range) => range.getBoundingClientRect()));
   function onSelectionChange() {
     selection.value = null;
     if (window2)
@@ -7735,11 +7679,11 @@ function useTextSelection(options = {}) {
 }
 function useTextareaAutosize(options) {
   var _a;
-  const textarea = ref(options == null ? void 0 : options.element);
-  const input = ref(options == null ? void 0 : options.input);
+  const textarea = ref2(options == null ? void 0 : options.element);
+  const input = ref2(options == null ? void 0 : options.input);
   const styleProp = (_a = options == null ? void 0 : options.styleProp) != null ? _a : "height";
-  const textareaScrollHeight = ref(1);
-  const textareaOldWidth = ref(0);
+  const textareaScrollHeight = ref2(1);
+  const textareaOldWidth = ref2(0);
   function triggerResize() {
     var _a2;
     if (!textarea.value)
@@ -7754,8 +7698,8 @@ function useTextareaAutosize(options) {
       height = `${textareaScrollHeight.value}px`;
     textarea.value.style[styleProp] = height;
   }
-  watch([input, textarea], () => nextTick(triggerResize), { immediate: true });
-  watch(textareaScrollHeight, () => {
+  watch2([input, textarea], () => nextTick2(triggerResize), { immediate: true });
+  watch2(textareaScrollHeight, () => {
     var _a2;
     return (_a2 = options == null ? void 0 : options.onResize) == null ? void 0 : _a2.call(options);
   });
@@ -7766,7 +7710,7 @@ function useTextareaAutosize(options) {
     triggerResize();
   });
   if (options == null ? void 0 : options.watch)
-    watch(options.watch, triggerResize, { immediate: true, deep: true });
+    watch2(options.watch, triggerResize, { immediate: true, deep: true });
   return {
     textarea,
     input,
@@ -7812,7 +7756,7 @@ function useTimeAgo(time, options = {}) {
     updateInterval = 3e4
   } = options;
   const { now: now2, ...controls } = useNow({ interval: updateInterval, controls: true });
-  const timeAgo = computed(() => formatTimeAgo(new Date(toValue(time)), options, toValue(now2)));
+  const timeAgo = computed2(() => formatTimeAgo(new Date(toValue(time)), options, toValue(now2)));
   if (exposeControls) {
     return {
       timeAgo,
@@ -7870,7 +7814,7 @@ function formatTimeAgo(from, options = {}, now2 = Date.now()) {
 }
 function useTimeoutPoll(fn, interval, timeoutPollOptions) {
   const { start } = useTimeoutFn(loop, interval, { immediate: false });
-  const isActive = ref(false);
+  const isActive = ref2(false);
   async function loop() {
     if (!isActive.value)
       return;
@@ -7903,7 +7847,7 @@ function useTimestamp(options = {}) {
     interval = "requestAnimationFrame",
     callback
   } = options;
-  const ts = ref(timestamp() + offset);
+  const ts = ref2(timestamp() + offset);
   const update = () => ts.value = timestamp() + offset;
   const cb = callback ? () => {
     update();
@@ -7926,7 +7870,7 @@ function useTitle(newTitle = null, options = {}) {
     restoreOnUnmount = (t) => t
   } = options;
   const originalTitle = (_a = document2 == null ? void 0 : document2.title) != null ? _a : "";
-  const title = toRef2((_b = newTitle != null ? newTitle : document2 == null ? void 0 : document2.title) != null ? _b : null);
+  const title = toRef((_b = newTitle != null ? newTitle : document2 == null ? void 0 : document2.title) != null ? _b : null);
   const isReadonly2 = newTitle && typeof newTitle === "function";
   function format(t) {
     if (!("titleTemplate" in options))
@@ -7934,7 +7878,7 @@ function useTitle(newTitle = null, options = {}) {
     const template = options.titleTemplate || "%s";
     return typeof template === "function" ? template(t) : toValue(template).replace(/%s/g, t);
   }
-  watch(
+  watch2(
     title,
     (t, o) => {
       if (t !== o && document2)
@@ -8058,8 +8002,8 @@ function useTransition(source, options = {}) {
     const v = toValue(source);
     return typeof v === "number" ? v : v.map(toValue);
   };
-  const outputRef = ref(sourceVal());
-  watch(sourceVal, async (to) => {
+  const outputRef = ref2(sourceVal());
+  watch2(sourceVal, async (to) => {
     var _a, _b;
     if (toValue(options.disabled))
       return;
@@ -8079,7 +8023,7 @@ function useTransition(source, options = {}) {
     });
     (_b = options.onFinished) == null ? void 0 : _b.call(options);
   }, { deep: true });
-  watch(() => toValue(options.disabled), (disabled) => {
+  watch2(() => toValue(options.disabled), (disabled) => {
     if (disabled) {
       currentId++;
       outputRef.value = sourceVal();
@@ -8088,7 +8032,7 @@ function useTransition(source, options = {}) {
   tryOnScopeDispose(() => {
     currentId++;
   });
-  return computed(() => toValue(options.disabled) ? sourceVal() : outputRef.value);
+  return computed2(() => toValue(options.disabled) ? sourceVal() : outputRef.value);
 }
 function useUrlSearchParams(mode = "history", options = {}) {
   const {
@@ -8099,8 +8043,8 @@ function useUrlSearchParams(mode = "history", options = {}) {
     window: window2 = defaultWindow
   } = options;
   if (!window2)
-    return reactive(initialValue);
-  const state = reactive({});
+    return reactive2(initialValue);
+  const state = reactive2({});
   function getRawParams() {
     if (mode === "history") {
       return window2.location.search || "";
@@ -8183,15 +8127,15 @@ function useUrlSearchParams(mode = "history", options = {}) {
 }
 function useUserMedia(options = {}) {
   var _a, _b;
-  const enabled = ref((_a = options.enabled) != null ? _a : false);
-  const autoSwitch = ref((_b = options.autoSwitch) != null ? _b : true);
-  const constraints = ref(options.constraints);
+  const enabled = ref2((_a = options.enabled) != null ? _a : false);
+  const autoSwitch = ref2((_b = options.autoSwitch) != null ? _b : true);
+  const constraints = ref2(options.constraints);
   const { navigator = defaultNavigator } = options;
   const isSupported = useSupported(() => {
     var _a2;
     return (_a2 = navigator == null ? void 0 : navigator.mediaDevices) == null ? void 0 : _a2.getUserMedia;
   });
-  const stream = shallowRef();
+  const stream = shallowRef2();
   function getDeviceOptions(type) {
     switch (type) {
       case "video": {
@@ -8234,7 +8178,7 @@ function useUserMedia(options = {}) {
     _stop();
     return await start();
   }
-  watch(
+  watch2(
     enabled,
     (v) => {
       if (v)
@@ -8243,7 +8187,7 @@ function useUserMedia(options = {}) {
     },
     { immediate: true }
   );
-  watch(
+  watch2(
     constraints,
     () => {
       if (autoSwitch.value && stream.value)
@@ -8275,11 +8219,11 @@ function useVModel(props, key, emit, options = {}) {
     defaultValue,
     shouldEmit
   } = options;
-  const vm = getCurrentInstance();
+  const vm = getCurrentInstance2();
   const _emit = emit || (vm == null ? void 0 : vm.emit) || ((_a = vm == null ? void 0 : vm.$emit) == null ? void 0 : _a.bind(vm)) || ((_c = (_b = vm == null ? void 0 : vm.proxy) == null ? void 0 : _b.$emit) == null ? void 0 : _c.bind(vm == null ? void 0 : vm.proxy));
   let event = eventName;
   if (!key) {
-    if (isVue2) {
+    if (isVue22) {
       const modelOptions = (_e = (_d = vm == null ? void 0 : vm.proxy) == null ? void 0 : _d.$options) == null ? void 0 : _e.model;
       key = (modelOptions == null ? void 0 : modelOptions.value) || "value";
       if (!eventName)
@@ -8301,19 +8245,19 @@ function useVModel(props, key, emit, options = {}) {
   };
   if (passive) {
     const initialValue = getValue2();
-    const proxy = ref(initialValue);
+    const proxy = ref2(initialValue);
     let isUpdating = false;
-    watch(
+    watch2(
       () => props[key],
       (v) => {
         if (!isUpdating) {
           isUpdating = true;
           proxy.value = cloneFn(v);
-          nextTick(() => isUpdating = false);
+          nextTick2(() => isUpdating = false);
         }
       }
     );
-    watch(
+    watch2(
       proxy,
       (v) => {
         if (!isUpdating && (v !== props[key] || deep))
@@ -8323,7 +8267,7 @@ function useVModel(props, key, emit, options = {}) {
     );
     return proxy;
   } else {
-    return computed({
+    return computed2({
       get() {
         return getValue2();
       },
@@ -8352,7 +8296,7 @@ function useVibrate(options) {
     navigator = defaultNavigator
   } = options || {};
   const isSupported = useSupported(() => typeof navigator !== "undefined" && "vibrate" in navigator);
-  const patternRef = toRef2(pattern);
+  const patternRef = toRef(pattern);
   let intervalControls;
   const vibrate = (pattern2 = patternRef.value) => {
     if (isSupported.value)
@@ -8397,11 +8341,11 @@ function useVirtualList(list, options) {
   };
 }
 function useVirtualListResources(list) {
-  const containerRef = ref(null);
+  const containerRef = ref2(null);
   const size = useElementSize(containerRef);
-  const currentList = ref([]);
-  const source = shallowRef(list);
-  const state = ref({ start: 0, end: 10 });
+  const currentList = ref2([]);
+  const source = shallowRef2(list);
+  const state = ref2({ start: 0, end: 10 });
   return { state, source, currentList, size, containerRef };
 }
 function createGetViewCapacity(state, source, itemSize) {
@@ -8468,12 +8412,12 @@ function createGetDistance(itemSize, source) {
   };
 }
 function useWatchForSizes(size, list, containerRef, calculateRange) {
-  watch([size.width, size.height, list, containerRef], () => {
+  watch2([size.width, size.height, list, containerRef], () => {
     calculateRange();
   });
 }
 function createComputedTotalSize(itemSize, source) {
-  return computed(() => {
+  return computed2(() => {
     if (typeof itemSize === "number")
       return source.value.length * itemSize;
     return source.value.reduce((sum, _, index) => sum + itemSize(index), 0);
@@ -8500,11 +8444,11 @@ function useHorizontalVirtualList(options, list) {
   const getOffset = createGetOffset(source, itemWidth);
   const calculateRange = createCalculateRange("horizontal", overscan, getOffset, getViewCapacity, resources);
   const getDistanceLeft = createGetDistance(itemWidth, source);
-  const offsetLeft = computed(() => getDistanceLeft(state.value.start));
+  const offsetLeft = computed2(() => getDistanceLeft(state.value.start));
   const totalWidth = createComputedTotalSize(itemWidth, source);
   useWatchForSizes(size, list, containerRef, calculateRange);
   const scrollTo2 = createScrollTo("horizontal", calculateRange, getDistanceLeft, containerRef);
-  const wrapperProps = computed(() => {
+  const wrapperProps = computed2(() => {
     return {
       style: {
         height: "100%",
@@ -8532,11 +8476,11 @@ function useVerticalVirtualList(options, list) {
   const getOffset = createGetOffset(source, itemHeight);
   const calculateRange = createCalculateRange("vertical", overscan, getOffset, getViewCapacity, resources);
   const getDistanceTop = createGetDistance(itemHeight, source);
-  const offsetTop = computed(() => getDistanceTop(state.value.start));
+  const offsetTop = computed2(() => getDistanceTop(state.value.start));
   const totalHeight = createComputedTotalSize(itemHeight, source);
   useWatchForSizes(size, list, containerRef, calculateRange);
   const scrollTo2 = createScrollTo("vertical", calculateRange, getDistanceTop, containerRef);
-  const wrapperProps = computed(() => {
+  const wrapperProps = computed2(() => {
     return {
       style: {
         width: "100%",
@@ -8559,11 +8503,11 @@ function useWakeLock(options = {}) {
     navigator = defaultNavigator,
     document: document2 = defaultDocument
   } = options;
-  const requestedType = ref(false);
-  const sentinel = shallowRef(null);
+  const requestedType = ref2(false);
+  const sentinel = shallowRef2(null);
   const documentVisibility = useDocumentVisibility({ document: document2 });
   const isSupported = useSupported(() => navigator && "wakeLock" in navigator);
-  const isActive = computed(() => !!sentinel.value && documentVisibility.value === "visible");
+  const isActive = computed2(() => !!sentinel.value && documentVisibility.value === "visible");
   if (isSupported.value) {
     useEventListener(sentinel, "release", () => {
       var _a, _b;
@@ -8619,8 +8563,8 @@ function useWebNotification(options = {}) {
     }
     return true;
   });
-  const permissionGranted = ref(isSupported.value && "permission" in Notification && Notification.permission === "granted");
-  const notification = ref(null);
+  const permissionGranted = ref2(isSupported.value && "permission" in Notification && Notification.permission === "granted");
+  const notification = ref2(null);
   const ensurePermissions = async () => {
     if (!isSupported.value)
       return;
@@ -8692,10 +8636,10 @@ function useWebSocket(url, options = {}) {
     autoClose = true,
     protocols = []
   } = options;
-  const data = ref(null);
-  const status = ref("CLOSED");
-  const wsRef = ref();
-  const urlRef = toRef2(url);
+  const data = ref2(null);
+  const status = ref2("CLOSED");
+  const wsRef = ref2();
+  const urlRef = toRef(url);
   let heartbeatPause;
   let heartbeatResume;
   let explicitlyClosed = false;
@@ -8818,7 +8762,7 @@ function useWebSocket(url, options = {}) {
   };
   if (immediate)
     open();
-  watch(urlRef, open);
+  watch2(urlRef, open);
   return {
     data,
     status,
@@ -8832,8 +8776,8 @@ function useWebWorker(arg0, workerOptions, options) {
   const {
     window: window2 = defaultWindow
   } = options != null ? options : {};
-  const data = ref(null);
-  const worker = shallowRef();
+  const data = ref2(null);
+  const worker = shallowRef2();
   const post = (...args) => {
     if (!worker.value)
       return;
@@ -8905,10 +8849,10 @@ function useWebWorkerFn(fn, options = {}) {
     timeout,
     window: window2 = defaultWindow
   } = options;
-  const worker = ref();
-  const workerStatus = ref("PENDING");
-  const promise = ref({});
-  const timeoutId = ref();
+  const worker = ref2();
+  const workerStatus = ref2("PENDING");
+  const promise = ref2({});
+  const timeoutId = ref2();
   const workerTerminate = (status = "PENDING") => {
     if (worker.value && worker.value._url && window2) {
       worker.value.terminate();
@@ -8984,8 +8928,8 @@ function useWebWorkerFn(fn, options = {}) {
 function useWindowFocus(options = {}) {
   const { window: window2 = defaultWindow } = options;
   if (!window2)
-    return ref(false);
-  const focused = ref(window2.document.hasFocus());
+    return ref2(false);
+  const focused = ref2(window2.document.hasFocus());
   useEventListener(window2, "blur", () => {
     focused.value = false;
   });
@@ -8998,13 +8942,13 @@ function useWindowScroll(options = {}) {
   const { window: window2 = defaultWindow, behavior = "auto" } = options;
   if (!window2) {
     return {
-      x: ref(0),
-      y: ref(0)
+      x: ref2(0),
+      y: ref2(0)
     };
   }
-  const internalX = ref(window2.scrollX);
-  const internalY = ref(window2.scrollY);
-  const x = computed({
+  const internalX = ref2(window2.scrollX);
+  const internalY = ref2(window2.scrollY);
+  const x = computed2({
     get() {
       return internalX.value;
     },
@@ -9012,7 +8956,7 @@ function useWindowScroll(options = {}) {
       scrollTo({ left: x2, behavior });
     }
   });
-  const y = computed({
+  const y = computed2({
     get() {
       return internalY.value;
     },
@@ -9043,8 +8987,8 @@ function useWindowSize(options = {}) {
     includeScrollbar = true,
     type = "inner"
   } = options;
-  const width = ref(initialWidth);
-  const height = ref(initialHeight);
+  const width = ref2(initialWidth);
+  const height = ref2(initialHeight);
   const update = () => {
     if (window2) {
       if (type === "outer") {
@@ -9064,7 +9008,7 @@ function useWindowSize(options = {}) {
   useEventListener("resize", update, { passive: true });
   if (listenOrientation) {
     const matches = useMediaQuery("(orientation: portrait)");
-    watch(matches, () => update());
+    watch2(matches, () => update());
   }
   return { width, height };
 }
@@ -9121,7 +9065,7 @@ export {
   objectOmit,
   objectEntries,
   getLifeCycleTarget,
-  toRef2 as toRef,
+  toRef,
   resolveRef,
   reactivePick,
   refAutoReset,
@@ -9132,12 +9076,12 @@ export {
   refThrottled,
   refWithControl,
   controlledRef,
-  set2 as set,
+  set,
   watchWithFilter,
   watchPausable,
   syncRef,
   syncRefs,
-  toRefs2 as toRefs,
+  toRefs,
   tryOnBeforeMount,
   tryOnBeforeUnmount,
   tryOnMounted,
@@ -9346,13 +9290,4 @@ export {
   useWindowScroll,
   useWindowSize
 };
-/*! Bundled license information:
-
-vitepress/lib/vue-demi.mjs:
-  (**
-   * vue-demi v0.14.7
-   * Copyright (c) 2020-present, Anthony Fu
-   * @license MIT
-   *)
-*/
-//# sourceMappingURL=chunk-YJ6QP2VR.js.map
+//# sourceMappingURL=chunk-CEV3VWJF.js.map

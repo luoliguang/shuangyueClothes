@@ -416,28 +416,18 @@ const addCopyMessage = (materialName) => {
 const handleMaterialClick = async (material) => {
   try {
     const originalUrl = material.thumbnail
-    // 修改URL处理方式
-    let proxyUrl = originalUrl
-    if (originalUrl.startsWith('https://bu.dusays.com')) {
-      // 如果是完整的URL，提取路径部分
-      const urlPath = originalUrl.replace('https://bu.dusays.com', '')
-      proxyUrl = `/image-proxy${urlPath}`
-    } else if (originalUrl.startsWith('/')) {
-      // 如果已经是路径格式，直接添加代理前缀
-      proxyUrl = `/image-proxy${originalUrl}`
-    } else {
-      // 如果是其他格式，直接添加代理前缀
-      proxyUrl = `/image-proxy/${originalUrl}`
-    }
-
-    console.log('Original URL:', originalUrl)
-    console.log('Proxy URL:', proxyUrl)
+    // 直接使用原始URL，让代理服务器处理
+    const proxyUrl = originalUrl.replace('https://bu.dusays.com', '/image-proxy')
+    
+    console.log('Processing image:', {
+      original: originalUrl,
+      proxy: proxyUrl
+    })
     
     const img = new Image()
     img.crossOrigin = 'anonymous'
     
     await new Promise((resolve, reject) => {
-      // 添加超时处理
       const timeout = setTimeout(() => {
         img.src = ''
         reject(new Error('Image load timeout'))
@@ -445,38 +435,47 @@ const handleMaterialClick = async (material) => {
 
       img.onload = () => {
         clearTimeout(timeout)
-        const canvas = document.createElement('canvas')
-        canvas.width = img.width
-        canvas.height = img.height
+        console.log('Image loaded successfully')
         
-        const ctx = canvas.getContext('2d')
-        ctx.drawImage(img, 0, 0)
-        
-        canvas.toBlob((blob) => {
-          if (blob) {
-            const data = [new ClipboardItem({ 'image/png': blob })]
-            navigator.clipboard.write(data)
-              .then(() => {
-                addCopyMessage(material.name)
-                resolve()
-              })
-              .catch(error => {
-                console.error('Failed to copy to clipboard:', error)
-                addCopyMessage(`${material.name} - 复制失败`)
-                reject(error)
-              })
-          } else {
-            const error = new Error('Failed to create blob')
-            console.error(error)
-            addCopyMessage(`${material.name} - 复制失败`)
-            reject(error)
+        try {
+          const canvas = document.createElement('canvas')
+          canvas.width = img.width
+          canvas.height = img.height
+          
+          const ctx = canvas.getContext('2d')
+          if (!ctx) {
+            throw new Error('Failed to get canvas context')
           }
-        }, 'image/png')
+          
+          ctx.drawImage(img, 0, 0)
+          
+          canvas.toBlob((blob) => {
+            if (blob) {
+              const data = [new ClipboardItem({ 'image/png': blob })]
+              navigator.clipboard.write(data)
+                .then(() => {
+                  addCopyMessage(material.name)
+                  resolve()
+                })
+                .catch(error => {
+                  console.error('Clipboard error:', error)
+                  addCopyMessage(`${material.name} - 复制失败`)
+                  reject(error)
+                })
+            } else {
+              throw new Error('Failed to create blob')
+            }
+          }, 'image/png', 1.0)
+        } catch (error) {
+          console.error('Canvas operation failed:', error)
+          addCopyMessage(`${material.name} - 图片处理失败`)
+          reject(error)
+        }
       }
       
       img.onerror = (error) => {
         clearTimeout(timeout)
-        console.error('Image load error:', error, 'URL:', proxyUrl)
+        console.error('Image load error:', error)
         addCopyMessage(`${material.name} - 图片加载失败`)
         reject(new Error('Failed to load image'))
       }
