@@ -416,7 +416,7 @@ const addCopyMessage = (materialName) => {
 const handleMaterialClick = async (material) => {
   try {
     const originalUrl = material.thumbnail
-    const proxyUrl = '/image-proxy' + new URL(originalUrl).pathname
+    const proxyUrl = originalUrl.replace('https://bu.dusays.com', '/image-proxy')
     const img = new Image()
     img.crossOrigin = 'anonymous'
     
@@ -444,7 +444,10 @@ const handleMaterialClick = async (material) => {
         }, 'image/png')
       }
       
-      img.onerror = () => reject(new Error('Failed to load image'))
+      img.onerror = (error) => {
+        console.error('Image load error:', error)
+        reject(new Error('Failed to load image'))
+      }
       img.src = proxyUrl
     })
   } catch (error) {

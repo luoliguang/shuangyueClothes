@@ -118,7 +118,13 @@ export default defineConfig({
   lastUpdated: true,
   head: [
     ['link', { rel: 'icon', href: 'https://bu.dusays.com/2024/12/17/6760584c502de.png' }],
-
+    // ['link', {
+    //   rel: 'preload',
+    //   href: '/assets/inter-roman-latin.Di8DUHzh.woff2',
+    //   as: 'font',
+    //   type: 'font/woff2',
+    //   crossorigin: 'anonymous'
+    // }]
   ],
 
   // 时间线注册解析
@@ -144,9 +150,19 @@ export default defineConfig({
         '/image-proxy': {
           target: 'https://bu.dusays.com',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/image-proxy/, '')
+          rewrite: (path) => path.replace(/^\/image-proxy/, ''),
+          configure: (proxy, options) => {
+            proxy.on('error', (err, req, res) => {
+              console.log('proxy error', err);
+            });
+            proxy.on('proxyReq', (proxyReq, req, res) => {
+              console.log('Sending Request to the Target:', req.method, req.url);
+            });
+            proxy.on('proxyRes', (proxyRes, req, res) => {
+              console.log('Received Response from the Target:', proxyRes.statusCode, req.url);
+            });
+          }
         }
-
       }
     }
   }
