@@ -419,10 +419,10 @@ const handleMaterialClick = async (material) => {
     // 直接使用原始URL，让代理服务器处理
     const proxyUrl = originalUrl.replace('https://bu.dusays.com', '/image-proxy')
     
-    console.log('Processing image:', {
-      original: originalUrl,
-      proxy: proxyUrl
-    })
+    // console.log('Processing image:', {
+    //   original: originalUrl,
+    //   proxy: proxyUrl
+    // })
     
     const img = new Image()
     img.crossOrigin = 'anonymous'
@@ -435,7 +435,7 @@ const handleMaterialClick = async (material) => {
 
       img.onload = () => {
         clearTimeout(timeout)
-        console.log('Image loaded successfully')
+        // console.log('Image loaded successfully')
         
         try {
           const canvas = document.createElement('canvas')
@@ -459,7 +459,7 @@ const handleMaterialClick = async (material) => {
                 })
                 .catch(error => {
                   console.error('Clipboard error:', error)
-                  addCopyMessage(`${material.name} - 复制失败`)
+                  // addCopyMessage(`${material.name} - 复制失败`)
                   reject(error)
                 })
             } else {
@@ -468,7 +468,7 @@ const handleMaterialClick = async (material) => {
           }, 'image/png', 1.0)
         } catch (error) {
           console.error('Canvas operation failed:', error)
-          addCopyMessage(`${material.name} - 图片处理失败`)
+          // addCopyMessage(`${material.name} - 图片处理失败`)
           reject(error)
         }
       }
@@ -476,7 +476,7 @@ const handleMaterialClick = async (material) => {
       img.onerror = (error) => {
         clearTimeout(timeout)
         console.error('Image load error:', error)
-        addCopyMessage(`${material.name} - 图片加载失败`)
+        // addCopyMessage(`${material.name} - 图片加载失败`)
         reject(new Error('Failed to load image'))
       }
       
@@ -484,7 +484,7 @@ const handleMaterialClick = async (material) => {
     })
   } catch (error) {
     console.error('复制失败:', error)
-    addCopyMessage(`${material.name} - 复制失败`)
+    // addCopyMessage(`${material.name} - 复制失败`)
   }
 }
 
