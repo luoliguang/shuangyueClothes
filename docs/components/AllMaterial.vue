@@ -416,7 +416,22 @@ const addCopyMessage = (materialName) => {
 const handleMaterialClick = async (material) => {
   try {
     const originalUrl = material.thumbnail
-    const proxyUrl = `/image-proxy${new URL(originalUrl).pathname}`
+    // 修改URL处理方式
+    let proxyUrl = originalUrl
+    if (originalUrl.startsWith('https://bu.dusays.com')) {
+      // 如果是完整的URL，提取路径部分
+      const urlPath = originalUrl.replace('https://bu.dusays.com', '')
+      proxyUrl = `/image-proxy${urlPath}`
+    } else if (originalUrl.startsWith('/')) {
+      // 如果已经是路径格式，直接添加代理前缀
+      proxyUrl = `/image-proxy${originalUrl}`
+    } else {
+      // 如果是其他格式，直接添加代理前缀
+      proxyUrl = `/image-proxy/${originalUrl}`
+    }
+
+    console.log('Original URL:', originalUrl)
+    console.log('Proxy URL:', proxyUrl)
     
     const img = new Image()
     img.crossOrigin = 'anonymous'
