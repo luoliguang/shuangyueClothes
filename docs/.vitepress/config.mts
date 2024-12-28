@@ -150,16 +150,21 @@ export default defineConfig({
         '/image-proxy': {
           target: 'https://bu.dusays.com',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/image-proxy/, ''),
+          rewrite: (path) => {
+            // 移除 /image-proxy 前缀，保留完整的后续路径
+            const newPath = path.replace(/^\/image-proxy/, '')
+            // console.log('Rewriting path:', path, 'to:', newPath)
+            return newPath
+          },
           configure: (proxy, options) => {
             proxy.on('error', (err, req, res) => {
-              console.log('proxy error', err);
+              // console.error('Proxy error:', err, req.url)
             });
             proxy.on('proxyReq', (proxyReq, req, res) => {
-              console.log('Sending Request to the Target:', req.method, req.url);
+              // console.log('Proxying request:', req.url, 'to:', proxyReq.path)
             });
             proxy.on('proxyRes', (proxyRes, req, res) => {
-              console.log('Received Response from the Target:', proxyRes.statusCode, req.url);
+              // console.log('Received response:', proxyRes.statusCode, req.url)
             });
           }
         }

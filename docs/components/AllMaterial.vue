@@ -416,12 +416,20 @@ const addCopyMessage = (materialName) => {
 const handleMaterialClick = async (material) => {
   try {
     const originalUrl = material.thumbnail
-    const proxyUrl = originalUrl.replace('https://bu.dusays.com', '/image-proxy')
+    const proxyUrl = `/image-proxy${new URL(originalUrl).pathname}`
+    
     const img = new Image()
     img.crossOrigin = 'anonymous'
     
     await new Promise((resolve, reject) => {
+      // 添加超时处理
+      const timeout = setTimeout(() => {
+        img.src = ''
+        reject(new Error('Image load timeout'))
+      }, 10000)
+
       img.onload = () => {
+        clearTimeout(timeout)
         const canvas = document.createElement('canvas')
         canvas.width = img.width
         canvas.height = img.height
@@ -437,21 +445,32 @@ const handleMaterialClick = async (material) => {
                 addCopyMessage(material.name)
                 resolve()
               })
-              .catch(reject)
+              .catch(error => {
+                console.error('Failed to copy to clipboard:', error)
+                addCopyMessage(`${material.name} - 复制失败`)
+                reject(error)
+              })
           } else {
-            reject(new Error('Failed to create blob'))
+            const error = new Error('Failed to create blob')
+            console.error(error)
+            addCopyMessage(`${material.name} - 复制失败`)
+            reject(error)
           }
         }, 'image/png')
       }
       
       img.onerror = (error) => {
-        console.error('Image load error:', error)
+        clearTimeout(timeout)
+        console.error('Image load error:', error, 'URL:', proxyUrl)
+        addCopyMessage(`${material.name} - 图片加载失败`)
         reject(new Error('Failed to load image'))
       }
+      
       img.src = proxyUrl
     })
   } catch (error) {
     console.error('复制失败:', error)
+    addCopyMessage(`${material.name} - 复制失败`)
   }
 }
 
