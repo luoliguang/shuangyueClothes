@@ -1,12 +1,22 @@
 <template>
-  <div ref="scrollContainer" class="scroll-container">
-    <div ref="scrollContent" class="scroll-content">
-      <div v-for="(image, index) in displayImages" 
+    <div ref="scrollContainer" class="scroll-container">
+      <div ref="scrollContent" class="scroll-content">
+        <!-- 第一组图片 -->
+        <div v-for="(image, index) in displayImages" 
            :key="index" 
            class="swiper-slide">
         <img 
           :src="image"
           :alt="`slide-${index}`"
+          loading="lazy">
+      </div>
+      <!-- 复制一组相同的图片实现无缝效果 -->
+      <div v-for="(image, index) in displayImages" 
+           :key="`repeat-${index}`" 
+           class="swiper-slide">
+        <img 
+          :src="image"
+          :alt="`slide-repeat-${index}`"
           loading="lazy">
       </div>
     </div>
@@ -40,33 +50,42 @@ const images = ref([]) // 本地图片数组
 watch(() => props.imagePaths, (newImages) => {
   if (newImages && newImages.length > 0) {
     images.value = [...newImages]
-    // 重置滚动位置
-    scrollPosition.value = 0
-    // 重新启动动画
-    if (animationFrameId.value) {
-      cancelAnimationFrame(animationFrameId.value)
+    // 确保动画只启动一次
+    if (!animationFrameId.value) {
+      startAnimation()
     }
-    animationFrameId.value = requestAnimationFrame(smoothScroll)
   }
-}, { immediate: true }) // immediate: true 确保首次加载时也会执行
+}, { immediate: true })
 
 // 计算属性，用于显示图片
 const displayImages = computed(() => {
   return images.value.length > 0 ? images.value : []
 })
 
+// 启动动画
+const startAnimation = () => {
+  if (!scrollContent.value || images.value.length === 0) return
+  
+  // 重置位置
+  scrollPosition.value = 0
+  scrollContent.value.style.transform = `translateX(0px)`
+  
+  // 启动滚动动画
+  animationFrameId.value = requestAnimationFrame(smoothScroll)
+}
+
 // 滚动动画逻辑
 const smoothScroll = () => {
   if (!scrollContent.value || images.value.length === 0) return
   
   scrollPosition.value += props.scrollSpeed
-  const contentWidth = scrollContent.value.scrollWidth
-  const containerWidth = scrollContainer.value.offsetWidth
-
-  if (scrollPosition.value >= contentWidth - containerWidth) {
+  const contentWidth = scrollContent.value.scrollWidth / 2 // 因为我们复制了一组图片
+  
+  // 当滚动到第一组图片的末尾时，重置位置到开始处
+  if (scrollPosition.value >= contentWidth) {
     scrollPosition.value = 0
   }
-
+  
   scrollContent.value.style.transform = `translateX(-${scrollPosition.value}px)`
   animationFrameId.value = requestAnimationFrame(smoothScroll)
 }
@@ -75,17 +94,22 @@ const smoothScroll = () => {
 const pauseScroll = () => {
   if (animationFrameId.value) {
     cancelAnimationFrame(animationFrameId.value)
+    animationFrameId.value = null
   }
 }
 
 const resumeScroll = () => {
-  animationFrameId.value = requestAnimationFrame(smoothScroll)
+  if (!animationFrameId.value) {
+    animationFrameId.value = requestAnimationFrame(smoothScroll)
+  }
 }
 
 onMounted(() => {
   if (scrollContainer.value && scrollContent.value) {
-    // 启动滚动动画
-    animationFrameId.value = requestAnimationFrame(smoothScroll)
+    // 确保图片加载完成后再启动动画
+    if (images.value.length > 0) {
+      startAnimation()
+    }
     
     // 添加鼠标悬停事件
     scrollContainer.value.addEventListener('mouseenter', pauseScroll)
@@ -116,7 +140,7 @@ onUnmounted(() => {
 
 .scroll-content {
   display: flex;
-  transition: transform 0.05s linear;
+  will-change: transform;
 }
 
 .swiper-slide {

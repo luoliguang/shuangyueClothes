@@ -137,8 +137,19 @@ export default defineConfig({
         ].includes(tag)
       }
     }
-  }
+  },
+  vite: {
+    server: {
+      proxy: {
+        '/image-proxy': {
+          target: 'https://bu.dusays.com',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/image-proxy/, '')
+        }
 
+      }
+    }
+  }
 
 
 })

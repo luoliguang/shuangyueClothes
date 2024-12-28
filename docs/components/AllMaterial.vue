@@ -28,18 +28,16 @@
         </div>
       </div>
     </div>
-
-    <!-- 分类过滤器 -->
-    <div class="filter-section">
-      <div class="filter-header">
+    <div class="filter-header">
         <button 
           v-if="selectedTags.length > 0"
           class="clear-filter-btn"
-          @click="clearAllTags"
-        >
-          清空筛选
+          @click="clearAllTags">
+          快速清空选项
         </button>
-      </div>
+    </div>
+    <!-- 分类过滤器 -->
+    <div class="filter-section">
       <div 
         v-for="category in categories" 
         :key="category.id"
@@ -59,7 +57,6 @@
         </div>
       </div>
     </div>
-
     <!-- 素材展示区域 -->
     <div class="materials-grid" ref="materialsGrid">
       <div 
@@ -84,7 +81,6 @@
           <p>{{ material.description }}</p>
         </div>
       </div>
-
       <!-- 加载更多 -->
       <div 
         v-if="hasMore && filteredMaterials.length > 0" 
@@ -111,14 +107,22 @@
     </button>
 
     <!-- 复制成功提示 -->
-    <transition name="fade">
-      <div v-show="showCopySuccess" class="copy-success-toast">
-        <svg class="success-icon" viewBox="0 0 24 24" width="20" height="20">
-          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+    <transition-group 
+      name="message-fade" 
+      tag="div" 
+      class="copy-messages-container"
+    >
+      <div
+        v-for="message in copyMessages"
+        :key="message.id"
+        class="copy-success-toast"
+      >
+        <svg t="1735410531880" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8692" width="20" height="20">
+          <path d="M512 85.333333c235.648 0 426.666667 191.018667 426.666667 426.666667s-191.018667 426.666667-426.666667 426.666667S85.333333 747.648 85.333333 512 276.352 85.333333 512 85.333333z m-74.965333 550.4L346.453333 545.152a42.666667 42.666667 0 1 0-60.330666 60.330667l120.704 120.704a42.666667 42.666667 0 0 0 60.330666 0l301.653334-301.696a42.666667 42.666667 0 1 0-60.288-60.330667l-271.530667 271.488z" fill="#1afa29" p-id="8693"></path>
         </svg>
-        图片链接复制成功
+        {{ message.text }}
       </div>
-    </transition>
+    </transition-group>
   </div>
 </template>
 
@@ -128,7 +132,7 @@ import { useDebounceFn } from '@vueuse/core'
 
 // 定义 props
 const props = defineProps({
-      categories: {
+    categories: {
     type: Array,
     required: true,
     validator: (value) => {
@@ -149,7 +153,7 @@ const props = defineProps({
     required: true,
     validator: (value) => {
       return value.every(material => {
-        return typeof material.id === 'number' &&
+        return typeof material.id !== '' &&
                typeof material.name === 'string' &&
                typeof material.description === 'string' &&
                typeof material.type === 'string' &&
@@ -168,7 +172,8 @@ const page = ref(1)
 const hasMore = ref(true)
 const isLoading = ref(false)
 const loadMoreRef = ref(null)
-const showCopySuccess = ref(false)
+const copyMessages = ref([])
+let messageId = 0
 const pageSize = 6 // 每页显示数量
 
 // 回到顶部功能
@@ -391,19 +396,62 @@ const fetchMaterials = async ({ page, search, tags }) => {
   }
 }
 
+// 添加消息到队列
+const addCopyMessage = (materialName) => {
+  const id = messageId++
+  const message = {
+    id,
+    text: `${materialName} 复制成功`,
+    timestamp: Date.now()
+  }
+  copyMessages.value.push(message)
+  
+  // 1秒后移除该消息
+  setTimeout(() => {
+    copyMessages.value = copyMessages.value.filter(msg => msg.id !== id)
+  }, 1000)
+}
 
-// 点击素材
+// 点击图片复制为图片
 const handleMaterialClick = async (material) => {
   try {
-    await navigator.clipboard.writeText(material.thumbnail)
-    showCopySuccess.value = true
-    setTimeout(() => {
-      showCopySuccess.value = false
-    }, 2000) // 2秒后自动隐藏
+    const originalUrl = material.thumbnail
+    const proxyUrl = '/image-proxy' + new URL(originalUrl).pathname
+    const img = new Image()
+    img.crossOrigin = 'anonymous'
+    
+    await new Promise((resolve, reject) => {
+      img.onload = () => {
+        const canvas = document.createElement('canvas')
+        canvas.width = img.width
+        canvas.height = img.height
+        
+        const ctx = canvas.getContext('2d')
+        ctx.drawImage(img, 0, 0)
+        
+        canvas.toBlob((blob) => {
+          if (blob) {
+            const data = [new ClipboardItem({ 'image/png': blob })]
+            navigator.clipboard.write(data)
+              .then(() => {
+                addCopyMessage(material.name)
+                resolve()
+              })
+              .catch(reject)
+          } else {
+            reject(new Error('Failed to create blob'))
+          }
+        }, 'image/png')
+      }
+      
+      img.onerror = () => reject(new Error('Failed to load image'))
+      img.src = proxyUrl
+    })
   } catch (error) {
     console.error('复制失败:', error)
   }
 }
+
 const loadMore = () => {
   loadMaterials()
 }

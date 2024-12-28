@@ -34,47 +34,30 @@ features:
     title: PERFECT
     details: 更具专业知识的客服
 ---
-
-<StartWelcome :imagePaths="imgUrl" :scrollSpeed="0.3"/>
+<keep-alive>
+<StartWelcome :imagePaths="imgUrl" :scrollSpeed="0.5"/>
+</keep-alive>
 <!-- <Welcome :imagePaths="imgUrl"/> -->
 
 <script setup>
 import { onMounted, onUnmounted, ref, watch } from 'vue'
-import { getImages } from '../docs/components/API/api'
+import { getImages, getImagesUrl } from '../docs/components/sever/sever.js'
 
 // 创建响应式数组
 const imgUrl = ref([])
 
-// 获取图片数组的异步函数
-const fetchImagesUrl = async () => {
-  try {
-    const res = await getImages(1485)
-    const images = res.data.data.map(item => item.links.url)
-    imgUrl.value = images
-    // console.log('获取到的图片数组：', images.length)
-  } catch (error) {
-    console.error('获取图片失败：', error)
-  }
-}
+// 异步获取图片处理结果
+getImagesUrl(1485).then(res => {
+  imgUrl.value = res.map(item => item.url)
+})
 
 // 在组件挂载时获取图片
 onMounted(() => {
-  fetchImagesUrl()
-})
 
-// 可以添加一个定时器定期刷新图片
-const timer = ref(null)
-
-onMounted(() => {
-  fetchImagesUrl()
-  // 每5分钟刷新一次图片
-  timer.value = setInterval(fetchImagesUrl, 5 * 60 * 1000)
 })
 
 onUnmounted(() => {
-  if (timer.value) {
-    clearInterval(timer.value)
-  }
+
 })
 </script>
 
