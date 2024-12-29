@@ -147,16 +147,17 @@ export default defineConfig({
   vite: {
     server: {
       proxy: {
-        '^/image-proxy/.*': {
+        '^/yy-img/.*': {
           target: 'https://bu.dusays.com',
           changeOrigin: true,
           secure: false,
           rewrite: (path) => {
-            return path.replace(/^\/image-proxy/, '')
+            return path.replace(/^\/yy-img/, '')
           },
           headers: {
             'Referer': 'https://bu.dusays.com',
-            'Origin': 'https://bu.dusays.com'
+            'Origin': 'https://bu.dusays.com',
+            'Accept': 'application/json',
           }
         }
       }

@@ -409,7 +409,7 @@ const addCopyMessage = (materialName) => {
   // 1秒后移除该消息
   setTimeout(() => {
     copyMessages.value = copyMessages.value.filter(msg => msg.id !== id)
-  }, 1000)
+  }, 3000)
 }
 
 // 点击图片复制为图片
@@ -417,7 +417,7 @@ const handleMaterialClick = async (material) => {
   try {
     const originalUrl = material.thumbnail
     // 直接使用原始URL，让代理服务器处理
-    const proxyUrl = originalUrl.replace('https://bu.dusays.com', '/image-proxy')
+    const proxyUrl = originalUrl.replace('https://bu.dusays.com', '/yy-img')
     
     // console.log('Processing image:', {
     //   original: originalUrl,
