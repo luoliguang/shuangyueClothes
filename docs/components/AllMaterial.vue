@@ -416,13 +416,8 @@ const addCopyMessage = (materialName) => {
 const handleMaterialClick = async (material) => {
   try {
     const originalUrl = material.thumbnail
-    // 直接使用原始URL，让代理服务器处理
+    // 使用相对路径，让 Vercel 的重写规则处理
     const proxyUrl = originalUrl.replace('https://bu.dusays.com', '/yy-img')
-    
-    // console.log('Processing image:', {
-    //   original: originalUrl,
-    //   proxy: proxyUrl
-    // })
     
     const img = new Image()
     img.crossOrigin = 'anonymous'
@@ -435,7 +430,6 @@ const handleMaterialClick = async (material) => {
 
       img.onload = () => {
         clearTimeout(timeout)
-        // console.log('Image loaded successfully')
         
         try {
           const canvas = document.createElement('canvas')
@@ -447,6 +441,11 @@ const handleMaterialClick = async (material) => {
             throw new Error('Failed to get canvas context')
           }
           
+          // 设置白色背景
+          ctx.fillStyle = '#FFFFFF'
+          ctx.fillRect(0, 0, canvas.width, canvas.height)
+          
+          // 绘制图片
           ctx.drawImage(img, 0, 0)
           
           canvas.toBlob((blob) => {
@@ -459,7 +458,7 @@ const handleMaterialClick = async (material) => {
                 })
                 .catch(error => {
                   console.error('Clipboard error:', error)
-                  // addCopyMessage(`${material.name} - 复制失败`)
+                  addCopyMessage(`${material.name} - 复制失败`)
                   reject(error)
                 })
             } else {
@@ -468,7 +467,7 @@ const handleMaterialClick = async (material) => {
           }, 'image/png', 1.0)
         } catch (error) {
           console.error('Canvas operation failed:', error)
-          // addCopyMessage(`${material.name} - 图片处理失败`)
+          addCopyMessage(`${material.name} - 图片处理失败`)
           reject(error)
         }
       }
@@ -476,15 +475,18 @@ const handleMaterialClick = async (material) => {
       img.onerror = (error) => {
         clearTimeout(timeout)
         console.error('Image load error:', error)
-        // addCopyMessage(`${material.name} - 图片加载失败`)
+        addCopyMessage(`${material.name} - 图片加载失败`)
         reject(new Error('Failed to load image'))
       }
-      
-      img.src = proxyUrl
+
+      // 设置图片源之前确保跨域属性已设置
+      setTimeout(() => {
+        img.src = proxyUrl
+      }, 0)
     })
   } catch (error) {
     console.error('复制失败:', error)
-    // addCopyMessage(`${material.name} - 复制失败`)
+    addCopyMessage(`${material.name} - 复制失败`)
   }
 }
 
