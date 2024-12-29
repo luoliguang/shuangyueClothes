@@ -3,7 +3,7 @@
 > 对于衣服是否可以做，可以具体询问客服。  
 > 一般笼统的问题都会存放在这里。
 ## 文档贡献
-> 文档并非一个人完成，而是集满了许多人的智慧。每个文档贡献者的右上角都会标识对应的名字缩写，用字母代替。
+> 文档并非一个人完成，而是集满了许多人的智慧。每个文档贡献者的右上角都会标识对应的名字缩写，用名字标识。
 
 <!-- 
 
@@ -43,8 +43,16 @@
 <ReferenceData :ImageSrc="Images.UsaNaseball.imgPath" :alias="Images.UsaNaseball.imgAlias" />
 ### 盘口短袖的扣子可以做什么颜色？
 > 默认只能做白色，如果需要其他颜色，跟据实际情况而定。
-
-
+### 布料最宽可以做到多少CM？<Badge type="tip" text="文叔" />
+> 印布：162CM，裁片：185CM。
+### 卫衣的下摆可以印图案吗？<Badge type="tip" text="文叔" />
+> 不可以。可以印制“线条”“纯色”。
+### POLO的领子可以双面印色吗？<Badge type="tip" text="文叔" />
+> 可以。
+### 衣服内里可以做其它颜色吗？<Badge type="tip" text="文叔" />
+> 不能，只能做白色。
+### 插肩五分袖的袖子比正常短袖的袖子长多少？<Badge type="tip" text="少军" />
+> 插肩五分袖的袖子比正常短袖的袖子长`5-8CM`。
 <!-- 
 
  关于出货
@@ -70,7 +78,7 @@
 <ReferenceData :ImageSrc="Images.BoxSpecification.imgPath" :alias="Images.BoxSpecification.imgAlias" />
 
 ### 班期默认尺寸
-> 4号班旗 144CM X 96CM 默认单面印制
+> 4号班旗:144CM X 96CM 默认单面印制
 
 <script setup>
 

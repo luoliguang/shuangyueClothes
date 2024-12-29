@@ -286,3 +286,27 @@ window.removeEventListener('scroll', handleScroll)
 ::: timeline 24-12-24
 ### 将图片获取方式重构为API获取
 :::
+
+::: timeline 24-12-30
+### 解决部署到Vercel后不能访问CDN图片
+因为在`Vercel`部署的环境中，代理配置（在`config.mts`中的配置）不会生效，因为`Vercel`是静态托管服务。所以需要将文件写到`vercel.json`中。解决办法如下：
+1. 在`vercel.json`中添加一个重写规则，将`/yy-img`路径重写为`https://bu.dusays.com`。
+```json
+{
+  "rewrites": [
+    { 
+    "source": "/yy-img/:path*", 
+    "destination": "https://bu.dusays.com/:path*" }
+  ],
+  "headers": [
+    {
+      "source": "/yy-img/(.*)",
+      "headers": [
+        // 参考：https://vercel.com/guides/how-to-enable-cors#enabling-cors-using%C2%A0vercel.json
+      ]
+    }
+  ]
+}
+```
+:::
+

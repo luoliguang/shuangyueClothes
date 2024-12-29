@@ -152,3 +152,75 @@ const asyncData = async () => {
 - 子组件通过 `props` 接收数据
 - 使用本地`ref`配合`watch`处理props的变化
 
+## 在`Vercel`部署静态网站时，当需要访问第三方的图片资源时，遇到跨域（CORS）限制。
+主要通过两个部分解决：
+1. `Vercel` 配置 (`vercel.json`)
+```json
+{
+  "rewrites": [
+    {
+      "source": "/yy-img/:path*",
+      "destination": "https://bu.dusays.com/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/yy-img/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+        }
+      ]
+    }
+  ]
+}
+```
+1. 在`AllMaterial.vue`中，将图片路径修改为相对路径。
+```javascript
+const handleMaterialClick = async (material) => {
+  try {
+    // 将原始 URL 转换为代理 URL
+    const originalUrl = material.thumbnail
+    const proxyUrl = originalUrl.replace('https://bu.dusays.com', '/yy-img')
+    
+    const img = new Image()
+    img.crossOrigin = 'anonymous'  // 关键：设置跨域属性
+    
+    // 图片加载处理
+    await new Promise((resolve, reject) => {
+      // 设置超时处理
+      const timeout = setTimeout(() => {
+        img.src = ''
+        reject(new Error('Image load timeout'))
+      }, 10000)
+
+      // 图片加载成功处理
+      img.onload = () => {
+        // Canvas 处理逻辑
+        // ...
+      }
+      
+      // 图片加载失败处理
+      img.onerror = (error) => {
+        // ...
+      }
+
+      // 延迟设置图片源
+      setTimeout(() => {
+        img.src = proxyUrl
+      }, 0)
+    })
+  } catch (error) {
+    // 错误处理
+  }
+}
+```
