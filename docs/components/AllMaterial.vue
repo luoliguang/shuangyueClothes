@@ -176,6 +176,7 @@ const copyMessages = ref([])
 let messageId = 0
 const pageSize = 6 // 每页显示数量
 
+
 // 回到顶部功能
 const showBackToTop = ref(false)
 
@@ -389,9 +390,9 @@ const fetchMaterials = async ({ page, search, tags }) => {
   const start = (page - 1) * pageSize
   const end = start + pageSize
   const paginatedData = filteredData.slice(start, end)
-
   return {
     data: paginatedData,
+    // hasMore: end < filteredData.length
     hasMore: end < filteredData.length
   }
 }
@@ -406,19 +407,28 @@ const addCopyMessage = (materialName) => {
   }
   copyMessages.value.push(message)
   
-  // 1秒后移除该消息
+  // 3秒后移除该消息
   setTimeout(() => {
     copyMessages.value = copyMessages.value.filter(msg => msg.id !== id)
-  }, 3000)
+  }, 2000)
 }
 
 // 点击图片复制为图片
 const handleMaterialClick = async (material) => {
   try {
     const originalUrl = material.thumbnail
-    // 使用相对路径，让 Vercel 的重写规则处理
     const proxyUrl = originalUrl.replace('https://bu.dusays.com', '/yy-img')
     
+    // 检测是否为移动端
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    
+    if (isMobile) {
+      // 移动端：打开新窗口显示图片
+      window.open(proxyUrl, '_blank')
+      addCopyMessage(`${material.name} - 请长按图片保存`)
+      return
+    }
+
     const img = new Image()
     img.crossOrigin = 'anonymous'
     
@@ -458,8 +468,17 @@ const handleMaterialClick = async (material) => {
                 })
                 .catch(error => {
                   console.error('Clipboard error:', error)
-                  addCopyMessage(`${material.name} - 复制失败`)
-                  reject(error)
+                  // 如果复制失败，提供备选方案
+                  const url = URL.createObjectURL(blob)
+                  const link = document.createElement('a')
+                  link.href = url
+                  link.download = `${material.name}.png`
+                  document.body.appendChild(link)
+                  link.click()
+                  document.body.removeChild(link)
+                  URL.revokeObjectURL(url)
+                  addCopyMessage(`${material.name} - 已下载到本地`)
+                  resolve()
                 })
             } else {
               throw new Error('Failed to create blob')
