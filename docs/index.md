@@ -37,28 +37,27 @@ features:
 <keep-alive>
 <StartWelcome :imagePaths="imgUrl" :scrollSpeed="0.5"/>
 </keep-alive>
-<!-- <Welcome :imagePaths="imgUrl"/> -->
+
+<IndexTravel />
 
 <script setup>
-import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { onMounted, onUnmounted, ref, watchEffect, onBeforeMount } from 'vue'
 import { getImages, getImagesUrl } from '../docs/components/sever/sever.js'
 
 // 创建响应式数组
 const imgUrl = ref([])
 
-// 异步获取图片处理结果
-getImagesUrl(1485).then(res => {
-  imgUrl.value = res.map(item => item.url)
-})
-
 // 在组件挂载时获取图片
+onBeforeMount(() => {
+  getImagesUrl(1485).then(res => {
+    imgUrl.value = res.map(item => item.url)
+  })
+})
+
 onMounted(() => {
-
 })
 
-onUnmounted(() => {
 
-})
 </script>
 
 <style scope>
@@ -74,4 +73,6 @@ onUnmounted(() => {
 .image-src{
   max-width:80% !important;
 }
+
+
 </style>

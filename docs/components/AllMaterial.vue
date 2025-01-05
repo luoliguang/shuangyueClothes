@@ -174,7 +174,7 @@ const isLoading = ref(false)
 const loadMoreRef = ref(null)
 const copyMessages = ref([])
 let messageId = 0
-const pageSize = 6 // 每页显示数量
+const pageSize = 9 // 每页显示数量
 
 
 // 回到顶部功能
