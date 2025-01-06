@@ -76,6 +76,13 @@ export default {
   },
 
   setup() {
+    //忽略包含 "Swiper Loop Warning" 的警告
+    const originalWarn = console.warn;
+    console.warn = (...args) => {
+      if (args[0].includes('Swiper Loop Warning')) return;
+      originalWarn(...args);
+    };
+
     return {
       modules: [EffectCoverflow, Pagination, Autoplay],
       loadingGif,
