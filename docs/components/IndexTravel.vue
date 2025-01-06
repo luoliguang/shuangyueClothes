@@ -5,7 +5,7 @@
   </div>
   <div>
     <img :class="['animated-element-left',{animateLeft:animatedElements.left.animate}]" 
-          src='https://bu.dusays.com/2025/01/05/67795ddcbdda2.jpg'>
+          src='https://bu.dusays.com/2025/01/06/677b7d92665b6.png'>
     <div :class="['animated-element-right',{animateRight:animatedElements.right.animate}]" >
       <h3>一张还算有意义的照片</h3>
       <p>2025.1.1,跨年的特殊日子我们突破了自我。登顶这1298m的罗浮山。想来过程也是极其艰难，惊喜和意外全然不断。但幸好也是登上了。旅途更珍贵的，不应该想着结果，而是能够更深刻体会到的应该是旅途的意义。</p>
@@ -14,10 +14,10 @@
   <div>
     <div :class="['animated-element-left',{animateLeft:animatedElements.left.animate}]"  >
       <h3>小小罗浮山轻松拿捏</h3>
-      <p>努力做好当下的每一件事情，不断朝着胜利出发。Nerver Give Up.</p>
+      <p>无意间拍到这样的站位，这照片显示的方式。在摄影上的专业名词应该叫“剪影”。我的意思是，生活永远是不确定性的，你永远也不会知道下一步会变成什么样子，亦或能散发出怎样的色彩。永远不要停止努力，你现在所学习到的事物在未来的某一刻一定会给你回馈。永远别停止前行。这才是你首当其冲需要做的事情。</p>
     </div>
     <img :class="['animated-element-right',{animateRight:animatedElements.right.animate}]"
-          src='https://bu.dusays.com/2025/01/05/67795dc25476e.jpg'>
+          src='https://bu.dusays.com/2025/01/05/67795dd0deda6.jpg'>
   </div>
 </div>
 </template>
