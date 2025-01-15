@@ -58,8 +58,6 @@ const materialCategories = [
   },
 ]
 
-// const materials = ref(materialsList)
-// const allImages = ref([]) // 小方格速干图片
 const materials = ref([])
 const allImages = ref({})
 
@@ -68,6 +66,7 @@ Promise.all([
    * 面料细节
    */
 getImagesUrl(apiNumbers.numDetail).then(res => {
+  console.log(res)
   materialCategories[2].tags[0].count += res.length // 面料细节标签计数
   return res.map((item, index) => {
     // 直接处理标签匹配逻辑
