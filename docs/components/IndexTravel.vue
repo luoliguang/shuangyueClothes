@@ -99,8 +99,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* 首页介绍页面 */
+h3,p{
+  font-size: clamp(.5rem,2vh,2rem);
+}
+img{
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
 .brief{
   width:100%;
   display: flex;
@@ -197,4 +206,17 @@ export default {
 .animated-element-right.leave {
   transition: all .5s ease-out; /* 确保平滑 */
 }
+
+@media screen and (max-width: 680px) {
+  .brief div:not(:first-child){
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0px !important;
+  }
+  .brief div h3{
+    text-align: center;
+  }
+
+}
+
 </style>
