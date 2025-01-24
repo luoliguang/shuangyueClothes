@@ -310,3 +310,9 @@ window.removeEventListener('scroll', handleScroll)
 ```
 :::
 
+::: timeline 25-1-24
+1. 新增网站客服插件；
+2. 修复api请求图片数量bug；
+3. 调整主页图片显示尺寸比例。
+:::
+
