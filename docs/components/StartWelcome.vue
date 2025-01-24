@@ -128,6 +128,25 @@ onUnmounted(() => {
     scrollContainer.value.removeEventListener('mouseleave', resumeScroll)
   }
 })
+
+// 在 mounted 钩子中添加 Tawk.to 脚本
+onMounted(() => {
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+  s1.async = true;
+  s1.src = 'https://embed.tawk.to/67877cc3825083258e055bc9/1ihkjumuo';
+  s1.charset = 'UTF-8';
+  s1.setAttribute('crossorigin', '*');
+  s0.parentNode.insertBefore(s1, s0);
+});
+
+// 在卸载时移除 Tawk.to 脚本
+onUnmounted(() => {
+  const scriptTags = document.querySelectorAll('script[src*="tawk.to"]');
+  scriptTags.forEach(script => {
+    script.parentNode.removeChild(script);
+  });
+});
 </script>
 
 <style scoped>
