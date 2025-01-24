@@ -260,6 +260,7 @@ const styleTemplates = {
 const apiNumbers = {
   // 面料细节
   'numDetail': 1497, // 面料细节
+  'numDetail2': 1521, // 面料细节
   // 短袖系列
   'numXfgTshirt': 1491, // 小方格速干
   'numXfgPolo': 1436, // 小方格速干

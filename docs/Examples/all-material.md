@@ -66,7 +66,33 @@ Promise.all([
    * 面料细节
    */
 getImagesUrl(apiNumbers.numDetail).then(res => {
-  console.log(res)
+  // console.log(res)
+  materialCategories[2].tags[0].count += res.length // 面料细节标签计数
+  return res.map((item, index) => {
+    // 直接处理标签匹配逻辑
+    const tags = []
+    materialCategories[0].tags.forEach((tag, index) => {
+      if (item.name.includes(tag.name)) {
+        materialCategories[0].tags[index].count += 1
+        tags.push(tag.id)
+      }
+    })
+    tags.push('detail')
+    // console.log(tags)
+
+    // 返回处理后的对象
+    return {
+      id: `fabricDetail-${index + 1}`,
+      name: item.name,
+      description: styleTemplates['fabricDetail'].description,
+      type: styleTemplates['fabricDetail'].type,
+      thumbnail: item.url,
+      tags: tags
+    }
+  })
+}),
+getImagesUrl(apiNumbers.numDetail2).then(res => {
+  // console.log(res)
   materialCategories[2].tags[0].count += res.length // 面料细节标签计数
   return res.map((item, index) => {
     // 直接处理标签匹配逻辑

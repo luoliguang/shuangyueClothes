@@ -8,14 +8,14 @@ const getImages = async (albumId) => {
   try {
     const response = await axios.get(`${baseUrl}`, {
       params: {
-        album_id: albumId
+        album_id: albumId,
       },
       headers: {
         'Authorization': `Bearer ${token}`,
         'Accept': 'application/json',
       }
     });
-    // console.log('图床返回的图片数据:', response.data);
+
     return response.data;
   } catch (error) {
     console.error('获取图片列表失败:', error);
@@ -23,21 +23,12 @@ const getImages = async (albumId) => {
   }
 };
 
-// const getImagesUrl = async (id) => {
-//   try {
-//     const res = await getImages(id)
-//     const images = res.data.data.map(item => item.links.url)
-//     return images 
-//   } catch (error) {
-//     console.error('获取图片失败：', error)
-//     return []
-//   }
-// }
-
 
 const getImagesUrl = async (id) => {
   try {
     const res = await getImages(id)
+    // console.log('res = ',res);
+    
     const images = res.data.data.map(item => ({
       id: item.key,
       url: item.links.url,
