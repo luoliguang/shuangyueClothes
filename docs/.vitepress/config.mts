@@ -17,14 +17,13 @@ export default defineConfig({
       { text: '产品素材', link: '/Examples/fabric' },
       { text: '疑难解答', link: '/Cooperate/cooprate-methods' },
       { text: '团队成员', link: '/Team/team' },
+      { text: '使用教程', link: '/UsageTutorial/usage-tutorial'},
       { text: 'DoWant',
         items:[
           { text: '一路走来', link: '/DoWant/solve-problems' },
           { text: '学无止境', link: '/DoWant/learn'},  // 加入我们一项下拉菜单
-          { text: '招聘', link: '/DoWant/resume'},
         ]
-
-      }
+      },
     ],
 
     sidebar: {
@@ -58,8 +57,17 @@ export default defineConfig({
             { text: '学无止境', link: '/DoWant/learn' },
           ]
         },
-
+      ],
+      //教程
+      '/UsageTutorial/': [
+        {
+          text: '使用教程😊',
+          items: [
+            { text: '📺视频教程', link: '/UsageTutorial/usage-tutorial.md' }
+          ]
+        }
       ]
+
 
     },
     // 社交链接
