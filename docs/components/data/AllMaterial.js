@@ -295,6 +295,8 @@ const apiNumbers = {
   'kuziSeries': 1503, // 裤子
   // 棒球服系列
   'UKbangqiufuSeries': 1492, // 棒球服
+
+  'Contribution': 1523 // 贡献者
 }
 
 export { styleTemplates, apiNumbers }

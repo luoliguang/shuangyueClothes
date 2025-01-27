@@ -6,7 +6,7 @@ import SizeTable from "./SizeTable.vue";
 import ReferenceData from "./ReferenceData.vue";
 import AllMaterial from "./AllMaterial.vue";
 import IndexTravel from "./IndexTravel.vue";
-
+import Contribution from "./Contribution.vue";
 
 export default {
   Swiper,
@@ -16,7 +16,7 @@ export default {
   SizeTable,
   ReferenceData,
   AllMaterial,
-  IndexTravel
-
+  IndexTravel,
+  Contribution
 
 }
