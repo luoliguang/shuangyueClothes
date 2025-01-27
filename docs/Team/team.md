@@ -33,8 +33,8 @@ const customerService  = [
     title: '吗喽圣体',
     desc: '吗喽与勤奋并存，实力与效率的化身。',
     org: '客服',
-    // sponsor:'index.html',
-    // actionText:"联系方式"
+    // sponsor:'',
+    // actionText:"个人博客",
     // links: [
     //   {icon: 'github', link: 'https://github.com/luoliguang'},
     // ]
@@ -87,7 +87,7 @@ const art  = [
   <VPTeamMembers size="medium" :members="customerService" />
 
   <VPTeamPageTitle>
-    <template #title>设计师</template>
+    <template #title>设计师🥳</template>
     <template #lead>有求必应，使命必达。</template>
   </VPTeamPageTitle>
   <VPTeamMembers size="medium" :members="art" />

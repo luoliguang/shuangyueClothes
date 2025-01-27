@@ -14,8 +14,16 @@ export default defineConfig({
     },
     nav: [
       { text: '主页', link: '/' },
-      { text: '产品素材', link: '/Examples/fabric' },
-      { text: '疑难解答', link: '/Cooperate/cooprate-methods' },
+      { text: '产品素材',
+        items: 
+        [
+          { text: '素材总览', link: '../Examples/all-material' },
+          { text: '尺码表', link: '../Examples/size-chart' },
+          { text: '衣服实拍(丢弃)', link: '../Examples/physical-map' },
+          { text: '面料细节(丢弃)', link: '../Examples/fabric' }
+        ]
+      },
+      { text: '疑难解答', link: '/Cooperate/reference-data' },
       { text: '团队成员', link: '/Team/team' },
       { text: '使用教程', link: '/UsageTutorial/usage-tutorial'},
       { text: 'DoWant',
@@ -27,24 +35,24 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/Examples/': [
-        {
-          text: '关于产品',
-          items: [
-            { text: '面料细节', link: '../Examples/fabric' },
-            { text: '衣服实拍', link: '../Examples/physical-map' },
-            { text: '尺码表', link: '../Examples/size-chart' },
-            { text: '素材总览', link: '../Examples/all-material' },
-          ]
-        }
-      ],
+      // '/Examples/': [
+      //   {
+      //     text: '关于产品',
+      //     items: [
+      //       { text: '面料细节', link: '../Examples/fabric' },
+      //       { text: '衣服实拍', link: '../Examples/physical-map' },
+      //       { text: '尺码表', link: '../Examples/size-chart' },
+      //       { text: '素材总览', link: '../Examples/all-material' },
+      //     ]
+      //   }
+      // ],
 
       '/Cooperate/': [
         {
           text: '疑难解答',
           items: [
+            { text: '疑难解答', link: '/Cooperate/reference-data' },   
             { text: '合作流程', link: '/Cooperate/cooprate-methods' },
-            { text: '疑问解答', link: '/Cooperate/reference-data' },   
           ]
         }
       ],

@@ -11,7 +11,7 @@ hero:
     alt: OK
   actions:
     - theme: brand
-      text: 实物素材
+      text: 面料视频
       link: '/Examples/fabric.md'
     - theme: alt
       text: 疑难解答
