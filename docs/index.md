@@ -47,15 +47,50 @@ import { getImages, getImagesUrl } from '../docs/components/sever/sever.js'
 // 创建响应式数组
 const imgUrl = ref([])
 
-// 在组件挂载时获取图片
-onBeforeMount(() => {
-  getImagesUrl(1485).then(res => {
-    imgUrl.value = res.map(item => item.url)
-  })
-})
+//使用localStorage缓存
+const CACHE_KEY = 'home_page_images_cache'
+const CACHE_EXPIRY = 24 * 60 * 60 * 1000 // 24小时的毫秒数
 
-onMounted(() => {
-})
+// 在组件挂载时获取图片
+// onBeforeMount(() => {
+//   getImagesUrl(1485).then(res => {
+//     imgUrl.value = res.map(item => item.url)
+//   })
+// })
+
+const getImagesData = async () => {
+  try {
+    const res = await getImagesUrl(1485)
+    const cachedData = {
+      data: res,
+      timestamp: Date.now()
+    }
+    localStorage.setItem(CACHE_KEY, JSON.stringify(cachedData))
+    return res
+  } catch (error) {
+    console.error('获取主页图片失败:', error)
+    return []
+  }
+}
+
+onMounted(async ()=> {
+  // 尝试从缓存获取数据
+  const cachedData = localStorage.getItem(CACHE_KEY)
+
+  if (cachedData) {
+    const { data, timestamp } = JSON.parse(cachedData)
+    const isExpired = Date.now() - timestamp > CACHE_EXPIRY
+    if (!isExpired) {
+      // 使用缓存数据
+      imgUrl.value = data.map(item => item.url)
+      return
+    }
+  }
+  
+  // 缓存不存在或已过期，重新获取数据
+  const newData = await getImagesData()
+  imgUrl.value = newData.map(item => item.url)
+}) 
 
 
 </script>

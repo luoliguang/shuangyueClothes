@@ -5,7 +5,7 @@
 ## 文档贡献
 > 文档并非一个人完成，而是集满了许多人的智慧。每个文档贡献者的右上角都会标识对应的名字缩写，用名字标识。
 
-<Contribution />
+<Contribution :contributions="contributions"/>
 
 <!-- 
 
@@ -83,6 +83,9 @@
 > 4号班旗:144CM X 96CM 默认单面印制
 
 <script setup>
+import { ref,onMounted  } from 'vue'
+import { getImagesUrl } from '../components/sever/sever.js'
+import { apiNumbers } from '../components/data/AllMaterial.js' // 素材数据
 
 const Images = {
   SiHeKou: {
@@ -106,6 +109,56 @@ const Images = {
     imgAlias: '美式棒球服',
   },
 };
+
+const contributions = ref([]);
+//使用localStorage缓存
+const CACHE_KEY = 'contributions_cache'
+const CACHE_EXPIRY = 24 * 60 * 60 * 1000 // 24小时的毫秒数
+
+const getContributionsData = async () => {
+  try {
+    const res = await getImagesUrl(apiNumbers.Contribution)
+    const cachedData = {
+      data: res,
+      timestamp: Date.now()
+    }
+    localStorage.setItem(CACHE_KEY, JSON.stringify(cachedData))
+    return res
+  } catch (error) {
+    console.error('获取贡献者数据失败:', error)
+    return []
+  }
+}
+
+onMounted(async ()=> {
+  // 尝试从缓存获取数据
+  const cachedData = localStorage.getItem(CACHE_KEY)
+
+  if (cachedData) {
+    const { data, timestamp } = JSON.parse(cachedData)
+    const isExpired = Date.now() - timestamp > CACHE_EXPIRY
+    if (!isExpired) {
+      // 使用缓存数据
+      data.forEach(item => {
+        contributions.value.push({
+          url: item.url,
+          name: item.name
+        })
+      })
+      return
+    }
+  }
+  
+  // 缓存不存在或已过期，重新获取数据
+  const newData = await getContributionsData()
+  newData.forEach(item => {
+    contributions.value.push({
+      url: item.url,
+      name: item.name
+    })
+  })
+}) 
+
 
 
 </script>
