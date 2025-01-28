@@ -82,6 +82,9 @@
 ### 2.班期默认尺寸
 > 4号班旗:144CM X 96CM 默认单面印制
 
+### 3.布宽最大多少？<Badge type="tip" text="文叔" />
+> 印布:162CM, 裁片:185CM
+
 <script setup>
 import { ref,onMounted  } from 'vue'
 import { getImagesUrl } from '../components/sever/sever.js'
