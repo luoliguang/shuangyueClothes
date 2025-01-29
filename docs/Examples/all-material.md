@@ -46,14 +46,15 @@ const materialCategories = [
       { id: 'lianmaowei', name: '拉链连帽卫衣', count: 0 },
       { id: 'yuanlingwei', name: '圆领卫衣', count: 0 },
       { id: 'UKbangqiufu', name: '棒球服', count: 0 },
-      { id: 'kuzi', name: '裤子', count: 0 },
+      { id: 'kuzi', name: '长裤 短裤', count: 0 },
+      { id: 'longSleeved', name: '长袖', count: 0 },
     ]
   },
   {
     id: 3,
     name: '面料细节',
     tags: [
-      { id: 'detail', name: '看看细节👉', count: 0 },
+      { id: 'detail', name: '所有面料细节🥳', count: 0 },
     ]
   },
 ]
@@ -72,7 +73,7 @@ getImagesUrl(apiNumbers.numDetail).then(res => {
     // 直接处理标签匹配逻辑
     const tags = []
     materialCategories[0].tags.forEach((tag, index) => {
-      if (item.name.includes(tag.name)) {
+      if (item.name.includes(tag.name.replace(/\d+(克|g)/g, ''))) {
         materialCategories[0].tags[index].count += 1
         tags.push(tag.id)
       }
@@ -98,7 +99,7 @@ getImagesUrl(apiNumbers.numDetail2).then(res => {
     // 直接处理标签匹配逻辑
     const tags = []
     materialCategories[0].tags.forEach((tag, index) => {
-      if (item.name.includes(tag.name)) {
+      if (item.name.includes(tag.name.replace(/\d+(克|g)/g, ''))) {
         materialCategories[0].tags[index].count += 1
         tags.push(tag.id)
       }
@@ -387,7 +388,10 @@ getImagesUrl(apiNumbers.SweaterSeries).then(res => {
       }
     })
     materialCategories[1].tags.forEach((tag, index) => {
-      if (item.name.includes(tag.name)) {
+      // 将标签名按空格分割成数组
+      const keywords = tag.name.split(' ')
+      // 如果任何一个关键词匹配，就认为是匹配成功
+      if (keywords.some(keyword => item.name.includes(keyword))) {
         materialCategories[1].tags[index].count += 1
         tags.push(tag.id)
       }
@@ -417,7 +421,10 @@ getImagesUrl(apiNumbers.windbreakerSeries).then(res => {
       }
     })
     materialCategories[1].tags.forEach((tag, index) => {
-      if (item.name.includes(tag.name)) {
+      // 将标签名按空格分割成数组
+      const keywords = tag.name.split(' ')
+      // 如果任何一个关键词匹配，就认为是匹配成功
+      if (keywords.some(keyword => item.name.includes(keyword))) {
         materialCategories[1].tags[index].count += 1
         tags.push(tag.id)
       }
@@ -447,7 +454,10 @@ getImagesUrl(apiNumbers.numMajiSeries).then(res => {
       }
     })
     materialCategories[1].tags.forEach((tag, index) => {
-      if (item.name.includes(tag.name)) {
+      // 将标签名按空格分割成数组
+      const keywords = tag.name.split(' ')
+      // 如果任何一个关键词匹配，就认为是匹配成功
+      if (keywords.some(keyword => item.name.includes(keyword))) {
         materialCategories[1].tags[index].count += 1
         tags.push(tag.id)
       }
@@ -477,7 +487,10 @@ getImagesUrl(apiNumbers.numModaierSeries).then(res => {
       }
     })
     materialCategories[1].tags.forEach((tag, index) => {
-      if (item.name.includes(tag.name)) {
+      // 将标签名按空格分割成数组
+      const keywords = tag.name.split(' ')
+      // 如果任何一个关键词匹配，就认为是匹配成功
+      if (keywords.some(keyword => item.name.includes(keyword))) {
         materialCategories[1].tags[index].count += 1
         tags.push(tag.id)
       }
@@ -494,7 +507,7 @@ getImagesUrl(apiNumbers.numModaierSeries).then(res => {
   })
 }),
 /**
- * 裤子
+ * 裤子系列
  */
 getImagesUrl(apiNumbers.kuziSeries).then(res => {
   return res.map((item, index) => {
@@ -507,7 +520,10 @@ getImagesUrl(apiNumbers.kuziSeries).then(res => {
       }
     })
     materialCategories[1].tags.forEach((tag, index) => {
-      if (item.name.includes(tag.name)) {
+      // 将标签名按空格分割成数组
+      const keywords = tag.name.split(' ')
+      // 如果任何一个关键词匹配，就认为是匹配成功
+      if (keywords.some(keyword => item.name.includes(keyword))) {
         materialCategories[1].tags[index].count += 1
         tags.push(tag.id)
       }
@@ -537,7 +553,10 @@ getImagesUrl(apiNumbers.UKbangqiufuSeries).then(res => {
       }
     })
     materialCategories[1].tags.forEach((tag, index) => {
-      if (item.name.includes(tag.name)) {
+      // 将标签名按空格分割成数组
+      const keywords = tag.name.split(' ')
+      // 如果任何一个关键词匹配，就认为是匹配成功
+      if (keywords.some(keyword => item.name.includes(keyword))) {
         materialCategories[1].tags[index].count += 1
         tags.push(tag.id)
       }
@@ -548,6 +567,39 @@ getImagesUrl(apiNumbers.UKbangqiufuSeries).then(res => {
       name: item.name,
       description: styleTemplates['UKbangqiufuSeries'].description,
       type: styleTemplates['UKbangqiufuSeries'].type,
+      thumbnail: item.url,
+      tags: tags
+    }
+  })
+}),
+/**
+ * 长袖
+ */
+getImagesUrl(apiNumbers.longSleeved).then(res => {
+  return res.map((item, index) => {
+    // 直接处理标签匹配逻辑
+    const tags = []
+    materialCategories[0].tags.forEach((tag, index) => {
+      if (item.name.includes(tag.name.replace(/\d+(克|g)/g, ''))) {
+        materialCategories[0].tags[index].count += 1
+        tags.push(tag.id)
+      }
+    })
+    materialCategories[1].tags.forEach((tag, index) => {
+      // 将标签名按空格分割成数组
+      const keywords = tag.name.split(' ')
+      // 如果任何一个关键词匹配，就认为是匹配成功
+      if (keywords.some(keyword => item.name.includes(keyword))) {
+        materialCategories[1].tags[index].count += 1
+        tags.push(tag.id)
+      }
+    })
+    // 返回处理后的对象
+    return {
+      id: `longSleeved-${index + 1}`,
+      name: item.name,
+      description: styleTemplates['longSleeved'].description,
+      type: styleTemplates['longSleeved'].type,
       thumbnail: item.url,
       tags: tags
     }

@@ -236,8 +236,8 @@ const styleTemplates = {
   'kuziSeries': {
     id: '',
     name: '',
-    description: '#长裤 #短裤',
-    type: '长裤短裤',
+    description: '',
+    type: '#裤子系列',
     thumbnail: '',
     tags: []
   },
@@ -252,7 +252,21 @@ const styleTemplates = {
     type: '棒球服系列',
     thumbnail: '',
     tags: []
-  }
+  },
+
+  /** 
+   * 长袖系列
+   */
+  'longSleeved': {
+    id: '',
+    name: '',
+    description: '长袖系列',
+    type: '长袖系列',
+    thumbnail: '',
+    tags: []
+  },
+
+
 }
 
 
@@ -262,7 +276,7 @@ const apiNumbers = {
   'numDetail': 1497, // 面料细节
   'numDetail2': 1521, // 面料细节
   // 短袖系列
-  'numXfgTshirt': 1491, // 小方格速干
+  'numXfgTshirt': 1435, // 小方格速干
   'numXfgPolo': 1436, // 小方格速干
   'numPwbTshirt': 1438, // 平纹布
   'numPwbPolo': 1437, // 平纹布
@@ -296,7 +310,9 @@ const apiNumbers = {
   // 棒球服系列
   'UKbangqiufuSeries': 1492, // 棒球服
 
-  'Contribution': 1523 // 贡献者
+  'Contribution': 1523, // 贡献者
+  //长袖系列
+  'longSleeved': 1507 // 贡献者
 }
 
 export { styleTemplates, apiNumbers }
