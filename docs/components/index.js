@@ -7,6 +7,7 @@ import ReferenceData from "./ReferenceData.vue";
 import AllMaterial from "./AllMaterial.vue";
 import IndexTravel from "./IndexTravel.vue";
 import Contribution from "./Contribution.vue";
+import TawkTo from "./TawkTo.vue";
 
 export default {
   Swiper,
@@ -17,6 +18,6 @@ export default {
   ReferenceData,
   AllMaterial,
   IndexTravel,
-  Contribution
-
+  Contribution,
+  TawkTo
 }

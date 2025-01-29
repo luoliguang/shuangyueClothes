@@ -40,6 +40,8 @@ features:
 
 <IndexTravel />
 
+<TawkTo />
+
 <script setup>
 import { onMounted, onUnmounted, ref, watchEffect, onBeforeMount } from 'vue'
 import { getImages, getImagesUrl } from '../docs/components/sever/sever.js'
@@ -50,13 +52,6 @@ const imgUrl = ref([])
 //使用localStorage缓存
 const CACHE_KEY = 'home_page_images_cache'
 const CACHE_EXPIRY = 24 * 60 * 60 * 1000 // 24小时的毫秒数
-
-// 在组件挂载时获取图片
-// onBeforeMount(() => {
-//   getImagesUrl(1485).then(res => {
-//     imgUrl.value = res.map(item => item.url)
-//   })
-// })
 
 const getImagesData = async () => {
   try {
