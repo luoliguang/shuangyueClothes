@@ -1,79 +1,73 @@
 {
-  "hash": "89e08da8",
+  "hash": "5e4fa8f3",
   "configHash": "0db7b393",
-  "lockfileHash": "f63bbc08",
-  "browserHash": "2e8bfbbf",
+  "lockfileHash": "bacd6646",
+  "browserHash": "53f06b97",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "51ff69cf",
+      "fileHash": "4c9dc134",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "4347b666",
+      "fileHash": "ac86d167",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "4af4a2a2",
+      "fileHash": "15e80d3b",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "124a49ea",
+      "fileHash": "41b619db",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "9fc72281",
+      "fileHash": "7adda9d2",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "cdd53953",
+      "fileHash": "507e60c9",
       "needsInterop": false
     },
     "vue-lazyload": {
       "src": "../../../../node_modules/vue-lazyload/vue-lazyload.esm.js",
       "file": "vue-lazyload.js",
-      "fileHash": "cebc9c80",
+      "fileHash": "ece5f65c",
       "needsInterop": false
     },
     "swiper/vue": {
       "src": "../../../../node_modules/swiper/swiper-vue.mjs",
       "file": "swiper_vue.js",
-      "fileHash": "5671c3e2",
+      "fileHash": "eaa95736",
       "needsInterop": false
     },
     "swiper/modules": {
       "src": "../../../../node_modules/swiper/modules/index.mjs",
       "file": "swiper_modules.js",
-      "fileHash": "d6b75359",
+      "fileHash": "10acb25a",
       "needsInterop": false
     },
     "html2canvas": {
       "src": "../../../../node_modules/html2canvas/dist/html2canvas.esm.js",
       "file": "html2canvas.js",
-      "fileHash": "49121b86",
+      "fileHash": "ea769e4b",
       "needsInterop": false
     },
     "axios": {
       "src": "../../../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "b7e8b011",
-      "needsInterop": false
-    },
-    "@tawk.to/tawk-messenger-vue-3": {
-      "src": "../../../../node_modules/@tawk.to/tawk-messenger-vue-3/dist/tawk-messenger-vue-3.es.js",
-      "file": "@tawk__to_tawk-messenger-vue-3.js",
-      "fileHash": "2e405cf5",
+      "fileHash": "3989eb16",
       "needsInterop": false
     }
   },

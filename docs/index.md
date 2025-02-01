@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "想，都是问题"
-  text: "   做，才是答案"
-  tagline: 素材与疑问的合集,内容正在完善整理中...
+  name: "方度线上平台"
+  text: "实物图素材、常见问题"
+  tagline: 实物图|效果图素材|常见问题|在线服务，致力于为客户提供极致的服务体验
   image:
     src: https://bu.dusays.com/2024/12/17/6760584bcf0e4.png
     alt: OK

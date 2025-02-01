@@ -4,10 +4,11 @@ import timeline from "vitepress-markdown-timeline" //时间线
 export default defineConfig({
   base: '/', // 设置为你的 GitHub Pages 路径
   title: "双月服饰",
-  description: "一个简单的网站",
+  description: "双月服饰",
   themeConfig: {
     logo: 'https://bu.dusays.com/2024/12/17/6760584c502de.png', //网站logo
     siteTitle: "双月服饰",
+    lastUpdatedText: "最后更新于",
     outline:{
       level: [2, 4],
       label: "目录"
@@ -19,9 +20,15 @@ export default defineConfig({
         [
           { text: '素材总览', link: '../Examples/all-material' },
           { text: '尺码表', link: '../Examples/size-chart' },
-          { text: '资料下载⬇️', link: '../Examples/network-disk.md' },
-          { text: '衣服实拍🗑️', link: '../Examples/physical-map' },
-          { text: '面料细节🗑️', link: '../Examples/fabric' }
+          
+          { text: '网盘素材📚', items: [
+            { text: '资料下载⬇️', link: '../Examples/network-disk.md' },
+          ] },
+
+          { text: '已丢弃🗑️', items: [
+            { text: '衣服实拍', link: '../Examples/physical-map' },
+            { text: '面料细节', link: '../Examples/fabric' }
+          ] },
         ]
       },
       { text: '疑难解答', link: '/Cooperate/reference-data' },
