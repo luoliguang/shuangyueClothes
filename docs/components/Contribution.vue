@@ -23,13 +23,14 @@ const props = defineProps({
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  font-size: 12px;
 }
 .contributions div{
   text-align: center;
 }
 img{
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   margin: 0;
 }
