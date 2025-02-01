@@ -151,7 +151,7 @@ onMounted(async ()=> {
       return
     }
   }
-  
+
   // 缓存不存在或已过期，重新获取数据
   const newData = await getContributionsData()
   newData.forEach(item => {

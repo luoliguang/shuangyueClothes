@@ -19,8 +19,9 @@ export default defineConfig({
         [
           { text: '素材总览', link: '../Examples/all-material' },
           { text: '尺码表', link: '../Examples/size-chart' },
-          { text: '衣服实拍(丢弃)', link: '../Examples/physical-map' },
-          { text: '面料细节(丢弃)', link: '../Examples/fabric' }
+          { text: '资料下载⬇️', link: '../Examples/network-disk.md' },
+          { text: '衣服实拍🗑️', link: '../Examples/physical-map' },
+          { text: '面料细节🗑️', link: '../Examples/fabric' }
         ]
       },
       { text: '疑难解答', link: '/Cooperate/reference-data' },
