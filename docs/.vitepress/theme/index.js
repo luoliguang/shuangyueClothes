@@ -5,6 +5,9 @@ import "./vars.css";
 import "./style.css";
 import "vitepress-markdown-timeline/dist/theme/index.css"; // 时间线样式
 import VueLazyload from 'vue-lazyload'; // 懒加载
+import { h } from 'vue'
+import { NuLazyTeleportRiveCanvas } from '@nolebase/ui-rive-canvas'
+import { Layout } from '@rive-app/canvas';
 
 export default {
   ...DefaultTheme,
@@ -35,4 +38,12 @@ export default {
       });
     }
   },
+  Layout(){
+    return h(DefaultTheme.Layout, null, {
+      'layout-top': () => [ 
+        h(NuLazyTeleportRiveCanvas) 
+      ] 
+    })
+  }
+
 }

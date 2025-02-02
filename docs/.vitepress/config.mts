@@ -41,7 +41,6 @@ export default defineConfig({
         ]
       },
     ],
-
     sidebar: {
       // '/Examples/': [
       //   {
@@ -186,9 +185,14 @@ export default defineConfig({
         }
       }
     },
+    assetsInclude: [
+      '**/*.riv',
+    ],
     optimizeDeps: {
-      exclude: ['vue-demi']
+      exclude: [
+        'vue-demi',
+        '@nolebase/ui-rive-canvas > @rive-app/canvas'
+      ],
     },
   },
-
 })
