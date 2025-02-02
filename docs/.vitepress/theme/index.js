@@ -8,8 +8,10 @@ import VueLazyload from 'vue-lazyload'; // 懒加载
 import { h } from 'vue'
 import { NuLazyTeleportRiveCanvas } from '@nolebase/ui-rive-canvas'
 import { Layout } from '@rive-app/canvas';
+import { viteConfig } from './vite.config'
 
 export default {
+  vite: viteConfig, // 合并 Vite 配置
   ...DefaultTheme,
   ...Theme, // 继承原有主题
   enhanceApp({ app, router, siteData }) {
