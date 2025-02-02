@@ -141,13 +141,20 @@ export default defineConfig({
   lastUpdated: true,
   head: [
     ['link', { rel: 'icon', href: 'https://bu.dusays.com/2024/12/17/6760584c502de.png' }],
-    // ['link', {
-    //   rel: 'preload',
-    //   href: '/assets/inter-roman-latin.Di8DUHzh.woff2',
-    //   as: 'font',
-    //   type: 'font/woff2',
-    //   crossorigin: 'anonymous'
-    // }]
+    // 预加载 Tawk.to 字体
+    ['link', {
+      rel: 'preload',
+      href: 'https://embed.tawk.to/_s/v4/assets/fonts/tawk-font-icon-2.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: 'anonymous'
+    }],
+    // 预连接到 Tawk.to 域名
+    ['link', {
+      rel: 'preconnect',
+      href: 'https://embed.tawk.to',
+      crossorigin: 'anonymous'
+    }]
   ],
 
   // 时间线注册解析
@@ -161,9 +168,7 @@ export default defineConfig({
   vue: {
     template: {
       compilerOptions: {
-        isCustomElement: (tag) => [
-          'font'
-        ].includes(tag)
+        isCustomElement: (tag) => ['font'].includes(tag)
       }
     }
   },
@@ -185,14 +190,18 @@ export default defineConfig({
         }
       }
     },
-    assetsInclude: [
-      '**/*.riv',
-    ],
+    assetsInclude: ['**/*.riv'],
     optimizeDeps: {
-      exclude: [
-        'vue-demi',
-        '@nolebase/ui-rive-canvas > @rive-app/canvas'
-      ],
+      include: ['@rive-app/canvas'],
+      exclude: ['vue-demi']
     },
+    ssr: {
+      noExternal: ['@nolebase/ui-rive-canvas']
+    },
+    resolve: {
+      alias: {
+        '@': '/docs'
+      }
+    }
   },
 })

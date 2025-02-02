@@ -7,11 +7,8 @@ import "vitepress-markdown-timeline/dist/theme/index.css"; // 时间线样式
 import VueLazyload from 'vue-lazyload'; // 懒加载
 import { h } from 'vue'
 import { NuLazyTeleportRiveCanvas } from '@nolebase/ui-rive-canvas'
-import { Layout } from '@rive-app/canvas';
-import { viteConfig } from './vite.config'
 
 export default {
-  vite: viteConfig, // 合并 Vite 配置
   ...DefaultTheme,
   ...Theme, // 继承原有主题
   enhanceApp({ app, router, siteData }) {
@@ -24,7 +21,7 @@ export default {
       app.component(name, component);
     });
     // 仅在客户端环境下初始化 VueLazyload
-    if (!import.meta.env.SSR) {
+    if (typeof window !== 'undefined' && !import.meta.env.SSR) {
       // 配置懒加载
       app.use(VueLazyload, {
         loading: 1.3,
@@ -40,12 +37,10 @@ export default {
       });
     }
   },
-  Layout(){
+
+  Layout() {
     return h(DefaultTheme.Layout, null, {
-      'layout-top': () => [ 
-        h(NuLazyTeleportRiveCanvas) 
-      ] 
+      'layout-top': () => [h(NuLazyTeleportRiveCanvas)]
     })
   }
-
 }
