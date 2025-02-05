@@ -317,6 +317,6 @@ window.removeEventListener('scroll', handleScroll)
 :::
 
 ::: timeline 25-2-2
-1. 动画图标icon设置为动态；
+1. 动画图标icon设置为动态,[参考链接](https://nolebase-integrations.ayaka.io/pages/zh-CN/ui/lazy-teleport-rive-canvas/)；
 2. 新增vite.config.js解决不能识别.vue文件问题；
 :::
