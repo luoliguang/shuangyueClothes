@@ -9,6 +9,7 @@ import IndexTravel from "./IndexTravel.vue";
 import Contribution from "./Contribution.vue";
 import TawkTo from "./TawkTo.vue";
 import { NuLazyTeleportRiveCanvas } from '@nolebase/ui-rive-canvas'; //icon组件样式
+import ImageGrid from "./ImageGrid.vue";
 
 export default {
   Swiper,
@@ -21,5 +22,6 @@ export default {
   IndexTravel,
   Contribution,
   TawkTo,
-  NuLazyTeleportRiveCanvas
+  NuLazyTeleportRiveCanvas,
+  ImageGrid
 }

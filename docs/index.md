@@ -25,7 +25,7 @@ hero:
       text: 疑难解答
       link: '/Cooperate/reference-data.md'
     - theme: brand
-      text: 素材总览
+      text: 实物图素材
       link: '/Examples/all-material.md'
     - theme: alt
       text: 团队成员
