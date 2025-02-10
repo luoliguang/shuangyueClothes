@@ -9,9 +9,9 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: 'https://bu.dusays.com/2024/12/17/6760584c502de.png' }],
     ['meta', { name: 'author', content: '双月服饰' }],
-    ['meta', { name: 'keywords', content: '服装面料,服装设计,面料供应,服装批发,服装制造,双月服饰' }],
-    ['meta', { property: 'og:title', content: '双月服饰 - 专业的服装面料供应商' }],
-    ['meta', { property: 'og:description', content: '专业的服装面料供应商，提供高质量面料、设计方案和专业客服支持' }],
+    ['meta', { name: 'keywords', content: '班服设计,校服设计,服装面料,服装设计,面料供应,服装批发,服装制造,双月服饰,方度' }],
+    ['meta', { property: 'og:title', content: '双月服饰 - 专业的服装定制供应商' }],
+    ['meta', { property: 'og:description', content: '专业的服装定制供应商，提供高质量设计、设计方案和专业客服支持' }],
     ['meta', { property: 'og:image', content: 'https://bu.dusays.com/2024/12/17/6760584c502de.png' }],
     ['meta', { property: 'og:url', content: 'https://www.shuangyuedress.cn' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
