@@ -1,5 +1,14 @@
 ---
 layout: home
+title: 双月服饰 - 专业的服装面料供应商
+description: 我们始终致力于通过技术创新重构服装产业价值链，以智能制造基础设施为依托，持续为客户创造超越行业基准的协同价值。
+head:
+  - - meta
+    - name: keywords
+      content: 服装面料,面料供应,服装设计,智能制造,服装产业
+  - - meta
+    - name: author
+      content: 双月服饰
 
 hero:
   name: "方度在线平台"

@@ -1,97 +1,97 @@
 {
-  "hash": "45514e88",
+  "hash": "1dd4d404",
   "configHash": "18f377df",
-  "lockfileHash": "4a22efb8",
-  "browserHash": "7c19ce85",
+  "lockfileHash": "f3f0a6ec",
+  "browserHash": "be4bd741",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "d84519ac",
+      "fileHash": "c9d97bb4",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "892752b9",
+      "fileHash": "8207683c",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "31656d9c",
+      "fileHash": "1e3a5115",
       "needsInterop": false
     },
     "@rive-app/canvas": {
       "src": "../../../../node_modules/@rive-app/canvas/rive.js",
       "file": "@rive-app_canvas.js",
-      "fileHash": "18e34336",
+      "fileHash": "27fc8299",
       "needsInterop": true
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "01bd4b24",
+      "fileHash": "209f7de7",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "d1c34c35",
+      "fileHash": "8f2450c0",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "d7cee13c",
+      "fileHash": "ea9da232",
       "needsInterop": false
     },
     "vue-lazyload": {
       "src": "../../../../node_modules/vue-lazyload/vue-lazyload.esm.js",
       "file": "vue-lazyload.js",
-      "fileHash": "67ed01e1",
+      "fileHash": "b845a23f",
       "needsInterop": false
     },
     "@nolebase/ui-rive-canvas": {
       "src": "../../../../node_modules/@nolebase/ui-rive-canvas/dist/index.mjs",
       "file": "@nolebase_ui-rive-canvas.js",
-      "fileHash": "243d63ef",
+      "fileHash": "eb20061e",
       "needsInterop": false
     },
     "swiper/vue": {
       "src": "../../../../node_modules/swiper/swiper-vue.mjs",
       "file": "swiper_vue.js",
-      "fileHash": "78aa12b3",
+      "fileHash": "fb180da1",
       "needsInterop": false
     },
     "swiper/modules": {
       "src": "../../../../node_modules/swiper/modules/index.mjs",
       "file": "swiper_modules.js",
-      "fileHash": "f351c457",
+      "fileHash": "487566dc",
       "needsInterop": false
     },
     "html2canvas": {
       "src": "../../../../node_modules/html2canvas/dist/html2canvas.esm.js",
       "file": "html2canvas.js",
-      "fileHash": "c7ee49fa",
+      "fileHash": "c7bf7d34",
       "needsInterop": false
     },
     "axios": {
       "src": "../../../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "176a1777",
+      "fileHash": "c54251f9",
       "needsInterop": false
     }
   },
   "chunks": {
+    "chunk-CEV3VWJF": {
+      "file": "chunk-CEV3VWJF.js"
+    },
     "chunk-DJOEQW2N": {
       "file": "chunk-DJOEQW2N.js"
     },
     "chunk-LW4I4DCF": {
       "file": "chunk-LW4I4DCF.js"
-    },
-    "chunk-CEV3VWJF": {
-      "file": "chunk-CEV3VWJF.js"
     },
     "chunk-HKJ2B2AA": {
       "file": "chunk-HKJ2B2AA.js"

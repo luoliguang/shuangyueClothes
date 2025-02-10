@@ -3,8 +3,33 @@ import timeline from "vitepress-markdown-timeline" //时间线
 
 export default defineConfig({
   base: '/', // 设置为你的 GitHub Pages 路径
-  title: "双月服饰",
-  description: "双月服饰",
+  lang: 'zh-CN', // 设置语言
+  title: "双月服饰", // 网站标题
+  description: "专业的服装定制供应商，提供高质量服装设计、设计方案和专业客服支持", // 网站描述
+  head: [
+    ['link', { rel: 'icon', href: 'https://bu.dusays.com/2024/12/17/6760584c502de.png' }],
+    ['meta', { name: 'author', content: '双月服饰' }],
+    ['meta', { name: 'keywords', content: '服装面料,服装设计,面料供应,服装批发,服装制造,双月服饰' }],
+    ['meta', { property: 'og:title', content: '双月服饰 - 专业的服装面料供应商' }],
+    ['meta', { property: 'og:description', content: '专业的服装面料供应商，提供高质量面料、设计方案和专业客服支持' }],
+    ['meta', { property: 'og:image', content: 'https://bu.dusays.com/2024/12/17/6760584c502de.png' }],
+    ['meta', { property: 'og:url', content: 'https://www.shuangyuedress.cn' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+    ['link', {
+      rel: 'preload',
+      href: 'https://embed.tawk.to/_s/v4/assets/fonts/tawk-font-icon-2.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: 'anonymous'
+    }],
+    ['link', {
+      rel: 'preconnect',
+      href: 'https://embed.tawk.to',
+      crossorigin: 'anonymous'
+    }]
+  ],
+
   themeConfig: {
     logo: 'https://bu.dusays.com/2024/12/17/6760584c502de.png', //网站logo
     siteTitle: "双月服饰",
@@ -139,23 +164,6 @@ export default defineConfig({
   },
 
   lastUpdated: true,
-  head: [
-    ['link', { rel: 'icon', href: 'https://bu.dusays.com/2024/12/17/6760584c502de.png' }],
-    // 预加载 Tawk.to 字体
-    ['link', {
-      rel: 'preload',
-      href: 'https://embed.tawk.to/_s/v4/assets/fonts/tawk-font-icon-2.woff2',
-      as: 'font',
-      type: 'font/woff2',
-      crossorigin: 'anonymous'
-    }],
-    // 预连接到 Tawk.to 域名
-    ['link', {
-      rel: 'preconnect',
-      href: 'https://embed.tawk.to',
-      crossorigin: 'anonymous'
-    }]
-  ],
 
   // 时间线注册解析
   markdown: {
@@ -179,9 +187,7 @@ export default defineConfig({
           target: 'https://bu.dusays.com',
           changeOrigin: true,
           secure: false,
-          rewrite: (path) => {
-            return path.replace(/^\/yy-img/, '')
-          },
+          rewrite: (path) => path.replace(/^\/yy-img/, ''),
           headers: {
             'Referer': 'https://bu.dusays.com',
             'Origin': 'https://bu.dusays.com',
@@ -204,4 +210,9 @@ export default defineConfig({
       }
     }
   },
+
+  buildEnd: async () => {
+    // 移除 sitemap 相关代码，因为它可能导致构建错误
+    console.log('Build completed');
+  }
 })
