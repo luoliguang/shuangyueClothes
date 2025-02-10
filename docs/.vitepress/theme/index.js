@@ -8,6 +8,35 @@ import VueLazyload from 'vue-lazyload'; // 懒加载
 import { h } from 'vue'
 import { NuLazyTeleportRiveCanvas } from '@nolebase/ui-rive-canvas'
 
+// 添加控制台欢迎信息
+const welcomeMessage = `
+%c欢迎来到双月服饰！
+鄙人纯前端小白，如果你是一名后端大佬，
+那么我有好多的东西向你请教，还望不吝赐教。
+📧 联系我：giluo@vip.qq.com
+🌈 让我们一起实现更好的网站！`;
+const messageStyles = [
+  'background: linear-gradient(to right, #41b883, #42d392)',
+  'color: white',
+  'font-size: 14px',
+  'font-weight: bold',
+  'line-height: 1.5',
+  'text-shadow: 1px 1px 1px rgba(0,0,0,0.2)',
+  'padding: 10px',
+  'border-radius: 4px',
+].join(';')
+
+// 在客户端环境下输出欢迎信息
+if (typeof window !== 'undefined') {
+  console.log(welcomeMessage, messageStyles)
+  
+  // 添加一个性能提示
+  console.log(
+    '%c🚀 页面加载完成！',
+    'background: #4CAF50; color: white; font-size: 12px; padding: 4px; border-radius: 2px;'
+  )
+}
+
 export default {
   ...DefaultTheme,
   ...Theme, // 继承原有主题
