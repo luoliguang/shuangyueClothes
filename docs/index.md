@@ -45,17 +45,19 @@ features:
     title: 专业效率的设计师团队
     details: 我们组建了平均从业5年以上的服装设计团队，成员兼具专业院校背景与市场实战经验，专注提供高性价比的设计解决方案。过去3年已为420+中小商家提供设计支持，首稿采纳率达79%。我们不做天马行空的概念设计，只交付能快速投产、精准触达目标客群的实用方案。
 ---
-<keep-alive>
+
 <StartWelcome :imagePaths="imgUrl" :scrollSpeed="0.5"/>
-</keep-alive>
 
 <IndexTravel />
 
 <TawkTo />
 
+
 <script setup>
 import { onMounted, onUnmounted, ref, watchEffect, onBeforeMount } from 'vue'
 import { getImages, getImagesUrl } from '../docs/components/sever/sever.js'
+import { fetchFileList,getAccessToken } from '../docs/components/sever/api.js'
+
 
 // 创建响应式数组
 const imgUrl = ref([])
@@ -96,7 +98,34 @@ onMounted(async ()=> {
   // 缓存不存在或已过期，重新获取数据
   const newData = await getImagesData()
   imgUrl.value = newData.map(item => item.url)
+
 }) 
+
+// onMounted(async () => {
+//   //123云盘
+//     try {
+//       // 获取 token
+//       const accessToken = await getAccessToken();
+//       console.log('-----')
+//       // 使用 token 获取文件列表
+//       //123云盘轮播图id
+//       const parentFileId = 'yk6baz03t0n000d6xujp03e2mbxpf9gbDIYPDqQPDIUOAGx1AdU0'
+//       const fileList = await fetchFileList(
+//         accessToken,
+//         20,  // 每页20条
+//         parentFileId,
+//         '',  // 根目录
+//         null,
+//         null,
+//         null
+//       );
+      
+//       // 处理文件列表
+//       console.log('获取到的文件列表:', fileList);
+//     } catch (error) {
+//       console.error('操作失败:', error);
+//     }
+// })
 
 
 </script>

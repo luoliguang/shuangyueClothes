@@ -320,3 +320,8 @@ window.removeEventListener('scroll', handleScroll)
 1. 动画图标icon设置为动态,[参考链接](https://nolebase-integrations.ayaka.io/pages/zh-CN/ui/lazy-teleport-rive-canvas/)；
 2. 新增vite.config.js解决不能识别.vue文件问题；
 :::
+
+::: timeline 25-2-11
+### 解决env（环境变量）配置问题
+1. 如果将环境变量放在根目录的话是不可以访问到变量的，需要放到docs文档下面。[参考链接](https://github.com/vuejs/vitepress/issues/3896)；
+:::

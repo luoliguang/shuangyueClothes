@@ -1,97 +1,109 @@
 {
-  "hash": "1dd4d404",
+  "hash": "b5715cf6",
   "configHash": "18f377df",
-  "lockfileHash": "f3f0a6ec",
-  "browserHash": "be4bd741",
+  "lockfileHash": "c5c09021",
+  "browserHash": "c7c0162b",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "c9d97bb4",
+      "fileHash": "813ec041",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "8207683c",
+      "fileHash": "4301e359",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "1e3a5115",
+      "fileHash": "362c90a3",
       "needsInterop": false
     },
     "@rive-app/canvas": {
       "src": "../../../../node_modules/@rive-app/canvas/rive.js",
       "file": "@rive-app_canvas.js",
-      "fileHash": "27fc8299",
+      "fileHash": "a1d5dd4f",
       "needsInterop": true
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "209f7de7",
+      "fileHash": "b7718a17",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "8f2450c0",
+      "fileHash": "d399938a",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "ea9da232",
+      "fileHash": "8a7e61b6",
       "needsInterop": false
     },
     "vue-lazyload": {
       "src": "../../../../node_modules/vue-lazyload/vue-lazyload.esm.js",
       "file": "vue-lazyload.js",
-      "fileHash": "b845a23f",
+      "fileHash": "24c6bbd5",
       "needsInterop": false
     },
     "@nolebase/ui-rive-canvas": {
       "src": "../../../../node_modules/@nolebase/ui-rive-canvas/dist/index.mjs",
       "file": "@nolebase_ui-rive-canvas.js",
-      "fileHash": "eb20061e",
+      "fileHash": "94722e67",
       "needsInterop": false
     },
     "swiper/vue": {
       "src": "../../../../node_modules/swiper/swiper-vue.mjs",
       "file": "swiper_vue.js",
-      "fileHash": "fb180da1",
+      "fileHash": "a26c5348",
       "needsInterop": false
     },
     "swiper/modules": {
       "src": "../../../../node_modules/swiper/modules/index.mjs",
       "file": "swiper_modules.js",
-      "fileHash": "487566dc",
+      "fileHash": "54b9dcbb",
       "needsInterop": false
     },
     "html2canvas": {
       "src": "../../../../node_modules/html2canvas/dist/html2canvas.esm.js",
       "file": "html2canvas.js",
-      "fileHash": "c7bf7d34",
+      "fileHash": "ac093d67",
       "needsInterop": false
     },
     "axios": {
       "src": "../../../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "c54251f9",
+      "fileHash": "69e1b71f",
+      "needsInterop": false
+    },
+    "@vercel/analytics/vue": {
+      "src": "../../../../node_modules/@vercel/analytics/dist/vue/index.mjs",
+      "file": "@vercel_analytics_vue.js",
+      "fileHash": "8eff79a7",
+      "needsInterop": false
+    },
+    "@vercel/analytics": {
+      "src": "../../../../node_modules/@vercel/analytics/dist/index.mjs",
+      "file": "@vercel_analytics.js",
+      "fileHash": "671a8224",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-CEV3VWJF": {
-      "file": "chunk-CEV3VWJF.js"
-    },
     "chunk-DJOEQW2N": {
       "file": "chunk-DJOEQW2N.js"
     },
     "chunk-LW4I4DCF": {
       "file": "chunk-LW4I4DCF.js"
+    },
+    "chunk-CEV3VWJF": {
+      "file": "chunk-CEV3VWJF.js"
     },
     "chunk-HKJ2B2AA": {
       "file": "chunk-HKJ2B2AA.js"

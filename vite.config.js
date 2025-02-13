@@ -18,5 +18,6 @@ export default defineConfig({
         h(NuLazyTeleportRiveCanvas) 
       ] 
     })
-  }
+  },
+  envDir: '.',
 })

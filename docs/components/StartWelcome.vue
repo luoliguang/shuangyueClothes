@@ -1,26 +1,28 @@
 <template>
-    <div ref="scrollContainer" class="scroll-container">
-      <div ref="scrollContent" class="scroll-content">
-        <!-- 第一组图片 -->
+  <keep-alive>
+      <div ref="scrollContainer" class="scroll-container">
+        <div ref="scrollContent" class="scroll-content">
+          <!-- 第一组图片 -->
+          <div v-for="(image, index) in displayImages" 
+            :key="index" 
+            class="swiper-slide">
+          <img 
+            :src="image"
+            :alt="`slide-${index}`"
+            loading="lazy">
+        </div>
+        <!-- 复制一组相同的图片实现无缝效果 -->
         <div v-for="(image, index) in displayImages" 
-           :key="index" 
-           class="swiper-slide">
-        <img 
-          :src="image"
-          :alt="`slide-${index}`"
-          loading="lazy">
+              :key="`repeat-${index}`" 
+              class="swiper-slide">
+            <img 
+              :src="image"
+              :alt="`slide-repeat-${index}`"
+              loading="lazy">
+          </div>
+        </div>
       </div>
-      <!-- 复制一组相同的图片实现无缝效果 -->
-      <div v-for="(image, index) in displayImages" 
-           :key="`repeat-${index}`" 
-           class="swiper-slide">
-        <img 
-          :src="image"
-          :alt="`slide-repeat-${index}`"
-          loading="lazy">
-      </div>
-    </div>
-  </div>
+  </keep-alive>
 </template>
 
 <script setup>

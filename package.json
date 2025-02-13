@@ -17,6 +17,7 @@
     "@rive-app/canvas": "^2.25.7",
     "@tawk.to/tawk-messenger-vue": "^1.0.2",
     "@tawk.to/tawk-messenger-vue-3": "^1.0.3",
+    "@vercel/analytics": "^1.5.0",
     "axios": "^1.7.9",
     "glob": "^11.0.1",
     "html2canvas": "^1.4.1",
