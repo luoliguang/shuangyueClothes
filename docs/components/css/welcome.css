@@ -19,3 +19,7 @@
   display: block;
   object-fit: cover;
 }
+
+body {
+  font-family: 'tawk-font-icon', sans-serif;
+}

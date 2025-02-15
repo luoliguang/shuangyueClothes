@@ -135,6 +135,9 @@ onMounted(async ()=> {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
 }
+body {
+  font-family: 'tawk-font-icon', sans-serif; /* 确保使用了预加载的字体 */
+}
 
 .swiper-slide {
   background-position: center;

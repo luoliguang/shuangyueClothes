@@ -46,6 +46,9 @@ const closePreview = () => {
 </script>
 
 <style scoped>
+.image-grid {
+    font-family: 'tawk-font-icon', sans-serif; /* 确保使用了预加载的字体 */
+}
 
 .image-gallery {
   display: grid;

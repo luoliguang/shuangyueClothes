@@ -548,3 +548,8 @@
     font-size: 14px;
   }
 }
+
+/* 在你的 CSS 文件中使用预加载的字体 */
+body {
+    font-family: 'tawk-font-icon', sans-serif; /* 确保使用了预加载的字体 */
+}
