@@ -3,7 +3,10 @@
 2. 下载时可直接使用微信登陆。也可直接点击链接快速进行注册。
 ## *提取码<span id="contactMe"></span>  
 请扫码添加联系或直接咨询客服获取提取码
-<ImageGrid :images="['','']"/>
+<ImageGrid :images="[
+  'https://vip.123pan.cn/1812611705/ymjew503t0l000d6xujz7l2yrv2e7fp6DIYPDqQPDIUOAGx1AdU0.jpg',
+  'https://vip.123pan.cn/1812611705/yk6baz03t0m000d6xujocyvv5zid83brDIYPDqQPDIUOAGx1AdU0.jpg'
+  ]"/>
 
 ## 1️⃣尺码表
 ### 素材预览

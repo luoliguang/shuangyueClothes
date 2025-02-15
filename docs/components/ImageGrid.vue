@@ -6,7 +6,7 @@
   </div>
 
   <div class="preview-overlay" v-if="isPreview" @click="closePreview">
-    <img :src="currentImg" @click.stop="handlePreview(currentImg)" alt="大图预览">
+    <img :src="currentImg" @click.stop="handlePreview(currentImg)" alt="大图预览" class="preview-image">
   </div>
 </template>
 
@@ -33,11 +33,13 @@ const handlePreview = (imgUrl) => {
   // 否则打开预览
   currentImg.value = imgUrl
   isPreview.value = true
+  document.body.style.overflow = 'hidden'; // 禁用背景滚动
 }
 
 const closePreview = () => {
   isPreview.value = false
   currentImg.value = ''
+  document.body.style.overflow = ''; // 恢复背景滚动
 }
 
 
