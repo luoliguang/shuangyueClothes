@@ -81,7 +81,24 @@ const getImagesData = async () => {
   }
 }
 
-onMounted(async ()=> {
+const getRivFile = async (filePath) => {
+  const cachedRiv = localStorage.getItem(filePath);
+  if (cachedRiv) {
+    return cachedRiv; // 返回缓存的内容
+  }
+  
+  try {
+    const response = await fetch(filePath);
+    const text = await response.text();
+    localStorage.setItem(filePath, text); // 缓存内容
+    return text;
+  } catch (error) {
+    console.error('获取RIV文件失败:', error);
+    return null;
+  }
+}
+
+onMounted(async () => {
   // 尝试从缓存获取数据
   const cachedData = localStorage.getItem(CACHE_KEY)
 
@@ -99,6 +116,11 @@ onMounted(async ()=> {
   const newData = await getImagesData()
   imgUrl.value = newData.map(item => item.url)
 
+  // 缓存RIV文件
+  await getRivFile('/icons/rocket-emoji-animated.riv');
+  await getRivFile('/icons/crystall-ball-emoji-animated.riv');
+  await getRivFile('/icons/star-emoji-animated.riv');
+  await getRivFile('/icons/easter-island-statue-emoji-animated.riv');
 }) 
 
 // onMounted(async () => {

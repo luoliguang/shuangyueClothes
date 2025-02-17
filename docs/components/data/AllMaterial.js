@@ -112,24 +112,6 @@ const styleTemplates = {
     thumbnail: '',
     tags: ['180xiaomitong', 'Polo']
   },
-
-  '200zhudiTshirt': {
-    id: '',
-    name: '200克珠地圆领短袖',
-    description: '舒适透气，适合运动穿着',
-    type: '圆领短袖',
-    thumbnail: '',
-    tags: ['200zhudi', 'Tshirt']
-  },
-  '200zhudiPolo': {
-    id: '',
-    name: '200克珠地翻领短袖',
-    description: '舒适透气，适合运动穿着',
-    type: '翻领短袖',
-    thumbnail: '',
-    tags: ['200zhudi', 'Polo']
-  },
-
   '210suganTshirt': {
     id: '',
     name: '210克速干圆领短袖',
@@ -163,22 +145,23 @@ const styleTemplates = {
     thumbnail: '',
     tags: ['220fangmian', 'Polo']
   },
-
-  '260zhudiTshirt': {
+  //所有速干
+  'AllSuGan': {
     id: '',
-    name: '260克珠地圆领短袖',
-    description: '舒适透气，适合运动穿着',
-    type: '圆领短袖',
+    name: '',
+    description: '',
+    type: '',
     thumbnail: '',
-    tags: ['260zhudi', 'Tshirt']
+    tags: []
   },
-  '260zhudiPolo': {
+  //所有珠地
+  'AllZhuDi': {
     id: '',
-    name: '260克珠地翻领短袖',
-    description: '舒适透气，适合运动穿着',
-    type: '翻领短袖',
+    name: '',
+    description: '',
+    type: '',
     thumbnail: '',
-    tags: ['260zhudi', 'Polo']
+    tags: []
   },
 
   /**
@@ -288,15 +271,12 @@ const apiNumbers = {
   'numPgwPolo': 1443, // 苹果网
   'numXmtTshirt': 1446, // 小米通
   'numXmtPolo': 1445, // 小米通
-  'numZdTshirt': 1450, // 珠地
-  'numZdPolo': 1449, // 珠地
-  'numSGTshirt': 1452, // 210克速干
-  'numSGPolo': 1453, // 210克速干
   'numFmTshirt': 1454, // 仿棉
   'numFmPolo': 1453, // 仿棉
-  'numZd260Tshirt': 1456, // 珠地
-  'numZd260Polo': 1455, // 珠地
-
+  //所有速干
+  'AllSuGan': 1544,
+  //所有珠地
+  'AllZhuDi': 1543,
   // 卫衣系列
   'SweaterSeries': 1499, // 卫衣系列
   // 风衣系列

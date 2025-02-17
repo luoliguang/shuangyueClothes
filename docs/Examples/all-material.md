@@ -3,9 +3,10 @@ layout: home
 ---
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted,onUnmounted,onBeforeMount } from 'vue'
 import { getImagesUrl } from '../components/sever/sever.js'
 import { styleTemplates, apiNumbers } from '../components/data/AllMaterial.js' // 素材数据
+
 
 const materialCategories = [
   {
@@ -14,12 +15,10 @@ const materialCategories = [
     tags: [
       { id: '130xfg', name: '130克小方格速干', count: 0 },
       { id: '160pingwenbu', name: '160克平纹布', count: 0 },
-      { id: '160sugan', name: '160克速干', count: 0 },
       { id: '180bingsi', name: '180克冰丝蝴蝶网', count: 0 },
       { id: '180pingguo', name: '180克苹果网', count: 0 },
       { id: '180xiaomitong', name: '180克小米通速干', count: 0 },
       { id: '200zhudi', name: '200克珠地', count: 0 },
-      { id: '210sugan', name: '210克速干', count: 0 },
       { id: '220fangmian', name: '220克仿棉', count: 0 },
       { id: '260zhudi', name: '260克珠地', count: 0 },
       { id: '280xiewen', name: '280克斜纹', count: 0 },
@@ -30,6 +29,8 @@ const materialCategories = [
       { id: 'shuimitao', name: '水蜜桃', count: 0 },
       { id: 'simiantan', name: '四面弹', count: 0 },
       { id: 't400', name: 'T400', count: 0 },
+      { id: 'AllZhuDi', name: '珠地', count: 0 },
+      { id: 'AllSuGan', name: '速干', count: 0 },
     ]
   },
   {
@@ -273,56 +274,6 @@ getImagesUrl(apiNumbers.numDetail2).then(res => {
       tags: styleTemplates['180xiaomitongPolo'].tags,
     }))
   }),
-    // 处理第7个数组，生成珠地的对象数组
-  getImagesUrl(apiNumbers.numZdTshirt).then(res => {
-    materialCategories[0].tags[6].count += res.length // 珠地面料标签计数
-    materialCategories[1].tags[0].count += res.length // 圆领短袖总数
-    return res.map((item, index) => ({
-      id: `200zhudiTshirt-${index + 1}`,
-      name: styleTemplates['200zhudiTshirt'].name,
-      description: styleTemplates['200zhudiTshirt'].description,
-      type: styleTemplates['200zhudiTshirt'].type,
-      thumbnail: item.url,
-      tags: styleTemplates['200zhudiTshirt'].tags,
-    }))
-  }),
-  getImagesUrl(apiNumbers.numZdPolo).then(res => {
-    materialCategories[0].tags[6].count += res.length // 珠地面料标签计数
-    materialCategories[1].tags[1].count += res.length // 翻领短袖总数
-    return res.map((item, index) => ({
-      id: `200zhudiPolo-${index + 1}`,
-      name: styleTemplates['200zhudiPolo'].name,
-      description: styleTemplates['200zhudiPolo'].description,
-      type: styleTemplates['200zhudiPolo'].type,
-      thumbnail: item.url,
-      tags: styleTemplates['200zhudiPolo'].tags,
-    }))
-  }),
-    // 处理第8个数组，生成210克速干的对象数组
-  getImagesUrl(apiNumbers.numSGTshirt).then(res => {
-    materialCategories[0].tags[7].count += res.length // 210克速干面料标签计数
-    materialCategories[1].tags[0].count += res.length // 圆领短袖总数
-    return res.map((item, index) => ({
-      id: `210suganTshirt-${index + 1}`,
-      name: styleTemplates['210suganTshirt'].name,
-      description: styleTemplates['210suganTshirt'].description,
-      type: styleTemplates['210suganTshirt'].type,
-      thumbnail: item.url,
-      tags: styleTemplates['210suganTshirt'].tags,
-    }))
-  }),
-  getImagesUrl(apiNumbers.numSGPolo).then(res => {
-    materialCategories[0].tags[7].count += res.length // 210克速干面料标签计数
-    materialCategories[1].tags[1].count += res.length // 翻领短袖总数
-    return res.map((item, index) => ({
-      id: `210suganPolo-${index + 1}`,
-      name: styleTemplates['210suganPolo'].name,
-      description: styleTemplates['210suganPolo'].description,
-      type: styleTemplates['210suganPolo'].type,
-      thumbnail: item.url,
-      tags: styleTemplates['210suganPolo'].tags,
-    }))
-  }),
   // 处理第9个数组，生成仿棉的对象数组
   getImagesUrl(apiNumbers.numFmTshirt).then(res => {
     materialCategories[0].tags[8].count += res.length // 仿棉面料标签计数
@@ -348,32 +299,80 @@ getImagesUrl(apiNumbers.numDetail2).then(res => {
       tags: styleTemplates['220fangmianPolo'].tags,
     }))
   }),
-  // 处理第10个数组，生成珠地260克的对象数组
-  getImagesUrl(apiNumbers.numZd260Tshirt).then(res => {
-    materialCategories[0].tags[9].count += res.length // 珠地260克面料标签计数
-    materialCategories[1].tags[0].count += res.length // 圆领卫衣总数
-    return res.map((item, index) => ({
-      id: `260zhudiTshirt-${index + 1}`,
-      name: styleTemplates['260zhudiTshirt'].name,
-      description: styleTemplates['260zhudiTshirt'].description,
-      type: styleTemplates['260zhudiTshirt'].type,
-      thumbnail: item.url,
-      tags: styleTemplates['260zhudiTshirt'].tags,
-    }))
-  }),
-  getImagesUrl(apiNumbers.numZd260Polo).then(res => {
-    materialCategories[0].tags[9].count += res.length // 珠地260克面料标签计数
-    materialCategories[1].tags[1].count += res.length // 翻领卫衣总数
-    return res.map((item, index) => ({
-      id: `260zhudiPolo-${index + 1}`,
-      name: styleTemplates['260zhudiPolo'].name,
-      description: styleTemplates['260zhudiPolo'].description,
-      type: styleTemplates['260zhudiPolo'].type,
-      thumbnail: item.url,
-      tags: styleTemplates['260zhudiPolo'].tags,
-    }))
-  }),
 
+//速干短袖系列
+getImagesUrl(apiNumbers.AllSuGan).then(res => {
+  return res.map((item, index) => {
+    // 直接处理标签匹配逻辑
+    const tags = []
+    // 动态获取 type
+    const itemKeywords = [] // 用于存储匹配的关键词
+
+    materialCategories[0].tags.forEach((tag, index) => {
+      if (item.name.includes(tag.name.replace(/\d+(克|g)/g, ''))) {
+        materialCategories[0].tags[index].count += 1
+        tags.push(tag.id)
+      }
+    })
+    materialCategories[1].tags.forEach((tag, index) => {
+      const keywords = tag.name.split(' ')
+      if (keywords.some(keyword => item.name.includes(keyword))) {
+        materialCategories[1].tags[index].count += 1
+        tags.push(tag.id)
+        itemKeywords.push(tag.name) // 添加匹配的关键词
+      }
+    })
+
+    // 设置 type 为匹配的关键词
+    const type = itemKeywords.length > 0 ? itemKeywords.join(', ') : '未匹配'
+
+    // 返回处理后的对象
+    return {
+      id: `AllSuGan-${index + 1}`,
+      name: item.name,
+      description: styleTemplates['AllSuGan'].description,
+      type: type, // 使用动态获取的 type
+      thumbnail: item.url,
+      tags: tags
+    }
+  })
+}),
+//珠地所有款式珠地
+getImagesUrl(apiNumbers.AllZhuDi).then(res => {
+  return res.map((item, index) => {
+    // 直接处理标签匹配逻辑
+    const tags = []
+    // 动态获取 type
+    const itemKeywords = [] // 用于存储匹配的关键词
+
+    materialCategories[0].tags.forEach((tag, index) => {
+      if (item.name.includes(tag.name.replace(/\d+(克|g)/g, ''))) {
+        materialCategories[0].tags[index].count += 1
+        tags.push(tag.id)
+      }
+    })
+    materialCategories[1].tags.forEach((tag, index) => {
+      const keywords = tag.name.split(' ')
+      if (keywords.some(keyword => item.name.includes(keyword))) {
+        materialCategories[1].tags[index].count += 1
+        tags.push(tag.id)
+        itemKeywords.push(tag.name) // 添加匹配的关键词
+      }
+    })
+    // 设置 type 为匹配的关键词
+    const type = itemKeywords.length > 0 ? itemKeywords.join(', ') : '未匹配'
+
+    // 返回处理后的对象
+    return {
+      id: `AllZhuDi-${index + 1}`,
+      name: item.name,
+      description: styleTemplates['AllZhuDi'].description,
+      type: type, // 使用动态获取的 type
+      thumbnail: item.url,
+      tags: tags
+    }
+  })
+}),
   /**
    * 卫衣系列
    */
@@ -617,7 +616,9 @@ getImagesUrl(apiNumbers.longSleeved).then(res => {
 
 </script>
 
-<AllMaterial 
-  :categories="materialCategories"
-  :materials-list="materials"
-/>
+<KeepAlive>
+  <AllMaterial 
+    :categories="materialCategories"
+    :materials-list="materials"
+  />
+</KeepAlive>
