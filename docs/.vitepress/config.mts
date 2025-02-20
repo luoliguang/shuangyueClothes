@@ -40,15 +40,15 @@ export default defineConfig({
     },
     nav: [
       { text: '主页', link: '/' },
-      { text: '产品素材',
+      { text: '素材整理',
         items: 
         [
-          { text: '素材总览', link: '../Examples/all-material' },
+          { text: '实拍素材', link: '../Examples/all-material' },
           { text: '尺码表', link: '../Examples/size-chart' },
           
-          { text: '网盘素材📚', items: [
-            { text: '资料下载⬇️', link: '../Examples/network-disk.md' },
-          ] },
+          // { text: '网盘素材📚', items: [
+          //   { text: '资料下载⬇️', link: '../Examples/network-disk.md' },
+          // ] },
 
           { text: '已丢弃🗑️', items: [
             { text: '衣服实拍', link: '../Examples/physical-map' },

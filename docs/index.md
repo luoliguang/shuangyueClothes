@@ -18,19 +18,18 @@ hero:
     src: https://bu.dusays.com/2024/12/17/6760584bcf0e4.png
     alt: OK
   actions:
-    - theme: brand
-      text: 面料视频
-      link: '/Examples/fabric.md'
     - theme: alt
       text: 疑难解答
       link: '/Cooperate/reference-data.md'
     - theme: brand
-      text: 实物图素材
+      text: 实物图实拍
       link: '/Examples/all-material.md'
     - theme: alt
       text: 团队成员
       link: '/Team/team.md'
-
+    - theme: brand
+      text: 面料视频
+      link: '/Examples/fabric.md'
 features:
   - icon: <span class="rive-canvas" data-rive-canvas="true" data-rive-src="/icons/rocket-emoji-animated.riv"></span>
     title: 高效稳定的发货体系
