@@ -33,7 +33,7 @@
           v-if="selectedTags.length > 0"
           class="clear-filter-btn"
           @click="clearAllTags">
-          快速清空选项
+          重选
         </button>
     </div>
     <!-- 分类过滤器 -->

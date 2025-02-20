@@ -403,20 +403,36 @@
 }
 
 .clear-filter-btn {
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  color: var(--vp-c-text-2);
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  padding: 20px 20px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  font-size: 16px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
 }
 
 .clear-filter-btn:hover {
-  background: var(--vp-c-bg-mute);
-  color: var(--vp-c-danger);
-  border-color: var(--vp-c-danger);
+  background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+}
+
+.clear-filter-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 241, 207, 0.5);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .clear-filter-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }
 
 /* 回到顶部按钮样式 */
