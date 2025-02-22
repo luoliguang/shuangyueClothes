@@ -56,7 +56,8 @@ export default defineConfig({
           ] },
         ]
       },
-      { text: '疑难解答', link: '/Cooperate/reference-data' },
+      // { text: '疑难解答', link: '/Cooperate/reference-data' },
+      { text: '疑难解答', link: '/Examples/all-answers' },
       { text: '团队成员', link: '/Team/team' },
       { text: '使用教程', link: '/UsageTutorial/usage-tutorial'},
       { text: 'DoWant',

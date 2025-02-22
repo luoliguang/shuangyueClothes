@@ -10,6 +10,7 @@ import Contribution from "./Contribution.vue";
 import TawkTo from "./TawkTo.vue";
 import { NuLazyTeleportRiveCanvas } from '@nolebase/ui-rive-canvas'; //icon组件样式
 import ImageGrid from "./ImageGrid.vue";
+import AllAnswers from "./AllAnswers.vue"
 
 export default {
   Swiper,
@@ -23,5 +24,6 @@ export default {
   Contribution,
   TawkTo,
   NuLazyTeleportRiveCanvas,
-  ImageGrid
+  ImageGrid,
+  AllAnswers,
 }

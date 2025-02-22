@@ -1,97 +1,97 @@
 {
-  "hash": "b5715cf6",
+  "hash": "f0b8d1fa",
   "configHash": "18f377df",
-  "lockfileHash": "c5c09021",
-  "browserHash": "c7c0162b",
+  "lockfileHash": "59e98e04",
+  "browserHash": "3ec13ac1",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "813ec041",
+      "fileHash": "4c446e47",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "4301e359",
+      "fileHash": "1631363e",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "362c90a3",
+      "fileHash": "98cc5af3",
       "needsInterop": false
     },
     "@rive-app/canvas": {
       "src": "../../../../node_modules/@rive-app/canvas/rive.js",
       "file": "@rive-app_canvas.js",
-      "fileHash": "a1d5dd4f",
+      "fileHash": "7303ab95",
       "needsInterop": true
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "b7718a17",
+      "fileHash": "0712e6ca",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "d399938a",
+      "fileHash": "51c111c0",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "8a7e61b6",
+      "fileHash": "ee644629",
       "needsInterop": false
     },
     "vue-lazyload": {
       "src": "../../../../node_modules/vue-lazyload/vue-lazyload.esm.js",
       "file": "vue-lazyload.js",
-      "fileHash": "24c6bbd5",
+      "fileHash": "df99c300",
       "needsInterop": false
     },
     "@nolebase/ui-rive-canvas": {
       "src": "../../../../node_modules/@nolebase/ui-rive-canvas/dist/index.mjs",
       "file": "@nolebase_ui-rive-canvas.js",
-      "fileHash": "94722e67",
+      "fileHash": "869f24f9",
       "needsInterop": false
     },
     "swiper/vue": {
       "src": "../../../../node_modules/swiper/swiper-vue.mjs",
       "file": "swiper_vue.js",
-      "fileHash": "a26c5348",
+      "fileHash": "1bf39d0f",
       "needsInterop": false
     },
     "swiper/modules": {
       "src": "../../../../node_modules/swiper/modules/index.mjs",
       "file": "swiper_modules.js",
-      "fileHash": "54b9dcbb",
+      "fileHash": "f165ef1c",
       "needsInterop": false
     },
     "html2canvas": {
       "src": "../../../../node_modules/html2canvas/dist/html2canvas.esm.js",
       "file": "html2canvas.js",
-      "fileHash": "ac093d67",
+      "fileHash": "820d2d98",
       "needsInterop": false
+    },
+    "marked": {
+      "src": "../../../../node_modules/marked/lib/marked.esm.js",
+      "file": "marked.js",
+      "fileHash": "da4aad07",
+      "needsInterop": false
+    },
+    "lodash/debounce": {
+      "src": "../../../../node_modules/lodash/debounce.js",
+      "file": "lodash_debounce.js",
+      "fileHash": "1c278891",
+      "needsInterop": true
     },
     "axios": {
       "src": "../../../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "69e1b71f",
-      "needsInterop": false
-    },
-    "@vercel/analytics/vue": {
-      "src": "../../../../node_modules/@vercel/analytics/dist/vue/index.mjs",
-      "file": "@vercel_analytics_vue.js",
-      "fileHash": "8eff79a7",
-      "needsInterop": false
-    },
-    "@vercel/analytics": {
-      "src": "../../../../node_modules/@vercel/analytics/dist/index.mjs",
-      "file": "@vercel_analytics.js",
-      "fileHash": "671a8224",
+      "fileHash": "637622be",
       "needsInterop": false
     }
   },
@@ -105,8 +105,8 @@
     "chunk-CEV3VWJF": {
       "file": "chunk-CEV3VWJF.js"
     },
-    "chunk-HKJ2B2AA": {
-      "file": "chunk-HKJ2B2AA.js"
+    "chunk-L6OFPWCY": {
+      "file": "chunk-L6OFPWCY.js"
     }
   }
 }

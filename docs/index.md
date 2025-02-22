@@ -20,7 +20,7 @@ hero:
   actions:
     - theme: alt
       text: 疑难解答
-      link: '/Cooperate/reference-data.md'
+      link: '/Examples/all-answers.md'
     - theme: brand
       text: 实物图实拍
       link: '/Examples/all-material.md'

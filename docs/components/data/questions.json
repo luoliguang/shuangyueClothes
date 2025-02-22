@@ -1,0 +1,442 @@
+[
+  {
+    "id": 1,
+    "content": "棒球服用什么扣子？默认几颗？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "棒球服", "扣子"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "四合扣，一般5-6颗，一般做5颗。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  { 
+    "id": 2,
+    "content": "四合扣是怎么样的？",
+    "type": "imageText",
+    "images": [],
+    "categories": ["衣服系列", "扣子", "四合扣"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "外面胶的，里面铁的。四合扣分为公扣和母扣两部分，公扣是外面带有装饰的部分，母扣是内部的固定部分。",
+        "type": "imageText",
+        "images": [
+          {
+            "url": "https://bu.dusays.com/2024/12/17/676057610c39f.png",
+            "alt": "四合扣正面图",
+            "description": "四合扣的公扣部分"
+          },
+          {
+            "url": "https://bu.dusays.com/2024/12/17/676057610c39f.png",
+            "alt": "四合扣背面图",
+            "description": "四合扣的母扣部分"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "content": "POLO的扣子默认有几个？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "扣子", "POLO"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "3个。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "content": "怎么理解“插肩款”？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "插肩款"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "如图。因为正常情况下肩膀和袖子是两部分，如果不做插肩款，这个线条是很难对齐的。一般在线条、图案在袖子和肩膀上的时候就可以选择做插肩款，根据实际情况而定。",
+        "type": "text",
+        "images": [
+          {
+          "url": "https://bu.dusays.com/2024/12/17/67605760d5425.png",
+          "alt": "插肩款样式",
+          "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "content": "为什么做不到纯黑色？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "色值"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2024/12/14/675da098b1e39.png",
+      "name": "桃子姐"
+    },
+    "answers": [
+      {
+        "content": "单色黑印出来不是纯黑，容易出现横杠。四色黑油墨过多容易渗透，不容易干的情况下容易染到其他地方，所以我们的黑色是没有拉满的。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "content": "为什么做不了亮色？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "色值"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2024/12/14/675da098b1e39.png",
+      "name": "桃子姐"
+    },
+    "answers": [
+      {
+        "content": "在同一个文件的情况下，不同厂家的打印机和墨水和排版的软件曲线不一样，出来的效果也是不一样的，正如我们的颜色别家厂也很难做出来。并且rgb的一个颜色色域是很广的，我们常用看到的手机显示屏还有电脑显示屏都是rgb \n 不管是多么好的机器和多么好的墨水，都无法做到跟显示屏和手机看到的颜色是一样的。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "content": "水蜜桃、复合、T400有什么区别？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "色值"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "除了价格不一样，最要就是手感。水蜜桃会硬一些；复合软一点；T400摸起来软一点。一般摸到实物才会有深刻的感受。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "content": "为什么我们的衣服上面会有白色的点点？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "因为我们主要是印裁片，裁片是白色的，有时候没有渲染完全，会出现这样的情况，点点是正常，不严重就行。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "content": "衣服的布料油味道为什么这么大？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "异味"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "激光烧花烧出来会有一点点气味的，但是不会有这么大，属于正常情况。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "content": "英式棒球服、美式棒球服区别",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "棒球服"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "芹姐"
+    },
+    "answers": [
+      {
+        "content": "主要看领子部分，如图：",
+        "type": "imageText",
+        "images": [
+          {
+            "url": "https://bu.dusays.com/2024/12/17/676059757ef48.png",
+            "alt": "英式棒球服",
+            "description": "英式棒球服"
+          },
+          {
+            "url": "https://bu.dusays.com/2024/12/17/676059759025d.png",
+            "alt": "美式插肩棒球服",
+            "description": "美式插肩棒球服"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "content": "盘口短袖的扣子可以做什么颜色？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "色值", "扣子", "盘扣短袖"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2024/12/14/675d9e55b510c.jpg",
+      "name": "富哥"
+    },
+    "answers": [
+      {
+        "content": "默认只能做白色，如果需要其他颜色，跟据实际情况而定。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "content": "布料最宽可以做到多少CM？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "色值", "扣子", "盘扣短袖"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "印布：162CM，裁片：185CM。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "content": "卫衣的下摆可以印图案吗？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "下摆图案", "卫衣"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "不可以。只能印制 “线条” 或 “纯色”。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "content": "POLO的领子可以双面印色吗？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "衣领", "POLO"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "可以。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "content": "衣服内里可以做其它颜色吗？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "衣服里面"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "不能，只能做白色。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "content": "插肩五分袖的袖子比正常短袖的袖子长多少？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "插肩款", "袖子长度"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "插肩五分袖的袖子比正常短袖的袖子长5-8CM",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+
+
+
+  {
+    "id": 17,
+    "content": "打样什么时候可以做好？",
+    "type": "text",
+    "images": [],
+    "categories": ["发货系列", "时效", "打样"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "许军"
+    },
+    "answers": [
+      {
+        "content": "正常情况第2天。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "content": "大货什么时候可以做好？",
+    "type": "text",
+    "images": [],
+    "categories": ["发货系列", "时效"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "许军"
+    },
+    "answers": [
+      {
+        "content": "正常情况3天内，根据数量、实际情况而定。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "content": "默认发什么快递？",
+    "type": "text",
+    "images": [],
+    "categories": ["发货系列", "快递方式"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "许军"
+    },
+    "answers": [
+      {
+        "content": "包中通。 有顺丰、德邦、壹米滴答、货拉拉、跨越、京东(客户约)。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+
+
+
+
+
+  {
+    "id": 19,
+    "content": "箱子规格是多少？",
+    "type": "text",
+    "images": [],
+    "categories": ["箱子规格"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "许军"
+    },
+    "answers": [
+      {
+        "content": "60CM X 35CM X 40CM",
+        "type": "imageText",
+        "images": 
+        [
+          {
+            "url": "https://bu.dusays.com/2024/12/17/67605761b938d.png",
+            "alt": "箱子规格",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "content": "班旗默认尺寸",
+    "type": "text",
+    "images": [],
+    "categories": ["班旗", "尺寸"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "许军"
+    },
+    "answers": [
+      {
+        "content": "4号班旗:144CM X 96CM 默认单面印制",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "content": "布宽最大多少？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "布宽"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "印布:162CM, 裁片:185CM",
+        "type": "text",
+        "images": []
+      }
+    ]
+  }
+  
+]
