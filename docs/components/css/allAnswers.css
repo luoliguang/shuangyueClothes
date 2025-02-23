@@ -127,9 +127,9 @@
   padding: 4px;
 }
 
-.search-icon {
-  width: 20px;
-  height: 20px;
+.search-icon-answer {
+  width: 30px;
+  height: 30px;
   fill: var(--text-tertiary);
 }
 
