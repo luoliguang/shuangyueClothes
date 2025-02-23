@@ -92,9 +92,9 @@
 <script setup>
 import { ref, computed, nextTick } from 'vue';
 import { useDebounceFn } from '@vueuse/core';
-import QuestionContent from './QuestionContent.vue';
-import AnswersList from './AnswersList.vue';
-import questionsData from '../components/data/questions.json';
+import QuestionContent from './answers/QuestionContent.vue';
+import AnswersList from './answers/AnswersList.vue';
+import questionsData from './data/questions.json';
 
 // 状态管理
 const searchQuery = ref('');
@@ -173,9 +173,9 @@ const resetFilters = () => {
 };
 
 // 查看详情
-const viewDetails = (question) => {
-  console.log('查看问题详情:', question);
-};
+// const viewDetails = (question) => {
+//   console.log('查看问题详情:', question);
+// };
 </script>
 
 <style src="./css/allAnswers.css"></style>

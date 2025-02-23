@@ -43,22 +43,22 @@ export default defineConfig({
       { text: '素材整理',
         items: 
         [
-          { text: '实拍素材', link: '../Examples/all-material' },
-          { text: '尺码表', link: '../Examples/size-chart' },
+          { text: '实拍素材', link: '../Material/all-material' },
+          { text: '尺码表', link: '../Material/size-chart' },
           
           // { text: '网盘素材📚', items: [
           //   { text: '资料下载⬇️', link: '../Examples/network-disk.md' },
           // ] },
 
           { text: '已丢弃🗑️', items: [
-            { text: '衣服实拍', link: '../Examples/physical-map' },
-            { text: '面料细节', link: '../Examples/fabric' }
+            { text: '衣服实拍', link: '../Material/physical-map' },
+            { text: '面料细节', link: '../Material/fabric' }
           ] },
         ]
       },
       // { text: '疑难解答', link: '/Cooperate/reference-data' },
-      { text: '疑难解答', link: '/Examples/all-answers' },
-      { text: '团队成员', link: '/Team/team' },
+      { text: '疑难解答', link: '/Material/all-answers' },
+      // { text: '团队成员', link: '/Team/team' },
       { text: '使用教程', link: '/UsageTutorial/usage-tutorial'},
       { text: 'DoWant',
         items:[
@@ -68,18 +68,17 @@ export default defineConfig({
       },
     ],
     sidebar: {
-      // '/Examples/': [
-      //   {
-      //     text: '关于产品',
-      //     items: [
-      //       { text: '面料细节', link: '../Examples/fabric' },
-      //       { text: '衣服实拍', link: '../Examples/physical-map' },
-      //       { text: '尺码表', link: '../Examples/size-chart' },
-      //       { text: '素材总览', link: '../Examples/all-material' },
-      //     ]
-      //   }
-      // ],
-
+      '/Material/': [
+        {
+          text: '关于产品',
+          items: [
+            { text: '面料细节', link: '../Material/fabric' },
+            { text: '衣服实拍', link: '../Material/physical-map' },
+            { text: '尺码表', link: '../Material/size-chart' },
+            { text: '素材总览', link: '../Material/all-material' },
+          ]
+        }
+      ],
       '/Cooperate/': [
         {
           text: '疑难解答',

@@ -20,16 +20,16 @@ hero:
   actions:
     - theme: alt
       text: 疑难解答
-      link: '/Examples/all-answers.md'
+      link: '/Material/all-answers.md'
     - theme: brand
       text: 实物图实拍
-      link: '/Examples/all-material.md'
+      link: '/Material/all-material.md'
+    # - theme: alt
+    #   text: 团队成员
+    #   link: '/Team/team.md'
     - theme: alt
-      text: 团队成员
-      link: '/Team/team.md'
-    - theme: brand
       text: 面料视频
-      link: '/Examples/fabric.md'
+      link: '/Material/fabric.md'
 features:
   - icon: <span class="rive-canvas" data-rive-canvas="true" data-rive-src="/icons/rocket-emoji-animated.riv"></span>
     title: 高效稳定的发货体系
