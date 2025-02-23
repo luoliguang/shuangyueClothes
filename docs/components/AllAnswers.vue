@@ -6,12 +6,16 @@
         <input
           v-model="searchQuery"
           type="text"
-          placeholder="请输入关键词搜索..."
+          placeholder="搜索问题、答案或分类..."
           @input="debouncedSearch"
           class="search-input"
           aria-label="搜索问题"
         />
-        <button class="search-button" @click="handleSearch" aria-label="搜索">
+        <button 
+          class="search-button" 
+          @click="handleSearch"
+          :disabled="loading"
+        >
           <svg class="search-icon" viewBox="0 0 24 24">
             <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
           </svg>
@@ -21,15 +25,16 @@
       <div class="filter-tags">
         <button
           class="filter-tag"
-          :class="{ active: selectedCategory === '' }"
-          @click="selectCategory('')"
+          :class="{ active: !selectedCategory }"
+          @click="resetFilters"
         >
           所有分类
         </button>
         <button
           v-for="category in categories"
           :key="category"
-          :class="['filter-tag', { active: selectedCategory === category }]"
+          class="filter-tag"
+          :class="{ active: selectedCategory === category }"
           @click="selectCategory(category)"
         >
           {{ category }}
@@ -38,7 +43,7 @@
     </div>
 
     <!-- 问题列表部分 -->
-    <div class="masonry-container" v-if="!loading && filteredQuestions.length">
+    <div v-if="!loading && filteredQuestions.length" class="masonry-container">
       <div class="masonry-column">
         <TransitionGroup name="list">
           <div
@@ -85,16 +90,19 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, nextTick } from 'vue';
 import { useDebounceFn } from '@vueuse/core';
 import QuestionContent from './QuestionContent.vue';
 import AnswersList from './AnswersList.vue';
 import questionsData from '../components/data/questions.json';
 
-// 状态
+// 状态管理
 const searchQuery = ref('');
 const selectedCategory = ref('');
 const questions = ref(questionsData);
+const loading = ref(false);
+
+// 分类列表计算
 const categories = computed(() => {
   const categorySet = new Set();
   questions.value.forEach(question => {
@@ -102,81 +110,69 @@ const categories = computed(() => {
       categorySet.add(category);
     });
   });
-  return Array.from(categorySet);
+  return Array.from(categorySet).sort();
 });
-const loading = ref(false);
 
-// 计算属性
+// 搜索和过滤后的问题列表
 const filteredQuestions = computed(() => {
+  const query = searchQuery.value.toLowerCase().trim();
+  const category = selectedCategory.value;
+
   return questions.value.filter(question => {
-    const matchesSearch = question.content.toLowerCase().includes(searchQuery.value.toLowerCase());
-    const matchesCategory = selectedCategory.value ? 
-      question.categories.includes(selectedCategory.value) : true;
-    return matchesSearch && matchesCategory;
+    // 搜索匹配
+    const searchMatch = !query || 
+      question.content.toLowerCase().includes(query) ||
+      question.answers.some(answer => answer.content.toLowerCase().includes(query)) ||
+      question.categories.some(cat => cat.toLowerCase().includes(query));
+
+    // 分类匹配
+    const categoryMatch = !category || question.categories.includes(category);
+
+    return searchMatch && categoryMatch;
   });
 });
 
-// 修改计算属性，使用更智能的方式分配问题到两列
-const { leftColumnQuestions, rightColumnQuestions } = computed(() => {
-  const questions = filteredQuestions.value;
-  let leftColumn = [];
-  let rightColumn = [];
-  let leftHeight = 0;
-  let rightHeight = 0;
+// 左右列分配
+const leftColumnQuestions = computed(() => {
+  return filteredQuestions.value.filter((_, index) => index % 2 === 0);
+});
 
-  // 遍历所有问题并计算预估高度
-  questions.forEach(question => {
-    // 基础高度（标题、头像等固定元素）
-    let estimatedHeight = 100;
-    
-    // 根据内容长度增加高度
-    estimatedHeight += question.content.length * 0.5;
-    
-    // 根据图片数量增加高度
-    estimatedHeight += question.images.length * 200;
-    
-    // 计算答案的高度
-    const answersHeight = question.answers.reduce((height, answer) => {
-      // 答案文本高度
-      height += answer.content.length * 0.5;
-      // 答案图片高度
-      height += answer.images.length * 200;
-      return height;
-    }, 0);
-    
-    estimatedHeight += answersHeight;
-    
-    // 将问题分配到较短的一列
-    if (leftHeight <= rightHeight) {
-      leftColumn.push(question);
-      leftHeight += estimatedHeight;
-    } else {
-      rightColumn.push(question);
-      rightHeight += estimatedHeight;
-    }
-  });
+const rightColumnQuestions = computed(() => {
+  return filteredQuestions.value.filter((_, index) => index % 2 === 1);
+});
 
-  return {
-    leftColumnQuestions: leftColumn,
-    rightColumnQuestions: rightColumn
-  };
-}).value;
-
-// 方法
-const handleSearch = () => {
+// 搜索处理
+const handleSearch = async () => {
   loading.value = true;
-  setTimeout(() => {
-    loading.value = false;
-  }, 300);
+  try {
+    await nextTick();
+    // 这里可以添加实际的搜索逻辑
+  } finally {
+    setTimeout(() => {
+      loading.value = false;
+    }, 300);
+  }
 };
 
-const debouncedSearch = useDebounceFn(handleSearch, 300);
+// 防抖处理
+const debouncedSearch = useDebounceFn(() => {
+  handleSearch();
+}, 300);
 
+// 分类选择
 const selectCategory = (category) => {
   selectedCategory.value = category;
   handleSearch();
 };
 
+// 重置过滤器
+const resetFilters = () => {
+  searchQuery.value = '';
+  selectedCategory.value = '';
+  handleSearch();
+};
+
+// 查看详情
 const viewDetails = (question) => {
   console.log('查看问题详情:', question);
 };
