@@ -116,14 +116,51 @@ const filteredQuestions = computed(() => {
   });
 });
 
-// 添加计算属性来分配问题到不同列
-const leftColumnQuestions = computed(() => {
-  return filteredQuestions.value.filter((_, index) => index % 2 === 0);
-});
+// 修改计算属性，使用更智能的方式分配问题到两列
+const { leftColumnQuestions, rightColumnQuestions } = computed(() => {
+  const questions = filteredQuestions.value;
+  let leftColumn = [];
+  let rightColumn = [];
+  let leftHeight = 0;
+  let rightHeight = 0;
 
-const rightColumnQuestions = computed(() => {
-  return filteredQuestions.value.filter((_, index) => index % 2 === 1);
-});
+  // 遍历所有问题并计算预估高度
+  questions.forEach(question => {
+    // 基础高度（标题、头像等固定元素）
+    let estimatedHeight = 100;
+    
+    // 根据内容长度增加高度
+    estimatedHeight += question.content.length * 0.5;
+    
+    // 根据图片数量增加高度
+    estimatedHeight += question.images.length * 200;
+    
+    // 计算答案的高度
+    const answersHeight = question.answers.reduce((height, answer) => {
+      // 答案文本高度
+      height += answer.content.length * 0.5;
+      // 答案图片高度
+      height += answer.images.length * 200;
+      return height;
+    }, 0);
+    
+    estimatedHeight += answersHeight;
+    
+    // 将问题分配到较短的一列
+    if (leftHeight <= rightHeight) {
+      leftColumn.push(question);
+      leftHeight += estimatedHeight;
+    } else {
+      rightColumn.push(question);
+      rightHeight += estimatedHeight;
+    }
+  });
+
+  return {
+    leftColumnQuestions: leftColumn,
+    rightColumnQuestions: rightColumn
+  };
+}).value;
 
 // 方法
 const handleSearch = () => {

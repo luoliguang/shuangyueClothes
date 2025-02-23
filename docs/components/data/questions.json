@@ -11,7 +11,7 @@
     },
     "answers": [
       {
-        "content": "四合扣，一般5-6颗，一般做5颗。",
+        "content": "四合扣，一般`5-6`颗，我们基本做`5`颗。",
         "type": "text",
         "images": []
       }
@@ -29,7 +29,7 @@
     },
     "answers": [
       {
-        "content": "外面胶的，里面铁的。四合扣分为公扣和母扣两部分，公扣是外面带有装饰的部分，母扣是内部的固定部分。",
+        "content": "外面胶的，里面铁的。四合扣分为`公扣`和`母扣`两部分，`公扣`是外面带有装饰的部分，`母扣`是内部的固定部分。",
         "type": "imageText",
         "images": [
           {
@@ -76,7 +76,7 @@
     },
     "answers": [
       {
-        "content": "如图。因为正常情况下肩膀和袖子是两部分，如果不做插肩款，这个线条是很难对齐的。一般在线条、图案在袖子和肩膀上的时候就可以选择做插肩款，根据实际情况而定。",
+        "content": "如图：  \n  因为正常情况下`肩膀`和`袖子`是两部分，如果不做插肩款，这个`线条是很难对齐`的。一般在线条、图案在袖子和肩膀上的时候就可以选择做插肩款，根据实际情况而定。",
         "type": "text",
         "images": [
           {
@@ -118,7 +118,7 @@
     },
     "answers": [
       {
-        "content": "在同一个文件的情况下，不同厂家的打印机和墨水和排版的软件曲线不一样，出来的效果也是不一样的，正如我们的颜色别家厂也很难做出来。并且rgb的一个颜色色域是很广的，我们常用看到的手机显示屏还有电脑显示屏都是rgb \n 不管是多么好的机器和多么好的墨水，都无法做到跟显示屏和手机看到的颜色是一样的。",
+        "content": "在同一个文件的情况下，不同厂家的打印机和墨水和排版的软件曲线不一样，出来的效果也是不一样的，正如我们的颜色别家厂也很难做出来。并且`rgb`的一个颜色色域是很广的，我们常用看到的手机显示屏还有电脑显示屏都是`rgb` \n  \n  不管是多么好的机器和多么好的墨水，都无法做到跟显示屏和手机看到的颜色是一样的。",
         "type": "text",
         "images": []
       }
@@ -136,7 +136,7 @@
     },
     "answers": [
       {
-        "content": "除了价格不一样，最要就是手感。水蜜桃会硬一些；复合软一点；T400摸起来软一点。一般摸到实物才会有深刻的感受。",
+        "content": "除了价格不一样，最要就是手感。`水蜜桃`会硬一些；`复合`软一点；`T400`摸起来软一点。一般摸到实物才会有深刻的感受。",
         "type": "text",
         "images": []
       }
@@ -215,7 +215,7 @@
     "categories": ["衣服系列", "色值", "扣子", "盘扣短袖"],
     "contributor": {
       "avatar": "https://bu.dusays.com/2024/12/14/675d9e55b510c.jpg",
-      "name": "富哥"
+      "name": "浪浪"
     },
     "answers": [
       {
@@ -325,7 +325,7 @@
     "images": [],
     "categories": ["发货系列", "时效", "打样"],
     "contributor": {
-      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "avatar": "https://vip.123pan.cn/1812611705/yk6baz03t0n000d7w33gz1176gw0e0zwDIYPDqQPDIUOAGx1AdU0.jpg",
       "name": "许军"
     },
     "answers": [
@@ -343,7 +343,7 @@
     "images": [],
     "categories": ["发货系列", "时效"],
     "contributor": {
-      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "avatar": "https://vip.123pan.cn/1812611705/yk6baz03t0n000d7w33gz1176gw0e0zwDIYPDqQPDIUOAGx1AdU0.jpg",
       "name": "许军"
     },
     "answers": [
@@ -361,7 +361,7 @@
     "images": [],
     "categories": ["发货系列", "快递方式"],
     "contributor": {
-      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "avatar": "https://vip.123pan.cn/1812611705/yk6baz03t0n000d7w33gz1176gw0e0zwDIYPDqQPDIUOAGx1AdU0.jpg",
       "name": "许军"
     },
     "answers": [
@@ -384,7 +384,7 @@
     "images": [],
     "categories": ["箱子规格"],
     "contributor": {
-      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "avatar": "https://vip.123pan.cn/1812611705/yk6baz03t0n000d7w33gz1176gw0e0zwDIYPDqQPDIUOAGx1AdU0.jpg",
       "name": "许军"
     },
     "answers": [
@@ -396,7 +396,7 @@
           {
             "url": "https://bu.dusays.com/2024/12/17/67605761b938d.png",
             "alt": "箱子规格",
-            "description": ""
+            "description": "箱子规格"
           }
         ]
       }
@@ -409,7 +409,7 @@
     "images": [],
     "categories": ["班旗", "尺寸"],
     "contributor": {
-      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "avatar": "https://vip.123pan.cn/1812611705/yk6baz03t0n000d7w33gz1176gw0e0zwDIYPDqQPDIUOAGx1AdU0.jpg",
       "name": "许军"
     },
     "answers": [
@@ -435,6 +435,54 @@
         "content": "印布:162CM, 裁片:185CM",
         "type": "text",
         "images": []
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "content": "马甲可以带帽子吗？",
+    "type": "text",
+    "images": [],
+    "categories": ["衣服系列", "马甲"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2024/12/14/675d9e55b510c.jpg",
+      "name": "浪浪"
+    },
+    "answers": [
+      {
+        "content": "可以，带帽加2元",
+        "type": "imageText",
+        "images": [
+          {
+            "url": "https://vip.123pan.cn/1812611705/yk6baz03t0l000d7w33fbup6ohff0jc3DIYPDqQPDIUOAGx1AdU0.png",
+            "alt": "马甲带帽",
+            "description": "马甲带帽效果图"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "content": "菠萝领是什么领子？",
+    "type": "text",
+    "images": [],
+    "categories": ["高档领子", "菠萝领"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "质量中上的领，需要加1元",
+        "type": "text",
+        "images": [
+          {
+          "url": "https://vip.123pan.cn/1812611705/ymjew503t0l000d7w32x72ved7fn0oz7DIYPDqQPDIUOAGx1AdU0.webp",
+          "alt": "菠萝领",
+          "description": "菠萝领"
+          }
+        ]
       }
     ]
   }

@@ -288,25 +288,6 @@
   text-decoration: underline;
 }
 
-/* 优化图片预览触发区域 */
-.image-container {
-  position: relative;
-  cursor: zoom-in;
-  overflow: hidden;
-  border-radius: var(--radius-sm);
-}
-
-.image-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
 
 .image-container:hover::after {
   opacity: 1;
@@ -490,7 +471,8 @@
 .contributor-name {
   position: absolute;
   right: calc(100% + 8px);
-  background-color: var(--bg-secondary);
+  background-color: #44b549;
+  color: white;
   padding: 4px 8px;
   border-radius: var(--radius-sm);
   font-size: 12px;
