@@ -263,7 +263,7 @@
   },
   {
     "id": 14,
-    "content": "翻领短袖的领子可以双面印色吗？",
+    "content": "翻领短袖的领子可以在里面印颜色吗？",
     "type": "text",
     "images": [],
     "categories": ["衣服系列", "衣领", "翻领短袖"],
@@ -273,7 +273,7 @@
     },
     "answers": [
       {
-        "content": "可以。",
+        "content": "可以。领子是可以双面印`颜色`和`图案`的。",
         "type": "text",
         "images": []
       }
@@ -482,7 +482,115 @@
         "images": []
       }
     ]
+  },
+  {
+    "id": 25,
+    "content": "可以做纯棉吗？",
+    "type": "text",
+    "images": [],
+    "categories": ["纯棉", "衣服系列"],
+    "contributor": {
+      "avatar": "https://vip.123pan.cn/1812611705/yk6baz03t0l000d7w33fbv2b32sk0583DIYPDqQPDIUOAGx1AdU0.jpg",
+      "name": "洋洋罗"
+    },
+    "answers": [
+      {
+        "content": "不可以。纯棉纤维的亲水性会导致墨水快速渗透并扩散，尤其是高精度图案（如渐变、细节线条）容易出现晕染、边缘模糊，影响图案清晰度。数码印花通常需要对面料进行预处理（涂布浆料以固色），但纯棉吸水性过强可能导致预处理剂分布不均，进而影响墨水的显色和附着力。",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "content": "口袋可以加拉链吗？是加的什么拉链？有哪些颜色？",
+    "type": "text",
+    "images": [],
+    "categories": ["拉链"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "可以。加短拉链，有`黑色` `白色`两种颜色可选。+2元",
+        "type": "text",
+        "images": [
+          {
+          "url": "https://vip.123pan.cn/1812611705/ymjew503t0l000d7w32x73aaeh17th29DIYPDqQPDIUOAGx1AdU0.png",
+          "alt": "短拉链",
+          "description": "短拉链"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "content": "抽绳的颜色有哪些？",
+    "type": "text",
+    "images": [],
+    "categories": ["抽绳", "色值"],
+    "contributor": {
+      "avatar": "https://vip.123pan.cn/1812611705/yk6baz03t0l000d7w33fbv2b32sk0583DIYPDqQPDIUOAGx1AdU0.jpg",
+      "name": "洋洋罗"
+    },
+    "answers": [
+      {
+        "content": "有两种颜色。`黑色`、`白色`",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "content": "风衣、马甲的拉链图片。可以做什么颜色？",
+    "type": "text",
+    "images": [],
+    "categories": ["拉链"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "平时做的拉链样式。可以做`黑色`、`白色`、`红色`。",
+        "type": "text",
+        "images": [
+          {
+          "url": "https://vip.123pan.cn/1812611705/ymjew503t0n000d7w32y4ywq45wgynq9DIYPDqQPDIUOAGx1AdU0.jpg",
+          "alt": "平时做的拉链",
+          "description": "平时做的拉链。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "content": "长裤的裤脚默认做什么样子？",
+    "type": "text",
+    "images": [],
+    "categories": ["裤子系列"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2025/01/30/679ae4593ce17.jpg",
+      "name": "文叔"
+    },
+    "answers": [
+      {
+        "content": "默认螺纹束脚",
+        "type": "text",
+        "images": [
+          {
+          "url": "https://vip.123pan.cn/1812611705/yk6baz03t0n000d7w33gz1ibhvwhyb1lDIYPDqQPDIUOAGx1AdU0.jpg",
+          "alt": "束脚裤",
+          "description": "束脚裤"
+          }
+        ]
+      }
+    ]
   }
 
-  
+
 ]

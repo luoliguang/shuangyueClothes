@@ -87,6 +87,8 @@
       <p class="sub-text">请尝试其他关键词</p>
     </div>
   </div>
+
+  <BackToTopButton :show="showBackToTop" />
 </template>
 
 <script setup>
@@ -95,6 +97,8 @@ import { useDebounceFn } from '@vueuse/core';
 import QuestionContent from './answers/QuestionContent.vue';
 import AnswersList from './answers/AnswersList.vue';
 import questionsData from './data/questions.json';
+import BackToTopButton from './common/BackToTopButton.vue';
+import { useScroll } from './commonJs/useScroll'; //监听用户滚动
 
 // 状态管理
 const searchQuery = ref('');
@@ -175,6 +179,8 @@ const resetFilters = () => {
   handleSearch();
 };
 
+// 回到顶部功能
+const { showBackToTop  } = useScroll()
 // 查看详情
 // const viewDetails = (question) => {
 //   console.log('查看问题详情:', question);

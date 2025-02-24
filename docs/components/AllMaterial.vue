@@ -93,18 +93,7 @@
       </div>
     </div>
 
-    <!-- 回到顶部按钮 -->
-    <button
-      v-show="showBackToTop"
-      class="back-to-top"
-      @click="scrollToTop"
-      title="回到顶部"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path d="M12 4l8 8h-6v8h-4v-8H4z" fill="currentColor"/>
-      </svg>
-    </button>
+    <BackToTopButton :show="showBackToTop" />
 
     <!-- 复制成功提示 -->
     <transition-group 
@@ -129,6 +118,8 @@
 <script setup>
 import { ref, computed, onMounted, nextTick, onUnmounted } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
+import BackToTopButton from './common/BackToTopButton.vue';
+import { useScroll } from './commonJs/useScroll'; //监听用户滚动
 
 // 定义 props
 const props = defineProps({
@@ -178,20 +169,8 @@ const pageSize = 9 // 每页显示数量
 
 
 // 回到顶部功能
-const showBackToTop = ref(false)
+const { showBackToTop  } = useScroll()
 
-// 监听滚动事件
-const handleScroll = () => {
-  showBackToTop.value = window.scrollY > 600
-}
-
-// 滚动到顶部
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
 
 // 处理图片加载错误
 const handleImageError = (event) => {
@@ -536,9 +515,6 @@ onMounted(() => {
 
   // 初始加载
   loadMaterials()
-
-  // 组件挂载时添加滚动监听
-  window.addEventListener('scroll', handleScroll)
 })
 
 // 在组件卸载时清理
@@ -546,10 +522,8 @@ onUnmounted(() => {
   if (observer) {
     observer.disconnect()
   }
-
-  // 组件卸载时移除滚动监听
-  window.removeEventListener('scroll', handleScroll)
 })
+
 </script>
 
 <style scoped>
