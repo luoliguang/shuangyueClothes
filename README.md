@@ -46,15 +46,15 @@
 
 ## 项目结构
 docs/
-├── .vitepress/ # VitePress 配置文件
-│ ├── config.mts # VitePress 配置
-│ └── theme/ # 自定义主题
-├── Material/ # 相关素材
-├── Examples/ # 示例文档
-├── DoWant/ # 记录问题和学习笔记
-│ ├── solve-problems.md # 问题解决记录
-│ └── learn.md # 学习笔记
-└── index.md # 首页文档
+├── .vitepress/ # VitePress 配置文件  
+│ ├── config.mts # VitePress 配置  
+│ └── theme/ # 自定义主题  
+├── Material/ # 相关素材  
+├── Examples/ # 示例文档  
+├── DoWant/ # 记录问题和学习笔记  
+│ ├── solve-problems.md # 问题解决记录  
+│ └── learn.md # 学习笔记  
+└── index.md # 首页文档  
 
 ## 贡献
 欢迎任何形式的贡献！如果您有建议或发现问题，请提交 `issue` 或者直接提交 `pull request`。
