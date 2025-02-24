@@ -6,7 +6,7 @@
         <input
           v-model="searchQuery"
           type="text"
-          placeholder="搜索问题、答案或分类..."
+          placeholder="请在这里输入您的问题。搜索方式：关键词1 关键词2"
           @input="debouncedSearch"
           class="search-input"
           aria-label="搜索问题"
@@ -115,15 +115,18 @@ const categories = computed(() => {
 
 // 搜索和过滤后的问题列表
 const filteredQuestions = computed(() => {
-  const query = searchQuery.value.toLowerCase().trim();
+  const queries = searchQuery.value.toLowerCase().trim().split(/\s+/); // 拆分为多个关键词
   const category = selectedCategory.value;
 
   return questions.value.filter(question => {
     // 搜索匹配
-    const searchMatch = !query || 
-      question.content.toLowerCase().includes(query) ||
-      question.answers.some(answer => answer.content.toLowerCase().includes(query)) ||
-      question.categories.some(cat => cat.toLowerCase().includes(query));
+    const searchMatch = queries.every(query => {
+      return (
+        question.content.toLowerCase().includes(query) ||
+        question.answers.some(answer => answer.content.toLowerCase().includes(query)) ||
+        question.categories.some(cat => cat.toLowerCase().includes(query))
+      );
+    });
 
     // 分类匹配
     const categoryMatch = !category || question.categories.includes(category);
