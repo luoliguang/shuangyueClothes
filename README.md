@@ -45,7 +45,7 @@
 - **自定义组件**：支持自定义全局组件，提升开发效率。
 
 ## 项目结构
-docs/
+docs/  
 ├── .vitepress/ # VitePress 配置文件  
 │ ├── config.mts # VitePress 配置  
 │ └── theme/ # 自定义主题  
