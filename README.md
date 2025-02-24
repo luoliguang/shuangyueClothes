@@ -55,7 +55,6 @@ docs/
 │ ├── solve-problems.md # 问题解决记录
 │ └── learn.md # 学习笔记
 └── index.md # 首页文档
-```
 
 ## 贡献
 欢迎任何形式的贡献！如果您有建议或发现问题，请提交 `issue` 或者直接提交 `pull request`。
