@@ -590,6 +590,60 @@
         ]
       }
     ]
+  },
+  {
+    "id": 30,
+    "content": "卫衣可以做双层的吗？",
+    "type": "text",
+    "images": [],
+    "categories": ["卫衣"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2024/12/14/675d9e55b510c.jpg",
+      "name": "浪浪"
+    },
+    "answers": [
+      {
+        "content": "不可以。这个版型做双层的话衣服是车不上去的",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "content": "银狐绒衣服的外层是什么面料?",
+    "type": "text",
+    "images": [],
+    "categories": ["卫衣"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2024/12/14/675d9e55b510c.jpg",
+      "name": "浪浪"
+    },
+    "answers": [
+      {
+        "content": "：空气层",
+        "type": "text",
+        "images": []
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "content": "卫衣里面白色的那一面能不能做的和外面的颜色一样?",
+    "type": "text",
+    "images": [],
+    "categories": ["卫衣"],
+    "contributor": {
+      "avatar": "https://bu.dusays.com/2024/12/14/675d9e55b510c.jpg",
+      "name": "浪浪"
+    },
+    "answers": [
+      {
+        "content": "可以。",
+        "type": "text",
+        "images": []
+      }
+    ]
   }
 
 

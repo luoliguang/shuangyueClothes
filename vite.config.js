@@ -20,4 +20,9 @@ export default defineConfig({
     })
   },
   envDir: '.',
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag === 'SearchBox'
+    }
+  }
 })

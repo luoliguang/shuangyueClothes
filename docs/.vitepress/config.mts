@@ -17,13 +17,6 @@ export default defineConfig({
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     ['link', {
-      rel: 'preload',
-      href: 'https://embed.tawk.to/_s/v4/assets/fonts/tawk-font-icon-2.woff2',
-      as: 'font',
-      type: 'font/woff2',
-      crossorigin: 'anonymous'
-    }],
-    ['link', {
       rel: 'preconnect',
       href: 'https://embed.tawk.to',
       crossorigin: 'anonymous'
@@ -40,7 +33,7 @@ export default defineConfig({
     },
     nav: [
       { text: '主页', link: '/' },
-      { text: '素材整理',
+      { text: '衣服实拍',
         items: 
         [
           { text: '实拍素材', link: '../Material/all-material' },
@@ -50,14 +43,14 @@ export default defineConfig({
           //   { text: '资料下载⬇️', link: '../Examples/network-disk.md' },
           // ] },
 
-          { text: '已丢弃🗑️', items: [
-            { text: '衣服实拍', link: '../Material/physical-map' },
-            { text: '面料细节', link: '../Material/fabric' }
-          ] },
+          // { text: '已丢弃🗑️', items: [
+          //   { text: '衣服实拍', link: '../Material/physical-map' },
+          //   { text: '面料细节', link: '../Material/fabric' }
+          // ] },
         ]
       },
-      // { text: '疑难解答', link: '/Cooperate/reference-data' },
       { text: '疑难解答', link: '/Material/all-answers' },
+      { text: '面料视频', link: '/Material/video-material' },
       // { text: '团队成员', link: '/Team/team' },
       { text: '使用教程', link: '/UsageTutorial/usage-tutorial'},
       { text: 'DoWant',

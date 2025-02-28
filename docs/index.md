@@ -29,7 +29,7 @@ hero:
     #   link: '/Team/team.md'
     - theme: alt
       text: 面料视频
-      link: '/Material/fabric.md'
+      link: '/Material/video-material.md'
 features:
   - icon: <span class="rive-canvas" data-rive-canvas="true" data-rive-src="/icons/rocket-emoji-animated.riv"></span>
     title: 高效稳定的发货体系
@@ -50,7 +50,6 @@ features:
 <IndexTravel />
 
 <TawkTo />
-
 
 <script setup>
 import { onMounted, onUnmounted, ref, watchEffect, onBeforeMount } from 'vue'
