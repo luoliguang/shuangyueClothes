@@ -32,7 +32,7 @@ export default defineConfig({
       label: "目录"
     },
     nav: [
-      { text: '主页', link: '/' },
+      { text: '🏠主页', link: '/' },
       { text: '衣服实拍',
         items: 
         [
