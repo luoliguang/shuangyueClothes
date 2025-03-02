@@ -5,7 +5,7 @@ const styleTemplates = {
     id: '',
     name: '',
     description: '',
-    type: '面料细节',
+    type: '面料',
     thumbnail: '',
     tags: ['detail'],
   },
@@ -249,7 +249,6 @@ const styleTemplates = {
     tags: []
   },
 
-
 }
 
 
@@ -292,7 +291,7 @@ const apiNumbers = {
 
   'Contribution': 1523, // 贡献者
   //长袖系列
-  'longSleeved': 1507 // 贡献者
+  'longSleeved': 1507 // 长袖系列
 }
 
 export { styleTemplates, apiNumbers }

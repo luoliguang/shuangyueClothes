@@ -59,6 +59,34 @@
     </div>
     <!-- 素材展示区域 -->
     <div class="materials-grid" ref="materialsGrid">
+      <!-- 空状态提示 -->
+      <div v-if="filteredMaterials.length === 0" class="empty-state">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none" class="empty-icon">
+          <g class="rotating-face">
+            <circle cx="12" cy="12" r="7" stroke="var(--vp-c-text-2)" stroke-width="1.5" transform="rotate(-180 12 12)"/>
+            <circle cx="15" cy="13.723" r="1" fill="var(--vp-c-text-2)" transform="rotate(-180 15 13.723)"/>
+            <circle cx="9" cy="13.723" r="1" fill="var(--vp-c-text-2)" transform="rotate(-180 9 13.723)"/>
+            <path stroke="var(--vp-c-brand)" stroke-linecap="round" d="M9 9.853l.049-.04a4.631 4.631 0 015.951.04"/>
+          </g>
+        </svg> 
+        <p class="empty-text">暂无匹配的素材</p>
+        <div class="empty-actions">
+          <button 
+            v-if="searchQuery" 
+            class="reset-button" 
+            @click="clearSearch"
+          >
+            清空搜索
+          </button>
+          <button 
+            v-if="selectedTags.length > 0" 
+            class="reset-button" 
+            @click="clearAllTags"
+          >
+            重置标签
+          </button>
+        </div>
+      </div>
       <div 
         v-for="material in filteredMaterials" 
         :key="material.id"
@@ -528,4 +556,48 @@ onUnmounted(() => {
 
 <style scoped>
 @import './css/allMaterial.css';
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.empty-text {
+  margin: 16px 0;
+  color: var(--vp-c-text-2);
+  font-size: 1.1em;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes upside {
+  0% { transform: rotateZ(0); }
+  50% { transform: rotateZ(180deg); }
+  100% { transform: rotateZ(360deg); }
+}
+
+.rotating-face {
+  animation: upside 3s cubic-bezier(.91,.23,.15,.88) both infinite alternate-reverse;
+  transform-origin: center center;
+}
 </style>

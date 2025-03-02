@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const baseUrl = 'https://7bu.top/api/v1/images';
 const token = '1607|NhSDNdWduqwRvuIQDOvey1vsaTCQL93BFei0J6jc';
+// const token = import.meta.env.VITE_COOKIE;
+
 
 const getImages = async (albumId) => {
   try {
