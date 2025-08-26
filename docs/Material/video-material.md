@@ -2,12 +2,31 @@
 layout: home
 ---
 
-<SearchBox 
+<!-- <SearchBox 
   v-model="searchQuery"
   placeholder="搜索视频素材..."
+/> -->
+
+<FeatureCard
+  title="方度实拍图 / 素材库"
+  description="此素材文档已不再丢弃,请移步至最新素材网站."
+  color="#34d399"
+  link="http://material.fangdutex.cn/"
+/>
+<FeatureCard
+  title="方度知识库 / AI问答"
+  description="此网站是知识库,致力于快速回复客户疑惑."
+  color="#34d399"
+  link="https://fangdutex.cn/"
+/>
+<FeatureCard
+  title="所有面料细节"
+  description="请移步至最新网站"
+  color="#34d399"
+  link="https://fangdutex.cn/node/019879ce-3372-7e4b-a98a-d9b243f7ea50"
 />
 
-<div class="video-gallery">
+<!-- <div class="video-gallery">
   <div v-if="filteredVideos.length === 0" class="no-results">没有找到相关视频...</div>
   <div v-else class="video-list">
     <div v-for="video in filteredVideos" :key="video.id" class="video-card">
@@ -16,12 +35,14 @@ layout: home
       <p>{{ video.description }}</p>
     </div>
   </div>
-</div>
+</div> -->
+
 
 <script setup>
 import { ref, computed } from 'vue';
-import SearchBox from '../components/common/SearchBox.vue'; // 根据实际路径调整
-import videosMaterial from '../components/data/videos.js'; // 确保路径正确并导入数据
+// import SearchBox from '../components/common/SearchBox.vue'; // 根据实际路径调整
+// import videosMaterial from '../components/data/videos.js'; // 确保路径正确并导入数据
+import FeatureCard from '../components/FeatureCard.vue'
 
 const searchQuery = ref('');
 

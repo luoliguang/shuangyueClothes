@@ -11,6 +11,7 @@ import TawkTo from "./home/TawkTo.vue";
 import { NuLazyTeleportRiveCanvas } from '@nolebase/ui-rive-canvas'; //icon组件样式
 import ImageGrid from "./answers/ImageGrid.vue";
 import AllAnswers from "./AllAnswers.vue"
+import FeatureCard from "./FeatureCard.vue";
 
 export default {
   Swiper,
@@ -26,4 +27,5 @@ export default {
   NuLazyTeleportRiveCanvas,
   ImageGrid,
   AllAnswers,
+  FeatureCard
 }
