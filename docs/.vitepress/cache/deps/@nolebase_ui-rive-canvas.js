@@ -1,7 +1,7 @@
 import "./chunk-L6OFPWCY.js";
 
 // node_modules/@nolebase/ui-rive-canvas/dist/index.mjs
-import NuLazyTeleportRiveCanvas from "D:/Data/VitePress/docs/node_modules/@nolebase/ui-rive-canvas/dist/components/NuLazyTeleportRiveCanvas.vue";
+import NuLazyTeleportRiveCanvas from "D:/Data/GitHub/shuangyueClothes/node_modules/@nolebase/ui-rive-canvas/dist/components/NuLazyTeleportRiveCanvas.vue";
 export {
   NuLazyTeleportRiveCanvas
 };
